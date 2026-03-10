@@ -2003,12 +2003,20 @@
       const box = document.getElementById(`editOwnReportBox_${id}`);
       if (box) box.classList.add("hidden");
     };
-    window.saveOwnReportEdit = async (id) => {
-      const title = document.getElementById(`ownReportTitle_${id}`).value.trim();
-      const text = document.getElementById(`ownReportText_${id}`).value.trim();
-      await updateDoc(doc(db, "reports", id), { title, text });
-      renderApp();
-    };
+window.removeOwnReport = async (id) => {
+  const ref = doc(db, "reports", id);
+  const snap = await getDoc(ref);
+  if (!snap.exists()) return;
+
+  const data = snap.data();
+
+  if (data.operatorId !== currentProfile.id) return alert("Це не твій звіт");
+  if (data.reviewed) return alert("Перевірений звіт уже не можна видалити");
+
+  if (!confirm("Видалити звіт?")) return;
+  await deleteDoc(ref);
+  renderApp();
+};
 
     window.editOwnRyuTu = (id) => {
       const box = document.getElementById(`editOwnRyuTuBox_${id}`);
@@ -2056,4 +2064,5 @@
   </script>
 </body>
 </html>
+
 
