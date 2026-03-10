@@ -3844,7 +3844,7 @@ window.login = login;
 
       <input id="email" class="input" type="email" placeholder="Email">
       <input id="password" class="input" type="password" placeholder="Пароль">
-      <button class="btn" onclick="window.login()">ENTER THE CABINET</button>
+    <button class="btn" onclick="login()">ENTER THE CABINET</button>
       <div id="loginMessage" style="min-height:22px;color:#ff7b7b;margin-top:12px;"></div>
 
       <div class="help">
@@ -5266,6 +5266,7 @@ window.login = async function () {
   }
 };
 Після цього window.login is not a function зникне і кнопка входу почне працювати.
+
 
 
 
