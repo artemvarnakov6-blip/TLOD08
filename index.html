@@ -1602,9 +1602,15 @@ function isLate(dateStr){
                 <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
 
                 <div class="actions">
-                  <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
-                  <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                </div>
+  ${
+    item.reviewed
+      ? `<button class="btn secondary small" disabled>🔒 РЮ / ТЮ перевірено</button>`
+      : `
+        <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
+        <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
+      `
+  }
+</div>
 
                 <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
                   <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
@@ -2064,6 +2070,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
