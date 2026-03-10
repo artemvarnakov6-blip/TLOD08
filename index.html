@@ -1638,10 +1638,10 @@ function isLate(dateStr){
 
   let content = "";
 
- if (operatorTab === "overview") {
- content = `<div class="operator-dashboard">`;
-     `<div class="card operator-main">`
-        <div class="profile-hero">
+if (operatorTab === "overview") {
+  content = `<div class="operator-dashboard">`;
+  `<div class="card operator-main">`
+    <div class="profile-hero">
           <div>
             <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu, balances) > 200 ? "🔥" : ""}</div>
             <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
@@ -2152,6 +2152,7 @@ return renderShell(`
   </script>
 </body>
 </html>
+
 
 
 
