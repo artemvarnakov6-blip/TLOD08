@@ -1454,13 +1454,23 @@
     }
 
     async function renderOperator(operatorId) {
-      const op = await getOperatorStats(operatorId);
-      const reports = await getReports(operatorId);
-      const ryutu = await getRyuTu(operatorId);
-      const examples = await getExamples();
-      const balances = await getBalances(operatorId);
-      const tasks = await getTasks(operatorId);
-      const allOperators = await getAllOperatorStats();
+  const rawOp = await getOperatorStats(operatorId);
+  const reports = await getReports(operatorId);
+  const ryutu = await getRyuTu(operatorId);
+  const examples = await getExamples();
+  const balances = await getBalances(operatorId);
+  const tasks = await getTasks(operatorId);
+  const allOperators = await getAllOperatorStats();
+
+  const latestBalance = balances.length ? Number(balances[0].balance || 0) : 0;
+
+  const op = {
+    id: operatorId,
+    ...currentProfile,
+    ...rawOp,
+    norm: Number(rawOp?.norm || currentProfile?.norm || 0),
+    revenue: Number(rawOp?.revenue || latestBalance || 0)
+  };
 
       const ranked = [];
       for (const item of allOperators) {
@@ -2003,6 +2013,7 @@
   </script>
 </body>
 </html>
+
 
 
 
