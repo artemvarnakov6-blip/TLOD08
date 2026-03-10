@@ -899,7 +899,22 @@ let selectedMonth = new Date().toISOString().slice(0,7);
       return { totalRyu, totalTu, avgBalance, avgScore };
     }
 
-    function getAverageBalance(items){
+   function getMonthFromDate(dateStr){
+  return String(dateStr || "").slice(0,7);
+}
+
+function filterByMonth(items, month){
+  return items.filter(item => getMonthFromDate(item.date) === month);
+}
+
+function getLatestBalance(items){
+  if (!items.length) return 0;
+  return Number(items[0].balance || 0);
+}
+
+function getMonthTotalBalance(items){
+  return items.reduce((sum, item) => sum + Number(item.balance || 0), 0);
+} function getAverageBalance(items){
       if (!items.length) return 0;
       return items.reduce((sum, item) => sum + Number(item.balance || 0), 0) / items.length;
     }
@@ -2066,6 +2081,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
