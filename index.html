@@ -958,17 +958,18 @@ function calcOperatorScore(op, reports, ryutu, balances = []){
       return dateStr < now;
     }
 
-    window.login = async function () {
+    window.login = function () {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
   const message = document.getElementById("loginMessage");
 
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    message.textContent = "";
-  } catch (e) {
-    message.textContent = "Невірний email або пароль";
-  }
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      message.textContent = "";
+    })
+    .catch(() => {
+      message.textContent = "Невірний email або пароль";
+    });
 };
 
     async function logout() {
@@ -2038,6 +2039,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance || 0) / Number(op.no
   </script>
 </body>
 </html>
+
 
 
 
