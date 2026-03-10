@@ -853,7 +853,28 @@
       return { totalRyu, totalTu, avgBalance, avgScore };
     }
 
-    function calcOperatorScore(op, reports, ryutu){
+    function getLeaderOfDay(operators, reports, ryutu){
+
+let best = null
+let bestScore = -999999
+
+for (const op of operators){
+
+const opReports = reports.filter(x => x.operatorId === op.id)
+const opRyuTu = ryutu.filter(x => x.operatorId === op.id)
+
+const score = calcOperatorScore(op, opReports, opRyuTu)
+
+if(score > bestScore){
+bestScore = score
+best = op
+}
+
+}
+
+return {best,score:bestScore}
+
+}
       const rt = getRyuTuStats(ryutu);
       const reportAvg = reviewedAvg(reports);
       const weekScore = Number(op.weekScore || 0);
@@ -1754,4 +1775,5 @@ ${content}
   </script>
 </body>
 </html>
+
 
