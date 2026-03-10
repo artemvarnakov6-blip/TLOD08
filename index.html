@@ -3,224 +3,356 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TLOD 08</title>
+  <title>TLOD 08 Luxury</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      overflow: hidden;
+    body{
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #111, #1a1a1a);
-      color: white;
-      height: 100vh;
-      position: relative;
-    }
-
-    .money {
-      position: absolute;
-      top: -120px;
-      font-size: 42px;
-      opacity: 0.18;
-      animation: fall linear infinite;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-120px) rotate(0deg);
-      }
-      100% {
-        transform: translateY(120vh) rotate(360deg);
-      }
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(0,255,100,0.08), rgba(0,0,0,0.85));
-      backdrop-filter: blur(2px);
-    }
-
-    .center-box {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 380px;
-      max-width: 92%;
-      background: rgba(0, 0, 0, 0.65);
-      border: 1px solid rgba(0,255,100,0.25);
-      border-radius: 22px;
-      box-shadow: 0 0 30px rgba(0,255,100,0.15);
-      padding: 35px 28px;
-      text-align: center;
-      animation: fadeIn 1.2s ease;
-      z-index: 2;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translate(-50%, -45%);
-      }
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-      color: #7dff9b;
-      text-shadow: 0 0 10px rgba(125,255,155,0.35);
-      letter-spacing: 2px;
-    }
-
-    .sub {
-      color: #d7d7d7;
-      margin-bottom: 24px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px 16px;
-      font-size: 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.08);
-      color: white;
-      outline: none;
-      margin-bottom: 16px;
-      transition: 0.25s;
-    }
-
-    input:focus {
-      border-color: #7dff9b;
-      box-shadow: 0 0 12px rgba(125,255,155,0.25);
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      background: linear-gradient(90deg, #32d96b, #78ff9e);
-      color: #071108;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    button:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 18px rgba(120,255,158,0.35);
-    }
-
-    #message {
-      margin-top: 14px;
-      min-height: 20px;
-      font-size: 14px;
-      color: #ff7d7d;
-    }
-
-    #panel {
-      display: none;
-      position: absolute;
-      inset: 0;
-      z-index: 3;
+      height:100vh;
+      overflow:hidden;
       background:
-        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.9)),
-        url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      animation: showPanel 1s ease;
+        radial-gradient(circle at top, rgba(255,215,0,0.12), transparent 35%),
+        linear-gradient(135deg, #050505, #0d0d0d 45%, #000000 100%);
+      color:white;
+      position:relative;
     }
 
-    @keyframes showPanel {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .bg-glow{
+      position:absolute;
+      width:700px;
+      height:700px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,215,0,0.12), transparent 70%);
+      top:-250px;
+      left:50%;
+      transform:translateX(-50%);
+      filter:blur(30px);
+      pointer-events:none;
     }
 
-    .panel-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      background: rgba(0,0,0,0.55);
-      padding: 40px 30px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 0 35px rgba(0,0,0,0.5);
-      width: 520px;
-      max-width: 92%;
+    .money{
+      position:absolute;
+      top:-120px;
+      font-size:42px;
+      opacity:0.18;
+      animation:fall linear infinite;
+      user-select:none;
+      pointer-events:none;
     }
 
-    .panel-content h2 {
-      font-size: 38px;
-      color: #7dff9b;
-      margin-bottom: 14px;
+    @keyframes fall{
+      0%{
+        transform:translateY(-120px) rotate(0deg);
+      }
+      100%{
+        transform:translateY(120vh) rotate(360deg);
+      }
     }
 
-    .panel-content p {
-      font-size: 18px;
-      color: #f1f1f1;
-      line-height: 1.5;
+    .login-box{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      width:420px;
+      max-width:92%;
+      padding:38px 30px;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(20,20,20,0.92), rgba(5,5,5,0.94));
+      border:1px solid rgba(255,215,0,0.35);
+      box-shadow:
+        0 0 30px rgba(255,215,0,0.16),
+        inset 0 0 30px rgba(255,215,0,0.06);
+      text-align:center;
+      z-index:2;
+      animation:showBox 1s ease;
     }
 
-    .glow {
-      animation: glow 1.8s infinite alternate;
+    @keyframes showBox{
+      from{
+        opacity:0;
+        transform:translate(-50%, -43%);
+      }
+      to{
+        opacity:1;
+        transform:translate(-50%, -50%);
+      }
     }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 8px rgba(125,255,155,0.25); }
-      to { text-shadow: 0 0 20px rgba(125,255,155,0.6); }
+    .gold-line{
+      width:70px;
+      height:3px;
+      margin:0 auto 18px auto;
+      border-radius:999px;
+      background:linear-gradient(90deg, transparent, gold, transparent);
+      box-shadow:0 0 15px rgba(255,215,0,0.55);
+    }
+
+    h1{
+      font-size:42px;
+      letter-spacing:4px;
+      color:#ffd700;
+      text-shadow:0 0 12px rgba(255,215,0,0.35);
+      margin-bottom:12px;
+    }
+
+    .subtitle{
+      color:#e7d9a0;
+      font-size:14px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:28px;
+      opacity:0.88;
+    }
+
+    .luxury-badge{
+      display:inline-block;
+      margin-bottom:18px;
+      padding:8px 14px;
+      border:1px solid rgba(255,215,0,0.25);
+      border-radius:999px;
+      color:#ffe082;
+      font-size:12px;
+      letter-spacing:1.5px;
+      background:rgba(255,215,0,0.05);
+      box-shadow:inset 0 0 12px rgba(255,215,0,0.05);
+    }
+
+    input{
+      width:100%;
+      padding:15px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,215,0,0.24);
+      background:rgba(255,255,255,0.04);
+      color:white;
+      font-size:16px;
+      outline:none;
+      margin-bottom:16px;
+      transition:0.25s;
+    }
+
+    input:focus{
+      border-color:gold;
+      box-shadow:0 0 16px rgba(255,215,0,0.16);
+      background:rgba(255,255,255,0.06);
+    }
+
+    button{
+      width:100%;
+      padding:15px;
+      border:none;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:bold;
+      letter-spacing:1px;
+      color:#111;
+      background:linear-gradient(90deg, #caa63a, #ffd700, #b8860b);
+      box-shadow:0 8px 25px rgba(255,215,0,0.18);
+      transition:0.25s;
+    }
+
+    button:hover{
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 12px 30px rgba(255,215,0,0.26);
+    }
+
+    #message{
+      margin-top:14px;
+      min-height:20px;
+      color:#ff8f8f;
+      font-size:14px;
+    }
+
+    .corner{
+      position:absolute;
+      width:140px;
+      height:140px;
+      border:1px solid rgba(255,215,0,0.12);
+      z-index:1;
+      pointer-events:none;
+    }
+
+    .corner.top-left{
+      top:24px;
+      left:24px;
+      border-right:none;
+      border-bottom:none;
+    }
+
+    .corner.top-right{
+      top:24px;
+      right:24px;
+      border-left:none;
+      border-bottom:none;
+    }
+
+    .corner.bottom-left{
+      bottom:24px;
+      left:24px;
+      border-right:none;
+      border-top:none;
+    }
+
+    .corner.bottom-right{
+      bottom:24px;
+      right:24px;
+      border-left:none;
+      border-top:none;
+    }
+
+    #panel{
+      display:none;
+      position:absolute;
+      inset:0;
+      z-index:4;
+      background:
+        linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.9)),
+        radial-gradient(circle at top, rgba(255,215,0,0.15), transparent 35%),
+        linear-gradient(135deg, #050505, #111 55%, #000);
+      animation:fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    .panel-box{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      width:560px;
+      max-width:92%;
+      padding:46px 34px;
+      border-radius:30px;
+      background:linear-gradient(180deg, rgba(18,18,18,0.95), rgba(5,5,5,0.96));
+      border:1px solid rgba(255,215,0,0.35);
+      box-shadow:
+        0 0 40px rgba(255,215,0,0.18),
+        inset 0 0 30px rgba(255,215,0,0.05);
+      text-align:center;
+    }
+
+    .panel-box h2{
+      font-size:44px;
+      color:#ffd700;
+      margin-bottom:12px;
+      letter-spacing:3px;
+      text-shadow:0 0 14px rgba(255,215,0,0.35);
+    }
+
+    .panel-box p{
+      font-size:18px;
+      color:#f4e7b5;
+      line-height:1.6;
+    }
+
+    .stats{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:28px;
+    }
+
+    .card{
+      min-width:145px;
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,215,0,0.05);
+      border:1px solid rgba(255,215,0,0.14);
+      box-shadow:inset 0 0 16px rgba(255,215,0,0.04);
+    }
+
+    .card-title{
+      font-size:12px;
+      color:#d7c27c;
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .card-value{
+      font-size:22px;
+      color:#fff3bf;
+      font-weight:bold;
+    }
+
+    @media (max-width: 600px){
+      h1{font-size:34px;}
+      .panel-box h2{font-size:34px;}
+      .login-box{padding:30px 22px;}
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
 
-  <div class="money" style="left:5%; animation-duration:10s;">💸</div>
-  <div class="money" style="left:12%; animation-duration:14s; animation-delay:1s;">💵</div>
-  <div class="money" style="left:20%; animation-duration:11s; animation-delay:2s;">💰</div>
-  <div class="money" style="left:28%; animation-duration:13s; animation-delay:0s;">💸</div>
-  <div class="money" style="left:38%; animation-duration:9s; animation-delay:3s;">💵</div>
-  <div class="money" style="left:48%; animation-duration:15s; animation-delay:1s;">💰</div>
-  <div class="money" style="left:58%; animation-duration:12s; animation-delay:4s;">💸</div>
-  <div class="money" style="left:68%; animation-duration:10s; animation-delay:2s;">💵</div>
-  <div class="money" style="left:79%; animation-duration:14s; animation-delay:1s;">💰</div>
-  <div class="money" style="left:89%; animation-duration:11s; animation-delay:3s;">💸</div>
+  <div class="bg-glow"></div>
 
-  <div id="login" class="center-box">
-    <h1 class="glow">TLOD 08</h1>
-    <div class="sub">Закритий доступ • Premium Cabinet</div>
+  <div class="corner top-left"></div>
+  <div class="corner top-right"></div>
+  <div class="corner bottom-left"></div>
+  <div class="corner bottom-right"></div>
+
+  <div class="money" style="left:4%; animation-duration:12s;">💸</div>
+  <div class="money" style="left:12%; animation-duration:10s; animation-delay:2s;">💰</div>
+  <div class="money" style="left:20%; animation-duration:14s; animation-delay:1s;">💵</div>
+  <div class="money" style="left:29%; animation-duration:11s; animation-delay:3s;">💸</div>
+  <div class="money" style="left:40%; animation-duration:15s; animation-delay:2s;">💰</div>
+  <div class="money" style="left:50%; animation-duration:9s; animation-delay:1s;">💵</div>
+  <div class="money" style="left:60%; animation-duration:13s; animation-delay:4s;">💸</div>
+  <div class="money" style="left:70%; animation-duration:10s; animation-delay:2s;">💰</div>
+  <div class="money" style="left:82%; animation-duration:14s; animation-delay:1s;">💵</div>
+  <div class="money" style="left:91%; animation-duration:11s; animation-delay:3s;">💸</div>
+
+  <div id="login" class="login-box">
+    <div class="luxury-badge">Private Luxury Access</div>
+    <div class="gold-line"></div>
+    <h1>TLOD 08</h1>
+    <div class="subtitle">Black Gold Cabinet</div>
+
     <input type="password" id="pass" placeholder="Введи пароль">
-    <button onclick="login()">Увійти</button>
+    <button onclick="login()">ENTER THE CABINET</button>
     <div id="message"></div>
   </div>
 
   <div id="panel">
-    <div class="panel-content">
-      <h2 class="glow">ACCESS GRANTED</h2>
-      <p>Ласкаво просимо в приватний кабінет TLOD 08.</p>
-      <p style="margin-top:10px;">Система активована. Доступ дозволено.</p>
+    <div class="panel-box">
+      <div class="gold-line"></div>
+      <h2>ACCESS GRANTED</h2>
+      <p>Ласкаво просимо в преміум кабінет TLOD 08.</p>
+      <p>Система активована. VIP-доступ відкрито.</p>
+
+      <div class="stats">
+        <div class="card">
+          <div class="card-title">Status</div>
+          <div class="card-value">VIP</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Balance</div>
+          <div class="card-value">$ 84,500</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Access</div>
+          <div class="card-value">Elite</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    function login() {
+    function login(){
       let pass = document.getElementById("pass").value;
       let message = document.getElementById("message");
 
-      if (pass === "TLOD08") {
+      if(pass === "TLOD08"){
         document.getElementById("login").style.display = "none";
         document.getElementById("panel").style.display = "block";
       } else {
@@ -228,5 +360,6 @@
       }
     }
   </script>
+
 </body>
 </html>
