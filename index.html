@@ -81,6 +81,7 @@
       from{transform:translate(0,0)}
       to{transform:translate(150px,120px)}
     }
+
     @keyframes glowMove2{
       from{transform:translate(0,0)}
       to{transform:translate(-140px,-100px)}
@@ -115,6 +116,7 @@
       pointer-events:none;
       overflow:hidden;
     }
+
     .trophy{
       position:absolute;
       color:rgba(255,215,0,.07);
@@ -122,6 +124,7 @@
       user-select:none;
       animation:trophyFloat 8s ease-in-out infinite alternate;
     }
+
     .t1{top:6%;left:4%;font-size:84px;animation-duration:8s}
     .t2{top:14%;right:6%;font-size:60px;animation-duration:11s}
     .t3{bottom:9%;left:8%;font-size:74px;animation-duration:10s}
@@ -183,6 +186,7 @@
       margin-bottom:16px;
       transition:.25s;
     }
+
     .badge:hover{transform:translateY(-1px);box-shadow:0 0 20px rgba(255,215,0,.1)}
 
     .gold-line{
@@ -344,9 +348,11 @@
       box-shadow:inset 0 0 14px rgba(255,215,0,.05),0 0 18px rgba(255,215,0,.05);
       transition:.25s;
     }
+
     .brand-badge:hover{transform:translateY(-2px) scale(1.04)}
 
     .topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
     .user-chip{
       padding:10px 14px;
       border-radius:999px;
@@ -365,7 +371,6 @@
       color:#ffe89a;
       box-shadow:var(--shadow);
       animation:bannerPulse 3s infinite alternate;
-      line-height:1.6;
     }
 
     @keyframes bannerPulse{
@@ -436,6 +441,7 @@
     }
 
     .card:hover::before{transform:translateX(100%)}
+
     .card:hover{
       transform:translateY(-3px);
       border-color:rgba(255,215,0,.18);
@@ -489,6 +495,7 @@
       transition:.25s;
       box-shadow:0 10px 24px rgba(0,0,0,.24);
     }
+
     .operator-card:hover{
       transform:translateY(-4px) scale(1.01);
       border-color:rgba(255,215,0,.18);
@@ -504,6 +511,7 @@
     }
 
     .operator-name{font-size:22px;color:#ffe89a;font-weight:800}
+
     .status{
       font-size:12px;
       padding:7px 10px;
@@ -512,6 +520,7 @@
       color:var(--green);
       border:1px solid rgba(143,240,164,.16);
     }
+
     .status.red{
       background:rgba(255,95,95,.10);
       color:#ff9b9b;
@@ -531,8 +540,10 @@
       border:1px solid rgba(255,215,0,.08);
       transition:.25s;
     }
+
     .mini:hover{transform:translateY(-2px);background:rgba(255,215,0,.06)}
     .mini.red{background:rgba(255,0,0,.05);border-color:rgba(255,0,0,.10)}
+
     .mini .label{
       font-size:12px;
       color:var(--muted);
@@ -540,6 +551,7 @@
       text-transform:uppercase;
       letter-spacing:1px;
     }
+
     .mini .value{font-size:22px;color:#fff2b6;font-weight:800}
 
     .profile-hero{
@@ -550,10 +562,12 @@
       flex-wrap:wrap;
       margin-bottom:16px;
     }
+
     .profile-name{font-size:30px;color:#ffe89a;margin-bottom:6px;font-weight:900}
     .profile-role{color:var(--muted);text-transform:uppercase;font-size:13px;letter-spacing:1px}
 
     .entry-list{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+
     .entry{
       padding:14px;
       border-radius:18px;
@@ -561,6 +575,7 @@
       border:1px solid rgba(255,215,0,.08);
       transition:.25s;
     }
+
     .entry:hover{
       transform:translateY(-2px);
       background:rgba(255,255,255,.03);
@@ -591,16 +606,19 @@
       background:rgba(255,215,0,.04);
       color:#f1d67d;
     }
+
     .tag.red{
       color:#ff9d9d;
       border-color:rgba(255,95,95,.16);
       background:rgba(255,95,95,.06);
     }
+
     .tag.green{
       color:#9ef0b0;
       border-color:rgba(143,240,164,.16);
       background:rgba(143,240,164,.06);
     }
+
     .tag.blue{
       color:#9dc7ff;
       border-color:rgba(125,180,255,.16);
@@ -631,6 +649,7 @@
       line-height:1.5;
       transition:.25s;
     }
+
     .list-item:hover{
       transform:translateY(-2px);
       background:rgba(255,255,255,.03);
@@ -662,17 +681,18 @@
 
     tbody tr{transition:.2s}
     tbody tr:hover{background:rgba(255,215,0,.03)}
+
     .rank-num{font-size:20px;font-weight:900;color:#fff1a8}
     .score-big{
       font-size:30px;
       font-weight:900;
       color:#fff3bf;
-      animation:scorePulse 2s infinite alternate;
+      animation:glowScore 2s infinite alternate;
     }
 
-    @keyframes scorePulse{
-      from{transform:scale(1);text-shadow:0 0 8px rgba(255,215,0,.25)}
-      to{transform:scale(1.04);text-shadow:0 0 18px rgba(255,0,0,.18)}
+    @keyframes glowScore{
+      from{text-shadow:0 0 10px rgba(255,215,0,.5);transform:scale(1)}
+      to{text-shadow:0 0 20px rgba(255,80,80,.35);transform:scale(1.04)}
     }
 
     .exclamation{
@@ -693,9 +713,7 @@
       50%{box-shadow:0 0 16px rgba(255,95,95,.18)}
     }
 
-    .range-wrap{
-      margin-top:8px;
-    }
+    .range-wrap{margin-top:8px}
     .range-label{
       display:flex;
       justify-content:space-between;
@@ -703,6 +721,7 @@
       color:#b9b9b9;
       margin-bottom:8px;
     }
+
     input[type="range"]{
       width:100%;
       appearance:none;
@@ -711,8 +730,9 @@
       background:linear-gradient(90deg, rgba(255,70,70,.85), rgba(255,215,0,.9));
       outline:none;
       box-shadow:0 0 12px rgba(255,0,0,.12);
-      margin-bottom:12px;
+      margin-bottom:14px;
     }
+
     input[type="range"]::-webkit-slider-thumb{
       appearance:none;
       width:20px;height:20px;border-radius:50%;
@@ -722,6 +742,7 @@
       cursor:pointer;
       transition:.2s;
     }
+
     input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.08)}
 
     .image-preview{
@@ -733,9 +754,22 @@
       margin-top:10px;
       transition:.25s;
     }
+
     .image-preview:hover{
       transform:scale(1.01);
       box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+
+    .deadline-badge.late{
+      color:#ff9c9c;
+      border-color:rgba(255,80,80,.18);
+      background:rgba(255,80,80,.08);
+    }
+
+    .deadline-badge.today{
+      color:#ffd98f;
+      border-color:rgba(255,180,0,.18);
+      background:rgba(255,180,0,.08);
     }
 
     .rating-table-wrap{overflow:auto}
@@ -787,7 +821,7 @@
 
       <div class="help">
         Вхід через Firebase.
-        <br>Усі записи, оцінки, баланси і завдання зберігаються онлайн.
+        <br>Усі записи, оцінки, баланси й задачі зберігаються онлайн.
       </div>
     </div>
   </div>
@@ -888,19 +922,31 @@
       );
     }
 
-    function getLeaderOfDay(operators, reportsAll, ryutuAll){
+    function getLeaderOfDay(operators, reports, ryutu){
       let best = null;
       let bestScore = -999999;
       for (const op of operators){
-        const opReports = reportsAll.filter(x => x.operatorId === op.id);
-        const opRyuTu = ryutuAll.filter(x => x.operatorId === op.id);
+        const opReports = reports.filter(x => x.operatorId === op.id);
+        const opRyuTu = ryutu.filter(x => x.operatorId === op.id);
         const score = calcOperatorScore(op, opReports, opRyuTu);
         if(score > bestScore){
           bestScore = score;
           best = op;
         }
       }
-      return {best, score: bestScore};
+      return { best, score: bestScore };
+    }
+
+    function isToday(dateStr){
+      if (!dateStr) return false;
+      const now = new Date().toISOString().slice(0,10);
+      return dateStr === now;
+    }
+
+    function isLate(dateStr){
+      if (!dateStr) return false;
+      const now = new Date().toISOString().slice(0,10);
+      return dateStr < now;
     }
 
     async function login() {
@@ -915,7 +961,6 @@
         message.textContent = "Невірний email або пароль";
       }
     }
-
     window.login = login;
 
     async function logout() {
@@ -1027,7 +1072,7 @@
     }
 
     function renderShell(content) {
-      let greeting = currentProfile.role === "admin"
+      const greeting = currentProfile.role === "admin"
         ? "👑 Привіт Артьомушка"
         : "🔥 Привіт " + currentProfile.name;
 
@@ -1042,12 +1087,23 @@
           </div>
 
           <div class="topbar-right">
-            <div class="user-chip">${greeting}</div>
+            <div class="user-chip">${escapeHtml(greeting)}</div>
             <button class="btn secondary small" onclick="logout()">🚪 Вийти</button>
           </div>
         </div>
+
         ${content}
       `;
+    }
+
+    function bindDynamicActions() {
+      document.querySelectorAll("[data-live-value]").forEach(el => {
+        const target = document.getElementById(el.dataset.liveValue);
+        if (!target) return;
+        const update = () => { target.textContent = el.value; };
+        el.addEventListener("input", update);
+        update();
+      });
     }
 
     async function renderApp() {
@@ -1061,24 +1117,6 @@
       }
 
       bindDynamicActions();
-    }
-
-    function bindDynamicActions() {
-      document.querySelectorAll("[data-live-value]").forEach(el => {
-        const target = document.getElementById(el.dataset.liveValue);
-        if (!target) return;
-        const update = () => { target.textContent = el.value; };
-        el.addEventListener("input", update);
-        update();
-      });
-    }
-
-    function taskDeadlineTag(task){
-      const today = new Date().toISOString().slice(0,10);
-      if (task.done) return `<span class="tag green">🎉 Виконано</span>`;
-      if (task.deadline && task.deadline < today) return `<span class="tag red">⏰ Прострочено</span>`;
-      if (task.deadline === today) return `<span class="tag red">⚠️ Сьогодні дедлайн</span>`;
-      return `<span class="tag blue">До: ${escapeHtml(task.deadline || "—")}</span>`;
     }
 
     async function renderAdmin() {
@@ -1100,9 +1138,9 @@
         };
       }).sort((a,b)=>b.score-a.score);
 
-      const leader = getLeaderOfDay(operators, reportsAll, ryutuAll);
       const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
       const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
+      const leader = getLeaderOfDay(operators, reportsAll, ryutuAll);
 
       let content = "";
 
@@ -1135,6 +1173,107 @@
                     </div>
                   </div>
                 `).join("")}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (adminTab === "reports") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card full">
+              <h2>Звіти операторів</h2>
+              <div class="entry-list">
+                ${reportsAll.length ? reportsAll.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Не перевірено'}</span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
+                    </div>
+
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
+
+                    <div class="actions">
+                      <button class="btn small" onclick="editReport('${item.id}')">Редагувати</button>
+                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
+                    </div>
+
+                    <div id="editReportBox_${item.id}" class="hidden" style="margin-top:12px;">
+                      <input id="reportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва звіту">
+                      <textarea id="reportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
+
+                      <div class="range-wrap">
+                        <div class="range-label">
+                          <span>Оцінка звіту</span>
+                          <span id="reportScoreValue_${item.id}">${Number(item.score || 0)}</span>
+                        </div>
+                        <input id="reportScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="reportScoreValue_${item.id}">
+                      </div>
+
+                      <textarea id="reportFeedback_${item.id}" class="textarea" placeholder="Фідбек">${escapeHtml(item.feedback || "")}</textarea>
+                      <div class="actions">
+                        <button class="btn small" onclick="saveReportEdit('${item.id}')">Зберегти</button>
+                        <button class="btn secondary small" onclick="closeReportEdit('${item.id}')">Закрити</button>
+                      </div>
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (adminTab === "ryutu") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card full">
+              <h2>РЮ / ТЮ від операторів</h2>
+              <div class="entry-list">
+                ${ryutuAll.length ? ryutuAll.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Не перевірено'}</span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
+                    </div>
+
+                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
+
+                    <div class="actions">
+                      <button class="btn small" onclick="editRyuTu('${item.id}')">Редагувати</button>
+                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
+                    </div>
+
+                    <div id="editRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
+                      <input id="ryu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
+                      <input id="tu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
+                      <input id="balance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
+
+                      <div class="range-wrap">
+                        <div class="range-label">
+                          <span>Оцінка РЮ / ТЮ</span>
+                          <span id="rtScoreValue_${item.id}">${Number(item.score || 0)}</span>
+                        </div>
+                        <input id="rtScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="rtScoreValue_${item.id}">
+                      </div>
+
+                      <textarea id="rtFeedback_${item.id}" class="textarea" placeholder="Фідбек / проблема">${escapeHtml(item.feedback || "")}</textarea>
+                      <div class="actions">
+                        <button class="btn small" onclick="saveRyuTuEdit('${item.id}')">Зберегти</button>
+                        <button class="btn secondary small" onclick="closeRyuTuEdit('${item.id}')">Закрити</button>
+                      </div>
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
               </div>
             </div>
           </div>
@@ -1221,9 +1360,10 @@
                 ${tasksAll.length ? tasksAll.map(item => `
                   <div class="entry">
                     <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
+                      <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        ${taskDeadlineTag(item)}
+                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
+                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
                       </div>
                     </div>
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
@@ -1233,109 +1373,6 @@
                     </div>
                   </div>
                 `).join("") : `<div class="empty">Поки завдань немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (adminTab === "reports") {
-        content = `
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>Звіти операторів</h2>
-              <div class="entry-list">
-                ${reportsAll.length ? reportsAll.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editReport('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="reportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва звіту">
-                      <textarea id="reportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
-
-                      <div class="range-wrap">
-                        <div class="range-label">
-                          <span>Оцінка звіту</span>
-                          <span data-live-value="reportScoreValue_${item.id}" id="reportScoreValue_${item.id}">${Number(item.score || 0)}</span>
-                        </div>
-                        <input id="reportScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="reportScoreValue_${item.id}">
-                      </div>
-
-                      <textarea id="reportFeedback_${item.id}" class="textarea" placeholder="Фідбек">${escapeHtml(item.feedback || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveReportEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeReportEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (adminTab === "ryutu") {
-        content = `
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>РЮ / ТЮ від операторів</h2>
-              <div class="entry-list">
-                ${ryutuAll.length ? ryutuAll.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-
-                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editRyuTu('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ryu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                      <input id="tu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                      <input id="balance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
-
-                      <div class="range-wrap">
-                        <div class="range-label">
-                          <span>Оцінка РЮ / ТЮ</span>
-                          <span data-live-value="rtScoreValue_${item.id}" id="rtScoreValue_${item.id}">${Number(item.score || 0)}</span>
-                        </div>
-                        <input id="rtScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="rtScoreValue_${item.id}">
-                      </div>
-
-                      <textarea id="rtFeedback_${item.id}" class="textarea" placeholder="Фідбек / проблема">${escapeHtml(item.feedback || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveRyuTuEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeRyuTuEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
               </div>
             </div>
           </div>
@@ -1364,6 +1401,7 @@
                     </div>
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
                     ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+
                     <div class="actions">
                       <button class="btn small" onclick="editExample('${item.id}')">Редагувати</button>
                       <button class="btn red small" onclick="removeExample('${item.id}')">Видалити</button>
@@ -1412,7 +1450,7 @@
                     ${ranked.map((op, idx) => `
                       <tr>
                         <td class="rank-num">#${idx + 1}</td>
-                        <td>${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</td>
+                        <td>${escapeHtml(op.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${op.score > 200 ? "🔥" : ""}</td>
                         <td>${escapeHtml(op.shift)}</td>
                         <td>${money(op.revenue)}</td>
                         <td>${op.ryutuStats.totalRyu}</td>
@@ -1434,7 +1472,7 @@
 
       return renderShell(`
         <div class="bonus-banner">
-          🏆 ЛІДЕР ДНЯ
+          <strong>🏆 ЛІДЕР ДНЯ</strong>
           <br><br>
           ${leader.best ? `🔥 ${escapeHtml(leader.best.name)}<br>Score: ${leader.score}` : "Поки немає даних"}
         </div>
@@ -1485,10 +1523,10 @@
             <div class="card operator-main">
               <div class="profile-hero">
                 <div>
-                  <div class="profile-name">Привіт, ${escapeHtml(op.name)}</div>
+                  <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu) > 200 ? "🔥" : ""}</div>
                   <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
                 </div>
-                <div class="status ${calcOperatorScore(op, reports, ryutu) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu)} ${calcOperatorScore(op, reports, ryutu) > 200 ? "🔥" : ""}</div>
+                <div class="status ${calcOperatorScore(op, reports, ryutu) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu)}</div>
               </div>
 
               <div class="mini-stats">
@@ -1506,65 +1544,6 @@
             <div class="card operator-side">
               <h3>Моя оцінка тижня</h3>
               <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "balances") {
-        const avgBalance = getAverageBalance(balances);
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Мій баланс</h3>
-              <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
-              <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>Середній баланс</h3>
-              <div class="score-big">${money(avgBalance.toFixed(0))}</div>
-              <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
-            </div>
-
-            <div class="card operator-main">
-              <h3>Історія балансів</h3>
-              <div class="entry-list">
-                ${balances.length ? balances.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">Баланс ${money(item.balance)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "tasks") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Мої завдання</h3>
-              <div class="entry-list">
-                ${tasks.length ? tasks.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        ${taskDeadlineTag(item)}
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    <div class="actions">
-                      ${item.done ? `<button class="btn secondary small" disabled>🎉 Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
-              </div>
             </div>
           </div>
         `;
@@ -1589,7 +1568,7 @@
                     <div class="entry-top">
                       <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
@@ -1637,7 +1616,7 @@
                     <div class="entry-top">
                       <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
@@ -1666,6 +1645,66 @@
         `;
       }
 
+      if (operatorTab === "balances") {
+        const avgBalance = getAverageBalance(balances);
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Мій баланс</h3>
+              <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
+              <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
+            </div>
+
+            <div class="card operator-side">
+              <h3>Середній баланс</h3>
+              <div class="score-big">${money(avgBalance.toFixed(0))}</div>
+              <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
+            </div>
+
+            <div class="card operator-main">
+              <h3>Історія балансів</h3>
+              <div class="entry-list">
+                ${balances.length ? balances.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">Баланс ${money(item.balance)}</div>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (operatorTab === "tasks") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card full">
+              <h3>Мої завдання</h3>
+              <div class="entry-list">
+                ${tasks.length ? tasks.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
+                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
+                      </div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    <div class="actions">
+                      ${item.done ? `<button class="btn secondary small" disabled>✅ Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
       if (operatorTab === "rating") {
         content = `
           <div class="operator-dashboard">
@@ -1679,7 +1718,7 @@
                   ${ranked.map((item, idx) => `
                     <tr>
                       <td class="rank-num">#${idx+1}</td>
-                      <td>${escapeHtml(item.name)} ${item.score > 200 ? "🔥" : ""}</td>
+                      <td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
                       <td>${escapeHtml(item.shift)}</td>
                       <td>${item.score}</td>
                     </tr>
@@ -1741,11 +1780,7 @@
       }
 
       return renderShell(`
-        <div class="bonus-banner">
-          🏆 ЛІДЕР ДНЯ
-          <br><br>
-          ${ranked.length ? `🔥 ${escapeHtml(ranked[0].name)}<br>Score: ${ranked[0].score}` : "Поки немає даних"}
-        </div>
+        <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
 
         <div class="tabs">
           <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
@@ -1887,7 +1922,6 @@
       const box = document.getElementById(`editReportBox_${id}`);
       if (box) box.classList.add("hidden");
     };
-
     window.saveReportEdit = async (id) => {
       const title = document.getElementById(`reportTitle_${id}`).value.trim();
       const text = document.getElementById(`reportText_${id}`).value.trim();
@@ -1900,7 +1934,6 @@
 
       renderApp();
     };
-
     window.removeReport = async (id) => {
       if (!confirm("Видалити звіт?")) return;
       await deleteDoc(doc(db, "reports", id));
@@ -1916,7 +1949,6 @@
       const box = document.getElementById(`editRyuTuBox_${id}`);
       if (box) box.classList.add("hidden");
     };
-
     window.saveRyuTuEdit = async (id) => {
       const ryu = Number(document.getElementById(`ryu_${id}`).value || 0);
       const tu = Number(document.getElementById(`tu_${id}`).value || 0);
@@ -1930,7 +1962,6 @@
 
       renderApp();
     };
-
     window.removeRyuTu = async (id) => {
       if (!confirm("Видалити запис РЮ / ТЮ?")) return;
       await deleteDoc(doc(db, "ryutu", id));
