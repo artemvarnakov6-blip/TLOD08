@@ -903,24 +903,25 @@
       return items.reduce((sum, item) => sum + Number(item.balance || 0), 0) / items.length;
     }
 
-    function calcOperatorScore(op, reports, ryutu){
-      const rt = getRyuTuStats(ryutu);
-      const reportAvg = reviewedAvg(reports);
-      const weekScore = Number(op.weekScore || 0);
-      const normPercent = op.norm ? (Number(op.revenue || 0) / Number(op.norm || 1)) * 100 : 0;
-      const finePenalty = Number(op.fineDollars || 0) * 1.5;
-      const improvePenalty = (op.improvements || []).length * 6;
+function calcOperatorScore(op, reports, ryutu, balances = []){
+  const rt = getRyuTuStats(ryutu);
+  const reportAvg = reviewedAvg(reports);
+  const weekScore = Number(op.weekScore || 0);
+  const avgBalance = getAverageBalance(balances);
+  const normPercent = op.norm ? (Number(avgBalance  0) / Number(op.norm  1)) * 100 : 0;
+  const finePenalty = Number(op.fineDollars || 0) * 1.5;
+  const improvePenalty = (op.improvements || []).length * 6;
 
-      return Math.round(
-        Number(op.revenue || 0) * 0.7 +
-        normPercent * 2 +
-        reportAvg * 10 +
-        rt.avgScore * 10 +
-        weekScore * 10 -
-        finePenalty -
-        improvePenalty
-      );
-    }
+  return Math.round(
+    Number(avgBalance || 0) * 0.7 +
+    normPercent * 2 +
+    reportAvg * 10 +
+    rt.avgScore * 10 +
+    weekScore * 10 -
+    finePenalty -
+    improvePenalty
+  );
+}
 
     function getLeaderOfDay(operators, reports, ryutu){
       let best = null;
@@ -2052,5 +2053,6 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
   </script>
 </body>
 </html>
+
 
 
