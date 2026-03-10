@@ -1454,313 +1454,293 @@
     }
 
     async function renderOperator(operatorId) {
-      const op = await getOperatorStats(operatorId);
-      const reports = await getReports(operatorId);
-      const ryutu = await getRyuTu(operatorId);
-      const examples = await getExamples();
-      const balances = await getBalances(operatorId);
-      const tasks = await getTasks(operatorId);
-      const allOperators = await getAllOperatorStats();
+  const op = await getOperatorStats(operatorId);
+  const reports = await getReports(operatorId);
+  const ryutu = await getRyuTu(operatorId);
+  const examples = await getExamples();
+  const balances = await getBalances(operatorId);
+  const tasks = await getTasks(operatorId);
+  const allOperators = await getAllOperatorStats();
 
-      const ranked = [];
-      for (const item of allOperators) {
-        const itemReports = await getReports(item.id);
-        const itemRyuTu = await getRyuTu(item.id);
-        ranked.push({
-          ...item,
-          score: calcOperatorScore(item, itemReports, itemRyuTu)
-        });
-      }
-      ranked.sort((a,b)=>b.score-a.score);
+  const ranked = [];
+  for (const item of allOperators) {
+    const itemReports = await getReports(item.id);
+    const itemRyuTu = await getRyuTu(item.id);
+    const itemBalances = await getBalances(item.id);
 
-      const rt = getRyuTuStats(ryutu);
-      const reportAvg = reviewedAvg(reports);
-      const normPercent = op.norm ? Math.round((Number(op.revenue || 0) / Number(op.norm || 1)) * 100) : 0;
+    ranked.push({
+      ...item,
+      score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
+    });
+  }
+  ranked.sort((a, b) => b.score - a.score);
 
-      let content = "";
+  const rt = getRyuTuStats(ryutu);
+  const reportAvg = reviewedAvg(reports);
+  const avgBalance = getAverageBalance(balances);
+  const normPercent = op.norm
+    ? Math.round((Number(avgBalance || 0) / Number(op.norm || 1)) * 100)
+    : 0;
 
-      if (operatorTab === "overview") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-main">
-              <div class="profile-hero">
-                <div>
-                  <div class="profile-name">Привіт, ${escapeHtml(op.name)}</div>
-                  <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
+  let content = "";
+
+  if (operatorTab === "overview") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card operator-main">
+          <div class="profile-hero">
+            <div>
+              <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu, balances) > 200 ? "🔥" : ""}</div>
+              <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
+            </div>
+            <div class="status ${calcOperatorScore(op, reports, ryutu, balances) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu, balances)}</div>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
+            <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
+            <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
+            <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
+            <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
+            <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
+            <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
+            <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
+          </div>
+        </div>
+
+        <div class="card operator-side">
+          <h3>Моя оцінка тижня</h3>
+          <div class="score-big">${Number(op.weekScore || 0)}/10</div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (operatorTab === "ryutu") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card operator-side">
+          <h3>Подати РЮ / ТЮ</h3>
+          <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
+          <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
+          <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
+          <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
+        </div>
+
+        <div class="card operator-main">
+          <h3>Мої записи РЮ / ТЮ</h3>
+          <div class="entry-list">
+            ${ryutu.length ? ryutu.map(item => `
+              <div class="entry">
+                <div class="entry-top">
+                  <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
+                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
+                    <div class="entry-meta">${escapeHtml(item.date)}</div>
+                  </div>
                 </div>
-                <div class="status ${calcOperatorScore(op, reports, ryutu) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu)} ${calcOperatorScore(op, reports, ryutu) > 200 ? "🔥" : ""}</div>
-              </div>
+                <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
 
-              <div class="mini-stats">
-                <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-                <div class="mini"><div class="label">Зроблено</div><div class="value">${money(op.revenue)}</div></div>
-                <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
-                <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
-                <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
-                <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
-                <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
-                <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
-              </div>
-            </div>
+                <div class="actions">
+                  <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
+                  <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
+                </div>
 
-            <div class="card operator-side">
-              <h3>Моя оцінка тижня</h3>
-              <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "balances") {
-        const avgBalance = getAverageBalance(balances);
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Мій баланс</h3>
-              <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
-              <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>Середній баланс</h3>
-              <div class="score-big">${money(0)}</div>
-              <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
-            </div>
-
-            <div class="card operator-main">
-              <h3>Історія балансів</h3>
-              <div class="entry-list">
-                ${balances.length ? balances.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">Баланс ${money(item.balance)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
+                <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
+                  <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
+                  <input id="ownTu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
+                  <input id="ownBalance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
+                  <div class="actions">
+                    <button class="btn small" onclick="saveOwnRyuTuEdit('${item.id}')">Зберегти</button>
+                    <button class="btn secondary small" onclick="closeOwnRyuTuEdit('${item.id}')">Закрити</button>
                   </div>
-                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
+                </div>
+
+                ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
               </div>
-            </div>
+            `).join("") : `<div class="empty">Поки записів немає.</div>`}
           </div>
-        `;
-      }
+        </div>
+      </div>
+    `;
+  }
 
-      if (operatorTab === "tasks") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Мої завдання</h3>
-              <div class="entry-list">
-                ${tasks.length ? tasks.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        ${taskDeadlineTag(item)}
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    <div class="actions">
-                      ${item.done ? `<button class="btn secondary small" disabled>🎉 Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "ryutu") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Подати РЮ / ТЮ</h3>
-              <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
-              <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
-              <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
-              <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
-            </div>
-
-            <div class="card operator-main">
-              <h3>Мої записи РЮ / ТЮ</h3>
-              <div class="entry-list">
-                ${ryutu.length ? ryutu.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                      <input id="ownTu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                      <input id="ownBalance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
-                      <div class="actions">
-                        <button class="btn small" onclick="saveOwnRyuTuEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeOwnRyuTuEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-                  </div>
-                `).join("") : `<div class="empty">Поки записів немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "reports") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Подати звіт</h3>
-              <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
-              <textarea id="operatorReportText" class="textarea" placeholder="Напиши свій звіт"></textarea>
-              <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
-            </div>
-
-            <div class="card operator-main">
-              <h3>Мої звіти</h3>
-              <div class="entry-list">
-                ${reports.length ? reports.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
-                      <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveOwnReportEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeOwnReportEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-                  </div>
-                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "rating") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Рейтинг 3 операторів</h3>
-              <table>
-                <thead>
-                  <tr><th>#</th><th>Оператор</th><th>Зміна</th><th>Score</th></tr>
-                </thead>
-                <tbody>
-                  ${ranked.map((item, idx) => `
-                    <tr>
-                      <td class="rank-num">#${idx+1}</td>
-                      <td>${escapeHtml(item.name)} ${item.score > 200 ? "🔥" : ""}</td>
-                      <td>${escapeHtml(item.shift)}</td>
-                      <td>${item.score}</td>
-                    </tr>
-                  `).join("")}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "feedback") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-main">
-              <h3>Що покращити</h3>
-              <div class="list-simple">
-                ${(op.improvements || []).length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-              </div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>Позитивні якості</h3>
-              <div class="list-simple">
-                ${(op.strengths || []).length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-              </div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>План на тиждень</h3>
-              <div class="list-simple">
-                ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      if (operatorTab === "examples") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Приклади / як добре заведений РЮ</h3>
-              <div class="entry-list">
-                ${examples.length ? examples.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
-                  </div>
-                `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      return renderShell(`
-        <div class="bonus-banner">
-          🏆 ЛІДЕР ДНЯ
-          <br><br>
-          ${ranked.length ? `🔥 ${escapeHtml(ranked[0].name)}<br>Score: ${ranked[0].score}` : "Поки немає даних"}
+  if (operatorTab === "reports") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card operator-side">
+          <h3>Подати звіт</h3>
+          <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
+          <textarea id="operatorReportText" class="textarea" placeholder="Напиши свій звіт"></textarea>
+          <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
         </div>
 
-        <div class="tabs">
-          <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
-          <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
-          <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
-          <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
-          <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
-          <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
-          <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
-          <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
+        <div class="card operator-main">
+          <h3>Мої звіти</h3>
+          <div class="entry-list">
+            ${reports.length ? reports.map(item => `
+              <div class="entry">
+                <div class="entry-top">
+                  <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
+                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
+                    <div class="entry-meta">${escapeHtml(item.date)}</div>
+                  </div>
+                </div>
+                <div class="entry-text">${escapeHtml(item.text || "")}</div>
+
+                <div class="actions">
+                  <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
+                  <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
+                </div>
+
+                <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
+                  <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
+                  <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
+                  <div class="actions">
+                    <button class="btn small" onclick="saveOwnReportEdit('${item.id}')">Зберегти</button>
+                    <button class="btn secondary small" onclick="closeOwnReportEdit('${item.id}')">Закрити</button>
+                  </div>
+                </div>
+
+                ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
+              </div>
+            `).join("") : `<div class="empty">Поки звітів немає.</div>`}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (operatorTab === "balances") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card full">
+          <h3>Баланси</h3>
+          <div class="empty">Тимчасово блок балансів вимкнений для перевірки синтаксису.</div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (operatorTab === "tasks") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card full">
+          <h3>Мої завдання</h3>
+          <div class="entry-list">
+            ${tasks.length ? tasks.map(item => `
+              <div class="entry">
+                <div class="entry-top">
+                  <div class="entry-title">${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
+                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                    <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
+                    <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
+                  </div>
+                </div>
+                <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                <div class="actions">
+                  ${item.done ? `<button class="btn secondary small" disabled>✅ Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
+                </div>
+              </div>
+            `).join("") : `<div class="empty">Поки завдань немає.</div>`}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (operatorTab === "rating") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card full">
+          <h3>Рейтинг 3 операторів</h3>
+          <table>
+            <thead>
+              <tr><th>#</th><th>Оператор</th><th>Зміна</th><th>Score</th></tr>
+            </thead>
+            <tbody>
+              ${ranked.map((item, idx) => `
+                <tr>
+                  <td class="rank-num">#${idx + 1}</td>
+                  <td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
+                  <td>${escapeHtml(item.shift)}</td>
+                  <td>${item.score}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  if (operatorTab === "feedback") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card operator-main">
+          <h3>Що покращити</h3>
+          <div class="list-simple">
+            ${(op.improvements || []).length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+          </div>
         </div>
 
-        ${content}
-      `);
-    }
+        <div class="card operator-side">
+          <h3>Позитивні якості</h3>
+          <div class="list-simple">
+            ${(op.strengths || []).length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+          </div>
+        </div>
+
+        <div class="card operator-side">
+          <h3>План на тиждень</h3>
+          <div class="list-simple">
+            ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  if (operatorTab === "examples") {
+    content = `
+      <div class="operator-dashboard">
+        <div class="card full">
+          <h3>Приклади / як добре заведений РЮ</h3>
+          <div class="entry-list">
+            ${examples.length ? examples.map(item => `
+              <div class="entry">
+                <div class="entry-top">
+                  <div class="entry-title">${escapeHtml(item.title)}</div>
+                  <div class="entry-meta">${escapeHtml(item.date)}</div>
+                </div>
+                <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+              </div>
+            `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  return renderShell(`
+    <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
+
+    <div class="tabs">
+      <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
+      <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
+      <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
+      <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
+      <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
+      <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
+      <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
+      <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
+    </div>
+
+    ${content}
+  `);
+}
 
     window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
     window.setOperatorTab = (tab) => { operatorTab = tab; renderApp(); };
@@ -2020,5 +2000,6 @@
   </script>
 </body>
 </html>
+
 
 
