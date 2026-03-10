@@ -1523,6 +1523,10 @@ const op = {
       const ryutu = await getRyuTu(operatorId);
       const examples = await getExamples();
       const balances = await getBalances(operatorId);
+    const monthBalances = filterByMonth(balances, selectedMonth);
+const avgBalance = getAverageBalance(monthBalances);
+const latestBalance = getLatestBalance(monthBalances);
+const totalBalance = getMonthTotalBalance(monthBalances);
       const tasks = await getTasks(operatorId);
       const allOperators = await getAllOperatorStats();
 
@@ -2081,6 +2085,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
