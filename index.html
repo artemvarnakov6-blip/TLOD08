@@ -1,98 +1,98 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TLOD 32 | Luxury Firebase Panel</title>
+!DOCTYPE html
+html lang=uk
+head
+  meta charset=UTF-8 
+  meta name=viewport content=width=device-width, initial-scale=1.0 
+  titleTLOD 32  Luxury Firebase Paneltitle
 
-  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="%23fff2a8"/>
-        <stop offset="45%" stop-color="%23ffd700"/>
-        <stop offset="100%" stop-color="%23b8860b"/>
-      </linearGradient>
-    </defs>
-    <rect width="64" height="64" rx="14" fill="%23060606"/>
-    <text x="32" y="42" text-anchor="middle" font-size="18" font-family="Arial" font-weight="700" fill="url(%23g)">32</text>
-  </svg>'>
+  link rel=icon type=imagesvg+xml href='dataimagesvg+xml;utf8,
+  svg xmlns=httpwww.w3.org2000svg viewBox=0 0 64 64
+    defs
+      linearGradient id=g x1=0 y1=0 x2=1 y2=1
+        stop offset=0% stop-color=%23fff2a8
+        stop offset=45% stop-color=%23ffd700
+        stop offset=100% stop-color=%23b8860b
+      linearGradient
+    defs
+    rect width=64 height=64 rx=14 fill=%23060606
+    text x=32 y=42 text-anchor=middle font-size=18 font-family=Arial font-weight=700 fill=url(%23g)32text
+  svg'
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-    :root{
-      --gold:#ffd700;
-      --gold2:#d4af37;
-      --gold3:#fff0a6;
-      --red:#ff5f5f;
-      --red2:#ff2f2f;
-      --green:#8ff0a4;
-      --blue:#8ecbff;
-      --text:#fff;
-      --muted:#b8ab79;
-      --bg:#040404;
-      --card:rgba(18,18,18,.86);
-      --card2:rgba(28,28,28,.92);
-      --line:rgba(255,215,0,.14);
-      --shadow:0 20px 60px rgba(0,0,0,.55);
+  style
+    {margin0;padding0;box-sizingborder-box;font-familyArial,sans-serif}
+    root{
+      --gold#ffd700;
+      --gold2#d4af37;
+      --gold3#fff0a6;
+      --red#ff5f5f;
+      --red2#ff2f2f;
+      --green#8ff0a4;
+      --blue#8ecbff;
+      --text#fff;
+      --muted#b8ab79;
+      --bg#040404;
+      --cardrgba(18,18,18,.86);
+      --card2rgba(28,28,28,.92);
+      --linergba(255,215,0,.14);
+      --shadow0 20px 60px rgba(0,0,0,.55);
     }
 
-    html{scroll-behavior:smooth}
+    html{scroll-behaviorsmooth}
 
     body{
-      min-height:100vh;
-      overflow-x:hidden;
-      color:var(--text);
-      background:
+      min-height100vh;
+      overflow-xhidden;
+      colorvar(--text);
+      background
         radial-gradient(circle at top, rgba(255,215,0,.06), transparent 26%),
         linear-gradient(135deg,#000000,#080808 45%,#000000 100%);
-      position:relative;
+      positionrelative;
     }
 
-    body::before{
-      content:"";
-      position:fixed;
-      width:950px;
-      height:950px;
-      left:-300px;
-      top:-380px;
-      background:radial-gradient(circle, rgba(255,215,0,.11), transparent 60%);
-      filter:blur(120px);
-      pointer-events:none;
-      z-index:0;
-      animation:glowMove1 15s ease-in-out infinite alternate;
+    bodybefore{
+      content;
+      positionfixed;
+      width950px;
+      height950px;
+      left-300px;
+      top-380px;
+      backgroundradial-gradient(circle, rgba(255,215,0,.11), transparent 60%);
+      filterblur(120px);
+      pointer-eventsnone;
+      z-index0;
+      animationglowMove1 15s ease-in-out infinite alternate;
     }
 
-    body::after{
-      content:"";
-      position:fixed;
-      width:850px;
-      height:850px;
-      right:-260px;
-      bottom:-260px;
-      background:radial-gradient(circle, rgba(255,0,0,.07), transparent 60%);
-      filter:blur(120px);
-      pointer-events:none;
-      z-index:0;
-      animation:glowMove2 17s ease-in-out infinite alternate;
+    bodyafter{
+      content;
+      positionfixed;
+      width850px;
+      height850px;
+      right-260px;
+      bottom-260px;
+      backgroundradial-gradient(circle, rgba(255,0,0,.07), transparent 60%);
+      filterblur(120px);
+      pointer-eventsnone;
+      z-index0;
+      animationglowMove2 17s ease-in-out infinite alternate;
     }
 
     @keyframes glowMove1{
-      from{transform:translate(0,0)}
-      to{transform:translate(150px,120px)}
+      from{transformtranslate(0,0)}
+      to{transformtranslate(150px,120px)}
     }
 
     @keyframes glowMove2{
-      from{transform:translate(0,0)}
-      to{transform:translate(-140px,-100px)}
+      from{transformtranslate(0,0)}
+      to{transformtranslate(-140px,-100px)}
     }
 
     .particles{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      background:
+      positionfixed;
+      inset0;
+      z-index0;
+      pointer-eventsnone;
+      background
         radial-gradient(circle at 10% 15%, rgba(255,215,0,.10) 0 2px, transparent 3px),
         radial-gradient(circle at 23% 84%, rgba(255,215,0,.07) 0 2px, transparent 3px),
         radial-gradient(circle at 34% 30%, rgba(255,215,0,.08) 0 2px, transparent 3px),
@@ -100,742 +100,742 @@
         radial-gradient(circle at 66% 20%, rgba(255,215,0,.10) 0 2px, transparent 3px),
         radial-gradient(circle at 79% 70%, rgba(255,215,0,.09) 0 2px, transparent 3px),
         radial-gradient(circle at 92% 40%, rgba(255,0,0,.06) 0 2px, transparent 3px);
-      animation:particleFloat 12s ease-in-out infinite alternate;
-      opacity:.85;
+      animationparticleFloat 12s ease-in-out infinite alternate;
+      opacity.85;
     }
 
     @keyframes particleFloat{
-      from{transform:translateY(0)}
-      to{transform:translateY(-18px)}
+      from{transformtranslateY(0)}
+      to{transformtranslateY(-18px)}
     }
 
     .trophies{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      overflow:hidden;
+      positionfixed;
+      inset0;
+      z-index0;
+      pointer-eventsnone;
+      overflowhidden;
     }
 
     .trophy{
-      position:absolute;
-      color:rgba(255,215,0,.07);
-      text-shadow:0 0 18px rgba(255,215,0,.08);
-      user-select:none;
-      animation:trophyFloat 8s ease-in-out infinite alternate;
+      positionabsolute;
+      colorrgba(255,215,0,.07);
+      text-shadow0 0 18px rgba(255,215,0,.08);
+      user-selectnone;
+      animationtrophyFloat 8s ease-in-out infinite alternate;
     }
 
-    .t1{top:6%;left:4%;font-size:84px;animation-duration:8s}
-    .t2{top:14%;right:6%;font-size:60px;animation-duration:11s}
-    .t3{bottom:9%;left:8%;font-size:74px;animation-duration:10s}
-    .t4{bottom:14%;right:10%;font-size:62px;animation-duration:12s}
-    .t5{top:40%;left:2%;font-size:42px;animation-duration:13s}
-    .t6{top:52%;right:2%;font-size:48px;animation-duration:14s}
-    .t7{top:70%;left:28%;font-size:38px;animation-duration:9s}
-    .t8{top:26%;right:31%;font-size:42px;animation-duration:10s}
-    .t9{top:30%;left:46%;font-size:34px;animation-duration:7s}
-    .t10{bottom:30%;right:43%;font-size:32px;animation-duration:9s}
+    .t1{top6%;left4%;font-size84px;animation-duration8s}
+    .t2{top14%;right6%;font-size60px;animation-duration11s}
+    .t3{bottom9%;left8%;font-size74px;animation-duration10s}
+    .t4{bottom14%;right10%;font-size62px;animation-duration12s}
+    .t5{top40%;left2%;font-size42px;animation-duration13s}
+    .t6{top52%;right2%;font-size48px;animation-duration14s}
+    .t7{top70%;left28%;font-size38px;animation-duration9s}
+    .t8{top26%;right31%;font-size42px;animation-duration10s}
+    .t9{top30%;left46%;font-size34px;animation-duration7s}
+    .t10{bottom30%;right43%;font-size32px;animation-duration9s}
 
     @keyframes trophyFloat{
-      0%{transform:translateY(0) rotate(-2deg) scale(1)}
-      100%{transform:translateY(-18px) rotate(2deg) scale(1.04)}
+      0%{transformtranslateY(0) rotate(-2deg) scale(1)}
+      100%{transformtranslateY(-18px) rotate(2deg) scale(1.04)}
     }
 
-    .hidden{display:none!important}
+    .hidden{displaynone!important}
 
     .screen{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-      position:relative;
-      z-index:2;
+      min-height100vh;
+      displayflex;
+      align-itemscenter;
+      justify-contentcenter;
+      padding24px;
+      positionrelative;
+      z-index2;
     }
 
     .login-box{
-      width:480px;
-      max-width:100%;
-      background:linear-gradient(180deg, rgba(16,16,16,.95), rgba(6,6,6,.97));
-      border:1px solid rgba(255,215,0,.22);
-      border-radius:34px;
-      padding:42px 32px;
-      box-shadow:
+      width480px;
+      max-width100%;
+      backgroundlinear-gradient(180deg, rgba(16,16,16,.95), rgba(6,6,6,.97));
+      border1px solid rgba(255,215,0,.22);
+      border-radius34px;
+      padding42px 32px;
+      box-shadow
         0 20px 80px rgba(0,0,0,.5),
         0 0 40px rgba(255,215,0,.08),
         inset 0 0 26px rgba(255,215,0,.04);
-      backdrop-filter:blur(14px);
-      text-align:center;
-      animation:loginRise .8s ease;
+      backdrop-filterblur(14px);
+      text-aligncenter;
+      animationloginRise .8s ease;
     }
 
     @keyframes loginRise{
-      from{opacity:0;transform:translateY(18px) scale(.98)}
-      to{opacity:1;transform:translateY(0) scale(1)}
+      from{opacity0;transformtranslateY(18px) scale(.98)}
+      to{opacity1;transformtranslateY(0) scale(1)}
     }
 
     .badge{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,215,0,.16);
-      background:rgba(255,215,0,.04);
-      color:#f7de89;
-      letter-spacing:1px;
-      font-size:12px;
-      margin-bottom:16px;
-      transition:.25s;
+      displayinline-block;
+      padding8px 14px;
+      border-radius999px;
+      border1px solid rgba(255,215,0,.16);
+      backgroundrgba(255,215,0,.04);
+      color#f7de89;
+      letter-spacing1px;
+      font-size12px;
+      margin-bottom16px;
+      transition.25s;
     }
 
-    .badge:hover{transform:translateY(-1px);box-shadow:0 0 20px rgba(255,215,0,.1)}
+    .badgehover{transformtranslateY(-1px);box-shadow0 0 20px rgba(255,215,0,.1)}
 
     .gold-line{
-      width:86px;
-      height:3px;
-      border-radius:999px;
-      margin:0 auto 18px;
-      background:linear-gradient(90deg,transparent,var(--gold),transparent);
-      box-shadow:0 0 18px rgba(255,215,0,.4);
+      width86px;
+      height3px;
+      border-radius999px;
+      margin0 auto 18px;
+      backgroundlinear-gradient(90deg,transparent,var(--gold),transparent);
+      box-shadow0 0 18px rgba(255,215,0,.4);
     }
 
     .main-logo,.brand-title{
-      color:#ffd700;
-      font-weight:900;
-      text-shadow:
+      color#ffd700;
+      font-weight900;
+      text-shadow
         0 0 8px rgba(255,215,0,.95),
         0 0 18px rgba(255,215,0,.65),
         0 0 40px rgba(255,215,0,.28);
-      animation:logoPulse 3s ease-in-out infinite;
+      animationlogoPulse 3s ease-in-out infinite;
     }
 
     .main-logo{
-      font-size:46px;
-      letter-spacing:4px;
-      margin-bottom:12px;
+      font-size46px;
+      letter-spacing4px;
+      margin-bottom12px;
     }
 
     .brand-title{
-      font-size:28px;
-      letter-spacing:2px;
-      margin-bottom:4px;
+      font-size28px;
+      letter-spacing2px;
+      margin-bottom4px;
     }
 
     @keyframes logoPulse{
       0%,100%{
-        text-shadow:
+        text-shadow
           0 0 8px rgba(255,215,0,.85),
           0 0 18px rgba(255,215,0,.62),
           0 0 34px rgba(255,215,0,.22);
-        transform:scale(1);
+        transformscale(1);
       }
       50%{
-        text-shadow:
+        text-shadow
           0 0 12px rgba(255,215,0,1),
           0 0 28px rgba(255,215,0,.84),
           0 0 60px rgba(255,215,0,.35);
-        transform:scale(1.03);
+        transformscale(1.03);
       }
     }
 
     .subtitle,.brand-sub{
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:2px;
+      colorvar(--muted);
+      text-transformuppercase;
+      letter-spacing2px;
     }
 
-    .subtitle{font-size:14px;margin-bottom:24px}
-    .brand-sub{font-size:12px;letter-spacing:1px}
+    .subtitle{font-size14px;margin-bottom24px}
+    .brand-sub{font-size12px;letter-spacing1px}
 
     .help{
-      margin-top:18px;
-      padding:14px;
-      border-radius:18px;
-      background:rgba(255,255,255,.02);
-      border:1px solid rgba(255,255,255,.04);
-      color:#9f9f9f;
-      line-height:1.6;
-      text-align:left;
-      font-size:13px;
+      margin-top18px;
+      padding14px;
+      border-radius18px;
+      backgroundrgba(255,255,255,.02);
+      border1px solid rgba(255,255,255,.04);
+      color#9f9f9f;
+      line-height1.6;
+      text-alignleft;
+      font-size13px;
     }
 
     .input,.select,.textarea{
-      width:100%;
-      padding:14px;
-      border-radius:14px;
-      border:1px solid rgba(255,215,0,.12);
-      background:rgba(10,10,10,.88);
-      color:white;
-      outline:none;
-      font-size:15px;
-      margin-bottom:14px;
-      transition:.25s;
+      width100%;
+      padding14px;
+      border-radius14px;
+      border1px solid rgba(255,215,0,.12);
+      backgroundrgba(10,10,10,.88);
+      colorwhite;
+      outlinenone;
+      font-size15px;
+      margin-bottom14px;
+      transition.25s;
     }
 
-    .textarea{min-height:110px;resize:vertical}
+    .textarea{min-height110px;resizevertical}
 
-    .input:focus,.select:focus,.textarea:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 16px rgba(255,215,0,.16);
-      transform:translateY(-1px);
+    .inputfocus,.selectfocus,.textareafocus{
+      border-colorvar(--gold);
+      box-shadow0 0 16px rgba(255,215,0,.16);
+      transformtranslateY(-1px);
     }
 
     .btn{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:14px;
-      cursor:pointer;
-      font-weight:800;
-      font-size:15px;
-      letter-spacing:1px;
-      transition:.25s;
-      background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
-      color:#171717;
-      box-shadow:0 12px 26px rgba(255,215,0,.14);
+      width100%;
+      padding14px;
+      bordernone;
+      border-radius14px;
+      cursorpointer;
+      font-weight800;
+      font-size15px;
+      letter-spacing1px;
+      transition.25s;
+      backgroundlinear-gradient(90deg,#b8860b,#ffd700,#caa63a);
+      color#171717;
+      box-shadow0 12px 26px rgba(255,215,0,.14);
     }
 
-    .btn:hover{
-      transform:translateY(-2px) scale(1.01);
-      box-shadow:0 16px 34px rgba(255,215,0,.22);
+    .btnhover{
+      transformtranslateY(-2px) scale(1.01);
+      box-shadow0 16px 34px rgba(255,215,0,.22);
     }
 
     .btn.secondary{
-      background:transparent;
-      color:var(--gold);
-      border:1px solid rgba(255,215,0,.18);
-      box-shadow:none;
+      backgroundtransparent;
+      colorvar(--gold);
+      border1px solid rgba(255,215,0,.18);
+      box-shadownone;
     }
 
-    .btn.secondary:hover{background:rgba(255,215,0,.04)}
-    .btn.small{width:auto;padding:10px 14px;font-size:13px;border-radius:12px}
+    .btn.secondaryhover{backgroundrgba(255,215,0,.04)}
+    .btn.small{widthauto;padding10px 14px;font-size13px;border-radius12px}
     .btn.red{
-      background:linear-gradient(90deg,#550d0d,#ff4646,#902020);
-      color:white;
-      box-shadow:0 10px 24px rgba(255,0,0,.16);
+      backgroundlinear-gradient(90deg,#550d0d,#ff4646,#902020);
+      colorwhite;
+      box-shadow0 10px 24px rgba(255,0,0,.16);
     }
-    .btn.red:hover{box-shadow:0 14px 30px rgba(255,0,0,.22)}
+    .btn.redhover{box-shadow0 14px 30px rgba(255,0,0,.22)}
 
     .app{
-      min-height:100vh;
-      padding:26px;
-      position:relative;
-      z-index:2;
+      min-height100vh;
+      padding26px;
+      positionrelative;
+      z-index2;
     }
 
     .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:24px;
-      padding:18px 20px;
-      border-radius:24px;
-      border:1px solid rgba(255,215,0,.12);
-      background:rgba(12,12,12,.74);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
+      displayflex;
+      align-itemscenter;
+      justify-contentspace-between;
+      gap16px;
+      margin-bottom24px;
+      padding18px 20px;
+      border-radius24px;
+      border1px solid rgba(255,215,0,.12);
+      backgroundrgba(12,12,12,.74);
+      box-shadowvar(--shadow);
+      backdrop-filterblur(14px);
     }
 
-    .brand-wrap{display:flex;align-items:center;gap:14px}
+    .brand-wrap{displayflex;align-itemscenter;gap14px}
     .brand-badge{
-      width:64px;height:64px;border-radius:18px;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#0d0d0d,#171717);
-      border:1px solid rgba(255,215,0,.18);
-      color:var(--gold);
-      font-weight:800;
-      font-size:20px;
-      box-shadow:inset 0 0 14px rgba(255,215,0,.05),0 0 18px rgba(255,215,0,.05);
-      transition:.25s;
+      width64px;height64px;border-radius18px;
+      displayflex;align-itemscenter;justify-contentcenter;
+      backgroundlinear-gradient(135deg,#0d0d0d,#171717);
+      border1px solid rgba(255,215,0,.18);
+      colorvar(--gold);
+      font-weight800;
+      font-size20px;
+      box-shadowinset 0 0 14px rgba(255,215,0,.05),0 0 18px rgba(255,215,0,.05);
+      transition.25s;
     }
 
-    .brand-badge:hover{transform:translateY(-2px) scale(1.04)}
+    .brand-badgehover{transformtranslateY(-2px) scale(1.04)}
 
-    .topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .topbar-right{displayflex;align-itemscenter;gap10px;flex-wrapwrap}
 
     .user-chip{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,215,0,.16);
-      background:rgba(255,215,0,.04);
-      color:#f2d57d;
-      font-size:13px;
+      padding10px 14px;
+      border-radius999px;
+      border1px solid rgba(255,215,0,.16);
+      backgroundrgba(255,215,0,.04);
+      color#f2d57d;
+      font-size13px;
     }
 
     .bonus-banner{
-      margin-bottom:18px;
-      padding:18px;
-      border-radius:20px;
-      border:1px solid rgba(255,215,0,.14);
-      background:linear-gradient(90deg, rgba(255,215,0,.07), rgba(255,0,0,.04));
-      color:#ffe89a;
-      box-shadow:var(--shadow);
-      animation:bannerPulse 3s infinite alternate;
+      margin-bottom18px;
+      padding18px;
+      border-radius20px;
+      border1px solid rgba(255,215,0,.14);
+      backgroundlinear-gradient(90deg, rgba(255,215,0,.07), rgba(255,0,0,.04));
+      color#ffe89a;
+      box-shadowvar(--shadow);
+      animationbannerPulse 3s infinite alternate;
     }
 
     @keyframes bannerPulse{
-      from{box-shadow:0 10px 30px rgba(255,215,0,.05)}
-      to{box-shadow:0 16px 36px rgba(255,0,0,.10)}
+      from{box-shadow0 10px 30px rgba(255,215,0,.05)}
+      to{box-shadow0 16px 36px rgba(255,0,0,.10)}
     }
 
     .tabs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
+      displayflex;
+      gap10px;
+      flex-wrapwrap;
+      margin-bottom18px;
     }
 
     .tab-btn{
-      border:1px solid rgba(255,215,0,.14);
-      background:rgba(255,215,0,.04);
-      color:#e8d389;
-      padding:10px 14px;
-      border-radius:12px;
-      cursor:pointer;
-      font-size:13px;
-      transition:.25s;
+      border1px solid rgba(255,215,0,.14);
+      backgroundrgba(255,215,0,.04);
+      color#e8d389;
+      padding10px 14px;
+      border-radius12px;
+      cursorpointer;
+      font-size13px;
+      transition.25s;
     }
 
-    .tab-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 22px rgba(255,215,0,.08);
+    .tab-btnhover{
+      transformtranslateY(-2px);
+      box-shadow0 10px 22px rgba(255,215,0,.08);
     }
 
     .tab-btn.active{
-      background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
-      color:#111;
-      font-weight:800;
+      backgroundlinear-gradient(90deg,#b8860b,#ffd700,#caa63a);
+      color#111;
+      font-weight800;
     }
 
     .tab-btn.red-accent.active{
-      background:linear-gradient(90deg,#651111,#ff4a4a,#aa1f1f);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(255,0,0,.18);
+      backgroundlinear-gradient(90deg,#651111,#ff4a4a,#aa1f1f);
+      color#fff;
+      box-shadow0 10px 24px rgba(255,0,0,.18);
     }
 
     .dashboard-grid,.operator-dashboard{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:18px;
+      displaygrid;
+      grid-template-columnsrepeat(12,1fr);
+      gap18px;
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(18,18,18,.86), rgba(8,8,8,.94));
-      border:1px solid rgba(255,215,0,.10);
-      border-radius:24px;
-      padding:20px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      transition:.25s;
-      position:relative;
-      overflow:hidden;
+      backgroundlinear-gradient(180deg, rgba(18,18,18,.86), rgba(8,8,8,.94));
+      border1px solid rgba(255,215,0,.10);
+      border-radius24px;
+      padding20px;
+      box-shadowvar(--shadow);
+      backdrop-filterblur(14px);
+      transition.25s;
+      positionrelative;
+      overflowhidden;
     }
 
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.02) 30%, transparent 65%);
-      transform:translateX(-100%);
-      transition:1s;
+    .cardbefore{
+      content;
+      positionabsolute;
+      inset0;
+      backgroundlinear-gradient(120deg, transparent 0%, rgba(255,255,255,.02) 30%, transparent 65%);
+      transformtranslateX(-100%);
+      transition1s;
     }
 
-    .card:hover::before{transform:translateX(100%)}
+    .cardhoverbefore{transformtranslateX(100%)}
 
-    .card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(255,215,0,.18);
-      box-shadow:0 24px 50px rgba(0,0,0,.45),0 0 24px rgba(255,215,0,.08);
+    .cardhover{
+      transformtranslateY(-3px);
+      border-colorrgba(255,215,0,.18);
+      box-shadow0 24px 50px rgba(0,0,0,.45),0 0 24px rgba(255,215,0,.08);
     }
 
-    .card h2,.card h3{color:var(--gold);margin-bottom:14px;letter-spacing:1px}
+    .card h2,.card h3{colorvar(--gold);margin-bottom14px;letter-spacing1px}
 
-    .stat-card{grid-column:span 3;min-height:132px}
-    .wide{grid-column:span 8}
-    .side{grid-column:span 4}
-    .full{grid-column:span 12}
-    .operator-main{grid-column:span 8}
-    .operator-side{grid-column:span 4}
+    .stat-card{grid-columnspan 3;min-height132px}
+    .wide{grid-columnspan 8}
+    .side{grid-columnspan 4}
+    .full{grid-columnspan 12}
+    .operator-main{grid-columnspan 8}
+    .operator-side{grid-columnspan 4}
 
     .stat-label{
-      color:var(--muted);
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      margin-bottom:10px;
+      colorvar(--muted);
+      font-size13px;
+      text-transformuppercase;
+      letter-spacing1px;
+      margin-bottom10px;
     }
 
     .stat-value{
-      font-size:34px;
-      color:#fff2b8;
-      font-weight:900;
-      margin-bottom:8px;
-      text-shadow:0 0 12px rgba(255,215,0,.08);
-      animation:numberGlow 3s infinite alternate;
+      font-size34px;
+      color#fff2b8;
+      font-weight900;
+      margin-bottom8px;
+      text-shadow0 0 12px rgba(255,215,0,.08);
+      animationnumberGlow 3s infinite alternate;
     }
 
     @keyframes numberGlow{
-      from{transform:translateY(0)}
-      to{transform:translateY(-2px)}
+      from{transformtranslateY(0)}
+      to{transformtranslateY(-2px)}
     }
 
-    .stat-sub{color:#8d8d8d;font-size:13px}
+    .stat-sub{color#8d8d8d;font-size13px}
 
     .operators-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
+      displaygrid;
+      grid-template-columnsrepeat(3,1fr);
+      gap16px;
     }
 
     .operator-card{
-      background:linear-gradient(180deg, rgba(24,24,24,.96), rgba(10,10,10,.96));
-      border:1px solid rgba(255,215,0,.10);
-      border-radius:22px;
-      padding:18px;
-      transition:.25s;
-      box-shadow:0 10px 24px rgba(0,0,0,.24);
+      backgroundlinear-gradient(180deg, rgba(24,24,24,.96), rgba(10,10,10,.96));
+      border1px solid rgba(255,215,0,.10);
+      border-radius22px;
+      padding18px;
+      transition.25s;
+      box-shadow0 10px 24px rgba(0,0,0,.24);
     }
 
-    .operator-card:hover{
-      transform:translateY(-4px) scale(1.01);
-      border-color:rgba(255,215,0,.18);
-      box-shadow:0 18px 36px rgba(0,0,0,.34),0 0 20px rgba(255,215,0,.08);
+    .operator-cardhover{
+      transformtranslateY(-4px) scale(1.01);
+      border-colorrgba(255,215,0,.18);
+      box-shadow0 18px 36px rgba(0,0,0,.34),0 0 20px rgba(255,215,0,.08);
     }
 
     .operator-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:14px;
+      displayflex;
+      align-itemscenter;
+      justify-contentspace-between;
+      gap12px;
+      margin-bottom14px;
     }
 
-    .operator-name{font-size:22px;color:#ffe89a;font-weight:800}
+    .operator-name{font-size22px;color#ffe89a;font-weight800}
 
     .status{
-      font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:rgba(143,240,164,.08);
-      color:var(--green);
-      border:1px solid rgba(143,240,164,.16);
+      font-size12px;
+      padding7px 10px;
+      border-radius999px;
+      backgroundrgba(143,240,164,.08);
+      colorvar(--green);
+      border1px solid rgba(143,240,164,.16);
     }
 
     .status.red{
-      background:rgba(255,95,95,.10);
-      color:#ff9b9b;
-      border-color:rgba(255,95,95,.18);
+      backgroundrgba(255,95,95,.10);
+      color#ff9b9b;
+      border-colorrgba(255,95,95,.18);
     }
 
     .mini-stats{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:10px;
+      displaygrid;
+      grid-template-columnsrepeat(2,1fr);
+      gap10px;
     }
 
     .mini{
-      padding:12px;
-      border-radius:16px;
-      background:rgba(255,215,0,.04);
-      border:1px solid rgba(255,215,0,.08);
-      transition:.25s;
+      padding12px;
+      border-radius16px;
+      backgroundrgba(255,215,0,.04);
+      border1px solid rgba(255,215,0,.08);
+      transition.25s;
     }
 
-    .mini:hover{transform:translateY(-2px);background:rgba(255,215,0,.06)}
-    .mini.red{background:rgba(255,0,0,.05);border-color:rgba(255,0,0,.10)}
+    .minihover{transformtranslateY(-2px);backgroundrgba(255,215,0,.06)}
+    .mini.red{backgroundrgba(255,0,0,.05);border-colorrgba(255,0,0,.10)}
 
     .mini .label{
-      font-size:12px;
-      color:var(--muted);
-      margin-bottom:8px;
-      text-transform:uppercase;
-      letter-spacing:1px;
+      font-size12px;
+      colorvar(--muted);
+      margin-bottom8px;
+      text-transformuppercase;
+      letter-spacing1px;
     }
 
-    .mini .value{font-size:22px;color:#fff2b6;font-weight:800}
+    .mini .value{font-size22px;color#fff2b6;font-weight800}
 
     .profile-hero{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:16px;
+      displayflex;
+      align-itemscenter;
+      justify-contentspace-between;
+      gap16px;
+      flex-wrapwrap;
+      margin-bottom16px;
     }
 
-    .profile-name{font-size:30px;color:#ffe89a;margin-bottom:6px;font-weight:900}
-    .profile-role{color:var(--muted);text-transform:uppercase;font-size:13px;letter-spacing:1px}
+    .profile-name{font-size30px;color#ffe89a;margin-bottom6px;font-weight900}
+    .profile-role{colorvar(--muted);text-transformuppercase;font-size13px;letter-spacing1px}
 
-    .entry-list{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+    .entry-list{displayflex;flex-directioncolumn;gap12px;margin-top16px}
 
     .entry{
-      padding:14px;
-      border-radius:18px;
-      background:rgba(255,255,255,.02);
-      border:1px solid rgba(255,215,0,.08);
-      transition:.25s;
+      padding14px;
+      border-radius18px;
+      backgroundrgba(255,255,255,.02);
+      border1px solid rgba(255,215,0,.08);
+      transition.25s;
     }
 
-    .entry:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.03);
-      border-color:rgba(255,215,0,.14);
+    .entryhover{
+      transformtranslateY(-2px);
+      backgroundrgba(255,255,255,.03);
+      border-colorrgba(255,215,0,.14);
     }
 
     .entry-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:8px;
+      displayflex;
+      align-itemscenter;
+      justify-contentspace-between;
+      gap10px;
+      flex-wrapwrap;
+      margin-bottom8px;
     }
 
-    .entry-title{color:#ffe89a;font-weight:800}
-    .entry-meta{color:#9a9a9a;font-size:12px}
-    .entry-text{color:#d8d8d8;line-height:1.55;font-size:14px;white-space:pre-wrap}
+    .entry-title{color#ffe89a;font-weight800}
+    .entry-meta{color#9a9a9a;font-size12px}
+    .entry-text{color#d8d8d8;line-height1.55;font-size14px;white-spacepre-wrap}
 
     .tag{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:11px;
-      letter-spacing:.8px;
-      text-transform:uppercase;
-      border:1px solid rgba(255,215,0,.12);
-      background:rgba(255,215,0,.04);
-      color:#f1d67d;
+      displayinline-block;
+      padding6px 10px;
+      border-radius999px;
+      font-size11px;
+      letter-spacing.8px;
+      text-transformuppercase;
+      border1px solid rgba(255,215,0,.12);
+      backgroundrgba(255,215,0,.04);
+      color#f1d67d;
     }
 
     .tag.red{
-      color:#ff9d9d;
-      border-color:rgba(255,95,95,.16);
-      background:rgba(255,95,95,.06);
+      color#ff9d9d;
+      border-colorrgba(255,95,95,.16);
+      backgroundrgba(255,95,95,.06);
     }
 
     .tag.green{
-      color:#9ef0b0;
-      border-color:rgba(143,240,164,.16);
-      background:rgba(143,240,164,.06);
+      color#9ef0b0;
+      border-colorrgba(143,240,164,.16);
+      backgroundrgba(143,240,164,.06);
     }
 
     .tag.blue{
-      color:#9dc7ff;
-      border-color:rgba(125,180,255,.16);
-      background:rgba(125,180,255,.06);
+      color#9dc7ff;
+      border-colorrgba(125,180,255,.16);
+      backgroundrgba(125,180,255,.06);
     }
 
     .actions{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:10px;
+      displayflex;
+      gap8px;
+      flex-wrapwrap;
+      margin-top10px;
     }
 
     .list-simple{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:8px;
+      displayflex;
+      flex-directioncolumn;
+      gap10px;
+      margin-top8px;
     }
 
     .list-item{
-      padding:12px 14px;
-      border-radius:14px;
-      background:rgba(255,255,255,.02);
-      border:1px solid rgba(255,215,0,.08);
-      color:#ddd;
-      font-size:14px;
-      line-height:1.5;
-      transition:.25s;
+      padding12px 14px;
+      border-radius14px;
+      backgroundrgba(255,255,255,.02);
+      border1px solid rgba(255,215,0,.08);
+      color#ddd;
+      font-size14px;
+      line-height1.5;
+      transition.25s;
     }
 
-    .list-item:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.03);
+    .list-itemhover{
+      transformtranslateY(-2px);
+      backgroundrgba(255,255,255,.03);
     }
 
-    .empty{color:#8a8a8a;font-size:14px;padding:14px 0 4px}
+    .empty{color#8a8a8a;font-size14px;padding14px 0 4px}
 
     table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:8px;
+      width100%;
+      border-collapsecollapse;
+      margin-top8px;
     }
 
     th,td{
-      padding:12px 10px;
-      text-align:left;
-      border-bottom:1px solid rgba(255,215,0,.08);
-      font-size:14px;
-      vertical-align:top;
+      padding12px 10px;
+      text-alignleft;
+      border-bottom1px solid rgba(255,215,0,.08);
+      font-size14px;
+      vertical-aligntop;
     }
 
     th{
-      color:#f3db86;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      font-size:12px;
+      color#f3db86;
+      font-weight800;
+      text-transformuppercase;
+      letter-spacing1px;
+      font-size12px;
     }
 
-    tbody tr{transition:.2s}
-    tbody tr:hover{background:rgba(255,215,0,.03)}
+    tbody tr{transition.2s}
+    tbody trhover{backgroundrgba(255,215,0,.03)}
 
-    .rank-num{font-size:20px;font-weight:900;color:#fff1a8}
+    .rank-num{font-size20px;font-weight900;color#fff1a8}
     .score-big{
-      font-size:30px;
-      font-weight:900;
-      color:#fff3bf;
-      animation:glowScore 2s infinite alternate;
+      font-size30px;
+      font-weight900;
+      color#fff3bf;
+      animationglowScore 2s infinite alternate;
     }
 
     @keyframes glowScore{
-      from{text-shadow:0 0 10px rgba(255,215,0,.5);transform:scale(1)}
-      to{text-shadow:0 0 20px rgba(255,80,80,.35);transform:scale(1.04)}
+      from{text-shadow0 0 10px rgba(255,215,0,.5);transformscale(1)}
+      to{text-shadow0 0 20px rgba(255,80,80,.35);transformscale(1.04)}
     }
 
     .exclamation{
-      display:inline-flex;
-      width:22px;height:22px;
-      align-items:center;justify-content:center;
-      border-radius:999px;
-      background:rgba(255,95,95,.15);
-      color:#ff9d9d;
-      font-weight:900;
-      border:1px solid rgba(255,95,95,.22);
-      margin-right:8px;
-      animation:blinkSoft 2s infinite;
+      displayinline-flex;
+      width22px;height22px;
+      align-itemscenter;justify-contentcenter;
+      border-radius999px;
+      backgroundrgba(255,95,95,.15);
+      color#ff9d9d;
+      font-weight900;
+      border1px solid rgba(255,95,95,.22);
+      margin-right8px;
+      animationblinkSoft 2s infinite;
     }
 
     @keyframes blinkSoft{
-      0%,100%{box-shadow:0 0 0 rgba(255,95,95,0)}
-      50%{box-shadow:0 0 16px rgba(255,95,95,.18)}
+      0%,100%{box-shadow0 0 0 rgba(255,95,95,0)}
+      50%{box-shadow0 0 16px rgba(255,95,95,.18)}
     }
 
-    .range-wrap{margin-top:8px}
+    .range-wrap{margin-top8px}
     .range-label{
-      display:flex;
-      justify-content:space-between;
-      font-size:12px;
-      color:#b9b9b9;
-      margin-bottom:8px;
+      displayflex;
+      justify-contentspace-between;
+      font-size12px;
+      color#b9b9b9;
+      margin-bottom8px;
     }
 
-    input[type="range"]{
-      width:100%;
-      appearance:none;
-      height:8px;
-      border-radius:999px;
-      background:linear-gradient(90deg, rgba(255,70,70,.85), rgba(255,215,0,.9));
-      outline:none;
-      box-shadow:0 0 12px rgba(255,0,0,.12);
-      margin-bottom:14px;
+    input[type=range]{
+      width100%;
+      appearancenone;
+      height8px;
+      border-radius999px;
+      backgroundlinear-gradient(90deg, rgba(255,70,70,.85), rgba(255,215,0,.9));
+      outlinenone;
+      box-shadow0 0 12px rgba(255,0,0,.12);
+      margin-bottom14px;
     }
 
-    input[type="range"]::-webkit-slider-thumb{
-      appearance:none;
-      width:20px;height:20px;border-radius:50%;
-      background:#fff3c2;
-      border:2px solid #ff5252;
-      box-shadow:0 0 12px rgba(255,0,0,.25), 0 0 10px rgba(255,215,0,.25);
-      cursor:pointer;
-      transition:.2s;
+    input[type=range]-webkit-slider-thumb{
+      appearancenone;
+      width20px;height20px;border-radius50%;
+      background#fff3c2;
+      border2px solid #ff5252;
+      box-shadow0 0 12px rgba(255,0,0,.25), 0 0 10px rgba(255,215,0,.25);
+      cursorpointer;
+      transition.2s;
     }
 
-    input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.08)}
+    input[type=range]-webkit-slider-thumbhover{transformscale(1.08)}
 
     .image-preview{
-      width:100%;
-      max-height:260px;
-      object-fit:cover;
-      border-radius:16px;
-      border:1px solid rgba(255,215,0,.08);
-      margin-top:10px;
-      transition:.25s;
+      width100%;
+      max-height260px;
+      object-fitcover;
+      border-radius16px;
+      border1px solid rgba(255,215,0,.08);
+      margin-top10px;
+      transition.25s;
     }
 
-    .image-preview:hover{
-      transform:scale(1.01);
-      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    .image-previewhover{
+      transformscale(1.01);
+      box-shadow0 10px 24px rgba(0,0,0,.25);
     }
 
     .deadline-badge.late{
-      color:#ff9c9c;
-      border-color:rgba(255,80,80,.18);
-      background:rgba(255,80,80,.08);
+      color#ff9c9c;
+      border-colorrgba(255,80,80,.18);
+      backgroundrgba(255,80,80,.08);
     }
 
     .deadline-badge.today{
-      color:#ffd98f;
-      border-color:rgba(255,180,0,.18);
-      background:rgba(255,180,0,.08);
+      color#ffd98f;
+      border-colorrgba(255,180,0,.18);
+      backgroundrgba(255,180,0,.08);
     }
 
-    .rating-table-wrap{overflow:auto}
+    .rating-table-wrap{overflowauto}
 
-    @media (max-width:1100px){
-      .stat-card{grid-column:span 6}
-      .wide,.side,.operator-main,.operator-side{grid-column:span 12}
-      .operators-grid{grid-template-columns:1fr}
+    @media (max-width1100px){
+      .stat-card{grid-columnspan 6}
+      .wide,.side,.operator-main,.operator-side{grid-columnspan 12}
+      .operators-grid{grid-template-columns1fr}
     }
 
-    @media (max-width:720px){
-      .app{padding:14px}
-      .topbar{padding:16px;border-radius:18px}
-      .dashboard-grid,.operator-dashboard{gap:14px}
-      .stat-card{grid-column:span 12}
-      .mini-stats{grid-template-columns:1fr}
-      .profile-name{font-size:24px}
-      .main-logo,.brand-title{font-size:34px}
+    @media (max-width720px){
+      .app{padding14px}
+      .topbar{padding16px;border-radius18px}
+      .dashboard-grid,.operator-dashboard{gap14px}
+      .stat-card{grid-columnspan 12}
+      .mini-stats{grid-template-columns1fr}
+      .profile-name{font-size24px}
+      .main-logo,.brand-title{font-size34px}
     }
-  </style>
-</head>
-<body>
-  <div class="particles"></div>
+  style
+head
+body
+  div class=particlesdiv
 
-  <div class="trophies">
-    <div class="trophy t1">🏆</div>
-    <div class="trophy t2">🏆</div>
-    <div class="trophy t3">🏆</div>
-    <div class="trophy t4">🏆</div>
-    <div class="trophy t5">🏆</div>
-    <div class="trophy t6">🏆</div>
-    <div class="trophy t7">🏆</div>
-    <div class="trophy t8">🏆</div>
-    <div class="trophy t9">🏆</div>
-    <div class="trophy t10">🏆</div>
-  </div>
+  div class=trophies
+    div class=trophy t1🏆div
+    div class=trophy t2🏆div
+    div class=trophy t3🏆div
+    div class=trophy t4🏆div
+    div class=trophy t5🏆div
+    div class=trophy t6🏆div
+    div class=trophy t7🏆div
+    div class=trophy t8🏆div
+    div class=trophy t9🏆div
+    div class=trophy t10🏆div
+  div
 
-  <div id="loginScreen" class="screen">
-    <div class="login-box">
-      <div class="badge">Private Luxury Access</div>
-      <div class="gold-line"></div>
-      <div class="main-logo">TLOD 32</div>
-      <div class="subtitle">Luxury Firebase Team Panel</div>
+  div id=loginScreen class=screen
+    div class=login-box
+      div class=badgePrivate Luxury Accessdiv
+      div class=gold-linediv
+      div class=main-logoTLOD 32div
+      div class=subtitleLuxury Firebase Team Paneldiv
 
-     <input id="email" class="input" type="email" placeholder="Email">
-<input id="password" class="input" type="password" placeholder="Пароль">
-<button class="btn" onclick="login()">👑 УВІЙТИ ЯК ШЕЙХ</button>
-<div id="loginMessage" style="min-height:22px;color:#ff7b7b;margin-top:12px;"></div>
+      input id=email class=input type=email placeholder=Email
+      input id=password class=input type=password placeholder=Пароль
+      button class=btn onclick=login()👑 УВІЙТИ ЯК ШЕЙХbutton
+      div id=loginMessage style=min-height22px;color#ff7b7b;margin-top12px;div
 
-      <div class="help">
+      div class=help
         Вхід через Firebase.
-        <br>Усі записи, оцінки, баланси й задачі зберігаються онлайн.
-      </div>
-    </div>
-  </div>
+        brУсі записи, оцінки, баланси й задачі зберігаються онлайн.
+      div
+    div
+  div
 
-  <div id="appScreen" class="app hidden"></div>
+  div id=appScreen class=app hiddendiv
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  script type=module
+    import { initializeApp } from httpswww.gstatic.comfirebasejs11.6.1firebase-app.js;
     import {
       getAuth,
       signInWithEmailAndPassword,
       signOut,
       onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    } from httpswww.gstatic.comfirebasejs11.6.1firebase-auth.js;
 
     import {
       getFirestore,
@@ -847,15 +847,15 @@
       collection,
       getDocs,
       addDoc
-    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    } from httpswww.gstatic.comfirebasejs11.6.1firebase-firestore.js;
 
     const firebaseConfig = {
-      apiKey: "AIzaSyD6WfRk1bElkX0s9qqqkv55qmq2SthZa3g",
-      authDomain: "tlod-32.firebaseapp.com",
-      projectId: "tlod-32",
-      storageBucket: "tlod-32.firebasestorage.app",
-      messagingSenderId: "775385357522",
-      appId: "1:775385357522:web:81a320d958be47a943e10b"
+      apiKey AIzaSyD6WfRk1bElkX0s9qqqkv55qmq2SthZa3g,
+      authDomain tlod-32.firebaseapp.com,
+      projectId tlod-32,
+      storageBucket tlod-32.firebasestorage.app,
+      messagingSenderId 775385357522,
+      appId 1775385357522web81a320d958be47a943e10b
     };
 
     const app = initializeApp(firebaseConfig);
@@ -863,76 +863,60 @@
     const db = getFirestore(app);
 
     let currentUser = null;
-let currentProfile = null;
-let adminTab = "dashboard";
-let operatorTab = "overview";
-let selectedMonth = new Date().toISOString().slice(0,7);
+    let currentProfile = null;
+    let adminTab = dashboard;
+    let operatorTab = overview;
 
     function escapeHtml(str) {
-      return String(str ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+      return String(str  )
+        .replaceAll(&, &amp;)
+        .replaceAll(, &lt;)
+        .replaceAll(, &gt;)
+        .replaceAll('', &quot;)
+        .replaceAll(', &#039;);
     }
 
     function money(n){
-      return "$" + Number(n || 0).toLocaleString("en-US");
+      return $ + Number(n  0).toLocaleString(en-US);
     }
 
     function avg(arr){
       if (!arr.length) return 0;
-      return arr.reduce((a,b)=>a+b,0) / arr.length;
+      return arr.reduce((a,b)=a+b,0)  arr.length;
     }
 
     function reviewedAvg(items){
-      const filtered = items.filter(i => i.reviewed);
-      return filtered.length ? avg(filtered.map(i => Number(i.score || 0))) : 0;
+      const filtered = items.filter(i = i.reviewed);
+      return filtered.length  avg(filtered.map(i = Number(i.score  0)))  0;
     }
 
     function getRyuTuStats(items){
-      const totalRyu = items.reduce((s, i) => s + Number(i.ryu || 0), 0);
-      const totalTu = items.reduce((s, i) => s + Number(i.tu || 0), 0);
-      const avgBalance = items.length ? items.reduce((s, i) => s + Number(i.balance || 0), 0) / items.length : 0;
+      const totalRyu = items.reduce((s, i) = s + Number(i.ryu  0), 0);
+      const totalTu = items.reduce((s, i) = s + Number(i.tu  0), 0);
+      const avgBalance = items.length  items.reduce((s, i) = s + Number(i.balance  0), 0)  items.length  0;
       const avgScore = reviewedAvg(items);
       return { totalRyu, totalTu, avgBalance, avgScore };
     }
 
-   function getMonthFromDate(dateStr){
-  return String(dateStr || "").slice(0,7);
-}
-
-function filterByMonth(items, month){
-  return items.filter(item => getMonthFromDate(item.date) === month);
-}
-
-function getLatestBalance(items){
-  if (!items.length) return 0;
-  return Number(items[0].balance || 0);
-}
-
-function getMonthTotalBalance(items){
-  return items.reduce((sum, item) => sum + Number(item.balance || 0), 0);
-} function getAverageBalance(items){
+    function getAverageBalance(items){
       if (!items.length) return 0;
-      return items.reduce((sum, item) => sum + Number(item.balance || 0), 0) / items.length;
+      return items.reduce((sum, item) = sum + Number(item.balance  0), 0)  items.length;
     }
 
     function calcOperatorScore(op, reports, ryutu){
       const rt = getRyuTuStats(ryutu);
       const reportAvg = reviewedAvg(reports);
-      const weekScore = Number(op.weekScore || 0);
-      const normPercent = op.norm ? (Number(op.revenue || 0) / Number(op.norm || 1)) * 100 : 0;
-      const finePenalty = Number(op.fineDollars || 0) * 1.5;
-      const improvePenalty = (op.improvements || []).length * 6;
+      const weekScore = Number(op.weekScore  0);
+      const normPercent = op.norm  (Number(op.revenue  0)  Number(op.norm  1))  100  0;
+      const finePenalty = Number(op.fineDollars  0)  1.5;
+      const improvePenalty = (op.improvements  []).length  6;
 
       return Math.round(
-        Number(op.revenue || 0) * 0.7 +
-        normPercent * 2 +
-        reportAvg * 10 +
-        rt.avgScore * 10 +
-        weekScore * 10 -
+        Number(op.revenue  0)  0.7 +
+        normPercent  2 +
+        reportAvg  10 +
+        rt.avgScore  10 +
+        weekScore  10 -
         finePenalty -
         improvePenalty
       );
@@ -942,15 +926,15 @@ function getMonthTotalBalance(items){
       let best = null;
       let bestScore = -999999;
       for (const op of operators){
-        const opReports = reports.filter(x => x.operatorId === op.id);
-        const opRyuTu = ryutu.filter(x => x.operatorId === op.id);
+        const opReports = reports.filter(x = x.operatorId === op.id);
+        const opRyuTu = ryutu.filter(x = x.operatorId === op.id);
         const score = calcOperatorScore(op, opReports, opRyuTu);
-        if(score > bestScore){
+        if(score  bestScore){
           bestScore = score;
           best = op;
         }
       }
-      return { best, score: bestScore };
+      return { best, score bestScore };
     }
 
     function isToday(dateStr){
@@ -962,19 +946,19 @@ function getMonthTotalBalance(items){
     function isLate(dateStr){
       if (!dateStr) return false;
       const now = new Date().toISOString().slice(0,10);
-      return dateStr < now;
+      return dateStr  now;
     }
 
     async function login() {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const message = document.getElementById("loginMessage");
+      const email = document.getElementById(email).value.trim();
+      const password = document.getElementById(password).value.trim();
+      const message = document.getElementById(loginMessage);
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        message.textContent = "";
+        message.textContent = ;
       } catch (e) {
-        message.textContent = "Невірний email або пароль";
+        message.textContent = Невірний email або пароль;
       }
     }
     window.login = login;
@@ -985,148 +969,148 @@ function getMonthTotalBalance(items){
     window.logout = logout;
 
     async function loadProfileByEmail(email) {
-      const snap = await getDocs(collection(db, "users"));
+      const snap = await getDocs(collection(db, users));
       let found = null;
-      snap.forEach((d) => {
+      snap.forEach((d) = {
         const data = d.data();
         if (data.email === email) {
-          found = { id: d.id, ...data };
+          found = { id d.id, ...data };
         }
       });
       return found;
     }
 
     async function ensureOperatorStats(profile) {
-      const ref = doc(db, "operatorStats", profile.id);
+      const ref = doc(db, operatorStats, profile.id);
       const snap = await getDoc(ref);
       if (!snap.exists()) {
         await setDoc(ref, {
-          name: profile.name || "Operator",
-          shift: profile.shift || "",
-          norm: Number(profile.norm || 0),
-          status: "Online",
-          requests: 0,
-          revenue: 0,
-          fineDollars: 0,
-          weekScore: 0,
-          strengths: [],
-          improvements: [],
-          weeklyPlan: []
+          name profile.name  Operator,
+          shift profile.shift  ,
+          norm Number(profile.norm  0),
+          status Online,
+          requests 0,
+          revenue 0,
+          fineDollars 0,
+          weekScore 0,
+          strengths [],
+          improvements [],
+          weeklyPlan []
         });
       }
     }
 
     async function getOperatorStats(id) {
-      const snap = await getDoc(doc(db, "operatorStats", id));
-      return snap.exists() ? snap.data() : null;
+      const snap = await getDoc(doc(db, operatorStats, id));
+      return snap.exists()  snap.data()  null;
     }
 
     async function getAllOperatorStats() {
-      const usersSnap = await getDocs(collection(db, "users"));
+      const usersSnap = await getDocs(collection(db, users));
       const result = [];
       for (const u of usersSnap.docs) {
         const userData = u.data();
-        if (userData.role === "operator") {
-          await ensureOperatorStats({ id: u.id, ...userData });
+        if (userData.role === operator) {
+          await ensureOperatorStats({ id u.id, ...userData });
           const stats = await getOperatorStats(u.id);
-          result.push({ id: u.id, ...userData, ...stats });
+          result.push({ id u.id, ...userData, ...stats });
         }
       }
       return result;
     }
 
     async function getReports(operatorId = null) {
-      const snap = await getDocs(collection(db, "reports"));
+      const snap = await getDocs(collection(db, reports));
       const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
+      snap.forEach(d = {
+        const x = { id d.id, ...d.data() };
+        if (!operatorId  x.operatorId === operatorId) arr.push(x);
       });
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+      arr.sort((a,b)=String(b.date).localeCompare(String(a.date)));
       return arr;
     }
 
     async function getRyuTu(operatorId = null) {
-      const snap = await getDocs(collection(db, "ryutu"));
+      const snap = await getDocs(collection(db, ryutu));
       const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
+      snap.forEach(d = {
+        const x = { id d.id, ...d.data() };
+        if (!operatorId  x.operatorId === operatorId) arr.push(x);
       });
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+      arr.sort((a,b)=String(b.date).localeCompare(String(a.date)));
       return arr;
     }
 
     async function getExamples() {
-      const snap = await getDocs(collection(db, "examples"));
+      const snap = await getDocs(collection(db, examples));
       const arr = [];
-      snap.forEach(d => arr.push({ id: d.id, ...d.data() }));
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+      snap.forEach(d = arr.push({ id d.id, ...d.data() }));
+      arr.sort((a,b)=String(b.date).localeCompare(String(a.date)));
       return arr;
     }
 
     async function getBalances(operatorId = null) {
-      const snap = await getDocs(collection(db, "balances"));
+      const snap = await getDocs(collection(db, balances));
       const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
+      snap.forEach(d = {
+        const x = { id d.id, ...d.data() };
+        if (!operatorId  x.operatorId === operatorId) arr.push(x);
       });
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+      arr.sort((a,b)=String(b.date).localeCompare(String(a.date)));
       return arr;
     }
 
     async function getTasks(operatorId = null) {
-      const snap = await getDocs(collection(db, "tasks"));
+      const snap = await getDocs(collection(db, tasks));
       const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
+      snap.forEach(d = {
+        const x = { id d.id, ...d.data() };
+        if (!operatorId  x.operatorId === operatorId) arr.push(x);
       });
-      arr.sort((a,b)=>String(a.deadline || "").localeCompare(String(b.deadline || "")));
+      arr.sort((a,b)=String(a.deadline  ).localeCompare(String(b.deadline  )));
       return arr;
     }
 
     function renderShell(content) {
-      const greeting = currentProfile.role === "admin"
-        ? "👑 Привіт Артьомушка"
-        : "🔥 Привіт " + currentProfile.name;
+      const greeting = currentProfile.role === admin
+         👑 Привіт Артьомушка
+         🔥 Привіт  + currentProfile.name;
 
       return `
-        <div class="topbar">
-          <div class="brand-wrap">
-            <div class="brand-badge">32</div>
-            <div>
-              <div class="brand-title">TLOD 32</div>
-              <div class="brand-sub">Luxury Firebase Team System</div>
-            </div>
-          </div>
+        div class=topbar
+          div class=brand-wrap
+            div class=brand-badge32div
+            div
+              div class=brand-titleTLOD 32div
+              div class=brand-subLuxury Firebase Team Systemdiv
+            div
+          div
 
-          <div class="topbar-right">
-            <div class="user-chip">${escapeHtml(greeting)}</div>
-            <button class="btn secondary small" onclick="logout()">🚪 Вийти</button>
-          </div>
-        </div>
+          div class=topbar-right
+            div class=user-chip${escapeHtml(greeting)}div
+            button class=btn secondary small onclick=logout()🚪 Вийтиbutton
+          div
+        div
 
         ${content}
       `;
     }
 
     function bindDynamicActions() {
-      document.querySelectorAll("[data-live-value]").forEach(el => {
+      document.querySelectorAll([data-live-value]).forEach(el = {
         const target = document.getElementById(el.dataset.liveValue);
         if (!target) return;
-        const update = () => { target.textContent = el.value; };
-        el.addEventListener("input", update);
+        const update = () = { target.textContent = el.value; };
+        el.addEventListener(input, update);
         update();
       });
     }
 
     async function renderApp() {
-      const appEl = document.getElementById("appScreen");
-      if (!currentUser || !currentProfile) return;
+      const appEl = document.getElementById(appScreen);
+      if (!currentUser  !currentProfile) return;
 
-      if (currentProfile.role === "admin") {
+      if (currentProfile.role === admin) {
         appEl.innerHTML = await renderAdmin();
       } else {
         appEl.innerHTML = await renderOperator(currentProfile.id);
@@ -1143,401 +1127,381 @@ function getMonthTotalBalance(items){
       const balancesAll = await getBalances();
       const tasksAll = await getTasks();
 
-      const ranked = operators.map(op => {
-        const opReports = reportsAll.filter(x => x.operatorId === op.id);
-        const opRyuTu = ryutuAll.filter(x => x.operatorId === op.id);
+      const ranked = operators.map(op = {
+        const opReports = reportsAll.filter(x = x.operatorId === op.id);
+        const opRyuTu = ryutuAll.filter(x = x.operatorId === op.id);
         return {
           ...op,
-          score: calcOperatorScore(op, opReports, opRyuTu),
-          reportAvg: reviewedAvg(opReports),
-          ryutuStats: getRyuTuStats(opRyuTu)
+          score calcOperatorScore(op, opReports, opRyuTu),
+          reportAvg reviewedAvg(opReports),
+          ryutuStats getRyuTuStats(opRyuTu)
         };
-      }).sort((a,b)=>b.score-a.score);
+      }).sort((a,b)=b.score-a.score);
 
-      const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
-      const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
+      const totalRevenue = operators.reduce((s,o)=s+Number(o.revenue0),0);
+      const totalFines = operators.reduce((s,o)=s+Number(o.fineDollars0),0);
       const leader = getLeaderOfDay(operators, reportsAll, ryutuAll);
 
-      let content = "";
+      let content = ;
 
-      if (adminTab === "dashboard") {
+      if (adminTab === dashboard) {
         content = `
-          <div class="dashboard-grid">
-            <div class="card stat-card"><div class="stat-label">Зроблено</div><div class="stat-value">${money(totalRevenue)}</div><div class="stat-sub">Сумарний результат</div></div>
-            <div class="card stat-card"><div class="stat-label">Штрафи</div><div class="stat-value">${money(totalFines)}</div><div class="stat-sub">У доларах</div></div>
-            <div class="card stat-card"><div class="stat-label">Звіти</div><div class="stat-value">${reportsAll.length}</div><div class="stat-sub">Всього подано</div></div>
-            <div class="card stat-card"><div class="stat-label">РЮ / ТЮ</div><div class="stat-value">${ryutuAll.length}</div><div class="stat-sub">Всього записів</div></div>
+          div class=dashboard-grid
+            div class=card stat-carddiv class=stat-labelЗробленоdivdiv class=stat-value${money(totalRevenue)}divdiv class=stat-subСумарний результатdivdiv
+            div class=card stat-carddiv class=stat-labelШтрафиdivdiv class=stat-value${money(totalFines)}divdiv class=stat-subУ доларахdivdiv
+            div class=card stat-carddiv class=stat-labelЗвітиdivdiv class=stat-value${reportsAll.length}divdiv class=stat-subВсього поданоdivdiv
+            div class=card stat-carddiv class=stat-labelРЮ  ТЮdivdiv class=stat-value${ryutuAll.length}divdiv class=stat-subВсього записівdivdiv
 
-            <div class="card full">
-              <h2>Оператори</h2>
-              <div class="operators-grid">
-                ${ranked.map(op => `
-                  <div class="operator-card">
-                    <div class="operator-head">
-                      <div>
-                        <div class="operator-name">${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</div>
-                        <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
-                      </div>
-                      <div class="status ${op.score < 50 ? 'red' : ''}">Score ${op.score}</div>
-                    </div>
+            div class=card full
+              h2Операториh2
+              div class=operators-grid
+                ${ranked.map(op = `
+                  div class=operator-card
+                    div class=operator-head
+                      div
+                        div class=operator-name${escapeHtml(op.name)} ${op.score  200  🔥  }div
+                        div class=entry-meta style=margin-top4px;${escapeHtml(op.shift)}div
+                      div
+                      div class=status ${op.score  50  'red'  ''}Score ${op.score}div
+                    div
 
-                    <div class="mini-stats">
-                      <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-                      <div class="mini"><div class="label">Зроблено</div><div class="value">${money(op.revenue)}</div></div>
-                      <div class="mini"><div class="label">РЮ</div><div class="value">${op.ryutuStats.totalRyu}</div></div>
-                      <div class="mini red"><div class="label">ТЮ</div><div class="value">${op.ryutuStats.totalTu}</div></div>
-                    </div>
-                  </div>
-                `).join("")}
-              </div>
-            </div>
-          </div>
+                    div class=mini-stats
+                      div class=minidiv class=labelНормаdivdiv class=value${money(op.norm)}divdiv
+                      div class=minidiv class=labelЗробленоdivdiv class=value${money(op.revenue)}divdiv
+                      div class=minidiv class=labelРЮdivdiv class=value${op.ryutuStats.totalRyu}divdiv
+                      div class=mini reddiv class=labelТЮdivdiv class=value${op.ryutuStats.totalTu}divdiv
+                    div
+                  div
+                `).join()}
+              div
+            div
+          div
         `;
       }
 
-      if (adminTab === "reports") {
+      if (adminTab === reports) {
         content = `
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>Звіти операторів</h2>
-              <div class="entry-list">
-                ${reportsAll.length ? reportsAll.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Не перевірено'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
+          div class=dashboard-grid
+            div class=card full
+              h2Звіти операторівh2
+              div class=entry-list
+                ${reportsAll.length  reportsAll.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-titlespan class=exclamation!span${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}div
+                      div style=displayflex; gap8px; flex-wrapwrap;
+                        span class=tag ${item.reviewed  'blue'  'red'}${item.reviewed  `Оцінка ${Number(item.score0)}10 ${Number(item.score0) = 8  🔥  }`  'Не перевірено'}span
+                        div class=entry-meta${escapeHtml(item.date)}div
+                      div
+                    div
 
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
+                    div class=entry-text${escapeHtml(item.text  )}div
+                    ${item.reviewed  `div class=entry-meta style=margin-top10px;Фідбек ${escapeHtml(item.feedback  —)}div`  }
 
-                  <div class="actions">
+                  div class=actions
   ${item.reviewed
-    ? `<button class="btn secondary small" disabled>🔒 Перевірено</button>`
-    : `
-      <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
-      <button class="btn red small" onclick="removeOwnReport('${item.id}')">Видалити</button>
+     `button class=btn secondary small disabled🔒 Перевіреноbutton`
+     `
+      button class=btn small onclick=editOwnReport('${item.id}')Редагуватиbutton
+      button class=btn red small onclick=removeOwnReport('${item.id}')Видалитиbutton
     `
   }
-</div>
+div
 
-                    <div id="editReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="reportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва звіту">
-                      <textarea id="reportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
+                    div id=editReportBox_${item.id} class=hidden style=margin-top12px;
+                      input id=reportTitle_${item.id} class=input value=${escapeHtml(item.title)} placeholder=Назва звіту
+                      textarea id=reportText_${item.id} class=textarea placeholder=Текст${escapeHtml(item.text  )}textarea
 
-                      <div class="range-wrap">
-                        <div class="range-label">
-                          <span>Оцінка звіту</span>
-                          <span id="reportScoreValue_${item.id}">${Number(item.score || 0)}</span>
-                        </div>
-                        <input id="reportScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="reportScoreValue_${item.id}">
-                      </div>
+                      div class=range-wrap
+                        div class=range-label
+                          spanОцінка звітуspan
+                          span id=reportScoreValue_${item.id}${Number(item.score  0)}span
+                        div
+                        input id=reportScore_${item.id} type=range min=0 max=10 value=${Number(item.score  0)} data-live-value=reportScoreValue_${item.id}
+                      div
 
-                      <textarea id="reportFeedback_${item.id}" class="textarea" placeholder="Фідбек">${escapeHtml(item.feedback || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveReportEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeReportEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
-              </div>
-            </div>
-          </div>
+                      textarea id=reportFeedback_${item.id} class=textarea placeholder=Фідбек${escapeHtml(item.feedback  )}textarea
+                      div class=actions
+                        button class=btn small onclick=saveReportEdit('${item.id}')Зберегтиbutton
+                        button class=btn secondary small onclick=closeReportEdit('${item.id}')Закритиbutton
+                      div
+                    div
+                  div
+                `).join()  `div class=emptyПоки звітів немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (adminTab === "ryutu") {
+      if (adminTab === ryutu) {
         content = `
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>РЮ / ТЮ від операторів</h2>
-              <div class="entry-list">
-                ${ryutuAll.length ? ryutuAll.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Не перевірено'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
+          div class=dashboard-grid
+            div class=card full
+              h2РЮ  ТЮ від операторівh2
+              div class=entry-list
+                ${ryutuAll.length  ryutuAll.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-title${escapeHtml(item.operatorName)} — РЮ ${item.ryu}, ТЮ ${item.tu}div
+                      div style=displayflex; gap8px; flex-wrapwrap;
+                        span class=tag ${item.reviewed  'green'  'red'}${item.reviewed  `Оцінка ${Number(item.score0)}10 ${Number(item.score0) = 8  🔥  }`  'Не перевірено'}span
+                        div class=entry-meta${escapeHtml(item.date)}div
+                      div
+                    div
 
-                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
+                    div class=entry-textСередній баланс ${money(item.balance)}div
+                    ${item.reviewed  `div class=entry-meta style=margin-top10px;Фідбек ${escapeHtml(item.feedback  —)}div`  }
 
-                    <div class="actions">
-                      <button class="btn small" onclick="editRyuTu('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                    </div>
+                    div class=actions
+                      button class=btn small onclick=editRyuTu('${item.id}')Редагуватиbutton
+                      button class=btn red small onclick=removeRyuTu('${item.id}')Видалитиbutton
+                    div
 
-                    <div id="editRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ryu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                      <input id="tu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                      <input id="balance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
+                    div id=editRyuTuBox_${item.id} class=hidden style=margin-top12px;
+                      input id=ryu_${item.id} class=input type=number value=${Number(item.ryu  0)} placeholder=РЮ
+                      input id=tu_${item.id} class=input type=number value=${Number(item.tu  0)} placeholder=ТЮ
+                      input id=balance_${item.id} class=input type=number value=${Number(item.balance  0)} placeholder=Середній баланс
 
-                      <div class="range-wrap">
-                        <div class="range-label">
-                          <span>Оцінка РЮ / ТЮ</span>
-                          <span id="rtScoreValue_${item.id}">${Number(item.score || 0)}</span>
-                        </div>
-                        <input id="rtScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="rtScoreValue_${item.id}">
-                      </div>
+                      div class=range-wrap
+                        div class=range-label
+                          spanОцінка РЮ  ТЮspan
+                          span id=rtScoreValue_${item.id}${Number(item.score  0)}span
+                        div
+                        input id=rtScore_${item.id} type=range min=0 max=10 value=${Number(item.score  0)} data-live-value=rtScoreValue_${item.id}
+                      div
 
-                      <textarea id="rtFeedback_${item.id}" class="textarea" placeholder="Фідбек / проблема">${escapeHtml(item.feedback || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveRyuTuEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeRyuTuEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
-              </div>
-            </div>
-          </div>
+                      textarea id=rtFeedback_${item.id} class=textarea placeholder=Фідбек  проблема${escapeHtml(item.feedback  )}textarea
+                      div class=actions
+                        button class=btn small onclick=saveRyuTuEdit('${item.id}')Зберегтиbutton
+                        button class=btn secondary small onclick=closeRyuTuEdit('${item.id}')Закритиbutton
+                      div
+                    div
+                  div
+                `).join()  `div class=emptyПоки записів РЮ  ТЮ немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (adminTab === "balances") {
+      if (adminTab === balances) {
         content = `
-          <div class="dashboard-grid">
-            <div class="card side">
-              <h2>Додати баланс</h2>
-              <select id="balanceOperator" class="select">
-                ${operators.map(op => `<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
-              </select>
-              <input id="balanceValue" class="input" type="number" min="0" placeholder="Баланс">
-              <button class="btn" onclick="addBalance()">Зберегти баланс</button>
-            </div>
+          div class=dashboard-grid
+            div class=card side
+              h2Додати балансh2
+              select id=balanceOperator class=select
+                ${operators.map(op = `option value=${op.id}${escapeHtml(op.name)} — ${escapeHtml(op.shift)}option`).join()}
+              select
+              input id=balanceValue class=input type=number min=0 placeholder=Баланс
+              button class=btn onclick=addBalance()Зберегти балансbutton
+            div
 
-            <div class="card wide">
-              <h2>Баланси операторів</h2>
-              <div class="rating-table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Оператор</th>
-                      <th>Останній баланс</th>
-                      <th>Середній баланс</th>
-                      <th>К-сть записів</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${operators.map(op => {
-                      const opBalances = balancesAll.filter(x => x.operatorId === op.id);
-                      const lastBalance = opBalances.length ? Number(opBalances[0].balance || 0) : 0;
+            div class=card wide
+              h2Баланси операторівh2
+              div class=rating-table-wrap
+                table
+                  thead
+                    tr
+                      thОператорth
+                      thОстанній балансth
+                      thСередній балансth
+                      thК-сть записівth
+                    tr
+                  thead
+                  tbody
+                    ${operators.map(op = {
+                      const opBalances = balancesAll.filter(x = x.operatorId === op.id);
+                      const lastBalance = opBalances.length  Number(opBalances[0].balance  0)  0;
                       const avgBalance = getAverageBalance(opBalances);
                       return `
-                        <tr>
-                          <td>${escapeHtml(op.name)}</td>
-                          <td>${money(lastBalance)}</td>
-                          <td>${money(avgBalance.toFixed(0))}</td>
-                          <td>${opBalances.length}</td>
-                        </tr>
+                        tr
+                          td${escapeHtml(op.name)}td
+                          td${money(lastBalance)}td
+                          td${money(avgBalance.toFixed(0))}td
+                          td${opBalances.length}td
+                        tr
                       `;
-                    }).join("")}
-                  </tbody>
-                </table>
-              </div>
+                    }).join()}
+                  tbody
+                table
+              div
 
-              <div class="entry-list">
-                ${balancesAll.length ? balancesAll.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — Баланс ${money(item.balance)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                    <div class="actions">
-                      <button class="btn red small" onclick="removeBalance('${item.id}')">Видалити</button>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
-              </div>
-            </div>
-          </div>
+              div class=entry-list
+                ${balancesAll.length  balancesAll.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-title${escapeHtml(item.operatorName)} — Баланс ${money(item.balance)}div
+                      div class=entry-meta${escapeHtml(item.date)}div
+                    div
+                    div class=actions
+                      button class=btn red small onclick=removeBalance('${item.id}')Видалитиbutton
+                    div
+                  div
+                `).join()  `div class=emptyПоки балансів немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (adminTab === "tasks") {
+      if (adminTab === tasks) {
         content = `
-          <div class="dashboard-grid">
-            <div class="card side">
-              <h2>Поставити завдання</h2>
-              <select id="taskOperator" class="select">
-                ${operators.map(op => `<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
-              </select>
-              <input id="taskTitle" class="input" placeholder="Назва завдання">
-              <textarea id="taskText" class="textarea" placeholder="Опис завдання"></textarea>
-              <input id="taskDeadline" class="input" type="date">
-              <button class="btn" onclick="addTask()">Зберегти завдання</button>
-            </div>
+          div class=dashboard-grid
+            div class=card side
+              h2Поставити завданняh2
+              select id=taskOperator class=select
+                ${operators.map(op = `option value=${op.id}${escapeHtml(op.name)} — ${escapeHtml(op.shift)}option`).join()}
+              select
+              input id=taskTitle class=input placeholder=Назва завдання
+              textarea id=taskText class=textarea placeholder=Опис завданняtextarea
+              input id=taskDeadline class=input type=date
+              button class=btn onclick=addTask()Зберегти завданняbutton
+            div
 
-            <div class="card wide">
-              <h2>Усі завдання</h2>
-              <div class="entry-list">
-                ${tasksAll.length ? tasksAll.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
-                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.doneAt ? `<div class="entry-meta" style="margin-top:10px;">Виконано: ${escapeHtml(item.doneAt)}</div>` : ""}
-                    <div class="actions">
-                      <button class="btn red small" onclick="removeTask('${item.id}')">Видалити</button>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
-              </div>
-            </div>
-          </div>
+            div class=card wide
+              h2Усі завданняh2
+              div class=entry-list
+                ${tasksAll.length  tasksAll.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-title${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)} ${item.done  🎉  }div
+                      div style=displayflex; gap8px; flex-wrapwrap;
+                        span class=tag ${item.done  'green'  'red'}${item.done  '🎉 Виконано'  'Не виконано'}span
+                        span class=tag blue deadline-badge ${isLate(item.deadline) && !item.done  'late'  ''} ${isToday(item.deadline) && !item.done  'today'  ''}До ${escapeHtml(item.deadline  —)}span
+                      div
+                    div
+                    div class=entry-text${escapeHtml(item.text  )}div
+                    ${item.doneAt  `div class=entry-meta style=margin-top10px;Виконано ${escapeHtml(item.doneAt)}div`  }
+                    div class=actions
+                      button class=btn red small onclick=removeTask('${item.id}')Видалитиbutton
+                    div
+                  div
+                `).join()  `div class=emptyПоки завдань немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (adminTab === "examples") {
+      if (adminTab === examples) {
         content = `
-          <div class="dashboard-grid">
-            <div class="card side">
-              <h2>Додати приклад / скрін</h2>
-              <input id="exampleTitle" class="input" placeholder="Назва прикладу">
-              <input id="exampleUrl" class="input" placeholder="Посилання на зображення">
-              <textarea id="exampleText" class="textarea" placeholder="Пояснення"></textarea>
-              <button class="btn" onclick="addExample()">Зберегти</button>
-            </div>
+          div class=dashboard-grid
+            div class=card side
+              h2Додати приклад  скрінh2
+              input id=exampleTitle class=input placeholder=Назва прикладу
+              input id=exampleUrl class=input placeholder=Посилання на зображення
+              textarea id=exampleText class=textarea placeholder=Поясненняtextarea
+              button class=btn onclick=addExample()Зберегтиbutton
+            div
 
-            <div class="card wide">
-              <h2>Приклади / скріни</h2>
-              <div class="entry-list">
-                ${examples.length ? examples.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+            div class=card wide
+              h2Приклади  скріниh2
+              div class=entry-list
+                ${examples.length  examples.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-title${escapeHtml(item.title)}div
+                      div class=entry-meta${escapeHtml(item.date)}div
+                    div
+                    div class=entry-text${escapeHtml(item.text  )}div
+                    ${item.url  `img class=image-preview src=${escapeHtml(item.url)} alt=example`  }
 
-                    <div class="actions">
-                      <button class="btn small" onclick="editExample('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeExample('${item.id}')">Видалити</button>
-                    </div>
+                    div class=actions
+                      button class=btn small onclick=editExample('${item.id}')Редагуватиbutton
+                      button class=btn red small onclick=removeExample('${item.id}')Видалитиbutton
+                    div
 
-                    <div id="editExampleBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="exampleTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
-                      <input id="exampleUrl_${item.id}" class="input" value="${escapeHtml(item.url || "")}" placeholder="Посилання">
-                      <textarea id="exampleText_${item.id}" class="textarea" placeholder="Пояснення">${escapeHtml(item.text || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveExampleEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeExampleEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
-              </div>
-            </div>
-          </div>
+                    div id=editExampleBox_${item.id} class=hidden style=margin-top12px;
+                      input id=exampleTitle_${item.id} class=input value=${escapeHtml(item.title)} placeholder=Назва
+                      input id=exampleUrl_${item.id} class=input value=${escapeHtml(item.url  )} placeholder=Посилання
+                      textarea id=exampleText_${item.id} class=textarea placeholder=Пояснення${escapeHtml(item.text  )}textarea
+                      div class=actions
+                        button class=btn small onclick=saveExampleEdit('${item.id}')Зберегтиbutton
+                        button class=btn secondary small onclick=closeExampleEdit('${item.id}')Закритиbutton
+                      div
+                    div
+                  div
+                `).join()  `div class=emptyПоки прикладів немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (adminTab === "rating") {
+      if (adminTab === rating) {
         content = `
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>Рейтинг операторів</h2>
-              <div class="rating-table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Місце</th>
-                      <th>Оператор</th>
-                      <th>Зміна</th>
-                      <th>Зроблено</th>
-                      <th>РЮ</th>
-                      <th>ТЮ</th>
-                      <th>Оцінка звітів</th>
-                      <th>Оцінка РЮ/ТЮ</th>
-                      <th>Оцінка тижня</th>
-                      <th>Штраф</th>
-                      <th>Score</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${ranked.map((op, idx) => `
-                      <tr>
-                        <td class="rank-num">#${idx + 1}</td>
-                        <td>${escapeHtml(op.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${op.score > 200 ? "🔥" : ""}</td>
-                        <td>${escapeHtml(op.shift)}</td>
-                        <td>${money(op.revenue)}</td>
-                        <td>${op.ryutuStats.totalRyu}</td>
-                        <td>${op.ryutuStats.totalTu}</td>
-                        <td>${op.reportAvg.toFixed(1)}</td>
-                        <td>${op.ryutuStats.avgScore.toFixed(1)}</td>
-                        <td>${Number(op.weekScore||0).toFixed(1)}</td>
-                        <td>${money(op.fineDollars)}</td>
-                        <td>${op.score}</td>
-                      </tr>
-                    `).join("")}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          div class=dashboard-grid
+            div class=card full
+              h2Рейтинг операторівh2
+              div class=rating-table-wrap
+                table
+                  thead
+                    tr
+                      thМісцеth
+                      thОператорth
+                      thЗмінаth
+                      thЗробленоth
+                      thРЮth
+                      thТЮth
+                      thОцінка звітівth
+                      thОцінка РЮТЮth
+                      thОцінка тижняth
+                      thШтрафth
+                      thScoreth
+                    tr
+                  thead
+                  tbody
+                    ${ranked.map((op, idx) = `
+                      tr
+                        td class=rank-num#${idx + 1}td
+                        td${escapeHtml(op.name)} ${idx === 0  🏆  idx === 1  🥈  idx === 2  🥉  } ${op.score  200  🔥  }td
+                        td${escapeHtml(op.shift)}td
+                        td${money(op.revenue)}td
+                        td${op.ryutuStats.totalRyu}td
+                        td${op.ryutuStats.totalTu}td
+                        td${op.reportAvg.toFixed(1)}td
+                        td${op.ryutuStats.avgScore.toFixed(1)}td
+                        td${Number(op.weekScore0).toFixed(1)}td
+                        td${money(op.fineDollars)}td
+                        td${op.score}td
+                      tr
+                    `).join()}
+                  tbody
+                table
+              div
+            div
+          div
         `;
       }
 
       return renderShell(`
-  <div class="bonus-banner">
-    <strong>🏆 ЛІДЕР ДНЯ</strong><br><br>
-    Слідкуй за своїм score і будь топ-1 🔥
+        div class=bonus-banner
+          strong🏆 ЛІДЕР ДНЯstrong
+          brbr
+          ${leader.best  `🔥 ${escapeHtml(leader.best.name)}brScore ${leader.score}`  Поки немає даних}
+        div
 
-    <div style="margin-top:16px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-      <span style="color:#f3db86; font-size:13px;">Місяць статистики:</span>
-      <input
-        type="month"
-        class="input"
-        id="selectedMonthInput"
-        value="${selectedMonth}"
-        onchange="changeSelectedMonth(this.value)"
-        style="max-width:220px; margin-bottom:0;"
-      >
-    </div>
-  </div>
-
-        <div class="tabs">
-          <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
-          <button class="tab-btn ${adminTab==="balances" ? "active" : ""}" onclick="setAdminTab('balances')">Баланси</button>
-          <button class="tab-btn ${adminTab==="tasks" ? "active" : ""}" onclick="setAdminTab('tasks')">Завдання</button>
-          <button class="tab-btn red-accent ${adminTab==="reports" ? "active" : ""}" onclick="setAdminTab('reports')">Звіти</button>
-          <button class="tab-btn red-accent ${adminTab==="ryutu" ? "active" : ""}" onclick="setAdminTab('ryutu')">РЮ / ТЮ</button>
-          <button class="tab-btn ${adminTab==="examples" ? "active" : ""}" onclick="setAdminTab('examples')">Скрiни</button>
-          <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
-        </div>
+        div class=tabs
+          button class=tab-btn ${adminTab===dashboard  active  } onclick=setAdminTab('dashboard')Головнаbutton
+          button class=tab-btn ${adminTab===balances  active  } onclick=setAdminTab('balances')Балансиbutton
+          button class=tab-btn ${adminTab===tasks  active  } onclick=setAdminTab('tasks')Завданняbutton
+          button class=tab-btn red-accent ${adminTab===reports  active  } onclick=setAdminTab('reports')Звітиbutton
+          button class=tab-btn red-accent ${adminTab===ryutu  active  } onclick=setAdminTab('ryutu')РЮ  ТЮbutton
+          button class=tab-btn ${adminTab===examples  active  } onclick=setAdminTab('examples')Скрiниbutton
+          button class=tab-btn ${adminTab===rating  active  } onclick=setAdminTab('rating')Рейтингbutton
+        div
 
         ${content}
       `);
     }
 
-    const stats = await getOperatorStats(operatorId);
-const op = {
-  ...currentProfile,
-  ...stats,
-  norm: Number(currentProfile.norm || stats?.norm || 0)
-};
-   
+    async function renderOperator(operatorId) {
+      const op = await getOperatorStats(operatorId);
       const reports = await getReports(operatorId);
       const ryutu = await getRyuTu(operatorId);
       const examples = await getExamples();
       const balances = await getBalances(operatorId);
-    const monthBalances = filterByMonth(balances, selectedMonth);
-const avgBalance = getAverageBalance(monthBalances);
-const latestBalance = getLatestBalance(monthBalances);
-const totalBalance = getMonthTotalBalance(monthBalances);
       const tasks = await getTasks(operatorId);
       const allOperators = await getAllOperatorStats();
 
@@ -1547,493 +1511,511 @@ const totalBalance = getMonthTotalBalance(monthBalances);
         const itemRyuTu = await getRyuTu(item.id);
         ranked.push({
           ...item,
-          score: calcOperatorScore(item, itemReports, itemRyuTu)
+          score calcOperatorScore(item, itemReports, itemRyuTu)
         });
       }
-      ranked.sort((a,b)=>b.score-a.score);
+      ranked.sort((a,b)=b.score-a.score);
 
       const rt = getRyuTuStats(ryutu);
       const reportAvg = reviewedAvg(reports);
-      const normPercent = op.norm ? Math.round((totalBalance / Number(op.norm || 1)) * 100) : 0;
+      const normPercent = op.norm  Math.round((Number(op.revenue  0)  Number(op.norm  1))  100)  0;
 
-      let content = "";
+      let content = ;
 
-      if (operatorTab === "overview") {
+      if (operatorTab === overview) {
         content = `
-          <div class="operator-dashboard">
-            <div class="card operator-main">
-              <div class="profile-hero">
-                <div>
-                  <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu) > 200 ? "🔥" : ""}</div>
-                  <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
-                </div>
-                <div class="status ${calcOperatorScore(op, reports, ryutu) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu)}</div>
-              </div>
+          div class=operator-dashboard
+            div class=card operator-main
+              div class=profile-hero
+                div
+                  div class=profile-nameПривіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu)  200  🔥  }div
+                  div class=profile-role${escapeHtml(op.shift)} • TLOD 32div
+                div
+                div class=status ${calcOperatorScore(op, reports, ryutu)  50  'red'  ''}Score ${calcOperatorScore(op, reports, ryutu)}div
+              div
 
-              <div class="mini-stats">
-                <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-                <div class="mini"><div class="label">Зроблено</div><div class="value">${money(op.revenue)}</div></div>
-                <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
-                <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
-                <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
-                <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
-                <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
-                <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
-              </div>
-            </div>
+              div class=mini-stats
+                div class=minidiv class=labelНормаdivdiv class=value${money(op.norm)}divdiv
+                div class=minidiv class=labelЗробленоdivdiv class=value${money(op.revenue)}divdiv
+                div class=minidiv class=labelЗакриття нормиdivdiv class=value${normPercent}%divdiv
+                div class=mini reddiv class=labelШтрафdivdiv class=value${money(op.fineDollars)}divdiv
+                div class=minidiv class=labelРЮdivdiv class=value${rt.totalRyu}divdiv
+                div class=minidiv class=labelТЮdivdiv class=value${rt.totalTu}divdiv
+                div class=minidiv class=labelОцінка звітівdivdiv class=value${reportAvg.toFixed(1)}divdiv
+                div class=minidiv class=labelОцінка РЮ  ТЮdivdiv class=value${rt.avgScore.toFixed(1)}divdiv
+              div
+            div
 
-            <div class="card operator-side">
-              <h3>Моя оцінка тижня</h3>
-              <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-            </div>
-          </div>
+            div class=card operator-side
+              h3Моя оцінка тижняh3
+              div class=score-big${Number(op.weekScore  0)}10div
+            div
+          div
         `;
       }
 
-      if (operatorTab === "ryutu") {
+      if (operatorTab === ryutu) {
         content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Подати РЮ / ТЮ</h3>
-              <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
-              <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
-              <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
-              <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
-            </div>
+          div class=operator-dashboard
+            div class=card operator-side
+              h3Подати РЮ  ТЮh3
+              input id=operatorRyu class=input type=number min=0 placeholder=РЮ
+              input id=operatorTu class=input type=number min=0 placeholder=ТЮ
+              input id=operatorBalance class=input type=number min=0 placeholder=Середній баланс
+              button class=btn onclick=operatorSubmitRyuTu()Надіслати РЮ  ТЮbutton
+            div
 
-            <div class="card operator-main">
-              <h3>Мої записи РЮ / ТЮ</h3>
-              <div class="entry-list">
-                ${ryutu.length ? ryutu.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
+            div class=card operator-main
+              h3Мої записи РЮ  ТЮh3
+              div class=entry-list
+                ${ryutu.length  ryutu.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-titleРЮ ${item.ryu} • ТЮ ${item.tu}div
+                      div style=displayflex; gap8px; flex-wrapwrap;
+                        span class=tag ${item.reviewed  'green'  'red'}${item.reviewed  `Оцінка ${Number(item.score0)}10 ${Number(item.score0) = 8  🔥  }`  'Очікує перевірки'}span
+                        div class=entry-meta${escapeHtml(item.date)}div
+                      div
+                    div
+                    div class=entry-textСередній баланс ${money(item.balance)}div
 
-                    <div class="actions">
-                      <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                    </div>
+                    div class=actions
+                      button class=btn small onclick=editOwnRyuTu('${item.id}')Редагуватиbutton
+                      button class=btn red small onclick=removeRyuTu('${item.id}')Видалитиbutton
+                    div
 
-                    <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                      <input id="ownTu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                      <input id="ownBalance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
-                      <div class="actions">
-                        <button class="btn small" onclick="saveOwnRyuTuEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeOwnRyuTuEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
+                    div id=editOwnRyuTuBox_${item.id} class=hidden style=margin-top12px;
+                      input id=ownRyu_${item.id} class=input type=number value=${Number(item.ryu  0)} placeholder=РЮ
+                      input id=ownTu_${item.id} class=input type=number value=${Number(item.tu  0)} placeholder=ТЮ
+                      input id=ownBalance_${item.id} class=input type=number value=${Number(item.balance  0)} placeholder=Середній баланс
+                      div class=actions
+                        button class=btn small onclick=saveOwnRyuTuEdit('${item.id}')Зберегтиbutton
+                        button class=btn secondary small onclick=closeOwnRyuTuEdit('${item.id}')Закритиbutton
+                      div
+                    div
 
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-                  </div>
-                `).join("") : `<div class="empty">Поки записів немає.</div>`}
-              </div>
-            </div>
-          </div>
+                    ${item.reviewed  `div class=entry-meta style=margin-top10px;Фідбек ${escapeHtml(item.feedback  —)}div`  }
+                  div
+                `).join()  `div class=emptyПоки записів немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (operatorTab === "reports") {
+      if (operatorTab === reports) {
         content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Подати звіт</h3>
-              <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
-              <textarea id="operatorReportText" class="textarea" placeholder="Напиши свій звіт"></textarea>
-              <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
-            </div>
+          div class=operator-dashboard
+            div class=card operator-side
+              h3Подати звітh3
+              input id=operatorReportTitle class=input placeholder=Назва звіту
+              textarea id=operatorReportText class=textarea placeholder=Напиши свій звітtextarea
+              button class=btn onclick=operatorSubmitReport()Надіслати звітbutton
+            div
 
-            <div class="card operator-main">
-              <h3>Мої звіти</h3>
-              <div class="entry-list">
-                ${reports.length ? reports.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+            div class=card operator-main
+              h3Мої звітиh3
+              div class=entry-list
+                ${reports.length  reports.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-titlespan class=exclamation!span${escapeHtml(item.title)}div
+                      div style=displayflex; gap8px; flex-wrapwrap;
+                        span class=tag ${item.reviewed  'blue'  'red'}${item.reviewed  `Оцінка ${Number(item.score0)}10 ${Number(item.score0) = 8  🔥  }`  'Очікує перевірки'}span
+                        div class=entry-meta${escapeHtml(item.date)}div
+                      div
+                    div
+                    div class=entry-text${escapeHtml(item.text  )}div
 
-                   <div class="actions">
+                   div class=actions
   ${item.reviewed
-    ? `<button class="btn secondary small" disabled>🔒 Перевірено</button>`
-    : `
-      <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
-      <button class="btn red small" onclick="removeOwnRyuTu('${item.id}')">Видалити</button>
+     `button class=btn secondary small disabled🔒 Перевіреноbutton`
+     `
+      button class=btn small onclick=editOwnRyuTu('${item.id}')Редагуватиbutton
+      button class=btn red small onclick=removeOwnRyuTu('${item.id}')Видалитиbutton
     `
   }
-</div>
+div
 
-                    <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
-                      <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveOwnReportEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeOwnReportEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
+                    div id=editOwnReportBox_${item.id} class=hidden style=margin-top12px;
+                      input id=ownReportTitle_${item.id} class=input value=${escapeHtml(item.title)} placeholder=Назва
+                      textarea id=ownReportText_${item.id} class=textarea placeholder=Текст${escapeHtml(item.text  )}textarea
+                      div class=actions
+                        button class=btn small onclick=saveOwnReportEdit('${item.id}')Зберегтиbutton
+                        button class=btn secondary small onclick=closeOwnReportEdit('${item.id}')Закритиbutton
+                      div
+                    div
 
-                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-                  </div>
-                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
-              </div>
-            </div>
-          </div>
+                    ${item.reviewed  `div class=entry-meta style=margin-top10px;Фідбек ${escapeHtml(item.feedback  —)}div`  }
+                  div
+                `).join()  `div class=emptyПоки звітів немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (operatorTab === "balances") {
+      if (operatorTab === balances) {
         const avgBalance = getAverageBalance(balances);
         content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Мій баланс</h3>
-              <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
-              <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
-            </div>
+          div class=operator-dashboard
+            div class=card operator-side
+              h3Мій балансh3
+              div class=score-big${money(balances.length  balances[0].balance  0)}div
+              div class=help style=margin-top14px;Останній внесений балансdiv
+            div
 
-            <div class="card operator-side">
-              <h3>Середній баланс</h3>
-              <div class="score-big">${money(avgBalance.toFixed(0))}</div>
-              <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
-            </div>
+            div class=card operator-side
+              h3Середній балансh3
+              div class=score-big${money(avgBalance.toFixed(0))}div
+              div class=help style=margin-top14px;Середнє по всіх записахdiv
+            div
 
-            <div class="card operator-main">
-              <h3>Історія балансів</h3>
-              <div class="entry-list">
-                ${balances.length ? balances.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">Баланс ${money(item.balance)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
-              </div>
-            </div>
-          </div>
+            div class=card operator-main
+              h3Історія балансівh3
+              div class=entry-list
+                ${balances.length  balances.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-titleБаланс ${money(item.balance)}div
+                      div class=entry-meta${escapeHtml(item.date)}div
+                    div
+                  div
+                `).join()  `div class=emptyПоки балансів немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (operatorTab === "tasks") {
+      if (operatorTab === tasks) {
         content = `
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Мої завдання</h3>
-              <div class="entry-list">
-                ${tasks.length ? tasks.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
-                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    <div class="actions">
-                      ${item.done ? `<button class="btn secondary small" disabled>✅ Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
-                    </div>
-                  </div>
-                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
-              </div>
-            </div>
-          </div>
+          div class=operator-dashboard
+            div class=card full
+              h3Мої завданняh3
+              div class=entry-list
+                ${tasks.length  tasks.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-title${escapeHtml(item.title)} ${item.done  🎉  }div
+                      div style=displayflex; gap8px; flex-wrapwrap;
+                        span class=tag ${item.done  'green'  'red'}${item.done  '🎉 Виконано'  'Не виконано'}span
+                        span class=tag blue deadline-badge ${isLate(item.deadline) && !item.done  'late'  ''} ${isToday(item.deadline) && !item.done  'today'  ''}До ${escapeHtml(item.deadline  —)}span
+                      div
+                    div
+                    div class=entry-text${escapeHtml(item.text  )}div
+                    div class=actions
+                      ${item.done  `button class=btn secondary small disabled✅ Виконаноbutton`  `button class=btn small onclick=completeTask('${item.id}')✅ Виконаноbutton`}
+                    div
+                  div
+                `).join()  `div class=emptyПоки завдань немає.div`}
+              div
+            div
+          div
         `;
       }
 
-      if (operatorTab === "rating") {
+      if (operatorTab === rating) {
         content = `
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Рейтинг 3 операторів</h3>
-              <table>
-                <thead>
-                  <tr><th>#</th><th>Оператор</th><th>Зміна</th><th>Score</th></tr>
-                </thead>
-                <tbody>
-                  ${ranked.map((item, idx) => `
-                    <tr>
-                      <td class="rank-num">#${idx+1}</td>
-                      <td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
-                      <td>${escapeHtml(item.shift)}</td>
-                      <td>${item.score}</td>
-                    </tr>
-                  `).join("")}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          div class=operator-dashboard
+            div class=card full
+              h3Рейтинг 3 операторівh3
+              table
+                thead
+                  trth#ththОператорththЗмінаththScorethtr
+                thead
+                tbody
+                  ${ranked.map((item, idx) = `
+                    tr
+                      td class=rank-num#${idx+1}td
+                      td${escapeHtml(item.name)} ${idx === 0  🏆  idx === 1  🥈  idx === 2  🥉  } ${item.score  200  🔥  }td
+                      td${escapeHtml(item.shift)}td
+                      td${item.score}td
+                    tr
+                  `).join()}
+                tbody
+              table
+            div
+          div
         `;
       }
 
-      if (operatorTab === "feedback") {
+      if (operatorTab === feedback) {
         content = `
-          <div class="operator-dashboard">
-            <div class="card operator-main">
-              <h3>Що покращити</h3>
-              <div class="list-simple">
-                ${(op.improvements || []).length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-              </div>
-            </div>
+          div class=operator-dashboard
+            div class=card operator-main
+              h3Що покращитиh3
+              div class=list-simple
+                ${(op.improvements  []).length  op.improvements.map(item = `div class=list-itemstrong${escapeHtml(item.title  )}strongbr${escapeHtml(item.text  item)}div`).join()  `div class=emptyПоки пустоdiv`}
+              div
+            div
 
-            <div class="card operator-side">
-              <h3>Позитивні якості</h3>
-              <div class="list-simple">
-                ${(op.strengths || []).length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-              </div>
-            </div>
+            div class=card operator-side
+              h3Позитивні якостіh3
+              div class=list-simple
+                ${(op.strengths  []).length  op.strengths.map(item = `div class=list-item${escapeHtml(item)}div`).join()  `div class=emptyПоки пустоdiv`}
+              div
+            div
 
-            <div class="card operator-side">
-              <h3>План на тиждень</h3>
-              <div class="list-simple">
-                ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
-              </div>
-            </div>
-          </div>
+            div class=card operator-side
+              h3План на тижденьh3
+              div class=list-simple
+                ${(op.weeklyPlan  []).length  op.weeklyPlan.map(item = `div class=list-item${escapeHtml(item)}div`).join()  `div class=emptyПлан ще не доданийdiv`}
+              div
+            div
+          div
         `;
       }
 
-     
+      if (operatorTab === examples) {
+        content = `
+          div class=operator-dashboard
+            div class=card full
+              h3Приклади  як добре заведений РЮh3
+              div class=entry-list
+                ${examples.length  examples.map(item = `
+                  div class=entry
+                    div class=entry-top
+                      div class=entry-title${escapeHtml(item.title)}div
+                      div class=entry-meta${escapeHtml(item.date)}div
+                    div
+                    div class=entry-text${escapeHtml(item.text  )}div
+                    ${item.url  `img class=image-preview src=${escapeHtml(item.url)} alt=example`  }
+                  div
+                `).join()  `div class=emptyПоки прикладів немає.div`}
+              div
+            div
+          div
+        `;
+      }
 
       return renderShell(`
-        <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
+        div class=bonus-bannerstrong🏆 ЛІДЕР ДНЯstrongbrbrСлідкуй за своїм score і будь топ-1 🔥div
 
-        <div class="tabs">
-          <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
-          <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
-          <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
-          <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
-          <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
-          <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
-          <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
-      
-        </div>
+        div class=tabs
+          button class=tab-btn ${operatorTab===overview  active  } onclick=setOperatorTab('overview')Оглядbutton
+          button class=tab-btn ${operatorTab===balances  active  } onclick=setOperatorTab('balances')Балансиbutton
+          button class=tab-btn ${operatorTab===tasks  active  } onclick=setOperatorTab('tasks')Завданняbutton
+          button class=tab-btn red-accent ${operatorTab===ryutu  active  } onclick=setOperatorTab('ryutu')РЮ  ТЮbutton
+          button class=tab-btn red-accent ${operatorTab===reports  active  } onclick=setOperatorTab('reports')Звітиbutton
+          button class=tab-btn ${operatorTab===rating  active  } onclick=setOperatorTab('rating')Рейтингbutton
+          button class=tab-btn ${operatorTab===feedback  active  } onclick=setOperatorTab('feedback')Фідбекbutton
+          button class=tab-btn ${operatorTab===examples  active  } onclick=setOperatorTab('examples')Прикладиbutton
+        div
 
         ${content}
       `);
     }
 
-   window.changeSelectedMonth = (month) => {
-  selectedMonth = month;
-  renderApp();
-};
+    window.setAdminTab = (tab) = { adminTab = tab; renderApp(); };
+    window.setOperatorTab = (tab) = { operatorTab = tab; renderApp(); };
 
-    window.operatorSubmitRyuTu = async () => {
-      const ryu = Number(document.getElementById("operatorRyu").value || 0);
-      const tu = Number(document.getElementById("operatorTu").value || 0);
-      const balance = Number(document.getElementById("operatorBalance").value || 0);
+    window.operatorSubmitRyuTu = async () = {
+      const ryu = Number(document.getElementById(operatorRyu).value  0);
+      const tu = Number(document.getElementById(operatorTu).value  0);
+      const balance = Number(document.getElementById(operatorBalance).value  0);
 
-      await addDoc(collection(db, "ryutu"), {
-        operatorId: currentProfile.id,
-        operatorName: currentProfile.name,
-        date: new Date().toISOString().slice(0,10),
+      await addDoc(collection(db, ryutu), {
+        operatorId currentProfile.id,
+        operatorName currentProfile.name,
+        date new Date().toISOString().slice(0,10),
         ryu, tu, balance,
-        reviewed:false,
-        score:0,
-        feedback:""
+        reviewedfalse,
+        score0,
+        feedback
       });
 
       renderApp();
     };
 
-    window.operatorSubmitReport = async () => {
-      const title = document.getElementById("operatorReportTitle").value.trim();
-      const text = document.getElementById("operatorReportText").value.trim();
-      if (!title) return alert("Введи назву звіту");
+    window.operatorSubmitReport = async () = {
+      const title = document.getElementById(operatorReportTitle).value.trim();
+      const text = document.getElementById(operatorReportText).value.trim();
+      if (!title) return alert(Введи назву звіту);
 
-      await addDoc(collection(db, "reports"), {
-        operatorId: currentProfile.id,
-        operatorName: currentProfile.name,
-        date: new Date().toISOString().slice(0,10),
+      await addDoc(collection(db, reports), {
+        operatorId currentProfile.id,
+        operatorName currentProfile.name,
+        date new Date().toISOString().slice(0,10),
         title, text,
-        reviewed:false,
-        score:0,
-        feedback:""
+        reviewedfalse,
+        score0,
+        feedback
       });
 
       renderApp();
     };
 
-    window.addExample = async () => {
-      const title = document.getElementById("exampleTitle").value.trim();
-      const url = document.getElementById("exampleUrl").value.trim();
-      const text = document.getElementById("exampleText").value.trim();
-      if (!title) return alert("Напиши назву прикладу");
+    window.addExample = async () = {
+      const title = document.getElementById(exampleTitle).value.trim();
+      const url = document.getElementById(exampleUrl).value.trim();
+      const text = document.getElementById(exampleText).value.trim();
+      if (!title) return alert(Напиши назву прикладу);
 
-      await addDoc(collection(db, "examples"), {
+      await addDoc(collection(db, examples), {
         title, url, text,
-        date:new Date().toISOString().slice(0,10)
+        datenew Date().toISOString().slice(0,10)
       });
 
       renderApp();
     };
 
-    window.addBalance = async () => {
-      const operatorId = document.getElementById("balanceOperator").value;
-      const balance = Number(document.getElementById("balanceValue").value || 0);
-      if (!balance) return alert("Введи баланс");
+    window.addBalance = async () = {
+      const operatorId = document.getElementById(balanceOperator).value;
+      const balance = Number(document.getElementById(balanceValue).value  0);
+      if (!balance) return alert(Введи баланс);
 
-      const userSnap = await getDoc(doc(db, "users", operatorId));
+      const userSnap = await getDoc(doc(db, users, operatorId));
       const userData = userSnap.data();
 
-      await addDoc(collection(db, "balances"), {
+      await addDoc(collection(db, balances), {
         operatorId,
-        operatorName: userData.name,
+        operatorName userData.name,
         balance,
-        date: new Date().toISOString().slice(0,10)
+        date new Date().toISOString().slice(0,10)
       });
 
       renderApp();
     };
 
-    window.removeBalance = async (id) => {
-      if (!confirm("Видалити баланс?")) return;
-      await deleteDoc(doc(db, "balances", id));
+    window.removeBalance = async (id) = {
+      if (!confirm(Видалити баланс)) return;
+      await deleteDoc(doc(db, balances, id));
       renderApp();
     };
 
-    window.addTask = async () => {
-      const operatorId = document.getElementById("taskOperator").value;
-      const title = document.getElementById("taskTitle").value.trim();
-      const text = document.getElementById("taskText").value.trim();
-      const deadline = document.getElementById("taskDeadline").value;
+    window.addTask = async () = {
+      const operatorId = document.getElementById(taskOperator).value;
+      const title = document.getElementById(taskTitle).value.trim();
+      const text = document.getElementById(taskText).value.trim();
+      const deadline = document.getElementById(taskDeadline).value;
 
-      if (!title) return alert("Напиши назву завдання");
-      if (!deadline) return alert("Вкажи дедлайн");
+      if (!title) return alert(Напиши назву завдання);
+      if (!deadline) return alert(Вкажи дедлайн);
 
-      const userSnap = await getDoc(doc(db, "users", operatorId));
+      const userSnap = await getDoc(doc(db, users, operatorId));
       const userData = userSnap.data();
 
-      await addDoc(collection(db, "tasks"), {
+      await addDoc(collection(db, tasks), {
         operatorId,
-        operatorName: userData.name,
+        operatorName userData.name,
         title,
         text,
         deadline,
-        done: false,
-        doneAt: ""
+        done false,
+        doneAt 
       });
 
       renderApp();
     };
 
-    window.completeTask = async (id) => {
-      await updateDoc(doc(db, "tasks", id), {
-        done: true,
-        doneAt: new Date().toISOString().slice(0,10)
+    window.completeTask = async (id) = {
+      await updateDoc(doc(db, tasks, id), {
+        done true,
+        doneAt new Date().toISOString().slice(0,10)
       });
       renderApp();
     };
 
-    window.removeTask = async (id) => {
-      if (!confirm("Видалити завдання?")) return;
-      await deleteDoc(doc(db, "tasks", id));
+    window.removeTask = async (id) = {
+      if (!confirm(Видалити завдання)) return;
+      await deleteDoc(doc(db, tasks, id));
       renderApp();
     };
 
-    window.editReport = (id) => {
+    window.editReport = (id) = {
       const box = document.getElementById(`editReportBox_${id}`);
-      if (box) box.classList.remove("hidden");
+      if (box) box.classList.remove(hidden);
       bindDynamicActions();
     };
-    window.closeReportEdit = (id) => {
+    window.closeReportEdit = (id) = {
       const box = document.getElementById(`editReportBox_${id}`);
-      if (box) box.classList.add("hidden");
+      if (box) box.classList.add(hidden);
     };
-    window.saveReportEdit = async (id) => {
+    window.saveReportEdit = async (id) = {
       const title = document.getElementById(`reportTitle_${id}`).value.trim();
       const text = document.getElementById(`reportText_${id}`).value.trim();
-      const score = Number(document.getElementById(`reportScore_${id}`).value || 0);
+      const score = Number(document.getElementById(`reportScore_${id}`).value  0);
       const feedback = document.getElementById(`reportFeedback_${id}`).value.trim();
 
-      await updateDoc(doc(db, "reports", id), {
-        title, text, score, feedback, reviewed:true
+      await updateDoc(doc(db, reports, id), {
+        title, text, score, feedback, reviewedtrue
       });
 
       renderApp();
     };
-    window.removeReport = async (id) => {
-      if (!confirm("Видалити звіт?")) return;
-      await deleteDoc(doc(db, "reports", id));
+    window.removeReport = async (id) = {
+      if (!confirm(Видалити звіт)) return;
+      await deleteDoc(doc(db, reports, id));
       renderApp();
     };
 
-    window.editRyuTu = (id) => {
+    window.editRyuTu = (id) = {
       const box = document.getElementById(`editRyuTuBox_${id}`);
-      if (box) box.classList.remove("hidden");
+      if (box) box.classList.remove(hidden);
       bindDynamicActions();
     };
-    window.closeRyuTuEdit = (id) => {
+    window.closeRyuTuEdit = (id) = {
       const box = document.getElementById(`editRyuTuBox_${id}`);
-      if (box) box.classList.add("hidden");
+      if (box) box.classList.add(hidden);
     };
-    window.saveRyuTuEdit = async (id) => {
-      const ryu = Number(document.getElementById(`ryu_${id}`).value || 0);
-      const tu = Number(document.getElementById(`tu_${id}`).value || 0);
-      const balance = Number(document.getElementById(`balance_${id}`).value || 0);
-      const score = Number(document.getElementById(`rtScore_${id}`).value || 0);
+    window.saveRyuTuEdit = async (id) = {
+      const ryu = Number(document.getElementById(`ryu_${id}`).value  0);
+      const tu = Number(document.getElementById(`tu_${id}`).value  0);
+      const balance = Number(document.getElementById(`balance_${id}`).value  0);
+      const score = Number(document.getElementById(`rtScore_${id}`).value  0);
       const feedback = document.getElementById(`rtFeedback_${id}`).value.trim();
 
-      await updateDoc(doc(db, "ryutu", id), {
-        ryu, tu, balance, score, feedback, reviewed:true
+      await updateDoc(doc(db, ryutu, id), {
+        ryu, tu, balance, score, feedback, reviewedtrue
       });
 
       renderApp();
     };
-    window.removeRyuTu = async (id) => {
-      if (!confirm("Видалити запис РЮ / ТЮ?")) return;
-      await deleteDoc(doc(db, "ryutu", id));
+    window.removeRyuTu = async (id) = {
+      if (!confirm(Видалити запис РЮ  ТЮ)) return;
+      await deleteDoc(doc(db, ryutu, id));
       renderApp();
     };
 
-    window.editExample = (id) => {
+    window.editExample = (id) = {
       const box = document.getElementById(`editExampleBox_${id}`);
-      if (box) box.classList.remove("hidden");
+      if (box) box.classList.remove(hidden);
     };
-    window.closeExampleEdit = (id) => {
+    window.closeExampleEdit = (id) = {
       const box = document.getElementById(`editExampleBox_${id}`);
-      if (box) box.classList.add("hidden");
+      if (box) box.classList.add(hidden);
     };
-    window.saveExampleEdit = async (id) => {
+    window.saveExampleEdit = async (id) = {
       const title = document.getElementById(`exampleTitle_${id}`).value.trim();
       const url = document.getElementById(`exampleUrl_${id}`).value.trim();
       const text = document.getElementById(`exampleText_${id}`).value.trim();
 
-      await updateDoc(doc(db, "examples", id), { title, url, text });
+      await updateDoc(doc(db, examples, id), { title, url, text });
       renderApp();
     };
-    window.removeExample = async (id) => {
-      if (!confirm("Видалити приклад?")) return;
-      await deleteDoc(doc(db, "examples", id));
+    window.removeExample = async (id) = {
+      if (!confirm(Видалити приклад)) return;
+      await deleteDoc(doc(db, examples, id));
       renderApp();
     };
 
-    window.editOwnReport = (id) => {
+    window.editOwnReport = (id) = {
       const box = document.getElementById(`editOwnReportBox_${id}`);
-      if (box) box.classList.remove("hidden");
+      if (box) box.classList.remove(hidden);
     };
-    window.closeOwnReportEdit = (id) => {
+    window.closeOwnReportEdit = (id) = {
       const box = document.getElementById(`editOwnReportBox_${id}`);
-      if (box) box.classList.add("hidden");
+      if (box) box.classList.add(hidden);
     };
-window.saveOwnReportEdit = async (id) => {
-  const ref = doc(db, "reports", id);
+window.saveOwnReportEdit = async (id) = {
+  const ref = doc(db, reports, id);
   const snap = await getDoc(ref);
   if (!snap.exists()) return;
 
   const data = snap.data();
-  if (data.operatorId !== currentProfile.id) return alert("Це не твій звіт");
-  if (data.reviewed) return alert("Перевірений звіт уже не можна редагувати");
+  if (data.operatorId !== currentProfile.id) return alert(Це не твій звіт);
+  if (data.reviewed) return alert(Перевірений звіт уже не можна редагувати);
 
   const title = document.getElementById(`ownReportTitle_${id}`).value.trim();
   const text = document.getElementById(`ownReportText_${id}`).value.trim();
@@ -2042,38 +2024,38 @@ window.saveOwnReportEdit = async (id) => {
   renderApp();
 };
 
-    window.editOwnRyuTu = (id) => {
+    window.editOwnRyuTu = (id) = {
       const box = document.getElementById(`editOwnRyuTuBox_${id}`);
-      if (box) box.classList.remove("hidden");
+      if (box) box.classList.remove(hidden);
     };
-    window.closeOwnRyuTuEdit = (id) => {
+    window.closeOwnRyuTuEdit = (id) = {
       const box = document.getElementById(`editOwnRyuTuBox_${id}`);
-      if (box) box.classList.add("hidden");
+      if (box) box.classList.add(hidden);
     };
-  window.saveOwnRyuTuEdit = async (id) => {
-  const ref = doc(db, "ryutu", id);
+  window.saveOwnRyuTuEdit = async (id) = {
+  const ref = doc(db, ryutu, id);
   const snap = await getDoc(ref);
   if (!snap.exists()) return;
 
   const data = snap.data();
 
-  if (data.operatorId !== currentProfile.id) return alert("Це не твій запис");
-  if (data.reviewed) return alert("Перевірений запис уже не можна редагувати");
+  if (data.operatorId !== currentProfile.id) return alert(Це не твій запис);
+  if (data.reviewed) return alert(Перевірений запис уже не можна редагувати);
 
-  const ryu = Number(document.getElementById(`ownRyu_${id}`).value || 0);
-  const tu = Number(document.getElementById(`ownTu_${id}`).value || 0);
-  const balance = Number(document.getElementById(`ownBalance_${id}`).value || 0);
+  const ryu = Number(document.getElementById(`ownRyu_${id}`).value  0);
+  const tu = Number(document.getElementById(`ownTu_${id}`).value  0);
+  const balance = Number(document.getElementById(`ownBalance_${id}`).value  0);
 
   await updateDoc(ref, { ryu, tu, balance });
   renderApp();
 };;
 
-    onAuthStateChanged(auth, async (user) => {
+    onAuthStateChanged(auth, async (user) = {
       if (!user) {
         currentUser = null;
         currentProfile = null;
-        document.getElementById("appScreen").classList.add("hidden");
-        document.getElementById("loginScreen").classList.remove("hidden");
+        document.getElementById(appScreen).classList.add(hidden);
+        document.getElementById(loginScreen).classList.remove(hidden);
         return;
       }
 
@@ -2081,34 +2063,23 @@ window.saveOwnReportEdit = async (id) => {
       currentProfile = await loadProfileByEmail(user.email);
 
       if (!currentProfile) {
-        document.getElementById("loginMessage").textContent = "Немає профілю в Firestore users";
+        document.getElementById(loginMessage).textContent = Немає профілю в Firestore users;
         await signOut(auth);
         return;
       }
 
-      if (currentProfile.role === "operator") {
+      if (currentProfile.role === operator) {
         await ensureOperatorStats(currentProfile);
       }
 
-      document.getElementById("loginScreen").classList.add("hidden");
-      document.getElementById("appScreen").classList.remove("hidden");
-      document.title = `TLOD 32 | ${currentProfile.name}`;
+      document.getElementById(loginScreen).classList.add(hidden);
+      document.getElementById(appScreen).classList.remove(hidden);
+      document.title = `TLOD 32  ${currentProfile.name}`;
       await renderApp();
     });
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
+  script
+body
+html
 
 
 
