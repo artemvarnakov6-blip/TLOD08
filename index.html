@@ -1505,11 +1505,11 @@ function calcOperatorScore(op, reports, ryutu, balances = []){
       for (const item of allOperators) {
         const itemReports = await getReports(item.id);
         const itemRyuTu = await getRyuTu(item.id);
-        ranked.push({
-          ...item,
-          const itemBalances = await getBalances(item.id);
-score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-        });
+        const itemBalances = await getBalances(item.id);
+ranked.push({
+  ...item,
+  score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
+});
       }
       ranked.sort((a,b)=>b.score-a.score);
 
@@ -2031,6 +2031,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance || 0) / Number(op.no
   </script>
 </body>
 </html>
+
 
 
 
