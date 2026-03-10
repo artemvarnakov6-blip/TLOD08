@@ -1649,10 +1649,14 @@ function isLate(dateStr){
                 </div>
                 <div class="entry-text">${escapeHtml(item.text || "")}</div>
 
-                <div class="actions">
-                  <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
-                  <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                </div>
+                ${
+    item.reviewed
+      ? `<button class="btn secondary small" disabled>🔒 Звіт перевірено</button>`
+      : `
+        <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
+        <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
+      `
+  }
 
                 <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
                   <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
@@ -2060,6 +2064,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
