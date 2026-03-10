@@ -1516,7 +1516,7 @@ score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
       const rt = getRyuTuStats(ryutu);
 const reportAvg = reviewedAvg(reports);
 const avgBalance = getAverageBalance(balances);
-const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm  1)) * 100) : 0;
+const normPercent = op.norm ? Math.round((Number(avgBalance || 0) / Number(op.norm || 1)) * 100) : 0;
 
       let content = "";
 
@@ -2031,6 +2031,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
   </script>
 </body>
 </html>
+
 
 
 
