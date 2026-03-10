@@ -889,7 +889,17 @@
   );
 }
 
-    function getLeaderOfDay(operators, reportsAll, ryutuAll){
+    function getLeaderOfDay(operators, reportsAll, ryutuAll){function isToday(dateStr){
+  if (!dateStr) return false;
+  const now = new Date().toISOString().slice(0,10);
+  return dateStr === now;
+}
+
+function isLate(dateStr){
+  if (!dateStr) return false;
+  const now = new Date().toISOString().slice(0,10);
+  return dateStr < now;
+}
       let best = null;
       let bestScore = -999999;
       for (const op of operators){
@@ -2001,6 +2011,7 @@
   </script>
 </body>
 </html>
+
 
 
 
