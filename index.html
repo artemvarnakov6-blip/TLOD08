@@ -1691,32 +1691,7 @@
         `;
       }
 
-      if (operatorTab === "feedback") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-main">
-              <h3>Що покращити</h3>
-              <div class="list-simple">
-                ${(op.improvements || []).length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-              </div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>Позитивні якості</h3>
-              <div class="list-simple">
-                ${(op.strengths || []).length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-              </div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>План на тиждень</h3>
-              <div class="list-simple">
-                ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
+     
 
       if (operatorTab === "examples") {
         content = `
@@ -2020,4 +1995,5 @@
   </script>
 </body>
 </html>
+
 
