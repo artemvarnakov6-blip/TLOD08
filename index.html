@@ -1,388 +1,1207 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TLOD 08 | Luxury Access</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLOD 08 | Team Lead Cabinet</title>
 
-<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="%23fff1a8"/>
-      <stop offset="45%" stop-color="%23ffd700"/>
-      <stop offset="100%" stop-color="%23b8860b"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="%23070707"/>
-  <text x="32" y="43" text-anchor="middle" font-size="38" font-family="Arial" font-weight="700" fill="url(%23g)">8</text>
-</svg>'>
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="%23fff0a6"/>
+        <stop offset="45%" stop-color="%23ffd700"/>
+        <stop offset="100%" stop-color="%23b8860b"/>
+      </linearGradient>
+    </defs>
+    <rect width="64" height="64" rx="14" fill="%23070707"/>
+    <text x="32" y="43" text-anchor="middle" font-size="38" font-family="Arial" font-weight="700" fill="url(%23g)">8</text>
+  </svg>'>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
 
-body{
-  height:100vh;
-  overflow:hidden;
-  color:white;
-  position:relative;
-  background:
-    radial-gradient(circle at top, rgba(255,215,0,0.08), transparent 30%),
-    linear-gradient(140deg,#000000,#0a0a0a,#000000);
-}
+    :root{
+      --bg:#050505;
+      --bg-soft:#0e0e0e;
+      --card:#111111;
+      --card-2:#151515;
+      --gold:#ffd700;
+      --gold-soft:#d4af37;
+      --text:#ffffff;
+      --muted:#cbbd88;
+      --danger:#ff7b7b;
+      --success:#8ff0a4;
+      --border:rgba(255,215,0,.20);
+      --shadow:0 0 30px rgba(255,215,0,.08);
+    }
 
-/* великі золоті світіння */
-body::before{
-  content:"";
-  position:absolute;
-  width:900px;
-  height:900px;
-  top:-340px;
-  left:-220px;
-  background:radial-gradient(circle, rgba(255,215,0,0.16), transparent 60%);
-  filter:blur(120px);
-  animation:goldMove 16s infinite alternate ease-in-out;
-  pointer-events:none;
-}
+    body{
+      background:
+        radial-gradient(circle at top, rgba(255,215,0,.07), transparent 28%),
+        linear-gradient(135deg,#000000,#090909 45%,#000000 100%);
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+    }
 
-body::after{
-  content:"";
-  position:absolute;
-  width:850px;
-  height:850px;
-  bottom:-320px;
-  right:-220px;
-  background:radial-gradient(circle, rgba(212,175,55,0.15), transparent 60%);
-  filter:blur(120px);
-  animation:goldMove2 18s infinite alternate ease-in-out;
-  pointer-events:none;
-}
+    body::before{
+      content:"";
+      position:fixed;
+      width:900px;
+      height:900px;
+      left:-240px;
+      top:-300px;
+      background:radial-gradient(circle, rgba(255,215,0,.10), transparent 60%);
+      filter:blur(120px);
+      pointer-events:none;
+      animation:floatGlow1 14s ease-in-out infinite alternate;
+    }
 
-@keyframes goldMove{
-  0%{transform:translate(0,0);}
-  100%{transform:translate(180px,120px);}
-}
+    body::after{
+      content:"";
+      position:fixed;
+      width:800px;
+      height:800px;
+      right:-240px;
+      bottom:-280px;
+      background:radial-gradient(circle, rgba(212,175,55,.08), transparent 60%);
+      filter:blur(120px);
+      pointer-events:none;
+      animation:floatGlow2 16s ease-in-out infinite alternate;
+    }
 
-@keyframes goldMove2{
-  0%{transform:translate(0,0);}
-  100%{transform:translate(-180px,-120px);}
-}
+    @keyframes floatGlow1{
+      from{transform:translate(0,0);}
+      to{transform:translate(140px,100px);}
+    }
 
-/* легкі золоті частинки */
-.particles{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 15% 25%, rgba(255,215,0,0.10) 0 2px, transparent 3px),
-    radial-gradient(circle at 35% 75%, rgba(255,215,0,0.08) 0 2px, transparent 3px),
-    radial-gradient(circle at 70% 30%, rgba(255,215,0,0.12) 0 2px, transparent 3px),
-    radial-gradient(circle at 85% 65%, rgba(255,215,0,0.09) 0 2px, transparent 3px),
-    radial-gradient(circle at 55% 50%, rgba(255,215,0,0.10) 0 2px, transparent 3px);
-  animation:particlesFloat 12s infinite alternate ease-in-out;
-  opacity:.8;
-}
+    @keyframes floatGlow2{
+      from{transform:translate(0,0);}
+      to{transform:translate(-140px,-100px);}
+    }
 
-@keyframes particlesFloat{
-  0%{transform:translateY(0);}
-  100%{transform:translateY(-18px);}
-}
+    .particles{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,215,0,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 35% 70%, rgba(255,215,0,.08) 0 2px, transparent 3px),
+        radial-gradient(circle at 50% 35%, rgba(255,215,0,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 75% 25%, rgba(255,215,0,.12) 0 2px, transparent 3px),
+        radial-gradient(circle at 85% 70%, rgba(255,215,0,.09) 0 2px, transparent 3px);
+      opacity:.7;
+      animation:particlesMove 12s ease-in-out infinite alternate;
+    }
 
-/* декоративні кути */
-.corner{
-  position:absolute;
-  width:140px;
-  height:140px;
-  border:1px solid rgba(255,215,0,0.22);
-  z-index:1;
-}
+    @keyframes particlesMove{
+      from{transform:translateY(0);}
+      to{transform:translateY(-16px);}
+    }
 
-.top-left{
-  top:24px;
-  left:24px;
-  border-right:none;
-  border-bottom:none;
-}
-.top-right{
-  top:24px;
-  right:24px;
-  border-left:none;
-  border-bottom:none;
-}
-.bottom-left{
-  bottom:24px;
-  left:24px;
-  border-right:none;
-  border-top:none;
-}
-.bottom-right{
-  bottom:24px;
-  right:24px;
-  border-left:none;
-  border-top:none;
-}
+    .corner{
+      position:fixed;
+      width:140px;
+      height:140px;
+      border:1px solid var(--border);
+      z-index:1;
+      pointer-events:none;
+    }
 
-/* блок входу */
-.login-box{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:390px;
-  max-width:92%;
-  padding:46px 30px;
-  text-align:center;
-  border-radius:24px;
-  background:linear-gradient(180deg, rgba(18,18,18,0.93), rgba(5,5,5,0.94));
-  border:1px solid rgba(255,215,0,0.38);
-  box-shadow:
-    0 0 30px rgba(255,215,0,0.18),
-    inset 0 0 24px rgba(255,215,0,0.06);
-  z-index:2;
-  animation:fadeBox 1.2s ease;
-}
+    .top-left{top:24px;left:24px;border-right:none;border-bottom:none;}
+    .top-right{top:24px;right:24px;border-left:none;border-bottom:none;}
+    .bottom-left{bottom:24px;left:24px;border-right:none;border-top:none;}
+    .bottom-right{bottom:24px;right:24px;border-left:none;border-top:none;}
 
-@keyframes fadeBox{
-  from{
-    opacity:0;
-    transform:translate(-50%,-44%);
-  }
-  to{
-    opacity:1;
-    transform:translate(-50%,-50%);
-  }
-}
+    .hidden{display:none !important;}
 
-.gold-line{
-  width:82px;
-  height:3px;
-  margin:0 auto 18px auto;
-  border-radius:999px;
-  background:linear-gradient(90deg, transparent, gold, transparent);
-  box-shadow:0 0 16px rgba(255,215,0,0.45);
-}
+    .screen{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      position:relative;
+      z-index:2;
+    }
 
-h1{
-  font-size:42px;
-  color:gold;
-  letter-spacing:4px;
-  margin-bottom:10px;
-  text-shadow:0 0 14px rgba(255,215,0,0.35);
-}
+    .login-box{
+      width:420px;
+      max-width:100%;
+      background:linear-gradient(180deg, rgba(18,18,18,.95), rgba(6,6,6,.96));
+      border:1px solid rgba(255,215,0,.28);
+      border-radius:28px;
+      padding:38px 28px;
+      box-shadow:
+        0 0 40px rgba(255,215,0,.10),
+        inset 0 0 24px rgba(255,215,0,.04);
+      text-align:center;
+      animation:showUp .9s ease;
+    }
 
-.subtitle{
-  color:#dfcf93;
-  margin-bottom:26px;
-  font-size:14px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+    @keyframes showUp{
+      from{opacity:0; transform:translateY(16px);}
+      to{opacity:1; transform:translateY(0);}
+    }
 
-.badge{
-  display:inline-block;
-  margin-bottom:16px;
-  padding:8px 14px;
-  border:1px solid rgba(255,215,0,0.22);
-  border-radius:999px;
-  color:#ffe08a;
-  font-size:12px;
-  background:rgba(255,215,0,0.04);
-}
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid rgba(255,215,0,.20);
+      border-radius:999px;
+      color:#f3de8f;
+      background:rgba(255,215,0,.04);
+      font-size:12px;
+      letter-spacing:1px;
+      margin-bottom:16px;
+    }
 
-input{
-  width:100%;
-  padding:14px 15px;
-  border-radius:12px;
-  border:1px solid rgba(255,215,0,0.24);
-  background:#111;
-  color:white;
-  outline:none;
-  margin-bottom:16px;
-  font-size:16px;
-  transition:.25s;
-}
+    .gold-line{
+      width:82px;
+      height:3px;
+      margin:0 auto 18px auto;
+      border-radius:999px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      box-shadow:0 0 16px rgba(255,215,0,.35);
+    }
 
-input:focus{
-  border-color:gold;
-  box-shadow:0 0 14px rgba(255,215,0,0.18);
-}
+    h1{
+      color:var(--gold);
+      font-size:40px;
+      letter-spacing:4px;
+      text-shadow:0 0 12px rgba(255,215,0,.25);
+      margin-bottom:10px;
+    }
 
-button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:12px;
-  cursor:pointer;
-  font-size:15px;
-  font-weight:bold;
-  letter-spacing:1px;
-  color:#111;
-  background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
-  transition:.25s;
-  box-shadow:0 8px 25px rgba(255,215,0,0.18);
-}
+    .subtitle{
+      color:var(--muted);
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      margin-bottom:24px;
+    }
 
-button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 12px 30px rgba(255,215,0,0.25);
-}
+    .help{
+      color:#9f9f9f;
+      font-size:13px;
+      line-height:1.6;
+      margin-top:18px;
+      text-align:left;
+      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.05);
+      border-radius:16px;
+      padding:14px;
+    }
 
-#message{
-  min-height:20px;
-  margin-top:14px;
-  color:#ff8d8d;
-  font-size:14px;
-}
+    .input{
+      width:100%;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,215,0,.18);
+      background:#101010;
+      color:white;
+      outline:none;
+      margin-bottom:14px;
+      font-size:15px;
+      transition:.2s;
+    }
 
-/* панель після входу */
-#panel{
-  display:none;
-  position:absolute;
-  inset:0;
-  z-index:4;
-  background:
-    radial-gradient(circle at top, rgba(255,215,0,0.10), transparent 30%),
-    linear-gradient(140deg,#000000,#0a0a0a,#000000);
-  animation:panelFade .8s ease;
-}
+    .input:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 14px rgba(255,215,0,.15);
+    }
 
-@keyframes panelFade{
-  from{opacity:0;}
-  to{opacity:1;}
-}
+    .btn{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:14px;
+      cursor:pointer;
+      background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
+      color:#141414;
+      font-weight:700;
+      font-size:15px;
+      letter-spacing:1px;
+      transition:.2s;
+      box-shadow:0 10px 25px rgba(255,215,0,.12);
+    }
 
-.panel-box{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:560px;
-  max-width:92%;
-  padding:50px 34px;
-  text-align:center;
-  border-radius:28px;
-  background:linear-gradient(180deg, rgba(18,18,18,0.95), rgba(5,5,5,0.96));
-  border:1px solid rgba(255,215,0,0.35);
-  box-shadow:
-    0 0 40px rgba(255,215,0,0.17),
-    inset 0 0 30px rgba(255,215,0,0.05);
-}
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 30px rgba(255,215,0,.20);
+    }
 
-.panel-box h2{
-  font-size:44px;
-  color:gold;
-  margin-bottom:12px;
-  letter-spacing:3px;
-  text-shadow:0 0 14px rgba(255,215,0,0.35);
-}
+    .btn.secondary{
+      background:transparent;
+      color:var(--gold);
+      border:1px solid rgba(255,215,0,.20);
+      box-shadow:none;
+    }
 
-.panel-box p{
-  font-size:18px;
-  color:#f3e6b2;
-  line-height:1.6;
-}
+    .btn.small{
+      width:auto;
+      padding:10px 14px;
+      font-size:13px;
+      border-radius:12px;
+    }
 
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
-  margin-top:28px;
-}
+    #loginMessage{
+      min-height:22px;
+      margin-top:12px;
+      color:var(--danger);
+      font-size:14px;
+    }
 
-.card{
-  min-width:145px;
-  padding:16px;
-  border-radius:18px;
-  background:rgba(255,215,0,0.05);
-  border:1px solid rgba(255,215,0,0.14);
-  box-shadow:inset 0 0 16px rgba(255,215,0,0.04);
-}
+    .app{
+      min-height:100vh;
+      padding:26px;
+      position:relative;
+      z-index:2;
+    }
 
-.card-title{
-  font-size:12px;
-  color:#d7c27c;
-  margin-bottom:8px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:24px;
+      padding:18px 20px;
+      border:1px solid rgba(255,215,0,.14);
+      background:rgba(12,12,12,.85);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(10px);
+    }
 
-.card-value{
-  font-size:22px;
-  color:#fff3bf;
-  font-weight:bold;
-}
+    .brand-wrap{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
 
-@media (max-width:600px){
-  h1{font-size:34px;}
-  .panel-box h2{font-size:34px;}
-  .login-box{padding:34px 22px;}
-}
-</style>
+    .brand-icon{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+      border:1px solid rgba(255,215,0,.25);
+      color:var(--gold);
+      font-size:28px;
+      font-weight:800;
+      box-shadow:inset 0 0 14px rgba(255,215,0,.05);
+    }
+
+    .brand-title{
+      font-size:24px;
+      color:var(--gold);
+      letter-spacing:2px;
+      margin-bottom:4px;
+    }
+
+    .brand-sub{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .topbar-right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .user-chip{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,215,0,.16);
+      color:#f0d983;
+      background:rgba(255,215,0,.04);
+      font-size:13px;
+    }
+
+    .dashboard-grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(18,18,18,.96), rgba(8,8,8,.96));
+      border:1px solid rgba(255,215,0,.14);
+      border-radius:24px;
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h2, .card h3{
+      color:var(--gold);
+      margin-bottom:14px;
+      letter-spacing:1px;
+    }
+
+    .stat-card{
+      grid-column:span 3;
+      min-height:120px;
+    }
+
+    .stat-label{
+      color:var(--muted);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      margin-bottom:10px;
+    }
+
+    .stat-value{
+      font-size:34px;
+      color:#fff4c2;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .stat-sub{
+      color:#8e8e8e;
+      font-size:13px;
+    }
+
+    .wide{
+      grid-column:span 8;
+    }
+
+    .side{
+      grid-column:span 4;
+    }
+
+    .full{
+      grid-column:span 12;
+    }
+
+    .operators-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .operator-card{
+      background:linear-gradient(180deg, rgba(24,24,24,.98), rgba(10,10,10,.96));
+      border:1px solid rgba(255,215,0,.14);
+      border-radius:20px;
+      padding:18px;
+    }
+
+    .operator-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .operator-name{
+      font-size:22px;
+      color:#ffe89a;
+      font-weight:700;
+    }
+
+    .status{
+      font-size:12px;
+      border-radius:999px;
+      padding:7px 10px;
+      background:rgba(143,240,164,.08);
+      color:var(--success);
+      border:1px solid rgba(143,240,164,.18);
+    }
+
+    .mini-stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+    }
+
+    .mini{
+      padding:12px;
+      border-radius:16px;
+      background:rgba(255,215,0,.04);
+      border:1px solid rgba(255,215,0,.08);
+    }
+
+    .mini .label{
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .mini .value{
+      font-size:22px;
+      color:#fff2b6;
+      font-weight:700;
+    }
+
+    .section-title{
+      font-size:18px;
+      color:#f5d96e;
+      margin-bottom:14px;
+      letter-spacing:1px;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    textarea.input{
+      min-height:100px;
+      resize:vertical;
+    }
+
+    .entry-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .entry{
+      padding:14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,215,0,.08);
+    }
+
+    .entry-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+      flex-wrap:wrap;
+    }
+
+    .entry-title{
+      color:#ffe89a;
+      font-weight:700;
+    }
+
+    .entry-meta{
+      color:#9a9a9a;
+      font-size:12px;
+    }
+
+    .entry-text{
+      color:#d7d7d7;
+      line-height:1.55;
+      font-size:14px;
+      white-space:pre-wrap;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:11px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      border:1px solid rgba(255,215,0,.14);
+      background:rgba(255,215,0,.05);
+      color:#f1d67d;
+    }
+
+    .tag.red{
+      color:#ff9d9d;
+      border-color:rgba(255,123,123,.16);
+      background:rgba(255,123,123,.06);
+    }
+
+    .tag.green{
+      color:#9ef0b0;
+      border-color:rgba(143,240,164,.16);
+      background:rgba(143,240,164,.06);
+    }
+
+    .tag.blue{
+      color:#9dc7ff;
+      border-color:rgba(125,180,255,.16);
+      background:rgba(125,180,255,.06);
+    }
+
+    .actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .empty{
+      color:#8c8c8c;
+      font-size:14px;
+      padding:14px 0 4px 0;
+    }
+
+    .operator-dashboard{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+    }
+
+    .operator-main{
+      grid-column:span 8;
+    }
+
+    .operator-side{
+      grid-column:span 4;
+    }
+
+    .profile-hero{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+
+    .profile-name{
+      font-size:30px;
+      color:#ffe89a;
+      margin-bottom:6px;
+    }
+
+    .profile-role{
+      color:var(--muted);
+      text-transform:uppercase;
+      font-size:13px;
+      letter-spacing:1px;
+    }
+
+    .note-box{
+      padding:14px;
+      border-radius:16px;
+      background:rgba(255,215,0,.04);
+      border:1px solid rgba(255,215,0,.08);
+      color:#ddd;
+      line-height:1.55;
+      font-size:14px;
+    }
+
+    .list-simple{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .list-item{
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,215,0,.08);
+      color:#ddd;
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .muted{
+      color:#9a9a9a;
+      font-size:13px;
+    }
+
+    @media (max-width: 1100px){
+      .stat-card{grid-column:span 6;}
+      .wide, .side, .operator-main, .operator-side{grid-column:span 12;}
+      .operators-grid{grid-template-columns:1fr;}
+    }
+
+    @media (max-width: 720px){
+      .app{padding:14px;}
+      .topbar{padding:16px; border-radius:18px;}
+      .dashboard-grid{gap:14px;}
+      .stat-card{grid-column:span 12;}
+      .form-grid, .mini-stats{grid-template-columns:1fr;}
+      .profile-name{font-size:24px;}
+      h1{font-size:34px;}
+    }
+  </style>
 </head>
 <body>
+  <div class="particles"></div>
+  <div class="corner top-left"></div>
+  <div class="corner top-right"></div>
+  <div class="corner bottom-left"></div>
+  <div class="corner bottom-right"></div>
 
-<div class="particles"></div>
+  <div id="loginScreen" class="screen">
+    <div class="login-box">
+      <div class="badge">Private Luxury Access</div>
+      <div class="gold-line"></div>
+      <h1>TLOD 08</h1>
+      <div class="subtitle">Team Lead Control Panel</div>
 
-<div class="corner top-left"></div>
-<div class="corner top-right"></div>
-<div class="corner bottom-left"></div>
-<div class="corner bottom-right"></div>
+      <input id="username" class="input" type="text" placeholder="Логін">
+      <input id="password" class="input" type="password" placeholder="Пароль">
+      <button class="btn" onclick="login()">ENTER THE CABINET</button>
+      <div id="loginMessage"></div>
 
-<div id="login" class="login-box">
-  <div class="badge">Private Luxury Access</div>
-  <div class="gold-line"></div>
-  <h1>TLOD 08</h1>
-  <div class="subtitle">Black Gold Cabinet</div>
-
-  <input type="password" id="pass" placeholder="Введи пароль">
-  <button onclick="login()">ENTER THE CABINET</button>
-  <div id="message"></div>
-</div>
-
-<div id="panel">
-  <div class="panel-box">
-    <div class="gold-line"></div>
-    <h2>ACCESS GRANTED</h2>
-    <p>Ласкаво просимо в преміум кабінет TLOD 08.</p>
-    <p>Система активована. VIP-доступ відкрито.</p>
-
-    <div class="stats">
-      <div class="card">
-        <div class="card-title">Status</div>
-        <div class="card-value">VIP</div>
-      </div>
-      <div class="card">
-        <div class="card-title">Balance</div>
-        <div class="card-value">$ 84,500</div>
-      </div>
-      <div class="card">
-        <div class="card-title">Access</div>
-        <div class="card-value">Elite</div>
+      <div class="help">
+        <div><strong>Admin:</strong> admin / admin123</div>
+        <div><strong>Олег:</strong> oleg / 1111</div>
+        <div><strong>Артем:</strong> artem / 1111</div>
+        <div><strong>Сєня:</strong> senya / 1111</div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-function login(){
-  let pass = document.getElementById("pass").value;
-  let message = document.getElementById("message");
+  <div id="appScreen" class="app hidden"></div>
 
-  if(pass === "TLOD08"){
-    document.getElementById("login").style.display = "none";
-    document.getElementById("panel").style.display = "block";
-    document.title = "TLOD 08 | VIP Access";
-  } else {
-    message.textContent = "Неправильний пароль";
-  }
-}
-</script>
+  <script>
+    const STORAGE_KEY = "tlod08_luxury_data_v1";
 
+    const users = {
+      admin: { password: "admin123", role: "admin", displayName: "Team Lead" },
+      oleg: { password: "1111", role: "operator", displayName: "Олег" },
+      artem: { password: "1111", role: "operator", displayName: "Артем" },
+      senya: { password: "1111", role: "operator", displayName: "Сєня" }
+    };
+
+    const defaultData = {
+      operators: {
+        oleg: {
+          name: "Олег",
+          status: "Online",
+          stats: { requests: 32, conversion: "21%", revenue: "$4,200", shifts: 18 },
+          strengths: ["Швидко відповідає", "Добре закриває теплих клієнтів", "Стабільний темп роботи"],
+          goals: ["Підняти конверсію до 24%", "Менше пропусків по скрипту", "Фокус на апсейл"],
+          errors: [
+            {
+              id: createId(),
+              date: "2026-03-10",
+              type: "Скрипт",
+              severity: "medium",
+              title: "Не допрацьоване заперечення",
+              text: "На дзвінку не дотиснув клієнта після першого 'подумаю'. Треба допрацьовувати друге заперечення.",
+              author: "admin"
+            }
+          ],
+          notes: [
+            {
+              id: createId(),
+              date: "2026-03-10",
+              type: "Нотатка",
+              title: "Сильна сторона",
+              text: "Добре тримає темп, коли є багато вхідних.",
+              author: "admin"
+            }
+          ]
+        },
+        artem: {
+          name: "Артем",
+          status: "Online",
+          stats: { requests: 27, conversion: "18%", revenue: "$3,650", shifts: 16 },
+          strengths: ["Акуратний у звітах", "Спокійна комунікація", "Добре веде повторні клієнти"],
+          goals: ["Покращити швидкість відповіді", "Більше дотискати лідів", "Менше пауз у дзвінках"],
+          errors: [
+            {
+              id: createId(),
+              date: "2026-03-10",
+              type: "Швидкість",
+              severity: "high",
+              title: "Довга відповідь клієнту",
+              text: "У двох діалогах відповідь була більше 12 хвилин. Потрібно вкладатися швидше.",
+              author: "admin"
+            }
+          ],
+          notes: [
+            {
+              id: createId(),
+              date: "2026-03-10",
+              type: "Нотатка",
+              title: "Плюс",
+              text: "Добре працює з поверненням старих клієнтів.",
+              author: "admin"
+            }
+          ]
+        },
+        senya: {
+          name: "Сєня",
+          status: "Online",
+          stats: { requests: 21, conversion: "16%", revenue: "$2,980", shifts: 14 },
+          strengths: ["Легка комунікація", "Непоганий старт розмови", "Добре включається в зміну"],
+          goals: ["Стабільність по скрипту", "Менше дрібних помилок", "Краще закривати угоду"],
+          errors: [
+            {
+              id: createId(),
+              date: "2026-03-10",
+              type: "Звіт",
+              severity: "low",
+              title: "Дрібна помилка в звіті",
+              text: "Неправильно вказаний результат однієї заявки. Потрібно уважніше перевіряти.",
+              author: "admin"
+            }
+          ],
+          notes: [
+            {
+              id: createId(),
+              date: "2026-03-10",
+              type: "Нотатка",
+              title: "Фокус",
+              text: "Потрібно тримати стабільність у другій половині зміни.",
+              author: "admin"
+            }
+          ]
+        }
+      }
+    };
+
+    let state = loadData();
+    let currentUser = null;
+
+    function createId() {
+      return Math.random().toString(36).slice(2, 10);
+    }
+
+    function loadData() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          return JSON.parse(raw);
+        } catch (e) {
+          return structuredClone(defaultData);
+        }
+      }
+      return structuredClone(defaultData);
+    }
+
+    function saveData() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function login() {
+      const username = document.getElementById("username").value.trim().toLowerCase();
+      const password = document.getElementById("password").value.trim();
+      const message = document.getElementById("loginMessage");
+
+      if (!users[username] || users[username].password !== password) {
+        message.textContent = "Невірний логін або пароль";
+        return;
+      }
+
+      currentUser = {
+        username,
+        role: users[username].role,
+        displayName: users[username].displayName
+      };
+
+      document.getElementById("loginScreen").classList.add("hidden");
+      document.getElementById("appScreen").classList.remove("hidden");
+      document.title = `TLOD 08 | ${currentUser.displayName}`;
+      renderApp();
+    }
+
+    function logout() {
+      currentUser = null;
+      document.getElementById("appScreen").classList.add("hidden");
+      document.getElementById("loginScreen").classList.remove("hidden");
+      document.getElementById("loginMessage").textContent = "";
+      document.getElementById("password").value = "";
+      document.title = "TLOD 08 | Team Lead Cabinet";
+    }
+
+    function renderApp() {
+      const app = document.getElementById("appScreen");
+      if (!currentUser) return;
+
+      if (currentUser.role === "admin") {
+        app.innerHTML = renderAdminDashboard();
+      } else {
+        app.innerHTML = renderOperatorDashboard(currentUser.username);
+      }
+    }
+
+    function renderShell(content) {
+      return `
+        <div class="topbar">
+          <div class="brand-wrap">
+            <div class="brand-icon">8</div>
+            <div>
+              <div class="brand-title">TLOD 08</div>
+              <div class="brand-sub">Luxury team control system</div>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="user-chip">${escapeHtml(currentUser.displayName)}</div>
+            <button class="btn secondary small" onclick="logout()">Вийти</button>
+          </div>
+        </div>
+        ${content}
+      `;
+    }
+
+    function getGlobalStats() {
+      const ops = Object.values(state.operators);
+      const totalRequests = ops.reduce((sum, op) => sum + Number(op.stats.requests || 0), 0);
+      const totalErrors = ops.reduce((sum, op) => sum + op.errors.length, 0);
+      const totalRevenue = ops.reduce((sum, op) => {
+        const n = Number(String(op.stats.revenue).replace(/[^0-9.-]/g, ""));
+        return sum + (isNaN(n) ? 0 : n);
+      }, 0);
+
+      return {
+        totalRequests,
+        totalErrors,
+        totalRevenue: "$" + totalRevenue.toLocaleString("en-US"),
+        operators: ops.length
+      };
+    }
+
+    function renderAdminDashboard() {
+      const stats = getGlobalStats();
+
+      return renderShell(`
+        <div class="dashboard-grid">
+          <div class="card stat-card">
+            <div class="stat-label">Оператори</div>
+            <div class="stat-value">${stats.operators}</div>
+            <div class="stat-sub">Активних у системі</div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Заявки</div>
+            <div class="stat-value">${stats.totalRequests}</div>
+            <div class="stat-sub">Сумарно по команді</div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Помилки</div>
+            <div class="stat-value">${stats.totalErrors}</div>
+            <div class="stat-sub">Зафіксовано в кабінеті</div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Прибуток</div>
+            <div class="stat-value">${stats.totalRevenue}</div>
+            <div class="stat-sub">Загальний показник</div>
+          </div>
+
+          <div class="card wide">
+            <h2>Оператори</h2>
+            <div class="operators-grid">
+              ${Object.entries(state.operators).map(([key, op]) => `
+                <div class="operator-card">
+                  <div class="operator-head">
+                    <div class="operator-name">${escapeHtml(op.name)}</div>
+                    <div class="status">${escapeHtml(op.status)}</div>
+                  </div>
+
+                  <div class="mini-stats">
+                    <div class="mini">
+                      <div class="label">Заявки</div>
+                      <div class="value">${escapeHtml(op.stats.requests)}</div>
+                    </div>
+                    <div class="mini">
+                      <div class="label">Конверсія</div>
+                      <div class="value">${escapeHtml(op.stats.conversion)}</div>
+                    </div>
+                    <div class="mini">
+                      <div class="label">Прибуток</div>
+                      <div class="value">${escapeHtml(op.stats.revenue)}</div>
+                    </div>
+                    <div class="mini">
+                      <div class="label">Помилки</div>
+                      <div class="value">${op.errors.length}</div>
+                    </div>
+                  </div>
+
+                  <div class="actions">
+                    <button class="btn small" onclick="focusOperatorForm('${key}')">Додати запис</button>
+                    <button class="btn secondary small" onclick="openOperatorPreview('${key}')">Перегляд</button>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
+          <div class="card side">
+            <h2>Додати помилку / нотатку</h2>
+            <div class="form-grid">
+              <select id="entryOperator" class="input">
+                <option value="oleg">Олег</option>
+                <option value="artem">Артем</option>
+                <option value="senya">Сєня</option>
+              </select>
+
+              <select id="entryKind" class="input">
+                <option value="error">Помилка</option>
+                <option value="note">Нотатка</option>
+                <option value="goal">Ціль</option>
+              </select>
+            </div>
+
+            <div class="form-grid">
+              <input id="entryType" class="input" type="text" placeholder="Тип: Скрипт / Швидкість / Звіт">
+              <select id="entrySeverity" class="input">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <input id="entryTitle" class="input" type="text" placeholder="Короткий заголовок">
+            <textarea id="entryText" class="input" placeholder="Опиши деталі, що сталося і що треба покращити"></textarea>
+            <button class="btn" onclick="addEntry()">Зберегти запис</button>
+
+            <div class="help" style="margin-top:14px;">
+              Тут ти можеш вести:
+              <br>— помилки
+              <br>— сильні сторони
+              <br>— задачі на тиждень
+              <br>— персональні нотатки для кожного
+            </div>
+          </div>
+
+          <div class="card full">
+            <h2>Останні записи</h2>
+            <div class="entry-list">
+              ${renderRecentEntries()}
+            </div>
+          </div>
+        </div>
+      `);
+    }
+
+    function renderRecentEntries() {
+      const all = [];
+
+      Object.entries(state.operators).forEach(([key, op]) => {
+        op.errors.forEach(item => {
+          all.push({ ...item, operatorKey: key, operatorName: op.name, kind: "error" });
+        });
+        op.notes.forEach(item => {
+          all.push({ ...item, operatorKey: key, operatorName: op.name, kind: item.type === "Ціль" ? "goal" : "note" });
+        });
+      });
+
+      all.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+      if (!all.length) return `<div class="empty">Поки що записів немає.</div>`;
+
+      return all.slice(0, 10).map(item => `
+        <div class="entry">
+          <div class="entry-top">
+            <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title || "Без назви")}</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              ${renderKindTag(item.kind, item.severity)}
+              <div class="entry-meta">${escapeHtml(item.date)}</div>
+            </div>
+          </div>
+          <div class="entry-text">${escapeHtml(item.text || "")}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderKindTag(kind, severity) {
+      if (kind === "error") {
+        const sev = severity === "high" ? "red" : severity === "low" ? "blue" : "";
+        return `<span class="tag ${sev}">Помилка</span>`;
+      }
+      if (kind === "goal") return `<span class="tag green">Ціль</span>`;
+      return `<span class="tag">Нотатка</span>`;
+    }
+
+    function renderOperatorDashboard(username) {
+      const op = state.operators[username];
+
+      return renderShell(`
+        <div class="operator-dashboard">
+          <div class="card operator-main">
+            <div class="profile-hero">
+              <div>
+                <div class="profile-name">${escapeHtml(op.name)}</div>
+                <div class="profile-role">Operator private cabinet</div>
+              </div>
+              <div class="status">${escapeHtml(op.status)}</div>
+            </div>
+
+            <div class="mini-stats">
+              <div class="mini">
+                <div class="label">Заявки</div>
+                <div class="value">${escapeHtml(op.stats.requests)}</div>
+              </div>
+              <div class="mini">
+                <div class="label">Конверсія</div>
+                <div class="value">${escapeHtml(op.stats.conversion)}</div>
+              </div>
+              <div class="mini">
+                <div class="label">Прибуток</div>
+                <div class="value">${escapeHtml(op.stats.revenue)}</div>
+              </div>
+              <div class="mini">
+                <div class="label">Змін</div>
+                <div class="value">${escapeHtml(op.stats.shifts)}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card operator-side">
+            <h3>Фокус на зараз</h3>
+            <div class="note-box">
+              Тримай стабільний темп, уважно допрацьовуй заперечення і дивись останні нотатки від Team Lead.
+            </div>
+          </div>
+
+          <div class="card operator-main">
+            <h3>Мої помилки / розбір</h3>
+            <div class="entry-list">
+              ${op.errors.length ? op.errors.map(item => `
+                <div class="entry">
+                  <div class="entry-top">
+                    <div class="entry-title">${escapeHtml(item.title)}</div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                      ${renderKindTag("error", item.severity)}
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                  </div>
+                  <div class="entry-meta" style="margin-bottom:8px;">Тип: ${escapeHtml(item.type)}</div>
+                  <div class="entry-text">${escapeHtml(item.text)}</div>
+                </div>
+              `).join("") : `<div class="empty">Помилок поки немає.</div>`}
+            </div>
+          </div>
+
+          <div class="card operator-side">
+            <h3>Мої сильні сторони</h3>
+            <div class="list-simple">
+              ${op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("")}
+            </div>
+          </div>
+
+          <div class="card operator-main">
+            <h3>Нотатки від Team Lead</h3>
+            <div class="entry-list">
+              ${op.notes.length ? op.notes.map(item => `
+                <div class="entry">
+                  <div class="entry-top">
+                    <div class="entry-title">${escapeHtml(item.title)}</div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                      ${item.type === "Ціль" ? `<span class="tag green">Ціль</span>` : `<span class="tag">Нотатка</span>`}
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                  </div>
+                  ${item.type ? `<div class="entry-meta" style="margin-bottom:8px;">Тип: ${escapeHtml(item.type)}</div>` : ""}
+                  <div class="entry-text">${escapeHtml(item.text)}</div>
+                </div>
+              `).join("") : `<div class="empty">Нотаток поки немає.</div>`}
+            </div>
+          </div>
+
+          <div class="card operator-side">
+            <h3>Цілі / точки росту</h3>
+            <div class="list-simple">
+              ${op.goals.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("")}
+            </div>
+          </div>
+        </div>
+      `);
+    }
+
+    function addEntry() {
+      const operatorKey = document.getElementById("entryOperator").value;
+      const kind = document.getElementById("entryKind").value;
+      const type = document.getElementById("entryType").value.trim() || "Без типу";
+      const severity = document.getElementById("entrySeverity").value;
+      const title = document.getElementById("entryTitle").value.trim();
+      const text = document.getElementById("entryText").value.trim();
+
+      if (!title || !text) {
+        alert("Заповни заголовок і текст.");
+        return;
+      }
+
+      const item = {
+        id: createId(),
+        date: new Date().toISOString().slice(0, 10),
+        type: kind === "goal" ? "Ціль" : type,
+        severity,
+        title,
+        text,
+        author: currentUser.username
+      };
+
+      if (kind === "error") {
+        state.operators[operatorKey].errors.unshift(item);
+      } else if (kind === "goal") {
+        state.operators[operatorKey].notes.unshift({ ...item, type: "Ціль" });
+        state.operators[operatorKey].goals.unshift(title);
+      } else {
+        state.operators[operatorKey].notes.unshift({ ...item, type: "Нотатка" });
+      }
+
+      saveData();
+      clearAdminForm();
+      renderApp();
+    }
+
+    function clearAdminForm() {
+      document.getElementById("entryType").value = "";
+      document.getElementById("entryTitle").value = "";
+      document.getElementById("entryText").value = "";
+      document.getElementById("entrySeverity").value = "medium";
+      document.getElementById("entryKind").value = "error";
+    }
+
+    function focusOperatorForm(operatorKey) {
+      const select = document.getElementById("entryOperator");
+      if (select) {
+        select.value = operatorKey;
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+      }
+    }
+
+    function openOperatorPreview(operatorKey) {
+      const savedUser = currentUser;
+      currentUser = {
+        username: operatorKey,
+        role: "operator",
+        displayName: state.operators[operatorKey].name
+      };
+      renderApp();
+
+      const app = document.getElementById("appScreen");
+      const backBar = document.createElement("div");
+      backBar.style.marginBottom = "16px";
+      backBar.innerHTML = `<button class="btn secondary small" onclick="backToAdmin()">← Назад до Team Lead</button>`;
+      app.prepend(backBar);
+
+      window.backToAdmin = function() {
+        currentUser = savedUser;
+        renderApp();
+      };
+    }
+  </script>
 </body>
 </html>
+
