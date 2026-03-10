@@ -914,7 +914,7 @@ function isLate(dateStr){
       return {best, score: bestScore};
     }
 
-    async function login() {
+   window.login = async function () {
       function isToday(dateStr){
   if (!dateStr) return false;
   const today = new Date().toISOString().slice(0,10);
@@ -2022,6 +2022,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
