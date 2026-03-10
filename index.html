@@ -1648,39 +1648,43 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
         `;
       }
 
-      if (operatorTab === "balances") {
-        const avgBalance = getAverageBalance(balances);
-        content = `
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Мій баланс</h3>
-              <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
-              <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
-            </div>
+     if (operatorTab === "balances") {
+  const avgBalance = getAverageBalance(balances);
 
-            <div class="card operator-side">
-              <h3>Середній баланс</h3>
-              <div class="score-big">${money(Math.round(avgBalance || 0))}</div>
-              <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
-            </div>
+  content = `
+    <div class="operator-dashboard">
+      <div class="card operator-side">
+        <h3>Мій баланс</h3>
+        <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
+        <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
+      </div>
 
-            <div class="card operator-main">
-              <h3>Історія балансів</h3>
-              <div class="entry-list">
-                ${balances.length ? balances.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">Баланс ${money(item.balance)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
+      <div class="card operator-side">
+        <h3>Середній баланс</h3>
+        <div class="score-big">${money(Math.round(avgBalance || 0))}</div>
+        <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
+      </div>
+
+      <div class="card operator-main">
+        <h3>Історія балансів</h3>
+        <div class="entry-list">
+          ${
+            balances.length
+              ? balances.map(item => `
+                <div class="entry">
+                  <div class="entry-top">
+                    <div class="entry-title">Баланс ${money(item.balance)}</div>
+                    <div class="entry-meta">${escapeHtml(item.date)}</div>
                   </div>
-                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
+                </div>
+              `).join("")
+              : <div class="empty">Поки балансів немає.</div>
+          }
+        </div>
+      </div>
+    </div>
+  `;
+}
       if (operatorTab === "tasks") {
         content = `
           <div class="operator-dashboard">
@@ -2054,6 +2058,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
   </script>
 </body>
 </html>
+
 
 
 
