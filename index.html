@@ -52,7 +52,6 @@
     body::before{
       content:"";
       position:fixed;
-      inset:auto;
       width:950px;
       height:950px;
       left:-300px;
@@ -82,6 +81,7 @@
       from{transform:translate(0,0)}
       to{transform:translate(150px,120px)}
     }
+
     @keyframes glowMove2{
       from{transform:translate(0,0)}
       to{transform:translate(-140px,-100px)}
@@ -116,6 +116,7 @@
       pointer-events:none;
       overflow:hidden;
     }
+
     .trophy{
       position:absolute;
       color:rgba(255,215,0,.07);
@@ -123,6 +124,7 @@
       user-select:none;
       animation:trophyFloat 8s ease-in-out infinite alternate;
     }
+
     .t1{top:6%;left:4%;font-size:84px;animation-duration:8s}
     .t2{top:14%;right:6%;font-size:60px;animation-duration:11s}
     .t3{bottom:9%;left:8%;font-size:74px;animation-duration:10s}
@@ -184,6 +186,7 @@
       margin-bottom:16px;
       transition:.25s;
     }
+
     .badge:hover{transform:translateY(-1px);box-shadow:0 0 20px rgba(255,215,0,.1)}
 
     .gold-line{
@@ -345,9 +348,11 @@
       box-shadow:inset 0 0 14px rgba(255,215,0,.05),0 0 18px rgba(255,215,0,.05);
       transition:.25s;
     }
+
     .brand-badge:hover{transform:translateY(-2px) scale(1.04)}
 
     .topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
     .user-chip{
       padding:10px 14px;
       border-radius:999px;
@@ -436,6 +441,7 @@
     }
 
     .card:hover::before{transform:translateX(100%)}
+
     .card:hover{
       transform:translateY(-3px);
       border-color:rgba(255,215,0,.18);
@@ -489,6 +495,7 @@
       transition:.25s;
       box-shadow:0 10px 24px rgba(0,0,0,.24);
     }
+
     .operator-card:hover{
       transform:translateY(-4px) scale(1.01);
       border-color:rgba(255,215,0,.18);
@@ -504,6 +511,7 @@
     }
 
     .operator-name{font-size:22px;color:#ffe89a;font-weight:800}
+
     .status{
       font-size:12px;
       padding:7px 10px;
@@ -512,6 +520,7 @@
       color:var(--green);
       border:1px solid rgba(143,240,164,.16);
     }
+
     .status.red{
       background:rgba(255,95,95,.10);
       color:#ff9b9b;
@@ -531,8 +540,10 @@
       border:1px solid rgba(255,215,0,.08);
       transition:.25s;
     }
+
     .mini:hover{transform:translateY(-2px);background:rgba(255,215,0,.06)}
     .mini.red{background:rgba(255,0,0,.05);border-color:rgba(255,0,0,.10)}
+
     .mini .label{
       font-size:12px;
       color:var(--muted);
@@ -540,6 +551,7 @@
       text-transform:uppercase;
       letter-spacing:1px;
     }
+
     .mini .value{font-size:22px;color:#fff2b6;font-weight:800}
 
     .profile-hero{
@@ -550,10 +562,12 @@
       flex-wrap:wrap;
       margin-bottom:16px;
     }
+
     .profile-name{font-size:30px;color:#ffe89a;margin-bottom:6px;font-weight:900}
     .profile-role{color:var(--muted);text-transform:uppercase;font-size:13px;letter-spacing:1px}
 
     .entry-list{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+
     .entry{
       padding:14px;
       border-radius:18px;
@@ -561,6 +575,7 @@
       border:1px solid rgba(255,215,0,.08);
       transition:.25s;
     }
+
     .entry:hover{
       transform:translateY(-2px);
       background:rgba(255,255,255,.03);
@@ -591,16 +606,19 @@
       background:rgba(255,215,0,.04);
       color:#f1d67d;
     }
+
     .tag.red{
       color:#ff9d9d;
       border-color:rgba(255,95,95,.16);
       background:rgba(255,95,95,.06);
     }
+
     .tag.green{
       color:#9ef0b0;
       border-color:rgba(143,240,164,.16);
       background:rgba(143,240,164,.06);
     }
+
     .tag.blue{
       color:#9dc7ff;
       border-color:rgba(125,180,255,.16);
@@ -631,6 +649,7 @@
       line-height:1.5;
       transition:.25s;
     }
+
     .list-item:hover{
       transform:translateY(-2px);
       background:rgba(255,255,255,.03);
@@ -662,8 +681,19 @@
 
     tbody tr{transition:.2s}
     tbody tr:hover{background:rgba(255,215,0,.03)}
+
     .rank-num{font-size:20px;font-weight:900;color:#fff1a8}
-    .score-big{font-size:30px;font-weight:900;color:#fff3bf}
+    .score-big{
+      font-size:30px;
+      font-weight:900;
+      color:#fff3bf;
+      animation:glowScore 2s infinite alternate;
+    }
+
+    @keyframes glowScore{
+      from{text-shadow:0 0 10px rgba(255,215,0,.5);transform:scale(1)}
+      to{text-shadow:0 0 20px rgba(255,80,80,.35);transform:scale(1.04)}
+    }
 
     .exclamation{
       display:inline-flex;
@@ -683,9 +713,7 @@
       50%{box-shadow:0 0 16px rgba(255,95,95,.18)}
     }
 
-    .range-wrap{
-      margin-top:8px;
-    }
+    .range-wrap{margin-top:8px}
     .range-label{
       display:flex;
       justify-content:space-between;
@@ -693,6 +721,7 @@
       color:#b9b9b9;
       margin-bottom:8px;
     }
+
     input[type="range"]{
       width:100%;
       appearance:none;
@@ -701,7 +730,9 @@
       background:linear-gradient(90deg, rgba(255,70,70,.85), rgba(255,215,0,.9));
       outline:none;
       box-shadow:0 0 12px rgba(255,0,0,.12);
+      margin-bottom:14px;
     }
+
     input[type="range"]::-webkit-slider-thumb{
       appearance:none;
       width:20px;height:20px;border-radius:50%;
@@ -711,6 +742,7 @@
       cursor:pointer;
       transition:.2s;
     }
+
     input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.08)}
 
     .image-preview{
@@ -722,9 +754,22 @@
       margin-top:10px;
       transition:.25s;
     }
+
     .image-preview:hover{
       transform:scale(1.01);
       box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+
+    .deadline-badge.late{
+      color:#ff9c9c;
+      border-color:rgba(255,80,80,.18);
+      background:rgba(255,80,80,.08);
+    }
+
+    .deadline-badge.today{
+      color:#ffd98f;
+      border-color:rgba(255,180,0,.18);
+      background:rgba(255,180,0,.08);
     }
 
     .rating-table-wrap{overflow:auto}
@@ -776,7 +821,7 @@
 
       <div class="help">
         Вхід через Firebase.
-        <br>Усі записи, оцінки й редагування зберігаються онлайн.
+        <br>Усі записи, оцінки, баланси й задачі зберігаються онлайн.
       </div>
     </div>
   </div>
@@ -853,29 +898,18 @@
       return { totalRyu, totalTu, avgBalance, avgScore };
     }
 
-    function getLeaderOfDay(operators, reports, ryutu){
+    function getAverageBalance(items){
+      if (!items.length) return 0;
+      return items.reduce((sum, item) => sum + Number(item.balance || 0), 0) / items.length;
+    }
 
-let best = null
-let bestScore = -999999
-
-for (const op of operators){
-
-const opReports = reports.filter(x => x.operatorId === op.id)
-const opRyuTu = ryutu.filter(x => x.operatorId === op.id)
-
-const score = calcOperatorScore(op, opReports, opRyuTu)
-
-if(score > bestScore){
-bestScore = score
-best = op
-}
-
-}
-
-return {best,score:bestScore}
-
-}
-
+    function calcOperatorScore(op, reports, ryutu){
+      const rt = getRyuTuStats(ryutu);
+      const reportAvg = reviewedAvg(reports);
+      const weekScore = Number(op.weekScore || 0);
+      const normPercent = op.norm ? (Number(op.revenue || 0) / Number(op.norm || 1)) * 100 : 0;
+      const finePenalty = Number(op.fineDollars || 0) * 1.5;
+      const improvePenalty = (op.improvements || []).length * 6;
 
       return Math.round(
         Number(op.revenue || 0) * 0.7 +
@@ -886,6 +920,33 @@ return {best,score:bestScore}
         finePenalty -
         improvePenalty
       );
+    }
+
+    function getLeaderOfDay(operators, reports, ryutu){
+      let best = null;
+      let bestScore = -999999;
+      for (const op of operators){
+        const opReports = reports.filter(x => x.operatorId === op.id);
+        const opRyuTu = ryutu.filter(x => x.operatorId === op.id);
+        const score = calcOperatorScore(op, opReports, opRyuTu);
+        if(score > bestScore){
+          bestScore = score;
+          best = op;
+        }
+      }
+      return { best, score: bestScore };
+    }
+
+    function isToday(dateStr){
+      if (!dateStr) return false;
+      const now = new Date().toISOString().slice(0,10);
+      return dateStr === now;
+    }
+
+    function isLate(dateStr){
+      if (!dateStr) return false;
+      const now = new Date().toISOString().slice(0,10);
+      return dateStr < now;
     }
 
     async function login() {
@@ -900,7 +961,6 @@ return {best,score:bestScore}
         message.textContent = "Невірний email або пароль";
       }
     }
-
     window.login = login;
 
     async function logout() {
@@ -925,8 +985,8 @@ return {best,score:bestScore}
       const snap = await getDoc(ref);
       if (!snap.exists()) {
         await setDoc(ref, {
-          name: profile.name,
-          shift: profile.shift,
+          name: profile.name || "Operator",
+          shift: profile.shift || "",
           norm: Number(profile.norm || 0),
           status: "Online",
           requests: 0,
@@ -989,40 +1049,33 @@ return {best,score:bestScore}
       return arr;
     }
 
-  function renderShell(content) {
+    async function getBalances(operatorId = null) {
+      const snap = await getDocs(collection(db, "balances"));
+      const arr = [];
+      snap.forEach(d => {
+        const x = { id: d.id, ...d.data() };
+        if (!operatorId || x.operatorId === operatorId) arr.push(x);
+      });
+      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+      return arr;
+    }
 
-let greeting = currentProfile.role === "admin"
-  ? "👑 Привіт Артьомушка"
-  : "🔥 Привіт " + currentProfile.name
+    async function getTasks(operatorId = null) {
+      const snap = await getDocs(collection(db, "tasks"));
+      const arr = [];
+      snap.forEach(d => {
+        const x = { id: d.id, ...d.data() };
+        if (!operatorId || x.operatorId === operatorId) arr.push(x);
+      });
+      arr.sort((a,b)=>String(a.deadline || "").localeCompare(String(b.deadline || "")));
+      return arr;
+    }
 
-return `
-<div class="topbar">
+    function renderShell(content) {
+      const greeting = currentProfile.role === "admin"
+        ? "👑 Привіт Артьомушка"
+        : "🔥 Привіт " + currentProfile.name;
 
-<div class="brand-wrap">
-<div class="brand-badge">32</div>
-
-<div>
-<div class="brand-title">TLOD 32</div>
-<div class="brand-sub">Luxury Team Panel</div>
-</div>
-</div>
-
-<div class="topbar-right">
-
-<div class="user-chip">${greeting}</div>
-
-<button class="btn secondary small" onclick="logout()">
-🚪 Вийти
-</button>
-
-</div>
-
-</div>
-
-${content}
-
-`
-}
       return `
         <div class="topbar">
           <div class="brand-wrap">
@@ -1034,12 +1087,23 @@ ${content}
           </div>
 
           <div class="topbar-right">
-            <div class="user-chip">${escapeHtml(currentProfile.name)}</div>
-            <button class="btn secondary small" onclick="logout()">Вийти</button>
+            <div class="user-chip">${escapeHtml(greeting)}</div>
+            <button class="btn secondary small" onclick="logout()">🚪 Вийти</button>
           </div>
         </div>
+
         ${content}
       `;
+    }
+
+    function bindDynamicActions() {
+      document.querySelectorAll("[data-live-value]").forEach(el => {
+        const target = document.getElementById(el.dataset.liveValue);
+        if (!target) return;
+        const update = () => { target.textContent = el.value; };
+        el.addEventListener("input", update);
+        update();
+      });
     }
 
     async function renderApp() {
@@ -1055,21 +1119,13 @@ ${content}
       bindDynamicActions();
     }
 
-    function bindDynamicActions() {
-      document.querySelectorAll("[data-live-value]").forEach(el => {
-        const target = document.getElementById(el.dataset.liveValue);
-        if (!target) return;
-        const update = () => { target.textContent = el.value; };
-        el.addEventListener("input", update);
-        update();
-      });
-    }
-
     async function renderAdmin() {
       const operators = await getAllOperatorStats();
       const reportsAll = await getReports();
       const ryutuAll = await getRyuTu();
       const examples = await getExamples();
+      const balancesAll = await getBalances();
+      const tasksAll = await getTasks();
 
       const ranked = operators.map(op => {
         const opReports = reportsAll.filter(x => x.operatorId === op.id);
@@ -1084,6 +1140,7 @@ ${content}
 
       const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
       const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
+      const leader = getLeaderOfDay(operators, reportsAll, ryutuAll);
 
       let content = "";
 
@@ -1102,7 +1159,7 @@ ${content}
                   <div class="operator-card">
                     <div class="operator-head">
                       <div>
-                        <div class="operator-name">${escapeHtml(op.name)}</div>
+                        <div class="operator-name">${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</div>
                         <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
                       </div>
                       <div class="status ${op.score < 50 ? 'red' : ''}">Score ${op.score}</div>
@@ -1133,16 +1190,13 @@ ${content}
                     <div class="entry-top">
                       <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}</span>
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Не перевірено'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
 
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
-
-                    ${item.reviewed ? `
-                      <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>
-                    ` : ""}
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
 
                     <div class="actions">
                       <button class="btn small" onclick="editReport('${item.id}')">Редагувати</button>
@@ -1156,7 +1210,7 @@ ${content}
                       <div class="range-wrap">
                         <div class="range-label">
                           <span>Оцінка звіту</span>
-                          <span data-live-value="reportScoreValue_${item.id}" id="reportScoreValue_${item.id}">${Number(item.score || 0)}</span>
+                          <span id="reportScoreValue_${item.id}">${Number(item.score || 0)}</span>
                         </div>
                         <input id="reportScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="reportScoreValue_${item.id}">
                       </div>
@@ -1186,16 +1240,13 @@ ${content}
                     <div class="entry-top">
                       <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}</span>
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Не перевірено'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
 
                     <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-
-                    ${item.reviewed ? `
-                      <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>
-                    ` : ""}
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
 
                     <div class="actions">
                       <button class="btn small" onclick="editRyuTu('${item.id}')">Редагувати</button>
@@ -1210,7 +1261,7 @@ ${content}
                       <div class="range-wrap">
                         <div class="range-label">
                           <span>Оцінка РЮ / ТЮ</span>
-                          <span data-live-value="rtScoreValue_${item.id}" id="rtScoreValue_${item.id}">${Number(item.score || 0)}</span>
+                          <span id="rtScoreValue_${item.id}">${Number(item.score || 0)}</span>
                         </div>
                         <input id="rtScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="rtScoreValue_${item.id}">
                       </div>
@@ -1223,6 +1274,105 @@ ${content}
                     </div>
                   </div>
                 `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (adminTab === "balances") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card side">
+              <h2>Додати баланс</h2>
+              <select id="balanceOperator" class="select">
+                ${operators.map(op => `<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
+              </select>
+              <input id="balanceValue" class="input" type="number" min="0" placeholder="Баланс">
+              <button class="btn" onclick="addBalance()">Зберегти баланс</button>
+            </div>
+
+            <div class="card wide">
+              <h2>Баланси операторів</h2>
+              <div class="rating-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Оператор</th>
+                      <th>Останній баланс</th>
+                      <th>Середній баланс</th>
+                      <th>К-сть записів</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${operators.map(op => {
+                      const opBalances = balancesAll.filter(x => x.operatorId === op.id);
+                      const lastBalance = opBalances.length ? Number(opBalances[0].balance || 0) : 0;
+                      const avgBalance = getAverageBalance(opBalances);
+                      return `
+                        <tr>
+                          <td>${escapeHtml(op.name)}</td>
+                          <td>${money(lastBalance)}</td>
+                          <td>${money(avgBalance.toFixed(0))}</td>
+                          <td>${opBalances.length}</td>
+                        </tr>
+                      `;
+                    }).join("")}
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="entry-list">
+                ${balancesAll.length ? balancesAll.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.operatorName)} — Баланс ${money(item.balance)}</div>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                    <div class="actions">
+                      <button class="btn red small" onclick="removeBalance('${item.id}')">Видалити</button>
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (adminTab === "tasks") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card side">
+              <h2>Поставити завдання</h2>
+              <select id="taskOperator" class="select">
+                ${operators.map(op => `<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
+              </select>
+              <input id="taskTitle" class="input" placeholder="Назва завдання">
+              <textarea id="taskText" class="textarea" placeholder="Опис завдання"></textarea>
+              <input id="taskDeadline" class="input" type="date">
+              <button class="btn" onclick="addTask()">Зберегти завдання</button>
+            </div>
+
+            <div class="card wide">
+              <h2>Усі завдання</h2>
+              <div class="entry-list">
+                ${tasksAll.length ? tasksAll.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
+                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
+                      </div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    ${item.doneAt ? `<div class="entry-meta" style="margin-top:10px;">Виконано: ${escapeHtml(item.doneAt)}</div>` : ""}
+                    <div class="actions">
+                      <button class="btn red small" onclick="removeTask('${item.id}')">Видалити</button>
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
               </div>
             </div>
           </div>
@@ -1251,6 +1401,7 @@ ${content}
                     </div>
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
                     ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+
                     <div class="actions">
                       <button class="btn small" onclick="editExample('${item.id}')">Редагувати</button>
                       <button class="btn red small" onclick="removeExample('${item.id}')">Видалити</button>
@@ -1299,7 +1450,7 @@ ${content}
                     ${ranked.map((op, idx) => `
                       <tr>
                         <td class="rank-num">#${idx + 1}</td>
-                        <td>${escapeHtml(op.name)}</td>
+                        <td>${escapeHtml(op.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${op.score > 200 ? "🔥" : ""}</td>
                         <td>${escapeHtml(op.shift)}</td>
                         <td>${money(op.revenue)}</td>
                         <td>${op.ryutuStats.totalRyu}</td>
@@ -1320,10 +1471,16 @@ ${content}
       }
 
       return renderShell(`
-        <div class="bonus-banner"><strong>Бонус за 1 місце:</strong> поки в тесті</div>
+        <div class="bonus-banner">
+          <strong>🏆 ЛІДЕР ДНЯ</strong>
+          <br><br>
+          ${leader.best ? `🔥 ${escapeHtml(leader.best.name)}<br>Score: ${leader.score}` : "Поки немає даних"}
+        </div>
 
         <div class="tabs">
           <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
+          <button class="tab-btn ${adminTab==="balances" ? "active" : ""}" onclick="setAdminTab('balances')">Баланси</button>
+          <button class="tab-btn ${adminTab==="tasks" ? "active" : ""}" onclick="setAdminTab('tasks')">Завдання</button>
           <button class="tab-btn red-accent ${adminTab==="reports" ? "active" : ""}" onclick="setAdminTab('reports')">Звіти</button>
           <button class="tab-btn red-accent ${adminTab==="ryutu" ? "active" : ""}" onclick="setAdminTab('ryutu')">РЮ / ТЮ</button>
           <button class="tab-btn ${adminTab==="examples" ? "active" : ""}" onclick="setAdminTab('examples')">Скрiни</button>
@@ -1339,6 +1496,8 @@ ${content}
       const reports = await getReports(operatorId);
       const ryutu = await getRyuTu(operatorId);
       const examples = await getExamples();
+      const balances = await getBalances(operatorId);
+      const tasks = await getTasks(operatorId);
       const allOperators = await getAllOperatorStats();
 
       const ranked = [];
@@ -1364,7 +1523,7 @@ ${content}
             <div class="card operator-main">
               <div class="profile-hero">
                 <div>
-                  <div class="profile-name">Привіт, ${escapeHtml(op.name)}</div>
+                  <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu) > 200 ? "🔥" : ""}</div>
                   <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
                 </div>
                 <div class="status ${calcOperatorScore(op, reports, ryutu) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu)}</div>
@@ -1409,7 +1568,7 @@ ${content}
                     <div class="entry-top">
                       <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
@@ -1457,7 +1616,7 @@ ${content}
                     <div class="entry-top">
                       <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
@@ -1486,6 +1645,66 @@ ${content}
         `;
       }
 
+      if (operatorTab === "balances") {
+        const avgBalance = getAverageBalance(balances);
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Мій баланс</h3>
+              <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
+              <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
+            </div>
+
+            <div class="card operator-side">
+              <h3>Середній баланс</h3>
+              <div class="score-big">${money(avgBalance.toFixed(0))}</div>
+              <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
+            </div>
+
+            <div class="card operator-main">
+              <h3>Історія балансів</h3>
+              <div class="entry-list">
+                ${balances.length ? balances.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">Баланс ${money(item.balance)}</div>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (operatorTab === "tasks") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card full">
+              <h3>Мої завдання</h3>
+              <div class="entry-list">
+                ${tasks.length ? tasks.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
+                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
+                      </div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    <div class="actions">
+                      ${item.done ? `<button class="btn secondary small" disabled>✅ Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
+                    </div>
+                  </div>
+                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
       if (operatorTab === "rating") {
         content = `
           <div class="operator-dashboard">
@@ -1499,7 +1718,7 @@ ${content}
                   ${ranked.map((item, idx) => `
                     <tr>
                       <td class="rank-num">#${idx+1}</td>
-                      <td>${escapeHtml(item.name)}</td>
+                      <td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
                       <td>${escapeHtml(item.shift)}</td>
                       <td>${item.score}</td>
                     </tr>
@@ -1561,10 +1780,12 @@ ${content}
       }
 
       return renderShell(`
-        <div class="bonus-banner"><strong>Бонус за 1 місце:</strong> поки в тесті</div>
+        <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
 
         <div class="tabs">
           <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
+          <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
+          <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
           <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
           <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
           <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
@@ -1629,6 +1850,69 @@ ${content}
       renderApp();
     };
 
+    window.addBalance = async () => {
+      const operatorId = document.getElementById("balanceOperator").value;
+      const balance = Number(document.getElementById("balanceValue").value || 0);
+      if (!balance) return alert("Введи баланс");
+
+      const userSnap = await getDoc(doc(db, "users", operatorId));
+      const userData = userSnap.data();
+
+      await addDoc(collection(db, "balances"), {
+        operatorId,
+        operatorName: userData.name,
+        balance,
+        date: new Date().toISOString().slice(0,10)
+      });
+
+      renderApp();
+    };
+
+    window.removeBalance = async (id) => {
+      if (!confirm("Видалити баланс?")) return;
+      await deleteDoc(doc(db, "balances", id));
+      renderApp();
+    };
+
+    window.addTask = async () => {
+      const operatorId = document.getElementById("taskOperator").value;
+      const title = document.getElementById("taskTitle").value.trim();
+      const text = document.getElementById("taskText").value.trim();
+      const deadline = document.getElementById("taskDeadline").value;
+
+      if (!title) return alert("Напиши назву завдання");
+      if (!deadline) return alert("Вкажи дедлайн");
+
+      const userSnap = await getDoc(doc(db, "users", operatorId));
+      const userData = userSnap.data();
+
+      await addDoc(collection(db, "tasks"), {
+        operatorId,
+        operatorName: userData.name,
+        title,
+        text,
+        deadline,
+        done: false,
+        doneAt: ""
+      });
+
+      renderApp();
+    };
+
+    window.completeTask = async (id) => {
+      await updateDoc(doc(db, "tasks", id), {
+        done: true,
+        doneAt: new Date().toISOString().slice(0,10)
+      });
+      renderApp();
+    };
+
+    window.removeTask = async (id) => {
+      if (!confirm("Видалити завдання?")) return;
+      await deleteDoc(doc(db, "tasks", id));
+      renderApp();
+    };
+
     window.editReport = (id) => {
       const box = document.getElementById(`editReportBox_${id}`);
       if (box) box.classList.remove("hidden");
@@ -1638,7 +1922,6 @@ ${content}
       const box = document.getElementById(`editReportBox_${id}`);
       if (box) box.classList.add("hidden");
     };
-
     window.saveReportEdit = async (id) => {
       const title = document.getElementById(`reportTitle_${id}`).value.trim();
       const text = document.getElementById(`reportText_${id}`).value.trim();
@@ -1651,7 +1934,6 @@ ${content}
 
       renderApp();
     };
-
     window.removeReport = async (id) => {
       if (!confirm("Видалити звіт?")) return;
       await deleteDoc(doc(db, "reports", id));
@@ -1667,7 +1949,6 @@ ${content}
       const box = document.getElementById(`editRyuTuBox_${id}`);
       if (box) box.classList.add("hidden");
     };
-
     window.saveRyuTuEdit = async (id) => {
       const ryu = Number(document.getElementById(`ryu_${id}`).value || 0);
       const tu = Number(document.getElementById(`tu_${id}`).value || 0);
@@ -1681,7 +1962,6 @@ ${content}
 
       renderApp();
     };
-
     window.removeRyuTu = async (id) => {
       if (!confirm("Видалити запис РЮ / ТЮ?")) return;
       await deleteDoc(doc(db, "ryutu", id));
@@ -1771,7 +2051,3 @@ ${content}
   </script>
 </body>
 </html>
-
-
-
-
