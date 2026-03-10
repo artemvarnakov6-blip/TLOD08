@@ -7,6 +7,7 @@
 		<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
   
 			
+			
 			<svg
 				xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 				<defs>
@@ -1512,6 +1513,7 @@
 				return `
         
 							
+							
 							<div class="topbar">
 								<div class="brand-wrap">
 									<div class="brand-badge">32</div>
@@ -1555,14 +1557,18 @@
 				const today = new Date().toISOString().slice(0, 10);
 				if (task.done) return `
 							
+							
 							<span class="tag green">🎉 Виконано</span>`;
 				if (task.deadline && task.deadline < today) return `
+							
 							
 							<span class="tag red">⏰ Прострочено</span>`;
 				if (task.deadline === today) return `
 							
+							
 							<span class="tag red">⚠️ Сьогодні дедлайн</span>`;
 				return `
+							
 							
 							<span class="tag blue">До: ${escapeHtml(task.deadline || "—")}</span>`;
 			}
@@ -1591,6 +1597,7 @@
 					content = `
           
 							
+							
 							<div class="dashboard-grid">
 								<div class="card stat-card">
 									<div class="stat-label">Зроблено</div>
@@ -1618,6 +1625,7 @@
                 ${ranked.map(op => `
                   
 										
+										
 										<div class="operator-card">
 											<div class="operator-head">
 												<div>
@@ -1625,6 +1633,7 @@
 													<div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
 												</div>
 												<div class="status ${op.score < 50 ? 'red' : ''}">Score ${op.score}
+												
 												
 												</div>
 											</div>
@@ -1650,6 +1659,7 @@
                 `).join("")}
               
 									
+									
 									</div>
 								</div>
 							</div>
@@ -1659,14 +1669,17 @@
 					content = `
           
 							
+							
 							<div class="dashboard-grid">
 								<div class="card side">
 									<h2>Додати баланс</h2>
 									<select id="balanceOperator" class="select">
                 ${operators.map(op => `
 										
+										
 										<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
               
+									
 									
 									</select>
 									<input id="balanceValue" class="input" type="number" min="0" placeholder="Баланс">
@@ -1692,6 +1705,7 @@
                       return `
                         
 													
+													
 													<tr>
 														<td>${escapeHtml(op.name)}</td>
 														<td>${money(lastBalance)}</td>
@@ -1702,12 +1716,14 @@
                     }).join("")}
                   
 												
+												
 												</tbody>
 											</table>
 										</div>
 										<div class="entry-list">
                 ${balancesAll.length ? balancesAll.map(item => `
                   
+											
 											
 											<div class="entry">
 												<div class="entry-top">
@@ -1720,8 +1736,10 @@
 											</div>
                 `).join("") : `
 											
+											
 											<div class="empty">Поки балансів немає.</div>`}
               
+										
 										
 										</div>
 									</div>
@@ -1732,14 +1750,17 @@
 					content = `
           
 								
+								
 								<div class="dashboard-grid">
 									<div class="card side">
 										<h2>Поставити завдання</h2>
 										<select id="taskOperator" class="select">
                 ${operators.map(op => `
 											
+											
 											<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
               
+										
 										
 										</select>
 										<input id="taskTitle" class="input" placeholder="Назва завдання">
@@ -1753,6 +1774,7 @@
                 ${tasksAll.length ? tasksAll.map(item => `
                   
 													
+													
 													<div class="entry">
 														<div class="entry-top">
 															<div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
@@ -1763,8 +1785,10 @@
 														<div class="entry-text">${escapeHtml(item.text || "")}</div>
                     ${item.doneAt ? `
 														
+														
 														<div class="entry-meta" style="margin-top:10px;">Виконано: ${escapeHtml(item.doneAt)}</div>` : ""}
                     
+														
 														
 														<div class="actions">
 															<button class="btn red small" onclick="removeTask('${item.id}')">Видалити</button>
@@ -1772,8 +1796,10 @@
 													</div>
                 `).join("") : `
 													
+													
 													<div class="empty">Поки завдань немає.</div>`}
               
+												
 												
 												</div>
 											</div>
@@ -1784,6 +1810,7 @@
 					content = `
           
 										
+										
 										<div class="dashboard-grid">
 											<div class="card full">
 												<h2>Звіти операторів</h2>
@@ -1791,10 +1818,12 @@
                 ${reportsAll.length ? reportsAll.map(item => `
                   
 													
+													
 													<div class="entry">
 														<div class="entry-top">
 															<div class="entry-title">
 																<span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}
+															
 															
 															</div>
 															<div style="display:flex; gap:8px; flex-wrap:wrap;">
@@ -1806,9 +1835,11 @@
 
                     ${item.reviewed ? `
 														
+														
 														<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
 
                     
+														
 														
 														<div class="actions">
 															<button class="btn small" onclick="editReport('${item.id}')">Редагувати</button>
@@ -1833,8 +1864,10 @@
 															</div>
                 `).join("") : `
 															
+															
 															<div class="empty">Поки звітів немає.</div>`}
               
+														
 														
 														</div>
 													</div>
@@ -1845,12 +1878,14 @@
 					content = `
           
 												
+												
 												<div class="dashboard-grid">
 													<div class="card full">
 														<h2>РЮ / ТЮ від операторів</h2>
 														<div class="entry-list">
                 ${ryutuAll.length ? ryutuAll.map(item => `
                   
+															
 															
 															<div class="entry">
 																<div class="entry-top">
@@ -1864,9 +1899,11 @@
 
                     ${item.reviewed ? `
 																
+																
 																<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
 
                     
+																
 																
 																<div class="actions">
 																	<button class="btn small" onclick="editRyuTu('${item.id}')">Редагувати</button>
@@ -1892,8 +1929,10 @@
 																			</div>
                 `).join("") : `
 																			
+																			
 																			<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
               
+																		
 																		
 																		</div>
 																	</div>
@@ -1903,6 +1942,7 @@
 				if (adminTab === "examples") {
 					content = `
           
+																
 																
 																<div class="dashboard-grid">
 																	<div class="card side">
@@ -1918,6 +1958,7 @@
                 ${examples.length ? examples.map(item => `
                   
 																					
+																					
 																					<div class="entry">
 																						<div class="entry-top">
 																							<div class="entry-title">${escapeHtml(item.title)}</div>
@@ -1926,8 +1967,10 @@
 																						<div class="entry-text">${escapeHtml(item.text || "")}</div>
                     ${item.url ? `
 																						
+																						
 																						<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
                     
+																							
 																							
 																							<div class="actions">
 																								<button class="btn small" onclick="editExample('${item.id}')">Редагувати</button>
@@ -1945,8 +1988,10 @@
 																								</div>
                 `).join("") : `
 																								
+																								
 																								<div class="empty">Поки прикладів немає.</div>`}
               
+																							
 																							
 																							</div>
 																						</div>
@@ -1956,6 +2001,7 @@
 				if (adminTab === "rating") {
 					content = `
           
+																					
 																					
 																					<div class="dashboard-grid">
 																						<div class="card full">
@@ -1981,6 +2027,7 @@
                     ${ranked.map((op, idx) => `
                       
 																										
+																										
 																										<tr>
 																											<td class="rank-num">#${idx + 1}</td>
 																											<td>${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</td>
@@ -1997,6 +2044,7 @@
                     `).join("")}
                   
 																									
+																									
 																									</tbody>
 																								</table>
 																							</div>
@@ -2007,16 +2055,20 @@
 				return renderShell(`
         
 																					
+																					
 																					<div class="bonus-banner">
           🏆 ЛІДЕР ДНЯ
           
+																						
 																						
 																						<br>
 																							<br>
           ${leader.best ? `🔥 ${escapeHtml(leader.best.name)}
 																								
+																								
 																								<br>Score: ${leader.score}` : "Поки немає даних"}
         
+																								
 																								
 																								</div>
 																								<div class="tabs">
@@ -2060,6 +2112,7 @@
 					content = `
     
 																								
+																								
 																								<div class="operator-dashboard">
 																									<div class="card operator-main">
 																										<div class="profile-hero">
@@ -2068,6 +2121,7 @@
 																												<div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
 																											</div>
 																											<div class="status ${calcOperatorScore(op, reports, ryutu, balances) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu, balances)}
+																											
 																											
 																											</div>
 																										</div>
@@ -2115,6 +2169,7 @@
 				}
 				content = ` 
 																								
+																								
 																								<div class="operator-dashboard">
 																									<div class="card operator-side">
 																										<h3>Подати РЮ / ТЮ</h3>
@@ -2128,6 +2183,7 @@
 																													<div class="entry-list">
             ${ryutu.length ? ryutu.map(item => `
               
+																														
 																														
 																														<div class="entry">
 																															<div class="entry-top">
@@ -2143,15 +2199,18 @@
     item.reviewed
       ? `
 																																
+																																
 																																<button class="btn secondary small" disabled>🔒 РЮ / ТЮ перевірено</button>`
       : `
         
+																																
 																																
 																																<button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
 																																<button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
       `
   }
 
+																															
 																															
 																															</div>
 																															<div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
@@ -2166,14 +2225,18 @@
 
                 ${item.reviewed ? `
 																																		
+																																		
 																																		<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
               
+																																	
 																																	
 																																	</div>
             `).join("") : `
 																																	
+																																	
 																																	<div class="empty">Поки записів немає.</div>`}
           
+																																
 																																
 																																</div>
 																															</div>
@@ -2183,6 +2246,7 @@
 			if (operatorTab === "reports") {
 				content = `
       
+																														
 																														
 																														<div class="operator-dashboard">
 																															<div class="card operator-side">
@@ -2197,11 +2261,13 @@
    ${reports.length ? reports.map(item => `
   
 																																		
+																																		
 																																		<div class="entry">
 																																			<div class="entry">
 																																				<div class="entry-top">
 																																					<div class="entry-title">
 																																						<span class="exclamation">!</span>${escapeHtml(item.title)}
+																																					
 																																					
 																																					</div>
 																																					<div style="display:flex; gap:8px; flex-wrap:wrap;">
@@ -2215,9 +2281,11 @@
     item.reviewed
       ? `
 																																				
+																																				
 																																				<button class="btn secondary small" disabled>🔒 Звіт перевірено</button>`
       : `
         
+																																				
 																																				
 																																				<button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
 																																				<button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
@@ -2225,6 +2293,7 @@
   }
 
                 
+																																				
 																																				
 																																				<div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
 																																					<input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
@@ -2237,14 +2306,18 @@
 
                 ${item.reviewed ? `
 																																					
+																																					
 																																					<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
               
+																																				
 																																				
 																																				</div>
             `).join("") : `
 																																				
+																																				
 																																				<div class="empty">Поки звітів немає.</div>`}
           
+																																			
 																																			
 																																			</div>
 																																		</div>
@@ -2254,6 +2327,7 @@
 			if (operatorTab === "balances") {
 				content = `
       
+																																	
 																																	
 																																	<div class="operator-dashboard">
 																																		<div class="card full">
@@ -2267,12 +2341,14 @@
 				content = `
       
 																																	
+																																	
 																																	<div class="operator-dashboard">
 																																		<div class="card full">
 																																			<h3>Мої завдання</h3>
 																																			<div class="entry-list">
             ${tasks.length ? tasks.map(item => `
               
+																																				
 																																				
 																																				<div class="entry">
 																																					<div class="entry-top">
@@ -2286,17 +2362,22 @@
 																																					<div class="actions">
                   ${item.done ? `
 																																						
+																																						
 																																						<button class="btn secondary small" disabled>✅ Виконано</button>` : `
+																																						
 																																						
 																																						<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
                 
+																																					
 																																					
 																																					</div>
 																																				</div>
             `).join("") : `
 																																				
+																																				
 																																				<div class="empty">Поки завдань немає.</div>`}
           
+																																			
 																																			
 																																			</div>
 																																		</div>
@@ -2306,6 +2387,7 @@
 			if (operatorTab === "rating") {
 				content = `
       
+																																	
 																																	
 																																	<div class="operator-dashboard">
 																																		<div class="card full">
@@ -2323,6 +2405,7 @@
               ${ranked.map((item, idx) => `
                 
 																																					
+																																					
 																																					<tr>
 																																						<td class="rank-num">#${idx + 1}</td>
 																																						<td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
@@ -2331,6 +2414,7 @@
 																																					</tr>
               `).join("")}
             
+																																				
 																																				
 																																				</tbody>
 																																			</table>
@@ -2342,20 +2426,25 @@
 				content = `
       
 																																	
+																																	
 																																	<div class="operator-dashboard">
 																																		<div class="card operator-main">
 																																			<h3>Що покращити</h3>
 																																			<div class="list-simple">
             ${(op.improvements || []).length ? op.improvements.map(item => `
 																																				
+																																				
 																																				<div class="list-item">
 																																					<strong>${escapeHtml(item.title || "")}</strong>
 																																					<br>${escapeHtml(item.text || item)}
 																																					
+																																					
 																																					</div>`).join("") : `
+																																					
 																																					
 																																					<div class="empty">Поки пусто</div>`}
           
+																																				
 																																				
 																																				</div>
 																																			</div>
@@ -2364,10 +2453,13 @@
 																																				<div class="list-simple">
             ${(op.strengths || []).length ? op.strengths.map(item => `
 																																					
+																																					
 																																					<div class="list-item">${escapeHtml(item)}</div>`).join("") : `
+																																					
 																																					
 																																					<div class="empty">Поки пусто</div>`}
           
+																																				
 																																				
 																																				</div>
 																																			</div>
@@ -2376,10 +2468,13 @@
 																																				<div class="list-simple">
             ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => `
 																																					
+																																					
 																																					<div class="list-item">${escapeHtml(item)}</div>`).join("") : `
+																																					
 																																					
 																																					<div class="empty">План ще не доданий</div>`}
           
+																																				
 																																				
 																																				</div>
 																																			</div>
@@ -2390,12 +2485,14 @@
 				content = `
     
 																																		
+																																		
 																																		<div class="operator-dashboard">
 																																			<div class="card full">
 																																				<h3>Приклади / як добре заведений РЮ</h3>
 																																				<div class="entry-list">
           ${examples.length ? examples.map(item => `
             
+																																					
 																																					
 																																					<div class="entry">
 																																						<div class="entry-top">
@@ -2405,14 +2502,18 @@
 																																						<div class="entry-text">${escapeHtml(item.text || "")}</div>
               ${item.url ? `
 																																						
+																																						
 																																						<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
             
+																																						
 																																						
 																																						</div>
           `).join("") : `
 																																						
+																																						
 																																						<div class="empty">Поки прикладів немає.</div>`}
         
+																																					
 																																					
 																																					</div>
 																																				</div>
@@ -2663,7 +2764,4 @@
 					document.getElementById("appScreen").classList.remove("hidden");
 					document.title = `TLOD 32 | ${currentProfile.name}`;
 					await renderApp();
-				});
-	</body>
-</html>
-
+				}); < /body> < /html>
