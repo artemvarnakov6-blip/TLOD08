@@ -1501,16 +1501,17 @@
                 <div class="status ${calcOperatorScore(op, reports, ryutu) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu)} ${calcOperatorScore(op, reports, ryutu) > 200 ? "🔥" : ""}</div>
               </div>
 
-              <div class="mini-stats">
-                <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-                <div class="mini"><div class="label">Зроблено</div><div class="value">${money(op.revenue)}</div></div>
-                <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
-                <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
-                <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
-                <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
-                <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
-                <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
-              </div>
+             <div class="mini-stats">
+  <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
+  <div class="mini"><div class="label">Зроблено</div><div class="value">${money(op.revenue)}</div></div>
+  <div class="mini"><div class="label">Мій баланс</div><div class="value">${money(latestBalance)}</div></div>
+  <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
+  <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
+  <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
+  <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
+  <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
+  <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
+</div>
             </div>
 
             <div class="card operator-side">
@@ -2013,6 +2014,7 @@
   </script>
 </body>
 </html>
+
 
 
 
