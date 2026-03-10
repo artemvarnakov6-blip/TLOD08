@@ -1174,7 +1174,7 @@
                         <tr>
                           <td>${escapeHtml(op.name)}</td>
                           <td>${money(lastBalance)}</td>
-                          <td>${money(avgBalance.toFixed(0))}</td>
+                          <td>${money(0)}</td>
                           <td>${opBalances.length}</td>
                         </tr>
                       `;
@@ -1523,7 +1523,7 @@
 
             <div class="card operator-side">
               <h3>Середній баланс</h3>
-              <div class="score-big">${money(avgBalance.toFixed(0))}</div>
+              <div class="score-big">${money(0)}</div>
               <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
             </div>
 
@@ -2020,3 +2020,4 @@
   </script>
 </body>
 </html>
+
