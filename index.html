@@ -1,402 +1,389 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TLOD 08 Luxury</title>
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TLOD 08 | Luxury Access</title>
 
-    body{
-font-family: Arial, sans-serif;
-height:100vh;
-overflow:hidden;
-color:white;
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="%23fff1a8"/>
+      <stop offset="45%" stop-color="%23ffd700"/>
+      <stop offset="100%" stop-color="%23b8860b"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="%23070707"/>
+  <text x="32" y="43" text-anchor="middle" font-size="38" font-family="Arial" font-weight="700" fill="url(%23g)">8</text>
+</svg>'>
 
-background:
-linear-gradient(120deg,#000000,#111111,#000000);
-
-position:relative;
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
 
-/* золоті світлові кола */
+body{
+  height:100vh;
+  overflow:hidden;
+  color:white;
+  position:relative;
+  background:
+    radial-gradient(circle at top, rgba(255,215,0,0.08), transparent 30%),
+    linear-gradient(140deg,#000000,#0a0a0a,#000000);
+}
 
+/* великі золоті світіння */
 body::before{
-content:"";
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,rgba(255,215,0,0.25),transparent 60%);
-top:-200px;
-left:-200px;
-filter:blur(80px);
-animation:moveGlow 12s infinite alternate;
+  content:"";
+  position:absolute;
+  width:900px;
+  height:900px;
+  top:-340px;
+  left:-220px;
+  background:radial-gradient(circle, rgba(255,215,0,0.16), transparent 60%);
+  filter:blur(120px);
+  animation:goldMove 16s infinite alternate ease-in-out;
+  pointer-events:none;
 }
 
 body::after{
-content:"";
-position:absolute;
-width:600px;
-height:600px;
-background:radial-gradient(circle,rgba(255,215,0,0.15),transparent 60%);
-bottom:-200px;
-right:-200px;
-filter:blur(80px);
-animation:moveGlow2 14s infinite alternate;
+  content:"";
+  position:absolute;
+  width:850px;
+  height:850px;
+  bottom:-320px;
+  right:-220px;
+  background:radial-gradient(circle, rgba(212,175,55,0.15), transparent 60%);
+  filter:blur(120px);
+  animation:goldMove2 18s infinite alternate ease-in-out;
+  pointer-events:none;
 }
 
-@keyframes moveGlow{
-0%{transform:translate(0,0);}
-100%{transform:translate(200px,150px);}
+@keyframes goldMove{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(180px,120px);}
 }
 
-@keyframes moveGlow2{
-0%{transform:translate(0,0);}
-100%{transform:translate(-200px,-150px);}
+@keyframes goldMove2{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(-180px,-120px);}
 }
 
-    .bg-glow{
-      position:absolute;
-      width:700px;
-      height:700px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(255,215,0,0.12), transparent 70%);
-      top:-250px;
-      left:50%;
-      transform:translateX(-50%);
-      filter:blur(30px);
-      pointer-events:none;
-    }
+/* легкі золоті частинки */
+.particles{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255,215,0,0.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 35% 75%, rgba(255,215,0,0.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 30%, rgba(255,215,0,0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 65%, rgba(255,215,0,0.09) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 50%, rgba(255,215,0,0.10) 0 2px, transparent 3px);
+  animation:particlesFloat 12s infinite alternate ease-in-out;
+  opacity:.8;
+}
 
-    .money{
-      position:absolute;
-      top:-120px;
-      font-size:42px;
-      opacity:0.18;
-      animation:fall linear infinite;
-      user-select:none;
-      pointer-events:none;
-    }
+@keyframes particlesFloat{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-18px);}
+}
 
-    @keyframes fall{
-      0%{
-        transform:translateY(-120px) rotate(0deg);
-      }
-      100%{
-        transform:translateY(120vh) rotate(360deg);
-      }
-    }
+/* декоративні кути */
+.corner{
+  position:absolute;
+  width:140px;
+  height:140px;
+  border:1px solid rgba(255,215,0,0.22);
+  z-index:1;
+}
 
-    .login-box{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      width:420px;
-      max-width:92%;
-      padding:38px 30px;
-      border-radius:28px;
-      background:linear-gradient(180deg, rgba(20,20,20,0.92), rgba(5,5,5,0.94));
-      border:1px solid rgba(255,215,0,0.35);
-      box-shadow:
-        0 0 30px rgba(255,215,0,0.16),
-        inset 0 0 30px rgba(255,215,0,0.06);
-      text-align:center;
-      z-index:2;
-      animation:showBox 1s ease;
-    }
+.top-left{
+  top:24px;
+  left:24px;
+  border-right:none;
+  border-bottom:none;
+}
+.top-right{
+  top:24px;
+  right:24px;
+  border-left:none;
+  border-bottom:none;
+}
+.bottom-left{
+  bottom:24px;
+  left:24px;
+  border-right:none;
+  border-top:none;
+}
+.bottom-right{
+  bottom:24px;
+  right:24px;
+  border-left:none;
+  border-top:none;
+}
 
-    @keyframes showBox{
-      from{
-        opacity:0;
-        transform:translate(-50%, -43%);
-      }
-      to{
-        opacity:1;
-        transform:translate(-50%, -50%);
-      }
-    }
+/* блок входу */
+.login-box{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:390px;
+  max-width:92%;
+  padding:46px 30px;
+  text-align:center;
+  border-radius:24px;
+  background:linear-gradient(180deg, rgba(18,18,18,0.93), rgba(5,5,5,0.94));
+  border:1px solid rgba(255,215,0,0.38);
+  box-shadow:
+    0 0 30px rgba(255,215,0,0.18),
+    inset 0 0 24px rgba(255,215,0,0.06);
+  z-index:2;
+  animation:fadeBox 1.2s ease;
+}
 
-    .gold-line{
-      width:70px;
-      height:3px;
-      margin:0 auto 18px auto;
-      border-radius:999px;
-      background:linear-gradient(90deg, transparent, gold, transparent);
-      box-shadow:0 0 15px rgba(255,215,0,0.55);
-    }
+@keyframes fadeBox{
+  from{
+    opacity:0;
+    transform:translate(-50%,-44%);
+  }
+  to{
+    opacity:1;
+    transform:translate(-50%,-50%);
+  }
+}
 
-    h1{
-      font-size:42px;
-      letter-spacing:4px;
-      color:#ffd700;
-      text-shadow:0 0 12px rgba(255,215,0,0.35);
-      margin-bottom:12px;
-    }
+.gold-line{
+  width:82px;
+  height:3px;
+  margin:0 auto 18px auto;
+  border-radius:999px;
+  background:linear-gradient(90deg, transparent, gold, transparent);
+  box-shadow:0 0 16px rgba(255,215,0,0.45);
+}
 
-    .subtitle{
-      color:#e7d9a0;
-      font-size:14px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      margin-bottom:28px;
-      opacity:0.88;
-    }
+h1{
+  font-size:42px;
+  color:gold;
+  letter-spacing:4px;
+  margin-bottom:10px;
+  text-shadow:0 0 14px rgba(255,215,0,0.35);
+}
 
-    .luxury-badge{
-      display:inline-block;
-      margin-bottom:18px;
-      padding:8px 14px;
-      border:1px solid rgba(255,215,0,0.25);
-      border-radius:999px;
-      color:#ffe082;
-      font-size:12px;
-      letter-spacing:1.5px;
-      background:rgba(255,215,0,0.05);
-      box-shadow:inset 0 0 12px rgba(255,215,0,0.05);
-    }
+.subtitle{
+  color:#dfcf93;
+  margin-bottom:26px;
+  font-size:14px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
 
-    input{
-      width:100%;
-      padding:15px 16px;
-      border-radius:14px;
-      border:1px solid rgba(255,215,0,0.24);
-      background:rgba(255,255,255,0.04);
-      color:white;
-      font-size:16px;
-      outline:none;
-      margin-bottom:16px;
-      transition:0.25s;
-    }
+.badge{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:8px 14px;
+  border:1px solid rgba(255,215,0,0.22);
+  border-radius:999px;
+  color:#ffe08a;
+  font-size:12px;
+  background:rgba(255,215,0,0.04);
+}
 
-    input:focus{
-      border-color:gold;
-      box-shadow:0 0 16px rgba(255,215,0,0.16);
-      background:rgba(255,255,255,0.06);
-    }
+input{
+  width:100%;
+  padding:14px 15px;
+  border-radius:12px;
+  border:1px solid rgba(255,215,0,0.24);
+  background:#111;
+  color:white;
+  outline:none;
+  margin-bottom:16px;
+  font-size:16px;
+  transition:.25s;
+}
 
-    button{
-      width:100%;
-      padding:15px;
-      border:none;
-      border-radius:14px;
-      cursor:pointer;
-      font-size:15px;
-      font-weight:bold;
-      letter-spacing:1px;
-      color:#111;
-      background:linear-gradient(90deg, #caa63a, #ffd700, #b8860b);
-      box-shadow:0 8px 25px rgba(255,215,0,0.18);
-      transition:0.25s;
-    }
+input:focus{
+  border-color:gold;
+  box-shadow:0 0 14px rgba(255,215,0,0.18);
+}
 
-    button:hover{
-      transform:translateY(-2px) scale(1.01);
-      box-shadow:0 12px 30px rgba(255,215,0,0.26);
-    }
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:bold;
+  letter-spacing:1px;
+  color:#111;
+  background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
+  transition:.25s;
+  box-shadow:0 8px 25px rgba(255,215,0,0.18);
+}
 
-    #message{
-      margin-top:14px;
-      min-height:20px;
-      color:#ff8f8f;
-      font-size:14px;
-    }
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(255,215,0,0.25);
+}
 
-    .corner{
-      position:absolute;
-      width:140px;
-      height:140px;
-      border:1px solid rgba(255,215,0,0.12);
-      z-index:1;
-      pointer-events:none;
-    }
+#message{
+  min-height:20px;
+  margin-top:14px;
+  color:#ff8d8d;
+  font-size:14px;
+}
 
-    .corner.top-left{
-      top:24px;
-      left:24px;
-      border-right:none;
-      border-bottom:none;
-    }
+/* панель після входу */
+#panel{
+  display:none;
+  position:absolute;
+  inset:0;
+  z-index:4;
+  background:
+    radial-gradient(circle at top, rgba(255,215,0,0.10), transparent 30%),
+    linear-gradient(140deg,#000000,#0a0a0a,#000000);
+  animation:panelFade .8s ease;
+}
 
-    .corner.top-right{
-      top:24px;
-      right:24px;
-      border-left:none;
-      border-bottom:none;
-    }
+@keyframes panelFade{
+  from{opacity:0;}
+  to{opacity:1;}
+}
 
-    .corner.bottom-left{
-      bottom:24px;
-      left:24px;
-      border-right:none;
-      border-top:none;
-    }
+.panel-box{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:560px;
+  max-width:92%;
+  padding:50px 34px;
+  text-align:center;
+  border-radius:28px;
+  background:linear-gradient(180deg, rgba(18,18,18,0.95), rgba(5,5,5,0.96));
+  border:1px solid rgba(255,215,0,0.35);
+  box-shadow:
+    0 0 40px rgba(255,215,0,0.17),
+    inset 0 0 30px rgba(255,215,0,0.05);
+}
 
-    .corner.bottom-right{
-      bottom:24px;
-      right:24px;
-      border-left:none;
-      border-top:none;
-    }
+.panel-box h2{
+  font-size:44px;
+  color:gold;
+  margin-bottom:12px;
+  letter-spacing:3px;
+  text-shadow:0 0 14px rgba(255,215,0,0.35);
+}
 
-    #panel{
-      display:none;
-      position:absolute;
-      inset:0;
-      z-index:4;
-      background:
-        linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.9)),
-        radial-gradient(circle at top, rgba(255,215,0,0.15), transparent 35%),
-        linear-gradient(135deg, #050505, #111 55%, #000);
-      animation:fadeIn 0.8s ease;
-    }
+.panel-box p{
+  font-size:18px;
+  color:#f3e6b2;
+  line-height:1.6;
+}
 
-    @keyframes fadeIn{
-      from{opacity:0;}
-      to{opacity:1;}
-    }
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:28px;
+}
 
-    .panel-box{
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      width:560px;
-      max-width:92%;
-      padding:46px 34px;
-      border-radius:30px;
-      background:linear-gradient(180deg, rgba(18,18,18,0.95), rgba(5,5,5,0.96));
-      border:1px solid rgba(255,215,0,0.35);
-      box-shadow:
-        0 0 40px rgba(255,215,0,0.18),
-        inset 0 0 30px rgba(255,215,0,0.05);
-      text-align:center;
-    }
+.card{
+  min-width:145px;
+  padding:16px;
+  border-radius:18px;
+  background:rgba(255,215,0,0.05);
+  border:1px solid rgba(255,215,0,0.14);
+  box-shadow:inset 0 0 16px rgba(255,215,0,0.04);
+}
 
-    .panel-box h2{
-      font-size:44px;
-      color:#ffd700;
-      margin-bottom:12px;
-      letter-spacing:3px;
-      text-shadow:0 0 14px rgba(255,215,0,0.35);
-    }
+.card-title{
+  font-size:12px;
+  color:#d7c27c;
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
 
-    .panel-box p{
-      font-size:18px;
-      color:#f4e7b5;
-      line-height:1.6;
-    }
+.card-value{
+  font-size:22px;
+  color:#fff3bf;
+  font-weight:bold;
+}
 
-    .stats{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:28px;
-    }
-
-    .card{
-      min-width:145px;
-      padding:16px;
-      border-radius:18px;
-      background:rgba(255,215,0,0.05);
-      border:1px solid rgba(255,215,0,0.14);
-      box-shadow:inset 0 0 16px rgba(255,215,0,0.04);
-    }
-
-    .card-title{
-      font-size:12px;
-      color:#d7c27c;
-      margin-bottom:8px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-
-    .card-value{
-      font-size:22px;
-      color:#fff3bf;
-      font-weight:bold;
-    }
-
-    @media (max-width: 600px){
-      h1{font-size:34px;}
-      .panel-box h2{font-size:34px;}
-      .login-box{padding:30px 22px;}
-    }
-  </style>
+@media (max-width:600px){
+  h1{font-size:34px;}
+  .panel-box h2{font-size:34px;}
+  .login-box{padding:34px 22px;}
+}
+</style>
 </head>
 <body>
 
-  <div class="bg-glow"></div>
+<div class="particles"></div>
 
-  <div class="corner top-left"></div>
-  <div class="corner top-right"></div>
-  <div class="corner bottom-left"></div>
-  <div class="corner bottom-right"></div>
+<div class="corner top-left"></div>
+<div class="corner top-right"></div>
+<div class="corner bottom-left"></div>
+<div class="corner bottom-right"></div>
 
-  <div class="money" style="left:4%; animation-duration:12s;">💸</div>
-  <div class="money" style="left:12%; animation-duration:10s; animation-delay:2s;">💰</div>
-  <div class="money" style="left:20%; animation-duration:14s; animation-delay:1s;">💵</div>
-  <div class="money" style="left:29%; animation-duration:11s; animation-delay:3s;">💸</div>
-  <div class="money" style="left:40%; animation-duration:15s; animation-delay:2s;">💰</div>
-  <div class="money" style="left:50%; animation-duration:9s; animation-delay:1s;">💵</div>
-  <div class="money" style="left:60%; animation-duration:13s; animation-delay:4s;">💸</div>
-  <div class="money" style="left:70%; animation-duration:10s; animation-delay:2s;">💰</div>
-  <div class="money" style="left:82%; animation-duration:14s; animation-delay:1s;">💵</div>
-  <div class="money" style="left:91%; animation-duration:11s; animation-delay:3s;">💸</div>
+<div id="login" class="login-box">
+  <div class="badge">Private Luxury Access</div>
+  <div class="gold-line"></div>
+  <h1>TLOD 08</h1>
+  <div class="subtitle">Black Gold Cabinet</div>
 
-  <div id="login" class="login-box">
-    <div class="luxury-badge">Private Luxury Access</div>
+  <input type="password" id="pass" placeholder="Введи пароль">
+  <button onclick="login()">ENTER THE CABINET</button>
+  <div id="message"></div>
+</div>
+
+<div id="panel">
+  <div class="panel-box">
     <div class="gold-line"></div>
-    <h1>TLOD 08</h1>
-    <div class="subtitle">Black Gold Cabinet</div>
+    <h2>ACCESS GRANTED</h2>
+    <p>Ласкаво просимо в преміум кабінет TLOD 08.</p>
+    <p>Система активована. VIP-доступ відкрито.</p>
 
-    <input type="password" id="pass" placeholder="Введи пароль">
-    <button onclick="login()">ENTER THE CABINET</button>
-    <div id="message"></div>
-  </div>
-
-  <div id="panel">
-    <div class="panel-box">
-      <div class="gold-line"></div>
-      <h2>ACCESS GRANTED</h2>
-      <p>Ласкаво просимо в преміум кабінет TLOD 08.</p>
-      <p>Система активована. VIP-доступ відкрито.</p>
-
-      <div class="stats">
-        <div class="card">
-          <div class="card-title">Status</div>
-          <div class="card-value">VIP</div>
-        </div>
-        <div class="card">
-          <div class="card-title">Balance</div>
-          <div class="card-value">$ 84,500</div>
-        </div>
-        <div class="card">
-          <div class="card-title">Access</div>
-          <div class="card-value">Elite</div>
-        </div>
+    <div class="stats">
+      <div class="card">
+        <div class="card-title">Status</div>
+        <div class="card-value">VIP</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Balance</div>
+        <div class="card-value">$ 84,500</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Access</div>
+        <div class="card-value">Elite</div>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    function login(){
-      let pass = document.getElementById("pass").value;
-      let message = document.getElementById("message");
+<script>
+function login(){
+  let pass = document.getElementById("pass").value;
+  let message = document.getElementById("message");
 
-      if(pass === "TLOD08"){
-        document.getElementById("login").style.display = "none";
-        document.getElementById("panel").style.display = "block";
-      } else {
-        message.textContent = "Неправильний пароль";
-      }
-    }
-  </script>
+  if(pass === "TLOD08"){
+    document.getElementById("login").style.display = "none";
+    document.getElementById("panel").style.display = "block";
+    document.title = "TLOD 08 | VIP Access";
+  } else {
+    message.textContent = "Неправильний пароль";
+  }
+}
+</script>
 
 </body>
 </html>
+
