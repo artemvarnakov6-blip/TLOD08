@@ -1534,7 +1534,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
 
               <div class="mini-stats">
                 <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-                <div class="mini"><div class="label">Зроблено</div><div class="value">${money(op.revenue)}</div></div>
+                <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
                 <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
                 <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
                 <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
@@ -2054,6 +2054,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
   </script>
 </body>
 </html>
+
 
 
 
