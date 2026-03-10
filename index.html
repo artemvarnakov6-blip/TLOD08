@@ -1891,22 +1891,22 @@ if (operatorTab === "overview") {
   `;
 }
 
-return renderShell(`
-  <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
+  return renderShell(`
+    <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
 
-  <div class="tabs">
-    <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
-    <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
-    <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
-    <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
-    <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
-    <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
-    <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
-    <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
-  </div>
+    <div class="tabs">
+      <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
+      <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
+      <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
+      <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
+      <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
+      <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
+      <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
+      <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
+    </div>
 
-  ${content}
-`);
+    ${content}
+  `);
 }
 
     window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
@@ -2166,6 +2166,7 @@ return renderShell(`
   </script>
 </body>
 </html>
+
 
 
 
