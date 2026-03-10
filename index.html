@@ -1496,8 +1496,13 @@
       `);
     }
 
-    async function renderOperator(operatorId) {
-      const op = await getOperatorStats(operatorId);
+    const stats = await getOperatorStats(operatorId);
+const op = {
+  ...currentProfile,
+  ...stats,
+  norm: Number(currentProfile.norm || stats?.norm || 0)
+};
+   
       const reports = await getReports(operatorId);
       const ryutu = await getRyuTu(operatorId);
       const examples = await getExamples();
@@ -2060,6 +2065,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
