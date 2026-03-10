@@ -12,15 +12,52 @@
     }
 
     body{
-      font-family: Arial, sans-serif;
-      height:100vh;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at top, rgba(255,215,0,0.12), transparent 35%),
-        linear-gradient(135deg, #050505, #0d0d0d 45%, #000000 100%);
-      color:white;
-      position:relative;
-    }
+font-family: Arial, sans-serif;
+height:100vh;
+overflow:hidden;
+color:white;
+
+background:
+linear-gradient(120deg,#000000,#111111,#000000);
+
+position:relative;
+}
+
+/* золоті світлові кола */
+
+body::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,rgba(255,215,0,0.25),transparent 60%);
+top:-200px;
+left:-200px;
+filter:blur(80px);
+animation:moveGlow 12s infinite alternate;
+}
+
+body::after{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,rgba(255,215,0,0.15),transparent 60%);
+bottom:-200px;
+right:-200px;
+filter:blur(80px);
+animation:moveGlow2 14s infinite alternate;
+}
+
+@keyframes moveGlow{
+0%{transform:translate(0,0);}
+100%{transform:translate(200px,150px);}
+}
+
+@keyframes moveGlow2{
+0%{transform:translate(0,0);}
+100%{transform:translate(-200px,-150px);}
+}
 
     .bg-glow{
       position:absolute;
