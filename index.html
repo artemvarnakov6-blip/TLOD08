@@ -973,7 +973,39 @@
       return arr;
     }
 
-    function renderShell(content) {
+   function renderShell(content) {
+
+let greeting = currentProfile.role === "admin"
+  ? "👑 Привіт Артьомушка"
+  : "🔥 Привіт " + currentProfile.name
+
+return `
+<div class="topbar">
+
+<div class="brand-wrap">
+<div class="brand-badge">32</div>
+
+<div>
+<div class="brand-title">TLOD 32</div>
+<div class="brand-sub">Luxury Team Panel</div>
+</div>
+</div>
+
+<div class="topbar-right">
+
+<div class="user-chip">${greeting}</div>
+
+<button class="btn secondary small" onclick="logout()">
+🚪 Вийти
+</button>
+
+</div>
+
+</div>
+
+${content}
+`
+}
       return `
         <div class="topbar">
           <div class="brand-wrap">
@@ -1722,3 +1754,4 @@
   </script>
 </body>
 </html>
+
