@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TLOD 08 | Team Lead Cabinet</title>
+  <title>Cabinet 32 | Team Lead Panel</title>
 
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -15,7 +15,7 @@
       </linearGradient>
     </defs>
     <rect width="64" height="64" rx="14" fill="%23070707"/>
-    <text x="32" y="43" text-anchor="middle" font-size="38" font-family="Arial" font-weight="700" fill="url(%23g)">8</text>
+    <text x="32" y="43" text-anchor="middle" font-size="36" font-family="Arial" font-weight="700" fill="url(%23g)">32</text>
   </svg>'>
 
   <style>
@@ -27,12 +27,10 @@
     }
 
     :root{
-      --bg:#050505;
-      --bg-soft:#0e0e0e;
-      --card:#111111;
-      --card-2:#151515;
       --gold:#ffd700;
       --gold-soft:#d4af37;
+      --bg:#050505;
+      --card:#111111;
       --text:#ffffff;
       --muted:#cbbd88;
       --danger:#ff7b7b;
@@ -102,6 +100,37 @@
       animation:particlesMove 12s ease-in-out infinite alternate;
     }
 
+    .trophies{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .trophy{
+      position:absolute;
+      color:rgba(255,215,0,.07);
+      text-shadow:0 0 18px rgba(255,215,0,.08);
+      user-select:none;
+      filter:blur(.1px);
+      animation:floatCup 8s ease-in-out infinite alternate;
+    }
+
+    .trophy.t1{top:8%; left:6%; font-size:72px;}
+    .trophy.t2{top:18%; right:8%; font-size:52px; animation-duration:10s;}
+    .trophy.t3{bottom:12%; left:10%; font-size:64px; animation-duration:11s;}
+    .trophy.t4{bottom:18%; right:12%; font-size:58px; animation-duration:9s;}
+    .trophy.t5{top:44%; left:2%; font-size:40px; animation-duration:12s;}
+    .trophy.t6{top:55%; right:3%; font-size:44px; animation-duration:13s;}
+    .trophy.t7{top:68%; left:28%; font-size:34px; animation-duration:10s;}
+    .trophy.t8{top:28%; right:32%; font-size:38px; animation-duration:12s;}
+
+    @keyframes floatCup{
+      from{transform:translateY(0px);}
+      to{transform:translateY(-12px);}
+    }
+
     @keyframes particlesMove{
       from{transform:translateY(0);}
       to{transform:translateY(-16px);}
@@ -134,7 +163,7 @@
     }
 
     .login-box{
-      width:420px;
+      width:430px;
       max-width:100%;
       background:linear-gradient(180deg, rgba(18,18,18,.95), rgba(6,6,6,.96));
       border:1px solid rgba(255,215,0,.28);
@@ -145,6 +174,8 @@
         inset 0 0 24px rgba(255,215,0,.04);
       text-align:center;
       animation:showUp .9s ease;
+      position:relative;
+      z-index:2;
     }
 
     @keyframes showUp{
@@ -201,7 +232,7 @@
       padding:14px;
     }
 
-    .input{
+    .input, .select{
       width:100%;
       padding:14px 14px;
       border-radius:14px;
@@ -214,7 +245,7 @@
       transition:.2s;
     }
 
-    .input:focus{
+    .input:focus, .select:focus{
       border-color:var(--gold);
       box-shadow:0 0 14px rgba(255,215,0,.15);
     }
@@ -279,6 +310,8 @@
       border-radius:22px;
       box-shadow:var(--shadow);
       backdrop-filter:blur(10px);
+      position:relative;
+      z-index:2;
     }
 
     .brand-wrap{
@@ -288,8 +321,8 @@
     }
 
     .brand-icon{
-      width:52px;
-      height:52px;
+      width:58px;
+      height:58px;
       border-radius:16px;
       display:flex;
       align-items:center;
@@ -297,7 +330,7 @@
       background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
       border:1px solid rgba(255,215,0,.25);
       color:var(--gold);
-      font-size:28px;
+      font-size:20px;
       font-weight:800;
       box-shadow:inset 0 0 14px rgba(255,215,0,.05);
     }
@@ -336,6 +369,8 @@
       display:grid;
       grid-template-columns:repeat(12,1fr);
       gap:18px;
+      position:relative;
+      z-index:2;
     }
 
     .card{
@@ -352,10 +387,12 @@
       letter-spacing:1px;
     }
 
-    .stat-card{
-      grid-column:span 3;
-      min-height:120px;
-    }
+    .stat-card{grid-column:span 3; min-height:120px;}
+    .wide{grid-column:span 8;}
+    .side{grid-column:span 4;}
+    .full{grid-column:span 12;}
+    .operator-main{grid-column:span 8;}
+    .operator-side{grid-column:span 4;}
 
     .stat-label{
       color:var(--muted);
@@ -377,15 +414,13 @@
       font-size:13px;
     }
 
-    .wide{grid-column:span 8;}
-    .side{grid-column:span 4;}
-    .full{grid-column:span 12;}
-
     .tabs{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       margin-bottom:18px;
+      position:relative;
+      z-index:2;
     }
 
     .tab-btn{
@@ -567,10 +602,9 @@
       display:grid;
       grid-template-columns:repeat(12,1fr);
       gap:18px;
+      position:relative;
+      z-index:2;
     }
-
-    .operator-main{grid-column:span 8;}
-    .operator-side{grid-column:span 4;}
 
     .profile-hero{
       display:flex;
@@ -621,11 +655,6 @@
       line-height:1.5;
     }
 
-    .muted{
-      color:#9a9a9a;
-      font-size:13px;
-    }
-
     table{
       width:100%;
       border-collapse:collapse;
@@ -672,6 +701,18 @@
 </head>
 <body>
   <div class="particles"></div>
+
+  <div class="trophies">
+    <div class="trophy t1">🏆</div>
+    <div class="trophy t2">🏆</div>
+    <div class="trophy t3">🏆</div>
+    <div class="trophy t4">🏆</div>
+    <div class="trophy t5">🏆</div>
+    <div class="trophy t6">🏆</div>
+    <div class="trophy t7">🏆</div>
+    <div class="trophy t8">🏆</div>
+  </div>
+
   <div class="corner top-left"></div>
   <div class="corner top-right"></div>
   <div class="corner bottom-left"></div>
@@ -681,7 +722,7 @@
     <div class="login-box">
       <div class="badge">Private Luxury Access</div>
       <div class="gold-line"></div>
-      <h1>TLOD 08</h1>
+      <h1>CABINET 32</h1>
       <div class="subtitle">Team Lead Control Panel</div>
 
       <input id="username" class="input" type="text" placeholder="Логін">
@@ -690,10 +731,8 @@
       <div id="loginMessage"></div>
 
       <div class="help">
-        <div><strong>Admin:</strong> admin / admin123</div>
-        <div><strong>Олег:</strong> oleg / 1111</div>
-        <div><strong>Артем:</strong> artem / 1111</div>
-        <div><strong>Сєня:</strong> senya / 1111</div>
+        Приватна система кабінету 32.
+        <br>Доступ тільки для Team Lead і операторів.
       </div>
     </div>
   </div>
@@ -701,13 +740,19 @@
   <div id="appScreen" class="app hidden"></div>
 
   <script>
-    const STORAGE_KEY = "tlod08_luxury_data_v2";
+    const STORAGE_KEY = "cabinet32_luxury_data_v1";
 
     const users = {
       admin: { password: "admin123", role: "admin", displayName: "Team Lead" },
-      oleg: { password: "1111", role: "operator", displayName: "Олег" },
-      artem: { password: "1111", role: "operator", displayName: "Артем" },
-      senya: { password: "1111", role: "operator", displayName: "Сєня" }
+      den_day: { password: "1111", role: "operator", displayName: "Денчик" },
+      erik_evening: { password: "1111", role: "operator", displayName: "Ерік" },
+      den_night: { password: "1111", role: "operator", displayName: "Денчік" }
+    };
+
+    const SHIFT_NORMS = {
+      day: 110,
+      evening: 170,
+      night: 170
     };
 
     let adminTab = "dashboard";
@@ -718,104 +763,41 @@
 
     const defaultData = {
       operators: {
-        oleg: {
-          name: "Олег",
+        den_day: {
+          name: "Денчик",
+          shift: "Дневнік",
+          norm: 110,
           status: "Online",
-          stats: { requests: 32, conversion: 21, revenue: 4200, shifts: 18, fines: 2 },
-          strengths: ["Швидко відповідає", "Добре закриває теплих клієнтів", "Стабільний темп роботи"],
-          goals: ["Підняти конверсію до 24%", "Менше пропусків по скрипту", "Фокус на апсейл"],
-          weeklyPlan: [
-            "Пропрацювати 3 заперечення по скрипту",
-            "Відповідати в межах 5 хвилин",
-            "Зробити 2 апсейли за тиждень"
-          ],
-          errors: [
-            {
-              id: createId(),
-              date: "2026-03-10",
-              type: "Скрипт",
-              severity: "medium",
-              title: "Не допрацьоване заперечення",
-              text: "На дзвінку не дотиснув клієнта після першого 'подумаю'. Треба допрацьовувати друге заперечення.",
-              author: "admin"
-            }
-          ],
-          notes: [
-            {
-              id: createId(),
-              date: "2026-03-10",
-              type: "Нотатка",
-              title: "Сильна сторона",
-              text: "Добре тримає темп, коли є багато вхідних.",
-              author: "admin"
-            }
-          ]
+          stats: { requests: 0, conversion: 0, revenue: 0, shifts: 0, fineDollars: 0 },
+          strengths: [],
+          goals: [],
+          weeklyPlan: [],
+          errors: [],
+          notes: []
         },
-        artem: {
-          name: "Артем",
+        erik_evening: {
+          name: "Ерік",
+          shift: "Вечірнік",
+          norm: 170,
           status: "Online",
-          stats: { requests: 27, conversion: 18, revenue: 3650, shifts: 16, fines: 4 },
-          strengths: ["Акуратний у звітах", "Спокійна комунікація", "Добре веде повторні клієнти"],
-          goals: ["Покращити швидкість відповіді", "Більше дотискати лідів", "Менше пауз у дзвінках"],
-          weeklyPlan: [
-            "Скоротити час відповіді до 7 хвилин",
-            "Закрити 2 повторних клієнтів",
-            "Пройти 1 розбір дзвінка"
-          ],
-          errors: [
-            {
-              id: createId(),
-              date: "2026-03-10",
-              type: "Швидкість",
-              severity: "high",
-              title: "Довга відповідь клієнту",
-              text: "У двох діалогах відповідь була більше 12 хвилин. Потрібно вкладатися швидше.",
-              author: "admin"
-            }
-          ],
-          notes: [
-            {
-              id: createId(),
-              date: "2026-03-10",
-              type: "Нотатка",
-              title: "Плюс",
-              text: "Добре працює з поверненням старих клієнтів.",
-              author: "admin"
-            }
-          ]
+          stats: { requests: 0, conversion: 0, revenue: 0, shifts: 0, fineDollars: 0 },
+          strengths: [],
+          goals: [],
+          weeklyPlan: [],
+          errors: [],
+          notes: []
         },
-        senya: {
-          name: "Сєня",
+        den_night: {
+          name: "Денчік",
+          shift: "Ночнік",
+          norm: 170,
           status: "Online",
-          stats: { requests: 21, conversion: 16, revenue: 2980, shifts: 14, fines: 3 },
-          strengths: ["Легка комунікація", "Непоганий старт розмови", "Добре включається в зміну"],
-          goals: ["Стабільність по скрипту", "Менше дрібних помилок", "Краще закривати угоду"],
-          weeklyPlan: [
-            "Не допускати помилок у звітах",
-            "Тримати стабільний скрипт 5 змін поспіль",
-            "Збільшити конверсію до 18%"
-          ],
-          errors: [
-            {
-              id: createId(),
-              date: "2026-03-10",
-              type: "Звіт",
-              severity: "low",
-              title: "Дрібна помилка в звіті",
-              text: "Неправильно вказаний результат однієї заявки. Потрібно уважніше перевіряти.",
-              author: "admin"
-            }
-          ],
-          notes: [
-            {
-              id: createId(),
-              date: "2026-03-10",
-              type: "Нотатка",
-              title: "Фокус",
-              text: "Потрібно тримати стабільність у другій половині зміни.",
-              author: "admin"
-            }
-          ]
+          stats: { requests: 0, conversion: 0, revenue: 0, shifts: 0, fineDollars: 0 },
+          strengths: [],
+          goals: [],
+          weeklyPlan: [],
+          errors: [],
+          notes: []
         }
       }
     };
@@ -849,7 +831,7 @@
     }
 
     function money(n){
-      return "$" + Number(n).toLocaleString("en-US");
+      return "$" + Number(n || 0).toLocaleString("en-US");
     }
 
     function login() {
@@ -870,7 +852,7 @@
 
       document.getElementById("loginScreen").classList.add("hidden");
       document.getElementById("appScreen").classList.remove("hidden");
-      document.title = `TLOD 08 | ${currentUser.displayName}`;
+      document.title = `Cabinet 32 | ${currentUser.displayName}`;
       renderApp();
     }
 
@@ -880,7 +862,7 @@
       document.getElementById("loginScreen").classList.remove("hidden");
       document.getElementById("loginMessage").textContent = "";
       document.getElementById("password").value = "";
-      document.title = "TLOD 08 | Team Lead Cabinet";
+      document.title = "Cabinet 32 | Team Lead Panel";
     }
 
     function setAdminTab(tab){
@@ -903,9 +885,9 @@
       return `
         <div class="topbar">
           <div class="brand-wrap">
-            <div class="brand-icon">8</div>
+            <div class="brand-icon">32</div>
             <div>
-              <div class="brand-title">TLOD 08</div>
+              <div class="brand-title">CABINET 32</div>
               <div class="brand-sub">Luxury team control system</div>
             </div>
           </div>
@@ -924,13 +906,13 @@
       const totalRequests = ops.reduce((sum, op) => sum + Number(op.stats.requests || 0), 0);
       const totalErrors = ops.reduce((sum, op) => sum + op.errors.length, 0);
       const totalRevenue = ops.reduce((sum, op) => sum + Number(op.stats.revenue || 0), 0);
-      const totalFines = ops.reduce((sum, op) => sum + Number(op.stats.fines || 0), 0);
+      const totalFines = ops.reduce((sum, op) => sum + Number(op.stats.fineDollars || 0), 0);
 
       return {
         totalRequests,
         totalErrors,
         totalRevenue: money(totalRevenue),
-        totalFines,
+        totalFines: money(totalFines),
         operators: ops.length
       };
     }
@@ -938,11 +920,11 @@
     function getRankedOperators() {
       const list = Object.entries(state.operators).map(([key, op]) => {
         const score =
-          (Number(op.stats.revenue) / 100) +
-          (Number(op.stats.conversion) * 12) +
+          (Number(op.stats.revenue) * 0.7) +
+          (Number(op.stats.conversion) * 20) +
           (Number(op.stats.requests) * 2) -
-          (Number(op.stats.fines) * 18) -
-          (op.errors.length * 8);
+          (Number(op.stats.fineDollars) * 1.5) -
+          (op.errors.length * 10);
 
         return {
           key,
@@ -962,7 +944,7 @@
         <div class="tabs">
           <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
           <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
-          <button class="tab-btn ${adminTab==="fines" ? "active" : ""}" onclick="setAdminTab('fines')">Штрафні бали</button>
+          <button class="tab-btn ${adminTab==="fines" ? "active" : ""}" onclick="setAdminTab('fines')">Штрафи</button>
           <button class="tab-btn ${adminTab==="week" ? "active" : ""}" onclick="setAdminTab('week')">План на тиждень</button>
         </div>
 
@@ -985,47 +967,50 @@
           <div class="card stat-card">
             <div class="stat-label">Заявки</div>
             <div class="stat-value">${stats.totalRequests}</div>
-            <div class="stat-sub">Сумарно по команді</div>
+            <div class="stat-sub">Сумарно по кабінету 32</div>
           </div>
 
           <div class="card stat-card">
             <div class="stat-label">Помилки</div>
             <div class="stat-value">${stats.totalErrors}</div>
-            <div class="stat-sub">Зафіксовано в кабінеті</div>
+            <div class="stat-sub">Зафіксовано в системі</div>
           </div>
 
           <div class="card stat-card">
-            <div class="stat-label">Прибуток</div>
-            <div class="stat-value">${stats.totalRevenue}</div>
-            <div class="stat-sub">Загальний показник</div>
+            <div class="stat-label">Штрафи</div>
+            <div class="stat-value">${stats.totalFines}</div>
+            <div class="stat-sub">Сумарно в доларах</div>
           </div>
 
           <div class="card wide">
-            <h2>Оператори</h2>
+            <h2>Оператори кабінету 32</h2>
             <div class="operators-grid">
               ${Object.entries(state.operators).map(([key, op]) => `
                 <div class="operator-card">
                   <div class="operator-head">
-                    <div class="operator-name">${escapeHtml(op.name)}</div>
+                    <div>
+                      <div class="operator-name">${escapeHtml(op.name)}</div>
+                      <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
+                    </div>
                     <div class="status">${escapeHtml(op.status)}</div>
                   </div>
 
                   <div class="mini-stats">
                     <div class="mini">
-                      <div class="label">Заявки</div>
-                      <div class="value">${escapeHtml(op.stats.requests)}</div>
+                      <div class="label">Норма</div>
+                      <div class="value">${money(op.norm)}</div>
                     </div>
                     <div class="mini">
-                      <div class="label">Конверсія</div>
-                      <div class="value">${escapeHtml(op.stats.conversion)}%</div>
-                    </div>
-                    <div class="mini">
-                      <div class="label">Прибуток</div>
+                      <div class="label">Зроблено</div>
                       <div class="value">${money(op.stats.revenue)}</div>
                     </div>
                     <div class="mini">
-                      <div class="label">Штрафні</div>
-                      <div class="value">${op.stats.fines}</div>
+                      <div class="label">Штраф</div>
+                      <div class="value">${money(op.stats.fineDollars)}</div>
+                    </div>
+                    <div class="mini">
+                      <div class="label">Помилки</div>
+                      <div class="value">${op.errors.length}</div>
                     </div>
                   </div>
 
@@ -1039,24 +1024,25 @@
           </div>
 
           <div class="card side">
-            <h2>Додати помилку / нотатку</h2>
+            <h2>Додати запис</h2>
             <div class="form-grid">
-              <select id="entryOperator" class="input">
-                <option value="oleg">Олег</option>
-                <option value="artem">Артем</option>
-                <option value="senya">Сєня</option>
+              <select id="entryOperator" class="select">
+                <option value="den_day">Денчик — дневнік</option>
+                <option value="erik_evening">Ерік — вечірнік</option>
+                <option value="den_night">Денчік — ночнік</option>
               </select>
 
-              <select id="entryKind" class="input">
+              <select id="entryKind" class="select">
                 <option value="error">Помилка</option>
                 <option value="note">Нотатка</option>
                 <option value="goal">Ціль</option>
+                <option value="strength">Сильна сторона</option>
               </select>
             </div>
 
             <div class="form-grid">
-              <input id="entryType" class="input" type="text" placeholder="Тип: Скрипт / Швидкість / Звіт">
-              <select id="entrySeverity" class="input">
+              <input id="entryType" class="input" type="text" placeholder="Тип: скрипт / звіт / швидкість">
+              <select id="entrySeverity" class="select">
                 <option value="low">Low</option>
                 <option value="medium" selected>Medium</option>
                 <option value="high">High</option>
@@ -1064,15 +1050,15 @@
             </div>
 
             <input id="entryTitle" class="input" type="text" placeholder="Короткий заголовок">
-            <textarea id="entryText" class="input" placeholder="Опиши деталі, що сталося і що треба покращити"></textarea>
+            <textarea id="entryText" class="input" placeholder="Опиши деталі"></textarea>
             <button class="btn" onclick="addEntry()">Зберегти запис</button>
 
             <div class="help" style="margin-top:14px;">
               Тут ти можеш вести:
               <br>— помилки
               <br>— сильні сторони
-              <br>— задачі на тиждень
-              <br>— персональні нотатки для кожного
+              <br>— цілі
+              <br>— нотатки по кожному оператору
             </div>
           </div>
 
@@ -1098,10 +1084,10 @@
                 <tr>
                   <th>Місце</th>
                   <th>Оператор</th>
-                  <th>Заявки</th>
-                  <th>Конверсія</th>
-                  <th>Прибуток</th>
-                  <th>Штрафні</th>
+                  <th>Зміна</th>
+                  <th>Норма</th>
+                  <th>Зроблено</th>
+                  <th>Штраф</th>
                   <th>Помилки</th>
                   <th>Score</th>
                 </tr>
@@ -1111,10 +1097,10 @@
                   <tr>
                     <td class="rank-num">#${idx + 1}</td>
                     <td>${escapeHtml(op.name)}</td>
-                    <td>${op.stats.requests}</td>
-                    <td>${op.stats.conversion}%</td>
+                    <td>${escapeHtml(op.shift)}</td>
+                    <td>${money(op.norm)}</td>
                     <td>${money(op.stats.revenue)}</td>
-                    <td>${op.stats.fines}</td>
+                    <td>${money(op.stats.fineDollars)}</td>
                     <td>${op.errors.length}</td>
                     <td>${op.score}</td>
                   </tr>
@@ -1130,23 +1116,24 @@
       return `
         <div class="dashboard-grid">
           <div class="card wide">
-            <h2>Штрафні бали</h2>
+            <h2>Штрафи в доларах</h2>
             <table>
               <thead>
                 <tr>
                   <th>Оператор</th>
-                  <th>Поточні бали</th>
+                  <th>Поточний штраф</th>
                   <th>Дія</th>
                 </tr>
               </thead>
               <tbody>
                 ${Object.entries(state.operators).map(([key, op]) => `
                   <tr>
-                    <td>${escapeHtml(op.name)}</td>
-                    <td>${op.stats.fines}</td>
+                    <td>${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</td>
+                    <td>${money(op.stats.fineDollars)}</td>
                     <td>
-                      <button class="btn small" onclick="changeFine('${key}', 1)">+1</button>
-                      <button class="btn secondary small" onclick="changeFine('${key}', -1)">-1</button>
+                      <button class="btn small" onclick="changeFine('${key}', 5)">+5$</button>
+                      <button class="btn small" onclick="changeFine('${key}', 10)">+10$</button>
+                      <button class="btn secondary small" onclick="changeFine('${key}', -5)">-5$</button>
                     </td>
                   </tr>
                 `).join("")}
@@ -1155,14 +1142,11 @@
           </div>
 
           <div class="card side">
-            <h2>Пояснення</h2>
-            <div class="note-box">
-              Штрафні бали можна використовувати за:
-              <br><br>— запізнення
-              <br>— довгі відповіді
-              <br>— помилки в звітах
-              <br>— пропуски по скрипту
-              <br><br>Менше балів = кращий результат.
+            <h2>Норми змін</h2>
+            <div class="list-simple">
+              <div class="list-item"><strong>Дневнік:</strong> ${money(SHIFT_NORMS.day)}</div>
+              <div class="list-item"><strong>Вечірнік:</strong> ${money(SHIFT_NORMS.evening)}</div>
+              <div class="list-item"><strong>Ночнік:</strong> ${money(SHIFT_NORMS.night)}</div>
             </div>
           </div>
         </div>
@@ -1173,260 +1157,4 @@
       return `
         <div class="dashboard-grid">
           ${Object.entries(state.operators).map(([key, op]) => `
-            <div class="card" style="grid-column:span 4;">
-              <h2>${escapeHtml(op.name)}</h2>
-              <div class="list-simple">
-                ${op.weeklyPlan.map((item, i) => `
-                  <div class="list-item">
-                    <strong>${i + 1}.</strong> ${escapeHtml(item)}
-                  </div>
-                `).join("")}
-              </div>
-
-              <div class="actions">
-                <button class="btn small" onclick="addWeeklyPlan('${key}')">Додати пункт</button>
-              </div>
-            </div>
-          `).join("")}
-        </div>
-      `;
-    }
-
-    function renderRecentEntries() {
-      const all = [];
-
-      Object.entries(state.operators).forEach(([key, op]) => {
-        op.errors.forEach(item => {
-          all.push({ ...item, operatorKey: key, operatorName: op.name, kind: "error" });
-        });
-        op.notes.forEach(item => {
-          all.push({ ...item, operatorKey: key, operatorName: op.name, kind: item.type === "Ціль" ? "goal" : "note" });
-        });
-      });
-
-      all.sort((a, b) => String(b.date).localeCompare(String(a.date)));
-
-      if (!all.length) return `<div class="empty">Поки що записів немає.</div>`;
-
-      return all.slice(0, 10).map(item => `
-        <div class="entry">
-          <div class="entry-top">
-            <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title || "Без назви")}</div>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-              ${renderKindTag(item.kind, item.severity)}
-              <div class="entry-meta">${escapeHtml(item.date)}</div>
-            </div>
-          </div>
-          <div class="entry-text">${escapeHtml(item.text || "")}</div>
-        </div>
-      `).join("");
-    }
-
-    function renderKindTag(kind, severity) {
-      if (kind === "error") {
-        const sev = severity === "high" ? "red" : severity === "low" ? "blue" : "";
-        return `<span class="tag ${sev}">Помилка</span>`;
-      }
-      if (kind === "goal") return `<span class="tag green">Ціль</span>`;
-      return `<span class="tag">Нотатка</span>`;
-    }
-
-    function renderOperatorDashboard(username) {
-      const op = state.operators[username];
-
-      return renderShell(`
-        <div class="operator-dashboard">
-          <div class="card operator-main">
-            <div class="profile-hero">
-              <div>
-                <div class="profile-name">${escapeHtml(op.name)}</div>
-                <div class="profile-role">Operator private cabinet</div>
-              </div>
-              <div class="status">${escapeHtml(op.status)}</div>
-            </div>
-
-            <div class="mini-stats">
-              <div class="mini">
-                <div class="label">Заявки</div>
-                <div class="value">${escapeHtml(op.stats.requests)}</div>
-              </div>
-              <div class="mini">
-                <div class="label">Конверсія</div>
-                <div class="value">${escapeHtml(op.stats.conversion)}%</div>
-              </div>
-              <div class="mini">
-                <div class="label">Прибуток</div>
-                <div class="value">${money(op.stats.revenue)}</div>
-              </div>
-              <div class="mini">
-                <div class="label">Штрафні</div>
-                <div class="value">${escapeHtml(op.stats.fines)}</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card operator-side">
-            <h3>Фокус на зараз</h3>
-            <div class="note-box">
-              Тримай стабільний темп, уважно допрацьовуй заперечення і дивись останні нотатки від Team Lead.
-            </div>
-          </div>
-
-          <div class="card operator-main">
-            <h3>Мої помилки / розбір</h3>
-            <div class="entry-list">
-              ${op.errors.length ? op.errors.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title">${escapeHtml(item.title)}</div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                      ${renderKindTag("error", item.severity)}
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                  <div class="entry-meta" style="margin-bottom:8px;">Тип: ${escapeHtml(item.type)}</div>
-                  <div class="entry-text">${escapeHtml(item.text)}</div>
-                </div>
-              `).join("") : `<div class="empty">Помилок поки немає.</div>`}
-            </div>
-          </div>
-
-          <div class="card operator-side">
-            <h3>Мої сильні сторони</h3>
-            <div class="list-simple">
-              ${op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("")}
-            </div>
-          </div>
-
-          <div class="card operator-main">
-            <h3>Нотатки від Team Lead</h3>
-            <div class="entry-list">
-              ${op.notes.length ? op.notes.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title">${escapeHtml(item.title)}</div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                      ${item.type === "Ціль" ? `<span class="tag green">Ціль</span>` : `<span class="tag">Нотатка</span>`}
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                  ${item.type ? `<div class="entry-meta" style="margin-bottom:8px;">Тип: ${escapeHtml(item.type)}</div>` : ""}
-                  <div class="entry-text">${escapeHtml(item.text)}</div>
-                </div>
-              `).join("") : `<div class="empty">Нотаток поки немає.</div>`}
-            </div>
-          </div>
-
-          <div class="card operator-side">
-            <h3>План на тиждень</h3>
-            <div class="list-simple">
-              ${op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("")}
-            </div>
-          </div>
-        </div>
-      `);
-    }
-
-    function addEntry() {
-      const operatorKey = document.getElementById("entryOperator").value;
-      const kind = document.getElementById("entryKind").value;
-      const type = document.getElementById("entryType").value.trim() || "Без типу";
-      const severity = document.getElementById("entrySeverity").value;
-      const title = document.getElementById("entryTitle").value.trim();
-      const text = document.getElementById("entryText").value.trim();
-
-      if (!title || !text) {
-        alert("Заповни заголовок і текст.");
-        return;
-      }
-
-      const item = {
-        id: createId(),
-        date: new Date().toISOString().slice(0, 10),
-        type: kind === "goal" ? "Ціль" : type,
-        severity,
-        title,
-        text,
-        author: currentUser.username
-      };
-
-      if (kind === "error") {
-        state.operators[operatorKey].errors.unshift(item);
-      } else if (kind === "goal") {
-        state.operators[operatorKey].notes.unshift({ ...item, type: "Ціль" });
-        state.operators[operatorKey].goals.unshift(title);
-      } else {
-        state.operators[operatorKey].notes.unshift({ ...item, type: "Нотатка" });
-      }
-
-      saveData();
-      clearAdminForm();
-      renderApp();
-    }
-
-    function clearAdminForm() {
-      const type = document.getElementById("entryType");
-      const title = document.getElementById("entryTitle");
-      const text = document.getElementById("entryText");
-      const severity = document.getElementById("entrySeverity");
-      const kind = document.getElementById("entryKind");
-
-      if (type) type.value = "";
-      if (title) title.value = "";
-      if (text) text.value = "";
-      if (severity) severity.value = "medium";
-      if (kind) kind.value = "error";
-    }
-
-    function focusOperatorForm(operatorKey) {
-      adminTab = "dashboard";
-      renderApp();
-      setTimeout(() => {
-        const select = document.getElementById("entryOperator");
-        if (select) {
-          select.value = operatorKey;
-          window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-        }
-      }, 50);
-    }
-
-    function openOperatorPreview(operatorKey) {
-      const savedUser = currentUser;
-      currentUser = {
-        username: operatorKey,
-        role: "operator",
-        displayName: state.operators[operatorKey].name
-      };
-      renderApp();
-
-      const app = document.getElementById("appScreen");
-      const backBar = document.createElement("div");
-      backBar.style.marginBottom = "16px";
-      backBar.innerHTML = `<button class="btn secondary small" onclick="backToAdmin()">← Назад до Team Lead</button>`;
-      app.prepend(backBar);
-
-      window.backToAdmin = function() {
-        currentUser = savedUser;
-        renderApp();
-      };
-    }
-
-    function changeFine(operatorKey, delta){
-      const current = Number(state.operators[operatorKey].stats.fines || 0);
-      const next = Math.max(0, current + delta);
-      state.operators[operatorKey].stats.fines = next;
-      saveData();
-      renderApp();
-    }
-
-    function addWeeklyPlan(operatorKey){
-      const text = prompt("Введи новий пункт плану на тиждень:");
-      if (!text || !text.trim()) return;
-      state.operators[operatorKey].weeklyPlan.push(text.trim());
-      saveData();
-      renderApp();
-    }
-  </script>
-</body>
-</html>
-
+            <
