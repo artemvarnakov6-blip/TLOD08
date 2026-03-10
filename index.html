@@ -1,3065 +1,3 @@
-
-
-<!DOCTYPE html> 
-<html lang="uk">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TLOD 32 | Luxury Firebase Panel</title>
-
-  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <defs>
-      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="%23fff2a8"/>
-        <stop offset="45%" stop-color="%23ffd700"/>
-        <stop offset="100%" stop-color="%23b8860b"/>
-      </linearGradient>
-    </defs>
-    <rect width="64" height="64" rx="14" fill="%23060606"/>
-    <text x="32" y="42" text-anchor="middle" font-size="18" font-family="Arial" font-weight="700" fill="url(%23g)">32</text>
-  </svg>'>
-
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-    :root{
-      --gold:#ffd700;
-      --gold2:#d4af37;
-      --gold3:#fff0a6;
-      --red:#ff5f5f;
-      --red2:#ff2f2f;
-      --green:#8ff0a4;
-      --blue:#8ecbff;
-      --text:#fff;
-      --muted:#b8ab79;
-      --bg:#040404;
-      --card:rgba(18,18,18,.86);
-      --card2:rgba(28,28,28,.92);
-      --line:rgba(255,215,0,.14);
-      --shadow:0 20px 60px rgba(0,0,0,.55);
-    }
-
-    html{scroll-behavior:smooth}
-
-    body{
-      min-height:100vh;
-      overflow-x:hidden;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top, rgba(255,215,0,.06), transparent 26%),
-        linear-gradient(135deg,#000000,#080808 45%,#000000 100%);
-      position:relative;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      width:950px;
-      height:950px;
-      left:-300px;
-      top:-380px;
-      background:radial-gradient(circle, rgba(255,215,0,.11), transparent 60%);
-      filter:blur(120px);
-      pointer-events:none;
-      z-index:0;
-      animation:glowMove1 15s ease-in-out infinite alternate;
-    }
-
-    body::after{
-      content:"";
-      position:fixed;
-      width:850px;
-      height:850px;
-      right:-260px;
-      bottom:-260px;
-      background:radial-gradient(circle, rgba(255,0,0,.07), transparent 60%);
-      filter:blur(120px);
-      pointer-events:none;
-      z-index:0;
-      animation:glowMove2 17s ease-in-out infinite alternate;
-    }
-
-    @keyframes glowMove1{
-      from{transform:translate(0,0)}
-      to{transform:translate(150px,120px)}
-    }
-
-    @keyframes glowMove2{
-      from{transform:translate(0,0)}
-      to{transform:translate(-140px,-100px)}
-    }
-
-    .particles{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      background:
-        radial-gradient(circle at 10% 15%, rgba(255,215,0,.10) 0 2px, transparent 3px),
-        radial-gradient(circle at 23% 84%, rgba(255,215,0,.07) 0 2px, transparent 3px),
-        radial-gradient(circle at 34% 30%, rgba(255,215,0,.08) 0 2px, transparent 3px),
-        radial-gradient(circle at 49% 58%, rgba(255,0,0,.08) 0 2px, transparent 3px),
-        radial-gradient(circle at 66% 20%, rgba(255,215,0,.10) 0 2px, transparent 3px),
-        radial-gradient(circle at 79% 70%, rgba(255,215,0,.09) 0 2px, transparent 3px),
-        radial-gradient(circle at 92% 40%, rgba(255,0,0,.06) 0 2px, transparent 3px);
-      animation:particleFloat 12s ease-in-out infinite alternate;
-      opacity:.85;
-    }
-
-    @keyframes particleFloat{
-      from{transform:translateY(0)}
-      to{transform:translateY(-18px)}
-    }
-
-    .trophies{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      overflow:hidden;
-    }
-
-    .trophy{
-      position:absolute;
-      color:rgba(255,215,0,.07);
-      text-shadow:0 0 18px rgba(255,215,0,.08);
-      user-select:none;
-      animation:trophyFloat 8s ease-in-out infinite alternate;
-    }
-
-    .t1{top:6%;left:4%;font-size:84px;animation-duration:8s}
-    .t2{top:14%;right:6%;font-size:60px;animation-duration:11s}
-    .t3{bottom:9%;left:8%;font-size:74px;animation-duration:10s}
-    .t4{bottom:14%;right:10%;font-size:62px;animation-duration:12s}
-    .t5{top:40%;left:2%;font-size:42px;animation-duration:13s}
-    .t6{top:52%;right:2%;font-size:48px;animation-duration:14s}
-    .t7{top:70%;left:28%;font-size:38px;animation-duration:9s}
-    .t8{top:26%;right:31%;font-size:42px;animation-duration:10s}
-    .t9{top:30%;left:46%;font-size:34px;animation-duration:7s}
-    .t10{bottom:30%;right:43%;font-size:32px;animation-duration:9s}
-
-    @keyframes trophyFloat{
-      0%{transform:translateY(0) rotate(-2deg) scale(1)}
-      100%{transform:translateY(-18px) rotate(2deg) scale(1.04)}
-    }
-
-    .hidden{display:none!important}
-
-    .screen{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-      position:relative;
-      z-index:2;
-    }
-
-    .login-box{
-      width:480px;
-      max-width:100%;
-      background:linear-gradient(180deg, rgba(16,16,16,.95), rgba(6,6,6,.97));
-      border:1px solid rgba(255,215,0,.22);
-      border-radius:34px;
-      padding:42px 32px;
-      box-shadow:
-        0 20px 80px rgba(0,0,0,.5),
-        0 0 40px rgba(255,215,0,.08),
-        inset 0 0 26px rgba(255,215,0,.04);
-      backdrop-filter:blur(14px);
-      text-align:center;
-      animation:loginRise .8s ease;
-    }
-
-    @keyframes loginRise{
-      from{opacity:0;transform:translateY(18px) scale(.98)}
-      to{opacity:1;transform:translateY(0) scale(1)}
-    }
-
-    .badge{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,215,0,.16);
-      background:rgba(255,215,0,.04);
-      color:#f7de89;
-      letter-spacing:1px;
-      font-size:12px;
-      margin-bottom:16px;
-      transition:.25s;
-    }
-
-    .badge:hover{transform:translateY(-1px);box-shadow:0 0 20px rgba(255,215,0,.1)}
-
-    .gold-line{
-      width:86px;
-      height:3px;
-      border-radius:999px;
-      margin:0 auto 18px;
-      background:linear-gradient(90deg,transparent,var(--gold),transparent);
-      box-shadow:0 0 18px rgba(255,215,0,.4);
-    }
-
-    .main-logo,.brand-title{
-      color:#ffd700;
-      font-weight:900;
-      text-shadow:
-        0 0 8px rgba(255,215,0,.95),
-        0 0 18px rgba(255,215,0,.65),
-        0 0 40px rgba(255,215,0,.28);
-      animation:logoPulse 3s ease-in-out infinite;
-    }
-
-    .main-logo{
-      font-size:46px;
-      letter-spacing:4px;
-      margin-bottom:12px;
-    }
-
-    .brand-title{
-      font-size:28px;
-      letter-spacing:2px;
-      margin-bottom:4px;
-    }
-
-    @keyframes logoPulse{
-      0%,100%{
-        text-shadow:
-          0 0 8px rgba(255,215,0,.85),
-          0 0 18px rgba(255,215,0,.62),
-          0 0 34px rgba(255,215,0,.22);
-        transform:scale(1);
-      }
-      50%{
-        text-shadow:
-          0 0 12px rgba(255,215,0,1),
-          0 0 28px rgba(255,215,0,.84),
-          0 0 60px rgba(255,215,0,.35);
-        transform:scale(1.03);
-      }
-    }
-
-    .subtitle,.brand-sub{
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:2px;
-    }
-
-    .subtitle{font-size:14px;margin-bottom:24px}
-    .brand-sub{font-size:12px;letter-spacing:1px}
-
-    .help{
-      margin-top:18px;
-      padding:14px;
-      border-radius:18px;
-      background:rgba(255,255,255,.02);
-      border:1px solid rgba(255,255,255,.04);
-      color:#9f9f9f;
-      line-height:1.6;
-      text-align:left;
-      font-size:13px;
-    }
-
-    .input,.select,.textarea{
-      width:100%;
-      padding:14px;
-      border-radius:14px;
-      border:1px solid rgba(255,215,0,.12);
-      background:rgba(10,10,10,.88);
-      color:white;
-      outline:none;
-      font-size:15px;
-      margin-bottom:14px;
-      transition:.25s;
-    }
-
-    .textarea{min-height:110px;resize:vertical}
-
-    .input:focus,.select:focus,.textarea:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 16px rgba(255,215,0,.16);
-      transform:translateY(-1px);
-    }
-
-    .btn{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:14px;
-      cursor:pointer;
-      font-weight:800;
-      font-size:15px;
-      letter-spacing:1px;
-      transition:.25s;
-      background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
-      color:#171717;
-      box-shadow:0 12px 26px rgba(255,215,0,.14);
-    }
-
-    .btn:hover{
-      transform:translateY(-2px) scale(1.01);
-      box-shadow:0 16px 34px rgba(255,215,0,.22);
-    }
-
-    .btn.secondary{
-      background:transparent;
-      color:var(--gold);
-      border:1px solid rgba(255,215,0,.18);
-      box-shadow:none;
-    }
-
-    .btn.secondary:hover{background:rgba(255,215,0,.04)}
-    .btn.small{width:auto;padding:10px 14px;font-size:13px;border-radius:12px}
-    .btn.red{
-      background:linear-gradient(90deg,#550d0d,#ff4646,#902020);
-      color:white;
-      box-shadow:0 10px 24px rgba(255,0,0,.16);
-    }
-    .btn.red:hover{box-shadow:0 14px 30px rgba(255,0,0,.22)}
-
-    .app{
-      min-height:100vh;
-      padding:26px;
-      position:relative;
-      z-index:2;
-    }
-
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:24px;
-      padding:18px 20px;
-      border-radius:24px;
-      border:1px solid rgba(255,215,0,.12);
-      background:rgba(12,12,12,.74);
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-    }
-
-    .brand-wrap{display:flex;align-items:center;gap:14px}
-    .brand-badge{
-      width:64px;height:64px;border-radius:18px;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#0d0d0d,#171717);
-      border:1px solid rgba(255,215,0,.18);
-      color:var(--gold);
-      font-weight:800;
-      font-size:20px;
-      box-shadow:inset 0 0 14px rgba(255,215,0,.05),0 0 18px rgba(255,215,0,.05);
-      transition:.25s;
-    }
-
-    .brand-badge:hover{transform:translateY(-2px) scale(1.04)}
-
-    .topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-
-    .user-chip{
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(255,215,0,.16);
-      background:rgba(255,215,0,.04);
-      color:#f2d57d;
-      font-size:13px;
-    }
-
-    .bonus-banner{
-      margin-bottom:18px;
-      padding:18px;
-      border-radius:20px;
-      border:1px solid rgba(255,215,0,.14);
-      background:linear-gradient(90deg, rgba(255,215,0,.07), rgba(255,0,0,.04));
-      color:#ffe89a;
-      box-shadow:var(--shadow);
-      animation:bannerPulse 3s infinite alternate;
-    }
-
-    @keyframes bannerPulse{
-      from{box-shadow:0 10px 30px rgba(255,215,0,.05)}
-      to{box-shadow:0 16px 36px rgba(255,0,0,.10)}
-    }
-
-    .tabs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-
-    .tab-btn{
-      border:1px solid rgba(255,215,0,.14);
-      background:rgba(255,215,0,.04);
-      color:#e8d389;
-      padding:10px 14px;
-      border-radius:12px;
-      cursor:pointer;
-      font-size:13px;
-      transition:.25s;
-    }
-
-    .tab-btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 10px 22px rgba(255,215,0,.08);
-    }
-
-    .tab-btn.active{
-      background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
-      color:#111;
-      font-weight:800;
-    }
-
-    .tab-btn.red-accent.active{
-      background:linear-gradient(90deg,#651111,#ff4a4a,#aa1f1f);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(255,0,0,.18);
-    }
-
-    .dashboard-grid,.operator-dashboard{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:18px;
-    }
-
-    .card{
-      background:linear-gradient(180deg, rgba(18,18,18,.86), rgba(8,8,8,.94));
-      border:1px solid rgba(255,215,0,.10);
-      border-radius:24px;
-      padding:20px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-      transition:.25s;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.02) 30%, transparent 65%);
-      transform:translateX(-100%);
-      transition:1s;
-    }
-
-    .card:hover::before{transform:translateX(100%)}
-
-    .card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(255,215,0,.18);
-      box-shadow:0 24px 50px rgba(0,0,0,.45),0 0 24px rgba(255,215,0,.08);
-    }
-
-    .card h2,.card h3{color:var(--gold);margin-bottom:14px;letter-spacing:1px}
-
-    .stat-card{grid-column:span 3;min-height:132px}
-    .wide{grid-column:span 8}
-    .side{grid-column:span 4}
-    .full{grid-column:span 12}
-    .operator-main{grid-column:span 8}
-    .operator-side{grid-column:span 4}
-
-    .stat-label{
-      color:var(--muted);
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      margin-bottom:10px;
-    }
-
-    .stat-value{
-      font-size:34px;
-      color:#fff2b8;
-      font-weight:900;
-      margin-bottom:8px;
-      text-shadow:0 0 12px rgba(255,215,0,.08);
-      animation:numberGlow 3s infinite alternate;
-    }
-
-    @keyframes numberGlow{
-      from{transform:translateY(0)}
-      to{transform:translateY(-2px)}
-    }
-
-    .stat-sub{color:#8d8d8d;font-size:13px}
-
-    .operators-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    .operator-card{
-      background:linear-gradient(180deg, rgba(24,24,24,.96), rgba(10,10,10,.96));
-      border:1px solid rgba(255,215,0,.10);
-      border-radius:22px;
-      padding:18px;
-      transition:.25s;
-      box-shadow:0 10px 24px rgba(0,0,0,.24);
-    }
-
-    .operator-card:hover{
-      transform:translateY(-4px) scale(1.01);
-      border-color:rgba(255,215,0,.18);
-      box-shadow:0 18px 36px rgba(0,0,0,.34),0 0 20px rgba(255,215,0,.08);
-    }
-
-    .operator-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:14px;
-    }
-
-    .operator-name{font-size:22px;color:#ffe89a;font-weight:800}
-
-    .status{
-      font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
-      background:rgba(143,240,164,.08);
-      color:var(--green);
-      border:1px solid rgba(143,240,164,.16);
-    }
-
-    .status.red{
-      background:rgba(255,95,95,.10);
-      color:#ff9b9b;
-      border-color:rgba(255,95,95,.18);
-    }
-
-    .mini-stats{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:10px;
-    }
-
-    .mini{
-      padding:12px;
-      border-radius:16px;
-      background:rgba(255,215,0,.04);
-      border:1px solid rgba(255,215,0,.08);
-      transition:.25s;
-    }
-
-    .mini:hover{transform:translateY(-2px);background:rgba(255,215,0,.06)}
-    .mini.red{background:rgba(255,0,0,.05);border-color:rgba(255,0,0,.10)}
-
-    .mini .label{
-      font-size:12px;
-      color:var(--muted);
-      margin-bottom:8px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-
-    .mini .value{font-size:22px;color:#fff2b6;font-weight:800}
-
-    .profile-hero{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:16px;
-    }
-
-    .profile-name{font-size:30px;color:#ffe89a;margin-bottom:6px;font-weight:900}
-    .profile-role{color:var(--muted);text-transform:uppercase;font-size:13px;letter-spacing:1px}
-
-    .entry-list{display:flex;flex-direction:column;gap:12px;margin-top:16px}
-
-    .entry{
-      padding:14px;
-      border-radius:18px;
-      background:rgba(255,255,255,.02);
-      border:1px solid rgba(255,215,0,.08);
-      transition:.25s;
-    }
-
-    .entry:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.03);
-      border-color:rgba(255,215,0,.14);
-    }
-
-    .entry-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:8px;
-    }
-
-    .entry-title{color:#ffe89a;font-weight:800}
-    .entry-meta{color:#9a9a9a;font-size:12px}
-    .entry-text{color:#d8d8d8;line-height:1.55;font-size:14px;white-space:pre-wrap}
-
-    .tag{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:11px;
-      letter-spacing:.8px;
-      text-transform:uppercase;
-      border:1px solid rgba(255,215,0,.12);
-      background:rgba(255,215,0,.04);
-      color:#f1d67d;
-    }
-
-    .tag.red{
-      color:#ff9d9d;
-      border-color:rgba(255,95,95,.16);
-      background:rgba(255,95,95,.06);
-    }
-
-    .tag.green{
-      color:#9ef0b0;
-      border-color:rgba(143,240,164,.16);
-      background:rgba(143,240,164,.06);
-    }
-
-    .tag.blue{
-      color:#9dc7ff;
-      border-color:rgba(125,180,255,.16);
-      background:rgba(125,180,255,.06);
-    }
-
-    .actions{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-
-    .list-simple{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      margin-top:8px;
-    }
-
-    .list-item{
-      padding:12px 14px;
-      border-radius:14px;
-      background:rgba(255,255,255,.02);
-      border:1px solid rgba(255,215,0,.08);
-      color:#ddd;
-      font-size:14px;
-      line-height:1.5;
-      transition:.25s;
-    }
-
-    .list-item:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.03);
-    }
-
-    .empty{color:#8a8a8a;font-size:14px;padding:14px 0 4px}
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:8px;
-    }
-
-    th,td{
-      padding:12px 10px;
-      text-align:left;
-      border-bottom:1px solid rgba(255,215,0,.08);
-      font-size:14px;
-      vertical-align:top;
-    }
-
-    th{
-      color:#f3db86;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      font-size:12px;
-    }
-
-    tbody tr{transition:.2s}
-    tbody tr:hover{background:rgba(255,215,0,.03)}
-
-    .rank-num{font-size:20px;font-weight:900;color:#fff1a8}
-    .score-big{
-      font-size:30px;
-      font-weight:900;
-      color:#fff3bf;
-      animation:glowScore 2s infinite alternate;
-    }
-
-    @keyframes glowScore{
-      from{text-shadow:0 0 10px rgba(255,215,0,.5);transform:scale(1)}
-      to{text-shadow:0 0 20px rgba(255,80,80,.35);transform:scale(1.04)}
-    }
-
-    .exclamation{
-      display:inline-flex;
-      width:22px;height:22px;
-      align-items:center;justify-content:center;
-      border-radius:999px;
-      background:rgba(255,95,95,.15);
-      color:#ff9d9d;
-      font-weight:900;
-      border:1px solid rgba(255,95,95,.22);
-      margin-right:8px;
-      animation:blinkSoft 2s infinite;
-    }
-
-    @keyframes blinkSoft{
-      0%,100%{box-shadow:0 0 0 rgba(255,95,95,0)}
-      50%{box-shadow:0 0 16px rgba(255,95,95,.18)}
-    }
-
-    .range-wrap{margin-top:8px}
-    .range-label{
-      display:flex;
-      justify-content:space-between;
-      font-size:12px;
-      color:#b9b9b9;
-      margin-bottom:8px;
-    }
-
-    input[type="range"]{
-      width:100%;
-      appearance:none;
-      height:8px;
-      border-radius:999px;
-      background:linear-gradient(90deg, rgba(255,70,70,.85), rgba(255,215,0,.9));
-      outline:none;
-      box-shadow:0 0 12px rgba(255,0,0,.12);
-      margin-bottom:14px;
-    }
-
-    input[type="range"]::-webkit-slider-thumb{
-      appearance:none;
-      width:20px;height:20px;border-radius:50%;
-      background:#fff3c2;
-      border:2px solid #ff5252;
-      box-shadow:0 0 12px rgba(255,0,0,.25), 0 0 10px rgba(255,215,0,.25);
-      cursor:pointer;
-      transition:.2s;
-    }
-
-    input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.08)}
-
-    .image-preview{
-      width:100%;
-      max-height:260px;
-      object-fit:cover;
-      border-radius:16px;
-      border:1px solid rgba(255,215,0,.08);
-      margin-top:10px;
-      transition:.25s;
-    }
-
-    .image-preview:hover{
-      transform:scale(1.01);
-      box-shadow:0 10px 24px rgba(0,0,0,.25);
-    }
-
-    .deadline-badge.late{
-      color:#ff9c9c;
-      border-color:rgba(255,80,80,.18);
-      background:rgba(255,80,80,.08);
-    }
-
-    .deadline-badge.today{
-      color:#ffd98f;
-      border-color:rgba(255,180,0,.18);
-      background:rgba(255,180,0,.08);
-    }
-
-    .rating-table-wrap{overflow:auto}
-
-    @media (max-width:1100px){
-      .stat-card{grid-column:span 6}
-      .wide,.side,.operator-main,.operator-side{grid-column:span 12}
-      .operators-grid{grid-template-columns:1fr}
-    }
-
-    @media (max-width:720px){
-      .app{padding:14px}
-      .topbar{padding:16px;border-radius:18px}
-      .dashboard-grid,.operator-dashboard{gap:14px}
-      .stat-card{grid-column:span 12}
-      .mini-stats{grid-template-columns:1fr}
-      .profile-name{font-size:24px}
-      .main-logo,.brand-title{font-size:34px}
-    }
-  </style>
-</head>
-<body>
-  <div class="particles"></div>
-
-  <div class="trophies">
-    <div class="trophy t1">🏆</div>
-    <div class="trophy t2">🏆</div>
-    <div class="trophy t3">🏆</div>
-    <div class="trophy t4">🏆</div>
-    <div class="trophy t5">🏆</div>
-    <div class="trophy t6">🏆</div>
-    <div class="trophy t7">🏆</div>
-    <div class="trophy t8">🏆</div>
-    <div class="trophy t9">🏆</div>
-    <div class="trophy t10">🏆</div>
-  </div>
-
-  <div id="loginScreen" class="screen">
-    <div class="login-box">
-      <div class="badge">Private Luxury Access</div>
-      <div class="gold-line"></div>
-      <div class="main-logo">TLOD 32</div>
-      <div class="subtitle">Luxury Firebase Team Panel</div>
-
-      <input id="email" class="input" type="email" placeholder="Email">
-      <input id="password" class="input" type="password" placeholder="Пароль">
-      <button class="btn" onclick="login()">ENTER THE CABINET</button>
-      <div id="loginMessage" style="min-height:22px;color:#ff7b7b;margin-top:12px;"></div>
-
-      <div class="help">
-        Вхід через Firebase.
-        <br>Усі записи, оцінки, баланси й задачі зберігаються онлайн.
-      </div>
-    </div>
-  </div>
-
-  <div id="appScreen" class="app hidden"></div>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import {
-      getAuth,
-      signInWithEmailAndPassword,
-      signOut,
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
-    import {
-      getFirestore,
-      doc,
-      getDoc,
-      setDoc,
-      updateDoc,
-      deleteDoc,
-      collection,
-      getDocs,
-      addDoc
-    } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyD6WfRk1bElkX0s9qqqkv55qmq2SthZa3g",
-      authDomain: "tlod-32.firebaseapp.com",
-      projectId: "tlod-32",
-      storageBucket: "tlod-32.firebasestorage.app",
-      messagingSenderId: "775385357522",
-      appId: "1:775385357522:web:81a320d958be47a943e10b"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    let currentUser = null;
-    let currentProfile = null;
-    let adminTab = "dashboard";
-    let operatorTab = "overview";
-
-    function escapeHtml(str) {
-      return String(str ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
-    }
-
-    function money(n){
-      return "$" + Number(n || 0).toLocaleString("en-US");
-    }
-
-    function avg(arr){
-      if (!arr.length) return 0;
-      return arr.reduce((a,b)=>a+b,0) / arr.length;
-    }
-
-    function reviewedAvg(items){
-      const filtered = items.filter(i => i.reviewed);
-      return filtered.length ? avg(filtered.map(i => Number(i.score || 0))) : 0;
-    }
-
-    function getRyuTuStats(items){
-      const totalRyu = items.reduce((s, i) => s + Number(i.ryu || 0), 0);
-      const totalTu = items.reduce((s, i) => s + Number(i.tu || 0), 0);
-      const avgBalance = items.length ? items.reduce((s, i) => s + Number(i.balance || 0), 0) / items.length : 0;
-      const avgScore = reviewedAvg(items);
-      return { totalRyu, totalTu, avgBalance, avgScore };
-    }
-
-    function getAverageBalance(items){
-      if (!items.length) return 0;
-      return items.reduce((sum, item) => sum + Number(item.balance || 0), 0) / items.length;
-    }
-
-function calcOperatorScore(op, reports, ryutu, balances = []){
-  const rt = getRyuTuStats(ryutu);
-  const reportAvg = reviewedAvg(reports);
-  const weekScore = Number(op.weekScore || 0);
-  const avgBalance = getAverageBalance(balances);
-  const normPercent = op.norm ? (Number(avgBalance  0) / Number(op.norm  1)) * 100 : 0;
-  const finePenalty = Number(op.fineDollars || 0) * 1.5;
-  const improvePenalty = (op.improvements || []).length * 6;
-
-  return Math.round(
-    Number(avgBalance || 0) * 0.7 +
-    normPercent * 2 +
-    reportAvg * 10 +
-    rt.avgScore * 10 +
-    weekScore * 10 -
-    finePenalty -
-    improvePenalty
-  );
-}
-
-    function getLeaderOfDay(operators, reports, ryutu){
-      let best = null;
-      let bestScore = -999999;
-      for (const op of operators){
-        const opReports = reports.filter(x => x.operatorId === op.id);
-        const opRyuTu = ryutu.filter(x => x.operatorId === op.id);
-        const score = calcOperatorScore(op, opReports, opRyuTu);
-        if(score > bestScore){
-          bestScore = score;
-          best = op;
-        }
-      }
-      return { best, score: bestScore };
-    }
-
-    function isToday(dateStr){
-      if (!dateStr) return false;
-      const now = new Date().toISOString().slice(0,10);
-      return dateStr === now;
-    }
-
-    function isLate(dateStr){
-      if (!dateStr) return false;
-      const now = new Date().toISOString().slice(0,10);
-      return dateStr < now;
-    }
-
-    window.login = async function () {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const message = document.getElementById("loginMessage");
-
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        message.textContent = "";
-      } catch (e) {
-        message.textContent = "Невірний email або пароль";
-      }
-    }
-    window.login = login;
-
-    async function logout() {
-      await signOut(auth);
-    }
-    window.logout = logout;
-
-    async function loadProfileByEmail(email) {
-      const snap = await getDocs(collection(db, "users"));
-      let found = null;
-      snap.forEach((d) => {
-        const data = d.data();
-        if (data.email === email) {
-          found = { id: d.id, ...data };
-        }
-      });
-      return found;
-    }
-
-    async function ensureOperatorStats(profile) {
-      const ref = doc(db, "operatorStats", profile.id);
-      const snap = await getDoc(ref);
-      if (!snap.exists()) {
-        await setDoc(ref, {
-          name: profile.name || "Operator",
-          shift: profile.shift || "",
-          norm: Number(profile.norm || 0),
-          status: "Online",
-          requests: 0,
-          revenue: 0,
-          fineDollars: 0,
-          weekScore: 0,
-          strengths: [],
-          improvements: [],
-          weeklyPlan: []
-        });
-      }
-    }
-
-    async function getOperatorStats(id) {
-      const snap = await getDoc(doc(db, "operatorStats", id));
-      return snap.exists() ? snap.data() : null;
-    }
-
-    async function getAllOperatorStats() {
-      const usersSnap = await getDocs(collection(db, "users"));
-      const result = [];
-      for (const u of usersSnap.docs) {
-        const userData = u.data();
-        if (userData.role === "operator") {
-          await ensureOperatorStats({ id: u.id, ...userData });
-          const stats = await getOperatorStats(u.id);
-          result.push({ id: u.id, ...userData, ...stats });
-        }
-      }
-      return result;
-    }
-
-    async function getReports(operatorId = null) {
-      const snap = await getDocs(collection(db, "reports"));
-      const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
-      });
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-      return arr;
-    }
-
-    async function getRyuTu(operatorId = null) {
-      const snap = await getDocs(collection(db, "ryutu"));
-      const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
-      });
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-      return arr;
-    }
-
-    async function getExamples() {
-      const snap = await getDocs(collection(db, "examples"));
-      const arr = [];
-      snap.forEach(d => arr.push({ id: d.id, ...d.data() }));
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-      return arr;
-    }
-
-    async function getBalances(operatorId = null) {
-      const snap = await getDocs(collection(db, "balances"));
-      const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
-      });
-      arr.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-      return arr;
-    }
-
-    async function getTasks(operatorId = null) {
-      const snap = await getDocs(collection(db, "tasks"));
-      const arr = [];
-      snap.forEach(d => {
-        const x = { id: d.id, ...d.data() };
-        if (!operatorId || x.operatorId === operatorId) arr.push(x);
-      });
-      arr.sort((a,b)=>String(a.deadline || "").localeCompare(String(b.deadline || "")));
-      return arr;
-    }
-
-    function renderShell(content) {
-      const greeting = currentProfile.role === "admin"
-        ? "👑 Привіт Артьомушка"
-        : "🔥 Привіт " + currentProfile.name;
-
-      return 
-        <div class="topbar">
-          <div class="brand-wrap">
-            <div class="brand-badge">32</div>
-            <div>
-              <div class="brand-title">TLOD 32</div>
-              <div class="brand-sub">Luxury Firebase Team System</div>
-            </div>
-          </div>
-
-          <div class="topbar-right">
-            <div class="user-chip">${escapeHtml(greeting)}</div>
-            <button class="btn secondary small" onclick="logout()">🚪 Вийти</button>
-          </div>
-        </div>
-
-        ${content}
-      ;
-    }
-
-    function bindDynamicActions() {
-      document.querySelectorAll("[data-live-value]").forEach(el => {
-        const target = document.getElementById(el.dataset.liveValue);
-        if (!target) return;
-        const update = () => { target.textContent = el.value; };
-        el.addEventListener("input", update);
-        update();
-      });
-    }
-
-    async function renderApp() {
-      const appEl = document.getElementById("appScreen");
-      if (!currentUser || !currentProfile) return;
-
-      if (currentProfile.role === "admin") {
-        appEl.innerHTML = await renderAdmin();
-      } else {
-        appEl.innerHTML = await renderOperator(currentProfile.id);
-      }
-
-      bindDynamicActions();
-    }
-
-    async function renderAdmin() {
-      const operators = await getAllOperatorStats();
-      const reportsAll = await getReports();
-      const ryutuAll = await getRyuTu();
-      const examples = await getExamples();
-      const balancesAll = await getBalances();
-      const tasksAll = await getTasks();
-
-      const ranked = operators.map(op => {
-        const opReports = reportsAll.filter(x => x.operatorId === op.id);
-        const opRyuTu = ryutuAll.filter(x => x.operatorId === op.id);
-        return {
-          ...op,
-          score: calcOperatorScore(op, opReports, opRyuTu),
-          reportAvg: reviewedAvg(opReports),
-          ryutuStats: getRyuTuStats(opRyuTu)
-        };
-      }).sort((a,b)=>b.score-a.score);
-
-      const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
-      const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
-      const leader = getLeaderOfDay(operators, reportsAll, ryutuAll);
-
-      let content = "";
-
-      if (adminTab === "dashboard") {
-        content = 
-          <div class="dashboard-grid">
-            <div class="card stat-card"><div class="stat-label">Зроблено</div><div class="stat-value">${money(totalRevenue)}</div><div class="stat-sub">Сумарний результат</div></div>
-            <div class="card stat-card"><div class="stat-label">Штрафи</div><div class="stat-value">${money(totalFines)}</div><div class="stat-sub">У доларах</div></div>
-            <div class="card stat-card"><div class="stat-label">Звіти</div><div class="stat-value">${reportsAll.length}</div><div class="stat-sub">Всього подано</div></div>
-            <div class="card stat-card"><div class="stat-label">РЮ / ТЮ</div><div class="stat-value">${ryutuAll.length}</div><div class="stat-sub">Всього записів</div></div>
-
-            <div class="card full">
-              <h2>Оператори</h2>
-              <div class="operators-grid">
-                ${ranked.map(op => 
-                  <div class="operator-card">
-                    <div class="operator-head">
-                      <div>
-                        <div class="operator-name">${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</div>
-                        <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
-                      </div>
-                      <div class="status ${op.score < 50 ? 'red' : ''}">Score ${op.score}</div>
-                    </div>
-
-                    <div class="mini-stats">
-                      <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-                      <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-                      <div class="mini"><div class="label">РЮ</div><div class="value">${op.ryutuStats.totalRyu}</div></div>
-                      <div class="mini red"><div class="label">ТЮ</div><div class="value">${op.ryutuStats.totalTu}</div></div>
-                    </div>
-                  </div>
-                ).join("")}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (adminTab === "reports") {
-        content = 
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>Звіти операторів</h2>
-              <div class="entry-list">
-                ${reportsAll.length ? reportsAll.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""} : 'Не перевірено'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editReport('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="reportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва звіту">
-                      <textarea id="reportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
-
-                      <div class="range-wrap">
-                        <div class="range-label">
-                          <span>Оцінка звіту</span>
-                          <span id="reportScoreValue_${item.id}">${Number(item.score || 0)}</span>
-                        </div>
-                        <input id="reportScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="reportScoreValue_${item.id}">
-                      </div>
-
-                      <textarea id="reportFeedback_${item.id}" class="textarea" placeholder="Фідбек">${escapeHtml(item.feedback || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveReportEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeReportEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                ).join("") : <div class="empty">Поки звітів немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (adminTab === "ryutu") {
-        content = 
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>РЮ / ТЮ від операторів</h2>
-              <div class="entry-list">
-                ${ryutuAll.length ? ryutuAll.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""} : 'Не перевірено'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-
-                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-                    ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editRyuTu('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ryu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                      <input id="tu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                      <input id="balance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
-
-                      <div class="range-wrap">
-                        <div class="range-label">
-                          <span>Оцінка РЮ / ТЮ</span>
-                          <span id="rtScoreValue_${item.id}">${Number(item.score || 0)}</span>
-                        </div>
-                        <input id="rtScore_${item.id}" type="range" min="0" max="10" value="${Number(item.score || 0)}" data-live-value="rtScoreValue_${item.id}">
-                      </div>
-
-                      <textarea id="rtFeedback_${item.id}" class="textarea" placeholder="Фідбек / проблема">${escapeHtml(item.feedback || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveRyuTuEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeRyuTuEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                ).join("") : <div class="empty">Поки записів РЮ / ТЮ немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (adminTab === "balances") {
-        content = 
-          <div class="dashboard-grid">
-            <div class="card side">
-              <h2>Додати баланс</h2>
-              <select id="balanceOperator" class="select">
-                ${operators.map(op => <option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>).join("")}
-              </select>
-              <input id="balanceValue" class="input" type="number" min="0" placeholder="Баланс">
-              <button class="btn" onclick="addBalance()">Зберегти баланс</button>
-            </div>
-
-            <div class="card wide">
-              <h2>Баланси операторів</h2>
-              <div class="rating-table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Оператор</th>
-                      <th>Останній баланс</th>
-                      <th>Середній баланс</th>
-                      <th>К-сть записів</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${operators.map(op => {
-                      const opBalances = balancesAll.filter(x => x.operatorId === op.id);
-                      const lastBalance = opBalances.length ? Number(opBalances[0].balance || 0) : 0;
-                      const avgBalance = getAverageBalance(opBalances);
-                      return 
-                        <tr>
-                          <td>${escapeHtml(op.name)}</td>
-                          <td>${money(lastBalance)}</td>
-                          <td>${money(avgBalance.toFixed(0))}</td>
-                          <td>${opBalances.length}</td>
-                        </tr>
-                      ;
-                    }).join("")}
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="entry-list">
-                ${balancesAll.length ? balancesAll.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — Баланс ${money(item.balance)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                    <div class="actions">
-                      <button class="btn red small" onclick="removeBalance('${item.id}')">Видалити</button>
-                    </div>
-                  </div>
-                ).join("") : <div class="empty">Поки балансів немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (adminTab === "tasks") {
-        content = 
-          <div class="dashboard-grid">
-            <div class="card side">
-              <h2>Поставити завдання</h2>
-              <select id="taskOperator" class="select">
-                ${operators.map(op => <option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>).join("")}
-              </select>
-              <input id="taskTitle" class="input" placeholder="Назва завдання">
-              <textarea id="taskText" class="textarea" placeholder="Опис завдання"></textarea>
-              <input id="taskDeadline" class="input" type="date">
-              <button class="btn" onclick="addTask()">Зберегти завдання</button>
-            </div>
-
-            <div class="card wide">
-              <h2>Усі завдання</h2>
-              <div class="entry-list">
-                ${tasksAll.length ? tasksAll.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
-                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.doneAt ? <div class="entry-meta" style="margin-top:10px;">Виконано: ${escapeHtml(item.doneAt)}</div> : ""}
-                    <div class="actions">
-                      <button class="btn red small" onclick="removeTask('${item.id}')">Видалити</button>
-                    </div>
-                  </div>
-                ).join("") : <div class="empty">Поки завдань немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (adminTab === "examples") {
-        content = 
-          <div class="dashboard-grid">
-            <div class="card side">
-              <h2>Додати приклад / скрін</h2>
-              <input id="exampleTitle" class="input" placeholder="Назва прикладу">
-              <input id="exampleUrl" class="input" placeholder="Посилання на зображення">
-              <textarea id="exampleText" class="textarea" placeholder="Пояснення"></textarea>
-              <button class="btn" onclick="addExample()">Зберегти</button>
-            </div>
-
-            <div class="card wide">
-              <h2>Приклади / скріни</h2>
-              <div class="entry-list">
-                ${examples.length ? examples.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.url ? <img class="image-preview" src="${escapeHtml(item.url)}" alt="example"> : ""}
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editExample('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeExample('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editExampleBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="exampleTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
-                      <input id="exampleUrl_${item.id}" class="input" value="${escapeHtml(item.url || "")}" placeholder="Посилання">
-                      <textarea id="exampleText_${item.id}" class="textarea" placeholder="Пояснення">${escapeHtml(item.text || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveExampleEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeExampleEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-                  </div>
-                ).join("") : <div class="empty">Поки прикладів немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (adminTab === "rating") {
-        content = 
-          <div class="dashboard-grid">
-            <div class="card full">
-              <h2>Рейтинг операторів</h2>
-              <div class="rating-table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Місце</th>
-                      <th>Оператор</th>
-                      <th>Зміна</th>
-                      <th>Зроблено</th>
-                      <th>РЮ</th>
-                      <th>ТЮ</th>
-                      <th>Оцінка звітів</th>
-                      <th>Оцінка РЮ/ТЮ</th>
-                      <th>Оцінка тижня</th>
-                      <th>Штраф</th>
-                      <th>Score</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    ${ranked.map((op, idx) => 
-                      <tr>
-                        <td class="rank-num">#${idx + 1}</td>
-                        <td>${escapeHtml(op.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${op.score > 200 ? "🔥" : ""}</td>
-                        <td>${escapeHtml(op.shift)}</td>
-                        <td>${money(op.revenue)}</td>
-                        <td>${op.ryutuStats.totalRyu}</td>
-                        <td>${op.ryutuStats.totalTu}</td>
-                        <td>${op.reportAvg.toFixed(1)}</td>
-                        <td>${op.ryutuStats.avgScore.toFixed(1)}</td>
-                        <td>${Number(op.weekScore||0).toFixed(1)}</td>
-                        <td>${money(op.fineDollars)}</td>
-                        <td>${op.score}</td>
-                      </tr>
-                    ).join("")}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      return renderShell(
-        <div class="bonus-banner">
-          <strong>🏆 ЛІДЕР ДНЯ</strong>
-          <br><br>
-          ${leader.best ? 🔥 ${escapeHtml(leader.best.name)}<br>Score: ${leader.score} : "Поки немає даних"}
-        </div>
-
-        <div class="tabs">
-          <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
-          <button class="tab-btn ${adminTab==="balances" ? "active" : ""}" onclick="setAdminTab('balances')">Баланси</button>
-          <button class="tab-btn ${adminTab==="tasks" ? "active" : ""}" onclick="setAdminTab('tasks')">Завдання</button>
-          <button class="tab-btn red-accent ${adminTab==="reports" ? "active" : ""}" onclick="setAdminTab('reports')">Звіти</button>
-          <button class="tab-btn red-accent ${adminTab==="ryutu" ? "active" : ""}" onclick="setAdminTab('ryutu')">РЮ / ТЮ</button>
-          <button class="tab-btn ${adminTab==="examples" ? "active" : ""}" onclick="setAdminTab('examples')">Скрiни</button>
-          <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
-        </div>
-
-        ${content}
-      );
-    }
-
-    async function renderOperator(operatorId) {
-      const op = await getOperatorStats(operatorId);
-      const reports = await getReports(operatorId);
-      const ryutu = await getRyuTu(operatorId);
-      const examples = await getExamples();
-      const balances = await getBalances(operatorId);
-      const tasks = await getTasks(operatorId);
-      const allOperators = await getAllOperatorStats();
-
-      const ranked = [];
-      for (const item of allOperators) {
-        const itemReports = await getReports(item.id);
-        const itemRyuTu = await getRyuTu(item.id);
-        ranked.push({
-          ...item,
-          const itemBalances = await getBalances(item.id);
-score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-        });
-      }
-      ranked.sort((a,b)=>b.score-a.score);
-
-      const rt = getRyuTuStats(ryutu);
-const reportAvg = reviewedAvg(reports);
-const avgBalance = getAverageBalance(balances);
-const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm  1)) * 100) : 0;
-
-      let content = "";
-
-      if (operatorTab === "overview") {
-        content = 
-          <div class="operator-dashboard">
-            <div class="card operator-main">
-              <div class="profile-hero">
-                <div>
-                  <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu, balances) > 200 ? "🔥" : ""}</div>
-                  <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
-                </div>
-                <div class="status ${calcOperatorScore(op, reports, ryutu, balances) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu, balances)}</div>
-              </div>
-
-              <div class="mini-stats">
-                <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-                <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-                <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
-                <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
-                <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
-                <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
-                <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
-                <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
-              </div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>Моя оцінка тижня</h3>
-              <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (operatorTab === "ryutu") {
-        content = 
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Подати РЮ / ТЮ</h3>
-              <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
-              <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
-              <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
-              <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
-            </div>
-
-            <div class="card operator-main">
-              <h3>Мої записи РЮ / ТЮ</h3>
-              <div class="entry-list">
-                ${ryutu.length ? ryutu.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""} : 'Очікує перевірки'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                      <input id="ownTu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                      <input id="ownBalance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
-                      <div class="actions">
-                        <button class="btn small" onclick="saveOwnRyuTuEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeOwnRyuTuEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-
-                    ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
-                  </div>
-                ).join("") : <div class="empty">Поки записів немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (operatorTab === "reports") {
-        content = 
-          <div class="operator-dashboard">
-            <div class="card operator-side">
-              <h3>Подати звіт</h3>
-              <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
-              <textarea id="operatorReportText" class="textarea" placeholder="Напиши свій звіт"></textarea>
-              <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
-            </div>
-
-            <div class="card operator-main">
-              <h3>Мої звіти</h3>
-              <div class="entry-list">
-                ${reports.length ? reports.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""} : 'Очікує перевірки'}</span>
-                        <div class="entry-meta">${escapeHtml(item.date)}</div>
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-
-                    <div class="actions">
-                      <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                    </div>
-
-                    <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                      <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
-                      <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
-                      <div class="actions">
-                        <button class="btn small" onclick="saveOwnReportEdit('${item.id}')">Зберегти</button>
-                        <button class="btn secondary small" onclick="closeOwnReportEdit('${item.id}')">Закрити</button>
-                      </div>
-                    </div>
-
-                    ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
-                  </div>
-                ).join("") : <div class="empty">Поки звітів немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-     if (operatorTab === "balances") {
-  content = 
-    <div class="operator-dashboard">
-      <div class="card full">
-        <h3>Баланси</h3>
-        <div class="empty">Тимчасово блок балансів вимкнений для перевірки синтаксису.</div>
-      </div>
-    </div>
-  ;
-}
-      if (operatorTab === "tasks") {
-        content = 
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Мої завдання</h3>
-              <div class="entry-list">
-                ${tasks.length ? tasks.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
-                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
-                        <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
-                      </div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    <div class="actions">
-                      ${item.done ? <button class="btn secondary small" disabled>✅ Виконано</button> : <button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>}
-                    </div>
-                  </div>
-                ).join("") : <div class="empty">Поки завдань немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (operatorTab === "rating") {
-        content = 
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Рейтинг 3 операторів</h3>
-              <table>
-                <thead>
-                  <tr><th>#</th><th>Оператор</th><th>Зміна</th><th>Score</th></tr>
-                </thead>
-                <tbody>
-                  ${ranked.map((item, idx) => 
-                    <tr>
-                      <td class="rank-num">#${idx+1}</td>
-                      <td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
-                      <td>${escapeHtml(item.shift)}</td>
-                      <td>${item.score}</td>
-                    </tr>
-                  ).join("")}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ;
-      }
-
-      if (operatorTab === "feedback") {
-        content = 
-          <div class="operator-dashboard">
-            <div class="card operator-main">
-              <h3>Що покращити</h3>
-              <div class="list-simple">
-                ${(op.improvements || []).length ? op.improvements.map(item => <div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>).join("") : <div class="empty">Поки пусто</div>}
-              </div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>Позитивні якості</h3>
-              <div class="list-simple">
-                ${(op.strengths || []).length ? op.strengths.map(item => <div class="list-item">${escapeHtml(item)}</div>).join("") : <div class="empty">Поки пусто</div>}
-              </div>
-            </div>
-
-            <div class="card operator-side">
-              <h3>План на тиждень</h3>
-              <div class="list-simple">
-                ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => <div class="list-item">${escapeHtml(item)}</div>).join("") : <div class="empty">План ще не доданий</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      if (operatorTab === "examples") {
-        content = 
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Приклади / як добре заведений РЮ</h3>
-              <div class="entry-list">
-                ${examples.length ? examples.map(item => 
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.url ? <img class="image-preview" src="${escapeHtml(item.url)}" alt="example"> : ""}
-                  </div>
-                ).join("") : <div class="empty">Поки прикладів немає.</div>}
-              </div>
-            </div>
-          </div>
-        ;
-      }
-
-      return renderShell(
-        <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
-
-        <div class="tabs">
-          <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
-          <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
-          <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
-          <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
-          <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
-          <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
-          <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
-          <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
-        </div>
-
-        ${content}
-      );
-    }
-
-    window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
-    window.setOperatorTab = (tab) => { operatorTab = tab; renderApp(); };
-
-    window.operatorSubmitRyuTu = async () => {
-      const ryu = Number(document.getElementById("operatorRyu").value || 0);
-      const tu = Number(document.getElementById("operatorTu").value || 0);
-      const balance = Number(document.getElementById("operatorBalance").value || 0);
-
-      await addDoc(collection(db, "ryutu"), {
-        operatorId: currentProfile.id,
-        operatorName: currentProfile.name,
-        date: new Date().toISOString().slice(0,10),
-        ryu, tu, balance,
-        reviewed:false,
-        score:0,
-        feedback:""
-      });
-
-      renderApp();
-    };
-
-    window.operatorSubmitReport = async () => {
-      const title = document.getElementById("operatorReportTitle").value.trim();
-      const text = document.getElementById("operatorReportText").value.trim();
-      if (!title) return alert("Введи назву звіту");
-
-      await addDoc(collection(db, "reports"), {
-        operatorId: currentProfile.id,
-        operatorName: currentProfile.name,
-        date: new Date().toISOString().slice(0,10),
-        title, text,
-        reviewed:false,
-        score:0,
-        feedback:""
-      });
-
-      renderApp();
-    };
-
-    window.addExample = async () => {
-      const title = document.getElementById("exampleTitle").value.trim();
-      const url = document.getElementById("exampleUrl").value.trim();
-      const text = document.getElementById("exampleText").value.trim();
-      if (!title) return alert("Напиши назву прикладу");
-
-      await addDoc(collection(db, "examples"), {
-        title, url, text,
-        date:new Date().toISOString().slice(0,10)
-      });
-
-      renderApp();
-    };
-
-    window.addBalance = async () => {
-      const operatorId = document.getElementById("balanceOperator").value;
-      const balance = Number(document.getElementById("balanceValue").value || 0);
-      if (!balance) return alert("Введи баланс");
-
-      const userSnap = await getDoc(doc(db, "users", operatorId));
-      const userData = userSnap.data();
-
-      await addDoc(collection(db, "balances"), {
-        operatorId,
-        operatorName: userData.name,
-        balance,
-        date: new Date().toISOString().slice(0,10)
-      });
-
-      renderApp();
-    };
-
-    window.removeBalance = async (id) => {
-      if (!confirm("Видалити баланс?")) return;
-      await deleteDoc(doc(db, "balances", id));
-      renderApp();
-    };
-
-    window.addTask = async () => {
-      const operatorId = document.getElementById("taskOperator").value;
-      const title = document.getElementById("taskTitle").value.trim();
-      const text = document.getElementById("taskText").value.trim();
-      const deadline = document.getElementById("taskDeadline").value;
-
-      if (!title) return alert("Напиши назву завдання");
-      if (!deadline) return alert("Вкажи дедлайн");
-
-      const userSnap = await getDoc(doc(db, "users", operatorId));
-      const userData = userSnap.data();
-
-      await addDoc(collection(db, "tasks"), {
-        operatorId,
-        operatorName: userData.name,
-        title,
-        text,
-        deadline,
-        done: false,
-        doneAt: ""
-      });
-
-      renderApp();
-    };
-
-    window.completeTask = async (id) => {
-      await updateDoc(doc(db, "tasks", id), {
-        done: true,
-        doneAt: new Date().toISOString().slice(0,10)
-      });
-      renderApp();
-    };
-
-    window.removeTask = async (id) => {
-      if (!confirm("Видалити завдання?")) return;
-      await deleteDoc(doc(db, "tasks", id));
-      renderApp();
-    };
-
-    window.editReport = (id) => {
-      const box = document.getElementById(editReportBox_${id});
-      if (box) box.classList.remove("hidden");
-      bindDynamicActions();
-    };
-    window.closeReportEdit = (id) => {
-      const box = document.getElementById(editReportBox_${id});
-      if (box) box.classList.add("hidden");
-    };
-    window.saveReportEdit = async (id) => {
-      const title = document.getElementById(reportTitle_${id}).value.trim();
-      const text = document.getElementById(reportText_${id}).value.trim();
-      const score = Number(document.getElementById(reportScore_${id}).value || 0);
-      const feedback = document.getElementById(reportFeedback_${id}).value.trim();
-
-      await updateDoc(doc(db, "reports", id), {
-        title, text, score, feedback, reviewed:true
-      });
-
-      renderApp();
-    };
-    window.removeReport = async (id) => {
-      if (!confirm("Видалити звіт?")) return;
-      await deleteDoc(doc(db, "reports", id));
-      renderApp();
-    };
-
-    window.editRyuTu = (id) => {
-      const box = document.getElementById(editRyuTuBox_${id});
-      if (box) box.classList.remove("hidden");
-      bindDynamicActions();
-    };
-    window.closeRyuTuEdit = (id) => {
-      const box = document.getElementById(editRyuTuBox_${id});
-      if (box) box.classList.add("hidden");
-    };
-    window.saveRyuTuEdit = async (id) => {
-      const ryu = Number(document.getElementById(ryu_${id}).value || 0);
-      const tu = Number(document.getElementById(tu_${id}).value || 0);
-      const balance = Number(document.getElementById(balance_${id}).value || 0);
-      const score = Number(document.getElementById(rtScore_${id}).value || 0);
-      const feedback = document.getElementById(rtFeedback_${id}).value.trim();
-
-      await updateDoc(doc(db, "ryutu", id), {
-        ryu, tu, balance, score, feedback, reviewed:true
-      });
-
-      renderApp();
-    };
-    window.removeRyuTu = async (id) => {
-      if (!confirm("Видалити запис РЮ / ТЮ?")) return;
-      await deleteDoc(doc(db, "ryutu", id));
-      renderApp();
-    };
-
-    window.editExample = (id) => {
-      const box = document.getElementById(editExampleBox_${id});
-      if (box) box.classList.remove("hidden");
-    };
-    window.closeExampleEdit = (id) => {
-      const box = document.getElementById(editExampleBox_${id});
-      if (box) box.classList.add("hidden");
-    };
-    window.saveExampleEdit = async (id) => {
-      const title = document.getElementById(exampleTitle_${id}).value.trim();
-      const url = document.getElementById(exampleUrl_${id}).value.trim();
-      const text = document.getElementById(exampleText_${id}).value.trim();
-
-      await updateDoc(doc(db, "examples", id), { title, url, text });
-      renderApp();
-    };
-    window.removeExample = async (id) => {
-      if (!confirm("Видалити приклад?")) return;
-      await deleteDoc(doc(db, "examples", id));
-      renderApp();
-    };
-
-    window.editOwnReport = (id) => {
-      const box = document.getElementById(editOwnReportBox_${id});
-      if (box) box.classList.remove("hidden");
-    };
-    window.closeOwnReportEdit = (id) => {
-      const box = document.getElementById(editOwnReportBox_${id});
-      if (box) box.classList.add("hidden");
-    };
-    window.saveOwnReportEdit = async (id) => {
-      const title = document.getElementById(ownReportTitle_${id}).value.trim();
-      const text = document.getElementById(ownReportText_${id}).value.trim();
-      await updateDoc(doc(db, "reports", id), { title, text });
-      renderApp();
-    };
-
-    window.editOwnRyuTu = (id) => {
-      const box = document.getElementById(editOwnRyuTuBox_${id});
-      if (box) box.classList.remove("hidden");
-    };
-    window.closeOwnRyuTuEdit = (id) => {
-      const box = document.getElementById(editOwnRyuTuBox_${id});
-      if (box) box.classList.add("hidden");
-    };
-    window.saveOwnRyuTuEdit = async (id) => {
-      const ryu = Number(document.getElementById(ownRyu_${id}).value || 0);
-      const tu = Number(document.getElementById(ownTu_${id}).value || 0);
-      const balance = Number(document.getElementById(ownBalance_${id}).value || 0);
-      await updateDoc(doc(db, "ryutu", id), { ryu, tu, balance });
-      renderApp();
-    };
-
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        currentUser = null;
-        currentProfile = null;
-        document.getElementById("appScreen").classList.add("hidden");
-        document.getElementById("loginScreen").classList.remove("hidden");
-        return;
-      }
-
-      currentUser = user;
-      currentProfile = await loadProfileByEmail(user.email);
-
-      if (!currentProfile) {
-        document.getElementById("loginMessage").textContent = "Немає профілю в Firestore users";
-        await signOut(auth);
-        return;
-      }
-
-      if (currentProfile.role === "operator") {
-        await ensureOperatorStats(currentProfile);
-      }
-
-      document.getElementById("loginScreen").classList.add("hidden");
-      document.getElementById("appScreen").classList.remove("hidden");
-      document.title = TLOD 32 | ${currentProfile.name};
-      await renderApp();
-    });
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-Думал на протяжении 18s
-У тебе тут є кілька конкретних помилок, через які код або не запуститься, або працюватиме неправильно.
-
-1. Зламана формула в calcOperatorScore
-Ось цей рядок:
-
-const normPercent = op.norm ? (Number(avgBalance  0) / Number(op.norm  1)) * 100 : 0;
-Тут пропущені ||.
-
-Має бути так:
-
-const normPercent = op.norm ? (Number(avgBalance || 0) / Number(op.norm || 1)) * 100 : 0;
-2. Та сама помилка нижче в renderOperator
-Ось тут теж:
-
-const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm  1)) * 100) : 0;
-Правильно:
-
-const normPercent = op.norm ? Math.round((Number(avgBalance || 0) / Number(op.norm || 1)) * 100) : 0;
-3. Синтаксична помилка всередині ranked.push
-Оце в тебе невалідний JavaScript:
-
-ranked.push({
-  ...item,
-  const itemBalances = await getBalances(item.id);
-score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-});
-Усередині об’єкта не можна писати const.
-
-Треба винести змінну до push:
-
-const itemBalances = await getBalances(item.id);
-ranked.push({
-  ...item,
-  score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-});
-4. avgBalance не визначений в адмінському dashboard
-Ось тут:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-У цьому місці avgBalance не існує.
-
-Треба порахувати баланс для конкретного оператора прямо в map:
-
-${ranked.map(op => {
-  const opBalances = balancesAll.filter(x => x.operatorId === op.id);
-  const avgBalance = getAverageBalance(opBalances);
-
-  return `
-    <div class="operator-card">
-      ...
-      <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-      ...
-    </div>
-  `;
-}).join("")}
-5. Дивний рядок з window.login = login
-Ось тут:
-
-window.login = async function () {
-  ...
-}
-window.login = login;
-Другий рядок або зайвий, або може дати проблеми, бо login як окрема змінна явно не оголошена.
-
-Залиш просто так:
-
-window.login = async function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const message = document.getElementById("loginMessage");
-
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    message.textContent = "";
-  } catch (e) {
-    message.textContent = "Невірний email або пароль";
-  }
-};
-Найкритичніші помилки, які реально ламають код
-Ось ці три — головні:
-
-Number(avgBalance  0)
-Number(op.norm  1)
-const itemBalances = await getBalances(item.id);
-усередині ranked.push({...})
-
-${money(avgBalance.toFixed(0))}
-де avgBalance не оголошений
-
-Виправлені шматки
-calcOperatorScore
-function calcOperatorScore(op, reports, ryutu, balances = []){
-  const rt = getRyuTuStats(ryutu);
-  const reportAvg = reviewedAvg(reports);
-  const weekScore = Number(op.weekScore || 0);
-  const avgBalance = getAverageBalance(balances);
-  const normPercent = op.norm ? (Number(avgBalance || 0) / Number(op.norm || 1)) * 100 : 0;
-  const finePenalty = Number(op.fineDollars || 0) * 1.5;
-  const improvePenalty = (op.improvements || []).length * 6;
-
-  return Math.round(
-    Number(avgBalance || 0) * 0.7 +
-    normPercent * 2 +
-    reportAvg * 10 +
-    rt.avgScore * 10 +
-    weekScore * 10 -
-    finePenalty -
-    improvePenalty
-  );
-}
-ranked.push(...) у renderOperator
-const ranked = [];
-for (const item of allOperators) {
-  const itemReports = await getReports(item.id);
-  const itemRyuTu = await getRyuTu(item.id);
-  const itemBalances = await getBalances(item.id);
-
-  ranked.push({
-    ...item,
-    score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-  });
-}
-normPercent у renderOperator
-const rt = getRyuTuStats(ryutu);
-const reportAvg = reviewedAvg(reports);
-const avgBalance = getAverageBalance(balances);
-const normPercent = op.norm
-  ? Math.round((Number(avgBalance || 0) / Number(op.norm || 1)) * 100)
-  : 0;
-Ще одна важлива річ
-Ти вставив код так:
-
-напиши де я тут помилився<!DOCTYPE html>
-Якщо у файлі реально є текст до <!DOCTYPE html>, це теж помилка.
-HTML-файл має починатися з:
-
-<!DOCTYPE html>
-<html lang="uk">
-Можу далі зібрати тобі повністю виправлену версію цього HTML, щоб ти просто вставив і перевірив.
-
-
-TLOD08/:1171 Uncaught (in promise) ReferenceError: avgBalance is not defined
-    at TLOD08/:1171:101
-    at Array.map (<anonymous>)
-    at renderAdmin (TLOD08/:1159:26)
-    at async renderApp (TLOD08/:1115:27)
-    at async Object.next (TLOD08/:2029:7) а це що за помилка
-
-Це означає, що в момент рендеру адмінки JavaScript намагається використати змінну avgBalance, якої в цій області видимості немає.
-
-Помилка:
-
-ReferenceError: avgBalance is not defined
-каже саме не про null і не про undefined значення поля, а про те, що змінна взагалі не оголошена.
-
-У тебе це ось тут, у renderAdmin() → вкладка "dashboard":
-
-${ranked.map(op => `
-  <div class="operator-card">
-    ...
-    <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-    ...
-  </div>
-`).join("")}
-Всередині map(op => ...) ти використовуєш avgBalance, але перед цим її не створив.
-
-Як виправити
-Треба для кожного оператора порахувати його баланси, а потім середній баланс:
-
-${ranked.map(op => {
-  const opBalances = balancesAll.filter(x => x.operatorId === op.id);
-  const avgBalance = getAverageBalance(opBalances);
-
-  return `
-    <div class="operator-card">
-      <div class="operator-head">
-        <div>
-          <div class="operator-name">${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</div>
-          <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
-        </div>
-        <div class="status ${op.score < 50 ? 'red' : ''}">Score ${op.score}</div>
-      </div>
-
-      <div class="mini-stats">
-        <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-        <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-        <div class="mini"><div class="label">РЮ</div><div class="value">${op.ryutuStats.totalRyu}</div></div>
-        <div class="mini red"><div class="label">ТЮ</div><div class="value">${op.ryutuStats.totalTu}</div></div>
-      </div>
-    </div>
-  `;
-}).join("")}
-Чому стек показує Array.map
-Бо помилка виникає саме під час цього шматка:
-
-ranked.map(...)
-Тобто ти будуєш HTML для кожного оператора, і на одному з рядків шаблону JS зустрічає невідому змінну.
-
-Різниця між такими помилками
-Ось як це читати:
-
-ReferenceError: avgBalance is not defined — змінна не оголошена
-
-Cannot read properties of undefined — змінна є, але в ній undefined, і ти звертаєшся до
-
-
-ти не обясняй а скажи який код на що поміняти
-
-Заміни цей код у renderAdmin():
-
-${ranked.map(op => `
-  <div class="operator-card">
-    <div class="operator-head">
-      <div>
-        <div class="operator-name">${escapeHtml(op.name)} ${op
-
-TLOD08/:1171 Uncaught (in promise) ReferenceError: avgBalance is not defined
-    at TLOD08/:1171:101
-    at Array.map (<anonymous>)
-    at renderAdmin (TLOD08/:1159:26)
-    at async renderApp (TLOD08/:1115:27)
-    at async TLOD08/:2029:7
-
-Помилка означає, що у renderAdmin() використовується avgBalance, але вона не створена.
-
-Знайди цей рядок
-${money(avgBalance.toFixed(0))}
-І заміни весь блок ranked.map на цей:
-${ranked.map(op => {
-  const opBalances = balancesAll.filter(x => x.operatorId === op.id);
-  const avgBalance = getAverageBalance(opBalances);
-
-  return `
-    <div class="operator-card">
-      <div class="operator-head">
-        <div>
-          <div class="operator-name">${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</div>
-          <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
-        </div>
-        <div class="status ${op.score < 50 ? 'red' : ''}">Score ${op.score}</div>
-      </div>
-
-      <div class="mini-stats">
-        <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-        <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-        <div class="mini"><div class="label">РЮ</div><div class="value">${op.ryutuStats.totalRyu}</div></div>
-        <div class="mini red"><div class="label">ТЮ</div><div class="value">${op.ryutuStats.totalTu}</div></div>
-      </div>
-    </div>
-  `;
-}).join("")}
-Після цього помилка avgBalance is not defined зникне.
-
-
-${money(avgBalance.toFixed(0))} де сами найт таких три рядка тут
-
-Тобі треба знайти саме цей рядок:
-
-${money(avgBalance.toFixed(0))}
-Він знаходиться в renderAdmin → dashboard → ranked.map → mini-stats → "СЕРЕДНІЙ".
-
-Як швидко знайти
-Натисни в редакторі:
-
-CTRL + F
-і встав:
-
-avgBalance.toFixed
-У тебе знайдеться 3 місця.
-
-1️⃣ Головна помилка (ADMIN → dashboard)
-Знайдеш такий блок:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-Замінити на це:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0))}</div></div>
-2️⃣ balances таблиця
-Знайдеш:
-
-<td>${money(avgBalance.toFixed(0))}</td>
-Замінити на:
-
-<td>${money(getAverageBalance(opBalances).toFixed(0))}</td>
-3️⃣ operator overview
-Знайдеш:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-Тут залишай, бо там вище вже є:
-
-const avgBalance = getAverageBalance(balances);
-Якщо коротко
-Треба виправити тільки один рядок:
-
-БУЛО
-${money(avgBalance.toFixed(0))}
-СТАЛО
-${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0))}
-Якщо хочеш — я можу показати ще 3 помилки у твоєму коді, які скоро теж вилізуть (і краще їх виправити одразу).
-
-
-TLOD08/:819 Uncaught ReferenceError: login is not defined
-    at HTMLButtonElement.onclick (TLOD08/:819:45) ізнов ця помилка
-
-Помилка означає: кнопка викликає login(), але функції login немає у глобальній області.
-
-У тебе кнопка:
-
-<button class="btn" onclick="login()">ENTER THE CABINET</button>
-А функція оголошена неправильно.
-
-Знайди цей код
-window.login = async function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const message = document.getElementById("loginMessage");
-
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    message.textContent = "";
-  } catch (e) {
-    message.textContent = "Невірний email або пароль";
-  }
-}
-window.login = login;
-Замінити на
-window.login = async function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const message = document.getElementById("loginMessage");
-
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    message.textContent = "";
-  } catch (e) {
-    message.textContent = "Невірний email або пароль";
-  }
-};
-Головна проблема
-Оцей рядок видали:
-
-window.login = login;
-бо змінної login не існує → тому браузер і пише:
-
-ReferenceError: login is not defined
-✅ Після цього кнопка ENTER THE CABINET буде працювати.
-
-Якщо хочеш — можу ще показати 2 місця в твоєму коді, які можуть зламати Firebase логін пізніше (це дуже типові помилки).
-
-
-Uncaught SyntaxError: Missing } in template expression (at TLOD08/:1163:61)
-
-Ця помилка означає, що в одному з ${ ... } у template string пропущена }.
-
-У тебе це майже точно в рядку, який ми змінювали.
-
-Знайди цей рядок
-${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0))}
-Замінити на цей (правильний)
-${money(getAverageBalance(balancesAll.filter(x => x.operatorId === op.id)).toFixed(0))}
-Якщо помилка не зникне
-Заміни весь блок:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-на
-
-<div class="mini">
-  <div class="label">СЕРЕДНІЙ</div>
-  <div class="value">${money(getAverageBalance(balancesAll.filter(x => x.operatorId === op.id)).toFixed(0))}</div>
-</div>
-Найчастіша причина цієї помилки
-Десь випадково стало:
-
-${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0)}
-❌ бракує однієї ) або }
-
-Правильно:
-
-${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0))}
-Якщо хочеш — можеш скинути 20-30 рядків навколо 1163, і я покажу точно де помилка, бо вона іноді знаходиться на рядок вище.
-
-
-Uncaught SyntaxError: Missing } in template expression (at TLOD08/:1162:61)
-
-Ця помилка 100% у рядку з ${ ... }, де ми міняли avgBalance.
-
-Заміни цей рядок:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0))}</div></div>
-на цей (простий і без помилки):
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(getAverageBalance(balancesAll.filter(x => x.operatorId === op.id)) )}</div></div>
-Тобто забери .toFixed(0), бо саме там у тебе зламався template.
-
-✔ Було:
-
-${money(getAverageBalance(...).toFixed(0))}
-✔ Стало:
-
-${money(getAverageBalance(...))}
-Якщо помилка залишиться, тоді зроби ще простіше — заміни на:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(0)}</div></div>
-Якщо після цього сайт запускається — значить проблема саме в тій формулі.
-
-Якщо хочеш — я можу показати один рядок, який взагалі прибере всі ці помилки з балансами і буде працювати стабільно.
-
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0))}</div></div> не анходитьцей рядок
-
-Якщо цей рядок не знаходиться, значить він у тебе записаний трохи інакше. Зроби так:
-
-1️⃣ Пошук
-Натисни CTRL + F і шукай по слову:
-
-СЕРЕДНІЙ
-Ти побачиш рядок приблизно такий:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-або
-
-<div class="label">СЕРЕДНІЙ</div>
-2️⃣ Замінити весь рядок
-Заміни його на цей:
-
-<div class="mini">
-  <div class="label">СЕРЕДНІЙ</div>
-  <div class="value">${money(0)}</div>
-</div>
-3️⃣ Чому це потрібно
-Твоя помилка:
-
-Missing } in template expression
-означає, що в рядку ${ ... } зламана формула.
-
-Ми тимчасово ставимо:
-
-${money(0)}
-щоб сайт запустився без помилки.
-
-4️⃣ Після запуску
-Коли сайт запрацює, можна буде правильно повернути баланс.
-
-💡 Якщо хочеш — можу показати де саме у твоєму коді (рядок ~1150) ця помилка, бо вона швидше за все на 2–3 рядки вище, а не там де показує браузер.
-
-
-в мене таких 8 рядків
-
-Тоді дивись не по рядку СЕРЕДНІЙ, а по сусідньому коду.
-
-Тобі треба міняти не всі 8, а тільки той, який стоїть в renderAdmin() → if (adminTab === "dashboard") → всередині ranked.map(op => ... ).
-
-Знайди ось цей шматок:
-if (adminTab === "dashboard") {
-  content = `
-    <div class="dashboard-grid">
-      ...
-      <div class="card full">
-        <h2>Оператори</h2>
-        <div class="operators-grid">
-          ${ranked.map(op => `
-І вже всередині нього знайди:
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-Саме його заміни на:
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(0)}</div></div>
-Щоб не помилитися: правильне місце має виглядати так:
-
-<div class="mini-stats">
-  <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-  <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-  <div class="mini"><div class="label">РЮ</div><div class="value">${op.ryutuStats.totalRyu}</div></div>
-  <div class="mini red"><div class="label">ТЮ</div><div class="value">${op.ryutuStats.totalTu}</div></div>
-</div>
-Після заміни має бути:
-<div class="mini-stats">
-  <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-  <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(0)}</div></div>
-  <div class="mini"><div class="label">РЮ</div><div class="value">${op.ryutuStats.totalRyu}</div></div>
-  <div class="mini red"><div class="label">ТЮ</div><div class="value">${op.ryutuStats.totalTu}</div></div>
-</div>
-Якщо хочеш, скинь мені шматок коду від if (adminTab === "dashboard") { до }).join("")} — я скажу рівно який із 8 рядків міняти.
-
-
-не находить цей код
-
-Тоді зроби простішим способом — через пошук помилки.
-
-1️⃣ Натисни
-CTRL + F
-2️⃣ Введи
-avgBalance
-У тебе знайдеться 2–3 місця.
-
-3️⃣ Усі рядки типу
-${money(avgBalance.toFixed(0))}
-замінити на
-
-${money(0)}
-4️⃣ Якщо знайдеш ще такі
-Number(avgBalance
-або
-
-avgBalance /
-теж поки заміни на 0.
-
-Чому
-Помилка
-
-Missing } in template expression
-з'явилась через зламаний template ${ ... } з avgBalance.
-
-Тому найпростіше — прибрати його повністю.
-
-✅ Після цього сторінка запуститься без помилки.
-
-Якщо хочеш — можу показати 1 місце у твоєму коді (~1150 рядок) де точно ця проблема, але мені треба 30 рядків коду навколо 1160.
-
-
-ти блять можеш анписати мені все у двох реченях де що знайти і змінити я тут лиш міняю туда назад
-
-1️⃣ Натисни CTRL + F, знайди avgBalance.toFixed і кожен рядок з
-
-${money(avgBalance.toFixed(0))}
-заміни на
-
-${money(0)}
-2️⃣ Якщо знайдеш avgBalance у ${ ... } ще десь — теж заміни весь вираз на 0 (наприклад ${avgBalance} → 0).
-
-
-2TLOD08/:819 Uncaught ReferenceError: login is not defined
-    at HTMLButtonElement.onclick (TLOD08/:819:45)
-
-1️⃣ Знайди кнопку (CTRL+F → onclick="login()"):
-
-<button class="btn" onclick="login()">ENTER THE CABINET</button>
-2️⃣ Знайди функцію login у JS і заміни весь блок на:
-
-function login() {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const message = document.getElementById("loginMessage");
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => message.textContent = "")
-    .catch(() => message.textContent = "Невірний email або пароль");
-}
-
-TLOD08/:1162 Uncaught SyntaxError: Missing } in template expression (at TLOD08/:1162:61)
-4TLOD08/:819 Uncaught ReferenceError: login is not defined
-    at HTMLButtonElement.onclick (TLOD08/:819:45) ти прикалуєшся наді мно?
-
-Спокійно. Ось чітко 2 дії, без зайвого.
-
-1️⃣ Виправити login is not defined
-Знайди кнопку:
-
-<button class="btn" onclick="login()">ENTER THE CABINET</button>
-Заміни на:
-
-<button class="btn" onclick="window.login()">ENTER THE CABINET</button>
-2️⃣ Виправити Missing } in template expression
-Натисни CTRL + F
-введи:
-
-${money(
-Знайди рядок з балансом приблизно такий:
-
-${money(avgBalance.toFixed(0))}
-Замінити на:
-
-${money(0)}
-✅ Після цих 2 змін сторінка запуститься без цих помилок.
-
-
-не працює
-
-
-Думал на протяжении 7s
-Так, причина в тому, що спочатку ламається JS на Missing } in template expression, і через це функція login взагалі не завантажується. Тому login is not defined — це вже друга помилка, наслідок першої.
-
-Зроби рівно це:
-
-1. Натисни CTRL+F і знайди:
-
-${money(
-У блоці renderAdmin() заміни весь рядок, де є СЕРЕДНІЙ, на це:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(0)}</div></div>
-2. Натисни CTRL+F і знайди:
-
-const itemBalances = await getBalances(item.id);
-Якщо цей рядок стоїть всередині ranked.push({ ... }), виріж його звідти і постав перед ranked.push({ ... }), щоб було так:
-
-const itemBalances = await getBalances(item.id);
-ranked.push({
-  ...item,
-  score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-});
-Після цього перезавантаж сторінку: помилка з login теж зникне. Якщо ні — скинь мені шматок коду від if (adminTab === "dashboard") { до кінця ranked.map, і я дам тобі один готовий блок без гадання.
-
-
-заміни мій код просто праивльними сллвами і кинь мені
-
-Добре. Ось два точні шматки коду, які треба просто замінити у тебе.
-
-1️⃣ Функція LOGIN (встав замість старої)
-Знайди у коді login і заміни весь блок на це:
-
-window.login = function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const message = document.getElementById("loginMessage");
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      message.textContent = "";
-    })
-    .catch(() => {
-      message.textContent = "Невірний email або пароль";
-    });
-};
-2️⃣ Полагодити помилку Missing }
-Знайди рядок з "СЕРЕДНІЙ":
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-Заміни на це:
-
-<div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(0)}</div></div>
-Після цього
-Помилки
-
-Missing } in template expression
-login is not defined
-зникнуть і сайт відкриється.
-
-Якщо хочеш, я можу також дати тобі готовий виправлений файл HTML, щоб ти просто вставив і все запрацювало.
-
-
-Uncaught SyntaxError: missing ) after argument list (at TLOD08/:1:20011)
-
-Ця помилка означає: у якомусь рядку пропущена ). Найпростіше — замінити проблемний рядок.
-
-Знайди (CTRL+F):
-avgBalance.toFixed
-Якщо знайдеш щось таке:
-${money(avgBalance.toFixed(0))}
-Замінити на:
-${money(0)}
-Якщо бачиш такий рядок:
-${money(getAverageBalance(balancesAll.filter(x=>x.operatorId===op.id)).toFixed(0))}
-Замінити на:
-${money(0)}
-Після цього перезавантаж сторінку — помилка missing ) after argument list зникне.
-
-
-Uncaught SyntaxError: missing ) after argument list (at TLOD08/:1:20011)
-2TLOD08/:1 Uncaught ReferenceError: login is not defined
-    at HTMLButtonElement.onclick (TLOD08/:1:17533)
-
-Так, бо в тебе скрипт ламається раніше, тому login не встигає оголоситись.
-
-Зроби рівно ці 2 заміни:
-
-1. Кнопку логіна заміни на це
-Знайди:
-
-<button class="btn" onclick="login()">ENTER THE CABINET</button>
-Замінити на:
-
-<button class="btn" onclick="window.login()">ENTER THE CABINET</button>
-2. Весь блок renderOperator заміни на цей шматок
-Знайди початок:
-
-async function renderOperator(operatorId) {
-і заміни всю функцію renderOperator повністю на це:
-
-async function renderOperator(operatorId) {
-  const op = await getOperatorStats(operatorId);
-  const reports = await getReports(operatorId);
-  const ryutu = await getRyuTu(operatorId);
-  const examples = await getExamples();
-  const balances = await getBalances(operatorId);
-  const tasks = await getTasks(operatorId);
-  const allOperators = await getAllOperatorStats();
-
-  const ranked = [];
-  for (const item of allOperators) {
-    const itemReports = await getReports(item.id);
-    const itemRyuTu = await getRyuTu(item.id);
-    const itemBalances = await getBalances(item.id);
-
-    ranked.push({
-      ...item,
-      score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-    });
-  }
-  ranked.sort((a, b) => b.score - a.score);
-
-  const rt = getRyuTuStats(ryutu);
-  const reportAvg = reviewedAvg(reports);
-  const avgBalance = getAverageBalance(balances);
-  const normPercent = op.norm
-    ? Math.round((Number(avgBalance || 0) / Number(op.norm || 1)) * 100)
-    : 0;
-
-  let content = "";
-
-  if (operatorTab === "overview") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card operator-main">
-          <div class="profile-hero">
-            <div>
-              <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu, balances) > 200 ? "🔥" : ""}</div>
-              <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
-            </div>
-            <div class="status ${calcOperatorScore(op, reports, ryutu, balances) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu, balances)}</div>
-          </div>
-
-          <div class="mini-stats">
-            <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-            <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-            <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
-            <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
-            <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
-            <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
-            <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
-            <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
-          </div>
-        </div>
-
-        <div class="card operator-side">
-          <h3>Моя оцінка тижня</h3>
-          <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-        </div>
-      </div>
-    `;
-  }
-
-  if (operatorTab === "ryutu") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card operator-side">
-          <h3>Подати РЮ / ТЮ</h3>
-          <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
-          <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
-          <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
-          <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
-        </div>
-
-        <div class="card operator-main">
-          <h3>Мої записи РЮ / ТЮ</h3>
-          <div class="entry-list">
-            ${ryutu.length ? ryutu.map(item => `
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
-                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
-                    <div class="entry-meta">${escapeHtml(item.date)}</div>
-                  </div>
-                </div>
-                <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-
-                <div class="actions">
-                  <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
-                  <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                </div>
-
-                <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                  <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                  <input id="ownTu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                  <input id="ownBalance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
-                  <div class="actions">
-                    <button class="btn small" onclick="saveOwnRyuTuEdit('${item.id}')">Зберегти</button>
-                    <button class="btn secondary small" onclick="closeOwnRyuTuEdit('${item.id}')">Закрити</button>
-                  </div>
-                </div>
-
-                ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-              </div>
-            `).join("") : `<div class="empty">Поки записів немає.</div>`}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  if (operatorTab === "reports") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card operator-side">
-          <h3>Подати звіт</h3>
-          <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
-          <textarea id="operatorReportText" class="textarea" placeholder="Напиши свій звіт"></textarea>
-          <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
-        </div>
-
-        <div class="card operator-main">
-          <h3>Мої звіти</h3>
-          <div class="entry-list">
-            ${reports.length ? reports.map(item => `
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
-                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""}` : 'Очікує перевірки'}</span>
-                    <div class="entry-meta">${escapeHtml(item.date)}</div>
-                  </div>
-                </div>
-                <div class="entry-text">${escapeHtml(item.text || "")}</div>
-
-                <div class="actions">
-                  <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
-                  <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                </div>
-
-                <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                  <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
-                  <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
-                  <div class="actions">
-                    <button class="btn small" onclick="saveOwnReportEdit('${item.id}')">Зберегти</button>
-                    <button class="btn secondary small" onclick="closeOwnReportEdit('${item.id}')">Закрити</button>
-                  </div>
-                </div>
-
-                ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-              </div>
-            `).join("") : `<div class="empty">Поки звітів немає.</div>`}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  if (operatorTab === "balances") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Баланси</h3>
-          <div class="empty">Тимчасово блок балансів вимкнений для перевірки синтаксису.</div>
-        </div>
-      </div>
-    `;
-  }
-
-  if (operatorTab === "tasks") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Мої завдання</h3>
-          <div class="entry-list">
-            ${tasks.length ? tasks.map(item => `
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title">${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
-                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
-                    <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
-                  </div>
-                </div>
-                <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                <div class="actions">
-                  ${item.done ? `<button class="btn secondary small" disabled>✅ Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
-                </div>
-              </div>
-            `).join("") : `<div class="empty">Поки завдань немає.</div>`}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  if (operatorTab === "rating") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Рейтинг 3 операторів</h3>
-          <table>
-            <thead>
-              <tr><th>#</th><th>Оператор</th><th>Зміна</th><th>Score</th></tr>
-            </thead>
-            <tbody>
-              ${ranked.map((item, idx) => `
-                <tr>
-                  <td class="rank-num">#${idx + 1}</td>
-                  <td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
-                  <td>${escapeHtml(item.shift)}</td>
-                  <td>${item.score}</td>
-                </tr>
-              `).join("")}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    `;
-  }
-
-  if (operatorTab === "feedback") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card operator-main">
-          <h3>Що покращити</h3>
-          <div class="list-simple">
-            ${(op.improvements || []).length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-          </div>
-        </div>
-
-        <div class="card operator-side">
-          <h3>Позитивні якості</h3>
-          <div class="list-simple">
-            ${(op.strengths || []).length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-          </div>
-        </div>
-
-        <div class="card operator-side">
-          <h3>План на тиждень</h3>
-          <div class="list-simple">
-            ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  if (operatorTab === "examples") {
-    content = `
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Приклади / як добре заведений РЮ</h3>
-          <div class="entry-list">
-            ${examples.length ? examples.map(item => `
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title">${escapeHtml(item.title)}</div>
-                  <div class="entry-meta">${escapeHtml(item.date)}</div>
-                </div>
-                <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
-              </div>
-            `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  return renderShell(`
-    <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
-
-    <div class="tabs">
-      <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
-      <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
-      <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
-      <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
-      <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
-      <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
-      <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
-      <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
-    </div>
-
-    ${content}
-  `);
-}
-Після цього помилки missing ) after argument list і login is not defined мають зникнути. Якщо вилізе нова — кидай тільки текст помилки і 10 рядків навколо неї.
-
-
-Uncaught SyntaxError: missing ) after argument list (at TLOD08/:1:20011)
-2TLOD08/:1 Uncaught ReferenceError: login is not defined
-    at HTMLButtonElement.onclick (TLOD08/:1:17533)Uncaught SyntaxError: missing ) after argument list (at TLOD08/:1:20011)
-2TLOD08/:1 Uncaught ReferenceError: login is not defined
-    at HTMLButtonElement.onclick (TLOD08/:1:17533)
-
-Так. login is not defined зараз іде як наслідок, бо в тебе раніше ламається <script> на синтаксисі.
-Зроби ці 4 точні заміни через CTRL+F, і все:
-
-1
-Знайди:
-
-const normPercent = op.norm ? (Number(avgBalance  0) / Number(op.norm  1)) * 100 : 0;
-Замiни на:
-
-const normPercent = op.norm ? (Number(avgBalance || 0) / Number(op.norm || 1)) * 100 : 0;
-2
-Знайди:
-
-const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm  1)) * 100) : 0;
-Замiни на:
-
-const normPercent = op.norm ? Math.round((Number(avgBalance || 0) / Number(op.norm || 1)) * 100) : 0;
-3
-Знайди оцей шматок:
-
-ranked.push({
-  ...item,
-  const itemBalances = await getBalances(item.id);
-score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-});
-Замiни на:
-
-const itemBalances = await getBalances(item.id);
-ranked.push({
-  ...item,
-  score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-});
-4
-Знайди:
-
-window.login = login;
-І просто видали цей рядок.
-
-Після цього missing ) after argument list зникне, і разом із ним зникне login is not defined.
-
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -3844,7 +782,7 @@ window.login = login;
 
       <input id="email" class="input" type="email" placeholder="Email">
       <input id="password" class="input" type="password" placeholder="Пароль">
-    <button class="btn" onclick="login()">ENTER THE CABINET</button>
+      <button class="btn" onclick="login()">ENTER THE CABINET</button>
       <div id="loginMessage" style="min-height:22px;color:#ff7b7b;margin-top:12px;"></div>
 
       <div class="help">
@@ -4093,7 +1031,7 @@ window.login = login;
         ? "👑 Привіт Артьомушка"
         : "🔥 Привіт " + currentProfile.name;
 
-      return 
+      return `
         <div class="topbar">
           <div class="brand-wrap">
             <div class="brand-badge">32</div>
@@ -4109,7 +1047,7 @@ window.login = login;
           </div>
         </div>
         ${content}
-      ;
+      `;
     }
 
     async function renderApp() {
@@ -4137,10 +1075,10 @@ window.login = login;
 
     function taskDeadlineTag(task){
       const today = new Date().toISOString().slice(0,10);
-      if (task.done) return <span class="tag green">🎉 Виконано</span>;
-      if (task.deadline && task.deadline < today) return <span class="tag red">⏰ Прострочено</span>;
-      if (task.deadline === today) return <span class="tag red">⚠️ Сьогодні дедлайн</span>;
-      return <span class="tag blue">До: ${escapeHtml(task.deadline || "—")}</span>;
+      if (task.done) return `<span class="tag green">🎉 Виконано</span>`;
+      if (task.deadline && task.deadline < today) return `<span class="tag red">⏰ Прострочено</span>`;
+      if (task.deadline === today) return `<span class="tag red">⚠️ Сьогодні дедлайн</span>`;
+      return `<span class="tag blue">До: ${escapeHtml(task.deadline || "—")}</span>`;
     }
 
     async function renderAdmin() {
@@ -4169,7 +1107,7 @@ window.login = login;
       let content = "";
 
       if (adminTab === "dashboard") {
-        content = 
+        content = `
           <div class="dashboard-grid">
             <div class="card stat-card"><div class="stat-label">Зроблено</div><div class="stat-value">${money(totalRevenue)}</div><div class="stat-sub">Сумарний результат</div></div>
             <div class="card stat-card"><div class="stat-label">Штрафи</div><div class="stat-value">${money(totalFines)}</div><div class="stat-sub">У доларах</div></div>
@@ -4179,7 +1117,7 @@ window.login = login;
             <div class="card full">
               <h2>Оператори</h2>
               <div class="operators-grid">
-                ${ranked.map(op => 
+                ${ranked.map(op => `
                   <div class="operator-card">
                     <div class="operator-head">
                       <div>
@@ -4196,20 +1134,20 @@ window.login = login;
                       <div class="mini red"><div class="label">ТЮ</div><div class="value">${op.ryutuStats.totalTu}</div></div>
                     </div>
                   </div>
-                ).join("")}
+                `).join("")}
               </div>
             </div>
           </div>
-        ;
+        `;
       }
 
       if (adminTab === "balances") {
-        content = 
+        content = `
           <div class="dashboard-grid">
             <div class="card side">
               <h2>Додати баланс</h2>
               <select id="balanceOperator" class="select">
-                ${operators.map(op => <option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>).join("")}
+                ${operators.map(op => `<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
               </select>
               <input id="balanceValue" class="input" type="number" min="0" placeholder="Баланс">
               <button class="btn" onclick="addBalance()">Зберегти баланс</button>
@@ -4232,21 +1170,21 @@ window.login = login;
                       const opBalances = balancesAll.filter(x => x.operatorId === op.id);
                       const lastBalance = opBalances.length ? Number(opBalances[0].balance || 0) : 0;
                       const avgBalance = getAverageBalance(opBalances);
-                      return 
+                      return `
                         <tr>
                           <td>${escapeHtml(op.name)}</td>
                           <td>${money(lastBalance)}</td>
-                          <td>${money(0)}</td>
+                          <td>${money(avgBalance.toFixed(0))}</td>
                           <td>${opBalances.length}</td>
                         </tr>
-                      ;
+                      `;
                     }).join("")}
                   </tbody>
                 </table>
               </div>
 
               <div class="entry-list">
-                ${balancesAll.length ? balancesAll.map(item => 
+                ${balancesAll.length ? balancesAll.map(item => `
                   <div class="entry">
                     <div class="entry-top">
                       <div class="entry-title">${escapeHtml(item.operatorName)} — Баланс ${money(item.balance)}</div>
@@ -4256,20 +1194,20 @@ window.login = login;
                       <button class="btn red small" onclick="removeBalance('${item.id}')">Видалити</button>
                     </div>
                   </div>
-                ).join("") : <div class="empty">Поки балансів немає.</div>}
+                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
               </div>
             </div>
           </div>
-        ;
+        `;
       }
 
       if (adminTab === "tasks") {
-        content = 
+        content = `
           <div class="dashboard-grid">
             <div class="card side">
               <h2>Поставити завдання</h2>
               <select id="taskOperator" class="select">
-                ${operators.map(op => <option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>).join("")}
+                ${operators.map(op => `<option value="${op.id}">${escapeHtml(op.name)} — ${escapeHtml(op.shift)}</option>`).join("")}
               </select>
               <input id="taskTitle" class="input" placeholder="Назва завдання">
               <textarea id="taskText" class="textarea" placeholder="Опис завдання"></textarea>
@@ -4280,7 +1218,7 @@ window.login = login;
             <div class="card wide">
               <h2>Усі завдання</h2>
               <div class="entry-list">
-                ${tasksAll.length ? tasksAll.map(item => 
+                ${tasksAll.length ? tasksAll.map(item => `
                   <div class="entry">
                     <div class="entry-top">
                       <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
@@ -4289,37 +1227,37 @@ window.login = login;
                       </div>
                     </div>
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.doneAt ? <div class="entry-meta" style="margin-top:10px;">Виконано: ${escapeHtml(item.doneAt)}</div> : ""}
+                    ${item.doneAt ? `<div class="entry-meta" style="margin-top:10px;">Виконано: ${escapeHtml(item.doneAt)}</div>` : ""}
                     <div class="actions">
                       <button class="btn red small" onclick="removeTask('${item.id}')">Видалити</button>
                     </div>
                   </div>
-                ).join("") : <div class="empty">Поки завдань немає.</div>}
+                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
               </div>
             </div>
           </div>
-        ;
+        `;
       }
 
       if (adminTab === "reports") {
-        content = 
+        content = `
           <div class="dashboard-grid">
             <div class="card full">
               <h2>Звіти операторів</h2>
               <div class="entry-list">
-                ${reportsAll.length ? reportsAll.map(item => 
+                ${reportsAll.length ? reportsAll.map(item => `
                   <div class="entry">
                     <div class="entry-top">
                       <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 : 'Не перевірено'}</span>
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
 
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
 
-                    ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
 
                     <div class="actions">
                       <button class="btn small" onclick="editReport('${item.id}')">Редагувати</button>
@@ -4345,32 +1283,32 @@ window.login = login;
                       </div>
                     </div>
                   </div>
-                ).join("") : <div class="empty">Поки звітів немає.</div>}
+                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
               </div>
             </div>
           </div>
-        ;
+        `;
       }
 
       if (adminTab === "ryutu") {
-        content = 
+        content = `
           <div class="dashboard-grid">
             <div class="card full">
               <h2>РЮ / ТЮ від операторів</h2>
               <div class="entry-list">
-                ${ryutuAll.length ? ryutuAll.map(item => 
+                ${ryutuAll.length ? ryutuAll.map(item => `
                   <div class="entry">
                     <div class="entry-top">
                       <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
                       <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 : 'Не перевірено'}</span>
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}</span>
                         <div class="entry-meta">${escapeHtml(item.date)}</div>
                       </div>
                     </div>
 
                     <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
 
-                    ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
 
                     <div class="actions">
                       <button class="btn small" onclick="editRyuTu('${item.id}')">Редагувати</button>
@@ -4397,15 +1335,15 @@ window.login = login;
                       </div>
                     </div>
                   </div>
-                ).join("") : <div class="empty">Поки записів РЮ / ТЮ немає.</div>}
+                `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
               </div>
             </div>
           </div>
-        ;
+        `;
       }
 
       if (adminTab === "examples") {
-        content = 
+        content = `
           <div class="dashboard-grid">
             <div class="card side">
               <h2>Додати приклад / скрін</h2>
@@ -4418,14 +1356,14 @@ window.login = login;
             <div class="card wide">
               <h2>Приклади / скріни</h2>
               <div class="entry-list">
-                ${examples.length ? examples.map(item => 
+                ${examples.length ? examples.map(item => `
                   <div class="entry">
                     <div class="entry-top">
                       <div class="entry-title">${escapeHtml(item.title)}</div>
                       <div class="entry-meta">${escapeHtml(item.date)}</div>
                     </div>
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.url ? <img class="image-preview" src="${escapeHtml(item.url)}" alt="example"> : ""}
+                    ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
                     <div class="actions">
                       <button class="btn small" onclick="editExample('${item.id}')">Редагувати</button>
                       <button class="btn red small" onclick="removeExample('${item.id}')">Видалити</button>
@@ -4441,15 +1379,15 @@ window.login = login;
                       </div>
                     </div>
                   </div>
-                ).join("") : <div class="empty">Поки прикладів немає.</div>}
+                `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
               </div>
             </div>
           </div>
-        ;
+        `;
       }
 
       if (adminTab === "rating") {
-        content = 
+        content = `
           <div class="dashboard-grid">
             <div class="card full">
               <h2>Рейтинг операторів</h2>
@@ -4471,7 +1409,7 @@ window.login = login;
                     </tr>
                   </thead>
                   <tbody>
-                    ${ranked.map((op, idx) => 
+                    ${ranked.map((op, idx) => `
                       <tr>
                         <td class="rank-num">#${idx + 1}</td>
                         <td>${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</td>
@@ -4485,20 +1423,20 @@ window.login = login;
                         <td>${money(op.fineDollars)}</td>
                         <td>${op.score}</td>
                       </tr>
-                    ).join("")}
+                    `).join("")}
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-        ;
+        `;
       }
 
-      return renderShell(
+      return renderShell(`
         <div class="bonus-banner">
           🏆 ЛІДЕР ДНЯ
           <br><br>
-          ${leader.best ? 🔥 ${escapeHtml(leader.best.name)}<br>Score: ${leader.score} : "Поки немає даних"}
+          ${leader.best ? `🔥 ${escapeHtml(leader.best.name)}<br>Score: ${leader.score}` : "Поки немає даних"}
         </div>
 
         <div class="tabs">
@@ -4512,297 +1450,317 @@ window.login = login;
         </div>
 
         ${content}
-      );
+      `);
     }
 
     async function renderOperator(operatorId) {
-  const op = await getOperatorStats(operatorId);
-  const reports = await getReports(operatorId);
-  const ryutu = await getRyuTu(operatorId);
-  const examples = await getExamples();
-  const balances = await getBalances(operatorId);
-  const tasks = await getTasks(operatorId);
-  const allOperators = await getAllOperatorStats();
+      const op = await getOperatorStats(operatorId);
+      const reports = await getReports(operatorId);
+      const ryutu = await getRyuTu(operatorId);
+      const examples = await getExamples();
+      const balances = await getBalances(operatorId);
+      const tasks = await getTasks(operatorId);
+      const allOperators = await getAllOperatorStats();
 
-  const ranked = [];
-  for (const item of allOperators) {
-    const itemReports = await getReports(item.id);
-    const itemRyuTu = await getRyuTu(item.id);
-    const itemBalances = await getBalances(item.id);
+      const ranked = [];
+      for (const item of allOperators) {
+        const itemReports = await getReports(item.id);
+        const itemRyuTu = await getRyuTu(item.id);
+        ranked.push({
+          ...item,
+          score: calcOperatorScore(item, itemReports, itemRyuTu)
+        });
+      }
+      ranked.sort((a,b)=>b.score-a.score);
 
-    ranked.push({
-      ...item,
-      score: calcOperatorScore(item, itemReports, itemRyuTu, itemBalances)
-    });
-  }
-  ranked.sort((a, b) => b.score - a.score);
+      const rt = getRyuTuStats(ryutu);
+      const reportAvg = reviewedAvg(reports);
+      const normPercent = op.norm ? Math.round((Number(op.revenue || 0) / Number(op.norm || 1)) * 100) : 0;
 
-  const rt = getRyuTuStats(ryutu);
-  const reportAvg = reviewedAvg(reports);
-  const avgBalance = getAverageBalance(balances);
-  const normPercent = op.norm
-    ? Math.round((Number(avgBalance || 0) / Number(op.norm || 1)) * 100)
-    : 0;
+      let content = "";
 
-  let content = "";
+      if (operatorTab === "overview") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-main">
+              <div class="profile-hero">
+                <div>
+                  <div class="profile-name">Привіт, ${escapeHtml(op.name)}</div>
+                  <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
+                </div>
+                <div class="status ${calcOperatorScore(op, reports, ryutu) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu)} ${calcOperatorScore(op, reports, ryutu) > 200 ? "🔥" : ""}</div>
+              </div>
 
-  if (operatorTab === "overview") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card operator-main">
-          <div class="profile-hero">
-            <div>
-              <div class="profile-name">Привіт, ${escapeHtml(op.name)} ${calcOperatorScore(op, reports, ryutu, balances) > 200 ? "🔥" : ""}</div>
-              <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
+              <div class="mini-stats">
+                <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
+                <div class="mini"><div class="label">Зроблено</div><div class="value">${money(op.revenue)}</div></div>
+                <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
+                <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
+                <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
+                <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
+                <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
+                <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
+              </div>
             </div>
-            <div class="status ${calcOperatorScore(op, reports, ryutu, balances) < 50 ? 'red' : ''}">Score ${calcOperatorScore(op, reports, ryutu, balances)}</div>
+
+            <div class="card operator-side">
+              <h3>Моя оцінка тижня</h3>
+              <div class="score-big">${Number(op.weekScore || 0)}/10</div>
+            </div>
           </div>
+        `;
+      }
 
-          <div class="mini-stats">
-            <div class="mini"><div class="label">Норма</div><div class="value">${money(op.norm)}</div></div>
-            <div class="mini"><div class="label">СЕРЕДНІЙ</div><div class="value">${money(avgBalance.toFixed(0))}</div></div>
-            <div class="mini"><div class="label">Закриття норми</div><div class="value">${normPercent}%</div></div>
-            <div class="mini red"><div class="label">Штраф</div><div class="value">${money(op.fineDollars)}</div></div>
-            <div class="mini"><div class="label">РЮ</div><div class="value">${rt.totalRyu}</div></div>
-            <div class="mini"><div class="label">ТЮ</div><div class="value">${rt.totalTu}</div></div>
-            <div class="mini"><div class="label">Оцінка звітів</div><div class="value">${reportAvg.toFixed(1)}</div></div>
-            <div class="mini"><div class="label">Оцінка РЮ / ТЮ</div><div class="value">${rt.avgScore.toFixed(1)}</div></div>
-          </div>
-        </div>
+      if (operatorTab === "balances") {
+        const avgBalance = getAverageBalance(balances);
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Мій баланс</h3>
+              <div class="score-big">${money(balances.length ? balances[0].balance : 0)}</div>
+              <div class="help" style="margin-top:14px;">Останній внесений баланс</div>
+            </div>
 
-        <div class="card operator-side">
-          <h3>Моя оцінка тижня</h3>
-          <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-        </div>
-      </div>
-    ;
-  }
+            <div class="card operator-side">
+              <h3>Середній баланс</h3>
+              <div class="score-big">${money(avgBalance.toFixed(0))}</div>
+              <div class="help" style="margin-top:14px;">Середнє по всіх записах</div>
+            </div>
 
-  if (operatorTab === "ryutu") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card operator-side">
-          <h3>Подати РЮ / ТЮ</h3>
-          <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
-          <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
-          <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
-          <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
-        </div>
-
-        <div class="card operator-main">
-          <h3>Мої записи РЮ / ТЮ</h3>
-          <div class="entry-list">
-            ${ryutu.length ? ryutu.map(item => 
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
-                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""} : 'Очікує перевірки'}</span>
-                    <div class="entry-meta">${escapeHtml(item.date)}</div>
+            <div class="card operator-main">
+              <h3>Історія балансів</h3>
+              <div class="entry-list">
+                ${balances.length ? balances.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">Баланс ${money(item.balance)}</div>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
                   </div>
-                </div>
-                <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-
-                <div class="actions">
-                  <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
-                  <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
-                </div>
-
-                <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
-                  <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
-                  <input id="ownTu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
-                  <input id="ownBalance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
-                  <div class="actions">
-                    <button class="btn small" onclick="saveOwnRyuTuEdit('${item.id}')">Зберегти</button>
-                    <button class="btn secondary small" onclick="closeOwnRyuTuEdit('${item.id}')">Закрити</button>
-                  </div>
-                </div>
-
-                ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
+                `).join("") : `<div class="empty">Поки балансів немає.</div>`}
               </div>
-            ).join("") : <div class="empty">Поки записів немає.</div>}
+            </div>
           </div>
-        </div>
-      </div>
-    ;
-  }
+        `;
+      }
 
-  if (operatorTab === "reports") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card operator-side">
-          <h3>Подати звіт</h3>
-          <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
-          <textarea id="operatorReportText" class="textarea" placeholder="Напиши свій звіт"></textarea>
-          <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
-        </div>
-
-        <div class="card operator-main">
-          <h3>Мої звіти</h3>
-          <div class="entry-list">
-            ${reports.length ? reports.map(item => 
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
-                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? Оцінка: ${Number(item.score||0)}/10 ${Number(item.score||0) >= 8 ? "🔥" : ""} : 'Очікує перевірки'}</span>
-                    <div class="entry-meta">${escapeHtml(item.date)}</div>
+      if (operatorTab === "tasks") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card full">
+              <h3>Мої завдання</h3>
+              <div class="entry-list">
+                ${tasks.length ? tasks.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.title)}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        ${taskDeadlineTag(item)}
+                      </div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    <div class="actions">
+                      ${item.done ? `<button class="btn secondary small" disabled>🎉 Виконано</button>` : `<button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>`}
+                    </div>
                   </div>
-                </div>
-                <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                `).join("") : `<div class="empty">Поки завдань немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
 
-                <div class="actions">
-                  <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
-                  <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                </div>
+      if (operatorTab === "ryutu") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Подати РЮ / ТЮ</h3>
+              <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
+              <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
+              <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
+              <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
+            </div>
 
-                <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
-                  <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
-                  <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
-                  <div class="actions">
-                    <button class="btn small" onclick="saveOwnReportEdit('${item.id}')">Зберегти</button>
-                    <button class="btn secondary small" onclick="closeOwnReportEdit('${item.id}')">Закрити</button>
+            <div class="card operator-main">
+              <h3>Мої записи РЮ / ТЮ</h3>
+              <div class="entry-list">
+                ${ryutu.length ? ryutu.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
+                    </div>
+                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
+
+                    <div class="actions">
+                      <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
+                      <button class="btn red small" onclick="removeRyuTu('${item.id}')">Видалити</button>
+                    </div>
+
+                    <div id="editOwnRyuTuBox_${item.id}" class="hidden" style="margin-top:12px;">
+                      <input id="ownRyu_${item.id}" class="input" type="number" value="${Number(item.ryu || 0)}" placeholder="РЮ">
+                      <input id="ownTu_${item.id}" class="input" type="number" value="${Number(item.tu || 0)}" placeholder="ТЮ">
+                      <input id="ownBalance_${item.id}" class="input" type="number" value="${Number(item.balance || 0)}" placeholder="Середній баланс">
+                      <div class="actions">
+                        <button class="btn small" onclick="saveOwnRyuTuEdit('${item.id}')">Зберегти</button>
+                        <button class="btn secondary small" onclick="closeOwnRyuTuEdit('${item.id}')">Закрити</button>
+                      </div>
+                    </div>
+
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
                   </div>
-                </div>
-
-                ${item.reviewed ? <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div> : ""}
+                `).join("") : `<div class="empty">Поки записів немає.</div>`}
               </div>
-            ).join("") : <div class="empty">Поки звітів немає.</div>}
+            </div>
           </div>
-        </div>
-      </div>
-    ;
-  }
+        `;
+      }
 
-  if (operatorTab === "balances") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Баланси</h3>
-          <div class="empty">Тимчасово блок балансів вимкнений для перевірки синтаксису.</div>
-        </div>
-      </div>
-    ;
-  }
+      if (operatorTab === "reports") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Подати звіт</h3>
+              <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
+              <textarea id="operatorReportText" class="textarea" placeholder="Напиши свій звіт"></textarea>
+              <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
+            </div>
 
-  if (operatorTab === "tasks") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Мої завдання</h3>
-          <div class="entry-list">
-            ${tasks.length ? tasks.map(item => 
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title">${escapeHtml(item.title)} ${item.done ? "🎉" : ""}</div>
-                  <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                    <span class="tag ${item.done ? 'green' : 'red'}">${item.done ? '🎉 Виконано' : 'Не виконано'}</span>
-                    <span class="tag blue deadline-badge ${isLate(item.deadline) && !item.done ? 'late' : ''} ${isToday(item.deadline) && !item.done ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
+            <div class="card operator-main">
+              <h3>Мої звіти</h3>
+              <div class="entry-list">
+                ${reports.length ? reports.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}</span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+
+                    <div class="actions">
+                      <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
+                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
+                    </div>
+
+                    <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
+                      <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
+                      <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
+                      <div class="actions">
+                        <button class="btn small" onclick="saveOwnReportEdit('${item.id}')">Зберегти</button>
+                        <button class="btn secondary small" onclick="closeOwnReportEdit('${item.id}')">Закрити</button>
+                      </div>
+                    </div>
+
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
                   </div>
-                </div>
-                <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                <div class="actions">
-                  ${item.done ? <button class="btn secondary small" disabled>✅ Виконано</button> : <button class="btn small" onclick="completeTask('${item.id}')">✅ Виконано</button>}
-                </div>
+                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
               </div>
-            ).join("") : <div class="empty">Поки завдань немає.</div>}
+            </div>
           </div>
-        </div>
-      </div>
-    ;
-  }
+        `;
+      }
 
-  if (operatorTab === "rating") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Рейтинг 3 операторів</h3>
-          <table>
-            <thead>
-              <tr><th>#</th><th>Оператор</th><th>Зміна</th><th>Score</th></tr>
-            </thead>
-            <tbody>
-              ${ranked.map((item, idx) => 
-                <tr>
-                  <td class="rank-num">#${idx + 1}</td>
-                  <td>${escapeHtml(item.name)} ${idx === 0 ? "🏆" : idx === 1 ? "🥈" : idx === 2 ? "🥉" : ""} ${item.score > 200 ? "🔥" : ""}</td>
-                  <td>${escapeHtml(item.shift)}</td>
-                  <td>${item.score}</td>
-                </tr>
-              ).join("")}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    ;
-  }
-
-  if (operatorTab === "feedback") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card operator-main">
-          <h3>Що покращити</h3>
-          <div class="list-simple">
-            ${(op.improvements || []).length ? op.improvements.map(item => <div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>).join("") : <div class="empty">Поки пусто</div>}
+      if (operatorTab === "rating") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card full">
+              <h3>Рейтинг 3 операторів</h3>
+              <table>
+                <thead>
+                  <tr><th>#</th><th>Оператор</th><th>Зміна</th><th>Score</th></tr>
+                </thead>
+                <tbody>
+                  ${ranked.map((item, idx) => `
+                    <tr>
+                      <td class="rank-num">#${idx+1}</td>
+                      <td>${escapeHtml(item.name)} ${item.score > 200 ? "🔥" : ""}</td>
+                      <td>${escapeHtml(item.shift)}</td>
+                      <td>${item.score}</td>
+                    </tr>
+                  `).join("")}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        `;
+      }
 
-        <div class="card operator-side">
-          <h3>Позитивні якості</h3>
-          <div class="list-simple">
-            ${(op.strengths || []).length ? op.strengths.map(item => <div class="list-item">${escapeHtml(item)}</div>).join("") : <div class="empty">Поки пусто</div>}
-          </div>
-        </div>
-
-        <div class="card operator-side">
-          <h3>План на тиждень</h3>
-          <div class="list-simple">
-            ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => <div class="list-item">${escapeHtml(item)}</div>).join("") : <div class="empty">План ще не доданий</div>}
-          </div>
-        </div>
-      </div>
-    ;
-  }
-
-  if (operatorTab === "examples") {
-    content = 
-      <div class="operator-dashboard">
-        <div class="card full">
-          <h3>Приклади / як добре заведений РЮ</h3>
-          <div class="entry-list">
-            ${examples.length ? examples.map(item => 
-              <div class="entry">
-                <div class="entry-top">
-                  <div class="entry-title">${escapeHtml(item.title)}</div>
-                  <div class="entry-meta">${escapeHtml(item.date)}</div>
-                </div>
-                <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                ${item.url ? <img class="image-preview" src="${escapeHtml(item.url)}" alt="example"> : ""}
+      if (operatorTab === "feedback") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-main">
+              <h3>Що покращити</h3>
+              <div class="list-simple">
+                ${(op.improvements || []).length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title || "")}</strong><br>${escapeHtml(item.text || item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
               </div>
-            ).join("") : <div class="empty">Поки прикладів немає.</div>}
+            </div>
+
+            <div class="card operator-side">
+              <h3>Позитивні якості</h3>
+              <div class="list-simple">
+                ${(op.strengths || []).length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+              </div>
+            </div>
+
+            <div class="card operator-side">
+              <h3>План на тиждень</h3>
+              <div class="list-simple">
+                ${(op.weeklyPlan || []).length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
+              </div>
+            </div>
           </div>
+        `;
+      }
+
+      if (operatorTab === "examples") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card full">
+              <h3>Приклади / як добре заведений РЮ</h3>
+              <div class="entry-list">
+                ${examples.length ? examples.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.title)}</div>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+                  </div>
+                `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      return renderShell(`
+        <div class="bonus-banner">
+          🏆 ЛІДЕР ДНЯ
+          <br><br>
+          ${ranked.length ? `🔥 ${escapeHtml(ranked[0].name)}<br>Score: ${ranked[0].score}` : "Поки немає даних"}
         </div>
-      </div>
-    ;
-  }
 
-  return renderShell(
-    <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
+        <div class="tabs">
+          <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
+          <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
+          <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
+          <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
+          <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
+          <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
+          <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
+          <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
+        </div>
 
-    <div class="tabs">
-      <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
-      <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
-      <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
-      <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
-      <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
-      <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
-      <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
-      <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
-    </div>
-
-    ${content}
-  );
-}
+        ${content}
+      `);
+    }
 
     window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
     window.setOperatorTab = (tab) => { operatorTab = tab; renderApp(); };
@@ -4921,20 +1879,20 @@ window.login = login;
     };
 
     window.editReport = (id) => {
-      const box = document.getElementById(editReportBox_${id});
+      const box = document.getElementById(`editReportBox_${id}`);
       if (box) box.classList.remove("hidden");
       bindDynamicActions();
     };
     window.closeReportEdit = (id) => {
-      const box = document.getElementById(editReportBox_${id});
+      const box = document.getElementById(`editReportBox_${id}`);
       if (box) box.classList.add("hidden");
     };
 
     window.saveReportEdit = async (id) => {
-      const title = document.getElementById(reportTitle_${id}).value.trim();
-      const text = document.getElementById(reportText_${id}).value.trim();
-      const score = Number(document.getElementById(reportScore_${id}).value || 0);
-      const feedback = document.getElementById(reportFeedback_${id}).value.trim();
+      const title = document.getElementById(`reportTitle_${id}`).value.trim();
+      const text = document.getElementById(`reportText_${id}`).value.trim();
+      const score = Number(document.getElementById(`reportScore_${id}`).value || 0);
+      const feedback = document.getElementById(`reportFeedback_${id}`).value.trim();
 
       await updateDoc(doc(db, "reports", id), {
         title, text, score, feedback, reviewed:true
@@ -4950,21 +1908,21 @@ window.login = login;
     };
 
     window.editRyuTu = (id) => {
-      const box = document.getElementById(editRyuTuBox_${id});
+      const box = document.getElementById(`editRyuTuBox_${id}`);
       if (box) box.classList.remove("hidden");
       bindDynamicActions();
     };
     window.closeRyuTuEdit = (id) => {
-      const box = document.getElementById(editRyuTuBox_${id});
+      const box = document.getElementById(`editRyuTuBox_${id}`);
       if (box) box.classList.add("hidden");
     };
 
     window.saveRyuTuEdit = async (id) => {
-      const ryu = Number(document.getElementById(ryu_${id}).value || 0);
-      const tu = Number(document.getElementById(tu_${id}).value || 0);
-      const balance = Number(document.getElementById(balance_${id}).value || 0);
-      const score = Number(document.getElementById(rtScore_${id}).value || 0);
-      const feedback = document.getElementById(rtFeedback_${id}).value.trim();
+      const ryu = Number(document.getElementById(`ryu_${id}`).value || 0);
+      const tu = Number(document.getElementById(`tu_${id}`).value || 0);
+      const balance = Number(document.getElementById(`balance_${id}`).value || 0);
+      const score = Number(document.getElementById(`rtScore_${id}`).value || 0);
+      const feedback = document.getElementById(`rtFeedback_${id}`).value.trim();
 
       await updateDoc(doc(db, "ryutu", id), {
         ryu, tu, balance, score, feedback, reviewed:true
@@ -4980,17 +1938,17 @@ window.login = login;
     };
 
     window.editExample = (id) => {
-      const box = document.getElementById(editExampleBox_${id});
+      const box = document.getElementById(`editExampleBox_${id}`);
       if (box) box.classList.remove("hidden");
     };
     window.closeExampleEdit = (id) => {
-      const box = document.getElementById(editExampleBox_${id});
+      const box = document.getElementById(`editExampleBox_${id}`);
       if (box) box.classList.add("hidden");
     };
     window.saveExampleEdit = async (id) => {
-      const title = document.getElementById(exampleTitle_${id}).value.trim();
-      const url = document.getElementById(exampleUrl_${id}).value.trim();
-      const text = document.getElementById(exampleText_${id}).value.trim();
+      const title = document.getElementById(`exampleTitle_${id}`).value.trim();
+      const url = document.getElementById(`exampleUrl_${id}`).value.trim();
+      const text = document.getElementById(`exampleText_${id}`).value.trim();
 
       await updateDoc(doc(db, "examples", id), { title, url, text });
       renderApp();
@@ -5002,32 +1960,32 @@ window.login = login;
     };
 
     window.editOwnReport = (id) => {
-      const box = document.getElementById(editOwnReportBox_${id});
+      const box = document.getElementById(`editOwnReportBox_${id}`);
       if (box) box.classList.remove("hidden");
     };
     window.closeOwnReportEdit = (id) => {
-      const box = document.getElementById(editOwnReportBox_${id});
+      const box = document.getElementById(`editOwnReportBox_${id}`);
       if (box) box.classList.add("hidden");
     };
     window.saveOwnReportEdit = async (id) => {
-      const title = document.getElementById(ownReportTitle_${id}).value.trim();
-      const text = document.getElementById(ownReportText_${id}).value.trim();
+      const title = document.getElementById(`ownReportTitle_${id}`).value.trim();
+      const text = document.getElementById(`ownReportText_${id}`).value.trim();
       await updateDoc(doc(db, "reports", id), { title, text });
       renderApp();
     };
 
     window.editOwnRyuTu = (id) => {
-      const box = document.getElementById(editOwnRyuTuBox_${id});
+      const box = document.getElementById(`editOwnRyuTuBox_${id}`);
       if (box) box.classList.remove("hidden");
     };
     window.closeOwnRyuTuEdit = (id) => {
-      const box = document.getElementById(editOwnRyuTuBox_${id});
+      const box = document.getElementById(`editOwnRyuTuBox_${id}`);
       if (box) box.classList.add("hidden");
     };
     window.saveOwnRyuTuEdit = async (id) => {
-      const ryu = Number(document.getElementById(ownRyu_${id}).value || 0);
-      const tu = Number(document.getElementById(ownTu_${id}).value || 0);
-      const balance = Number(document.getElementById(ownBalance_${id}).value || 0);
+      const ryu = Number(document.getElementById(`ownRyu_${id}`).value || 0);
+      const tu = Number(document.getElementById(`ownTu_${id}`).value || 0);
+      const balance = Number(document.getElementById(`ownBalance_${id}`).value || 0);
       await updateDoc(doc(db, "ryutu", id), { ryu, tu, balance });
       renderApp();
     };
@@ -5056,219 +2014,9 @@ window.login = login;
 
       document.getElementById("loginScreen").classList.add("hidden");
       document.getElementById("appScreen").classList.remove("hidden");
-      document.title = TLOD 32 | ${currentProfile.name};
+      document.title = `TLOD 32 | ${currentProfile.name}`;
       await renderApp();
     });
   </script>
 </body>
 </html>
-
-
-
-
-Обробка тривала 20s
-У цьому коді синтаксичної помилки вже не бачу. Зараз тобі треба замінити 2 шматки, бо далі вилізуть помилки в tasks і в score.
-
-1. Замiни calcOperatorScore повністю на це:
-function calcOperatorScore(op, reports, ryutu, balances = []){
-  const rt = getRyuTuStats(ryutu);
-  const reportAvg = reviewedAvg(reports);
-  const weekScore = Number(op.weekScore || 0);
-  const avgBalance = getAverageBalance(balances);
-  const normPercent = op.norm ? (Number(avgBalance || 0) / Number(op.norm || 1)) * 100 : 0;
-  const finePenalty = Number(op.fineDollars || 0) * 1.5;
-  const improvePenalty = (op.improvements || []).length * 6;
-
-  return Math.round(
-    Number(avgBalance || 0) * 0.7 +
-    normPercent * 2 +
-    reportAvg * 10 +
-    rt.avgScore * 10 +
-    weekScore * 10 -
-    finePenalty -
-    improvePenalty
-  );
-}
-2. Додай ось ці 2 функції після getLeaderOfDay(...):
-function isToday(dateStr){
-  if (!dateStr) return false;
-  const now = new Date().toISOString().slice(0,10);
-  return dateStr === now;
-}
-
-function isLate(dateStr){
-  if (!dateStr) return false;
-  const now = new Date().toISOString().slice(0,10);
-  return dateStr < now;
-}
-3. Ще один рядок заміни в balances
-Знайди:
-
-<td>${money(0)}</td>
-Замiни на:
-
-<td>${money(avgBalance.toFixed(0))}</td>
-Після цих трьох змін цей файл уже має нормально стартувати. Якщо після цього буде нова помилка — кидай тільки текст помилки, без усього HTML.
-
-
-Uncaught (in promise) ReferenceError: isLate is not defined
-    at TLOD08/:1638:77
-    at Array.map (<anonymous>)
-    at renderOperator (TLOD08/:1633:36)
-    at async renderApp (TLOD08/:1061:27)
-
-Додай ці 2 функції в <script> після getLeaderOfDay(...):
-
-function isToday(dateStr){
-  if (!dateStr) return false;
-  const now = new Date().toISOString().slice(0,10);
-  return dateStr === now;
-}
-
-function isLate(dateStr){
-  if (!dateStr) return false;
-  const now = new Date().toISOString().slice(0,10);
-  return dateStr < now;
-}
-Або, якщо хочеш швидко прибрати помилку, знайди isLate( і isToday( у renderOperator та тимчасово заміни:
-
-isLate(item.deadline)
-на
-
-false
-і
-
-isToday(item.deadline)
-на
-
-false
-
-TLOD08/:1638 Uncaught (in promise) ReferenceError: isLate is not defined
-    at TLOD08/:1638:77
-    at Array.map (<anonymous>)
-    at renderOperator (TLOD08/:1633:36)
-    at async renderApp (TLOD08/:1061:27)
-
-Помилка проста: у коді викликається isLate(), але такої функції немає.
-
-Зроби одне:
-Знайди у <script> місце після функції getLeaderOfDay(...) і встав ось це:
-
-function isToday(dateStr){
-  if (!dateStr) return false;
-  const today = new Date().toISOString().slice(0,10);
-  return dateStr === today;
-}
-
-function isLate(dateStr){
-  if (!dateStr) return false;
-  const today = new Date().toISOString().slice(0,10);
-  return dateStr < today;
-}
-Де саме вставити
-Знайди цей код:
-
-function getLeaderOfDay(operators, reportsAll, ryutuAll){
-і відразу ПІСЛЯ нього встав функції вище.
-
-Після цього помилка isLate is not defined зникне.
-
-
-я це зробив не працює
-
-Тоді встав не “десь після”, а точно ось сюди: знайди рядок
-
-async function login() {
-і ПЕРЕД ним встав це:
-
-function isToday(dateStr){
-  if (!dateStr) return false;
-  const today = new Date().toISOString().slice(0,10);
-  return dateStr === today;
-}
-
-function isLate(dateStr){
-  if (!dateStr) return false;
-  const today = new Date().toISOString().slice(0,10);
-  return dateStr < today;
-}
-Якщо все одно та сама помилка, значить ти вставив їх всередину іншої функції — тоді виріж і постав окремо на рівні function login(), function money(), function getLeaderOfDay(), а потім зроби Ctrl+F5 і онови сторінку.
-
-
-Uncaught (in promise) ReferenceError: isLate is not defined
-    at TLOD08/:1648:77
-    at Array.map (<anonymous>)
-    at renderOperator (TLOD08/:1643:36)
-    at async renderApp (TLOD08/:1071:27)
-
-Тоді зроби найпростіше — без нових функцій.
-
-1️⃣ Знайди (CTRL+F):
-isLate(
-2️⃣ Замiни цей шматок:
-isLate(item.deadline)
-на
-
-false
-3️⃣ Далі знайди:
-isToday(
-4️⃣ Замiни
-isToday(item.deadline)
-на
-
-false
-Після цього код стане приблизно таким:
-
-<span class="tag blue deadline-badge ${false && !item.done ? 'late' : ''} ${false && !item.done ? 'today' : ''}">
-і помилка зникне одразу.
-
-
-TLOD08/:1659 Uncaught (in promise) ReferenceError: isToday is not defined
-    at TLOD08/:1659:77
-    at Array.map (<anonymous>)
-    at renderOperator (TLOD08/:1654:36)
-    at async renderApp (TLOD08/:1082:27)
-
-Знайди точно цей шматок у renderOperator:
-
-${isToday(item.deadline) && !item.done ? 'today' : ''}
-і заміни на:
-
-${false ? 'today' : ''}
-А якщо хочеш добити одразу обидві помилки, то весь рядок зроби таким:
-
-<span class="tag blue deadline-badge ${false ? 'late' : ''} ${false ? 'today' : ''}">До: ${escapeHtml(item.deadline || "—")}</span>
-
-Uncaught TypeError: window.login is not a function
-    at HTMLButtonElement.onclick (TLOD08/:785:59) дякую тепер ще ось ця помилка появилась
-
-Це сталося тому, що login() не прив’язаний до window.
-
-Зроби одну заміну.
-Знайди функцію:
-
-async function login() {
-і замiни її на:
-
-window.login = async function () {
-Тобто має бути так:
-
-window.login = async function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const message = document.getElementById("loginMessage");
-
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    message.textContent = "";
-  } catch (e) {
-    message.textContent = "Невірний email або пароль";
-  }
-};
-Після цього window.login is not a function зникне і кнопка входу почне працювати.
-
-
-
-
-
-
