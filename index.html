@@ -1767,27 +1767,7 @@
         `;
       }
 
-      if (operatorTab === "examples") {
-        content = `
-          <div class="operator-dashboard">
-            <div class="card full">
-              <h3>Приклади / як добре заведений РЮ</h3>
-              <div class="entry-list">
-                ${examples.length ? examples.map(item => `
-                  <div class="entry">
-                    <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(item.title)}</div>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                    ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
-                  </div>
-                `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
-              </div>
-            </div>
-          </div>
-        `;
-      }
+     
 
       return renderShell(`
         <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
@@ -2080,6 +2060,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
