@@ -15,7 +15,7 @@
       </linearGradient>
     </defs>
     <rect width="64" height="64" rx="14" fill="%23070707"/>
-    <text x="32" y="42" text-anchor="middle" font-size="20" font-family="Arial" font-weight="700" fill="url(%23g)">32</text>
+    <text x="32" y="43" text-anchor="middle" font-size="20" font-family="Arial" font-weight="700" fill="url(%23g)">32</text>
   </svg>'>
 
   <style>
@@ -31,7 +31,6 @@
       --gold-soft:#d4af37;
       --bg:#050505;
       --card:#111111;
-      --card2:#171717;
       --text:#ffffff;
       --muted:#cbbd88;
       --danger:#ff7b7b;
@@ -99,12 +98,6 @@
         radial-gradient(circle at 85% 70%, rgba(255,215,0,.09) 0 2px, transparent 3px);
       opacity:.7;
       animation:particlesMove 12s ease-in-out infinite alternate;
-      z-index:0;
-    }
-
-    @keyframes particlesMove{
-      from{transform:translateY(0);}
-      to{transform:translateY(-16px);}
     }
 
     .trophies{
@@ -117,27 +110,29 @@
 
     .trophy{
       position:absolute;
-      color:rgba(255,215,0,.08);
-      text-shadow:0 0 22px rgba(255,215,0,.08);
+      color:rgba(255,215,0,.07);
+      text-shadow:0 0 18px rgba(255,215,0,.08);
       user-select:none;
       animation:floatCup 8s ease-in-out infinite alternate;
-      transform-origin:center;
     }
 
-    .trophy.t1{top:7%; left:5%; font-size:76px; animation-duration:9s;}
-    .trophy.t2{top:15%; right:8%; font-size:58px; animation-duration:11s;}
-    .trophy.t3{bottom:10%; left:9%; font-size:68px; animation-duration:10s;}
-    .trophy.t4{bottom:14%; right:11%; font-size:62px; animation-duration:12s;}
-    .trophy.t5{top:42%; left:2%; font-size:44px; animation-duration:13s;}
-    .trophy.t6{top:54%; right:3%; font-size:48px; animation-duration:14s;}
-    .trophy.t7{top:69%; left:28%; font-size:36px; animation-duration:10s;}
-    .trophy.t8{top:27%; right:30%; font-size:42px; animation-duration:12s;}
-    .trophy.t9{top:33%; left:45%; font-size:34px; animation-duration:8s;}
-    .trophy.t10{bottom:32%; right:43%; font-size:30px; animation-duration:9.5s;}
+    .trophy.t1{top:8%; left:6%; font-size:72px;}
+    .trophy.t2{top:18%; right:8%; font-size:52px; animation-duration:10s;}
+    .trophy.t3{bottom:12%; left:10%; font-size:64px; animation-duration:11s;}
+    .trophy.t4{bottom:18%; right:12%; font-size:58px; animation-duration:9s;}
+    .trophy.t5{top:44%; left:2%; font-size:40px; animation-duration:12s;}
+    .trophy.t6{top:55%; right:3%; font-size:44px; animation-duration:13s;}
+    .trophy.t7{top:68%; left:28%; font-size:34px; animation-duration:10s;}
+    .trophy.t8{top:28%; right:32%; font-size:38px; animation-duration:12s;}
 
     @keyframes floatCup{
-      0%{transform:translateY(0px) rotate(-2deg);}
-      100%{transform:translateY(-16px) rotate(2deg);}
+      from{transform:translateY(0px);}
+      to{transform:translateY(-12px);}
+    }
+
+    @keyframes particlesMove{
+      from{transform:translateY(0);}
+      to{transform:translateY(-16px);}
     }
 
     .corner{
@@ -167,12 +162,12 @@
     }
 
     .login-box{
-      width:440px;
+      width:430px;
       max-width:100%;
-      background:linear-gradient(180deg, rgba(18,18,18,.96), rgba(6,6,6,.97));
+      background:linear-gradient(180deg, rgba(18,18,18,.95), rgba(6,6,6,.96));
       border:1px solid rgba(255,215,0,.28);
-      border-radius:30px;
-      padding:40px 30px;
+      border-radius:28px;
+      padding:38px 28px;
       box-shadow:
         0 0 40px rgba(255,215,0,.10),
         inset 0 0 24px rgba(255,215,0,.04);
@@ -180,7 +175,6 @@
       animation:showUp .9s ease;
       position:relative;
       z-index:2;
-      backdrop-filter:blur(10px);
     }
 
     @keyframes showUp{
@@ -389,7 +383,6 @@
       border-radius:24px;
       padding:20px;
       box-shadow:var(--shadow);
-      backdrop-filter:blur(10px);
     }
 
     .card h2, .card h3{
@@ -462,12 +455,6 @@
       border:1px solid rgba(255,215,0,.14);
       border-radius:20px;
       padding:18px;
-      transition:.2s;
-    }
-
-    .operator-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 12px 32px rgba(255,215,0,.08);
     }
 
     .operator-head{
@@ -730,19 +717,6 @@
       color:#fff3bf;
     }
 
-    .image-preview{
-      width:100%;
-      max-height:260px;
-      object-fit:cover;
-      border-radius:16px;
-      border:1px solid rgba(255,215,0,.10);
-      margin-top:10px;
-    }
-
-    .rating-table-wrap{
-      overflow:auto;
-    }
-
     @media (max-width: 1100px){
       .stat-card{grid-column:span 6;}
       .wide, .side, .operator-main, .operator-side{grid-column:span 12;}
@@ -772,8 +746,6 @@
     <div class="trophy t6">🏆</div>
     <div class="trophy t7">🏆</div>
     <div class="trophy t8">🏆</div>
-    <div class="trophy t9">🏆</div>
-    <div class="trophy t10">🏆</div>
   </div>
 
   <div class="corner top-left"></div>
@@ -795,8 +767,7 @@
 
       <div class="help">
         Приватна система кабінету 32.
-        <br>Оператори подають звіти і РЮ / ТЮ самі.
-        <br>Team Lead оцінює, дає фідбек і веде рейтинг.
+        <br>Доступ тільки для Team Lead і операторів.
       </div>
     </div>
   </div>
@@ -804,13 +775,19 @@
   <div id="appScreen" class="app hidden"></div>
 
   <script>
-    const STORAGE_KEY = "cabinet32_luxury_data_v3";
+    const STORAGE_KEY = "cabinet32_luxury_data_v2";
 
     const users = {
       admin: { password: "admin123", role: "admin", displayName: "Team Lead" },
       den_day: { password: "1111", role: "operator", displayName: "Денчик" },
       erik_evening: { password: "1111", role: "operator", displayName: "Ерік" },
       den_night: { password: "1111", role: "operator", displayName: "Денчік" }
+    };
+
+    const SHIFT_NORMS = {
+      day: 110,
+      evening: 170,
+      night: 170
     };
 
     let adminTab = "dashboard";
@@ -826,42 +803,50 @@
           shift: "Дневнік",
           norm: 110,
           status: "Online",
-          stats: { requests: 0, revenue: 0, fineDollars: 0, shifts: 0 },
+          stats: { requests: 0, conversion: 0, revenue: 0, shifts: 0, fineDollars: 0 },
           strengths: [],
           improvements: [],
+          goals: [],
           weeklyPlan: [],
           weekScore: 0,
           reports: [],
-          ryuTu: []
+          ryuTu: [],
+          errors: [],
+          notes: []
         },
         erik_evening: {
           name: "Ерік",
           shift: "Вечірнік",
           norm: 170,
           status: "Online",
-          stats: { requests: 0, revenue: 0, fineDollars: 0, shifts: 0 },
+          stats: { requests: 0, conversion: 0, revenue: 0, shifts: 0, fineDollars: 0 },
           strengths: [],
           improvements: [],
+          goals: [],
           weeklyPlan: [],
           weekScore: 0,
           reports: [],
-          ryuTu: []
+          ryuTu: [],
+          errors: [],
+          notes: []
         },
         den_night: {
           name: "Денчік",
           shift: "Ночнік",
           norm: 170,
           status: "Online",
-          stats: { requests: 0, revenue: 0, fineDollars: 0, shifts: 0 },
+          stats: { requests: 0, conversion: 0, revenue: 0, shifts: 0, fineDollars: 0 },
           strengths: [],
           improvements: [],
+          goals: [],
           weeklyPlan: [],
           weekScore: 0,
           reports: [],
-          ryuTu: []
+          ryuTu: [],
+          errors: [],
+          notes: []
         }
-      },
-      examples: []
+      }
     };
 
     let state = loadData();
@@ -899,51 +884,6 @@
     function avg(arr){
       if (!arr.length) return 0;
       return arr.reduce((a,b)=>a+b,0) / arr.length;
-    }
-
-    function getRyuTuStats(op){
-      const items = op.ryuTu || [];
-      const totalRyu = items.reduce((s, i) => s + Number(i.ryu || 0), 0);
-      const totalTu = items.reduce((s, i) => s + Number(i.tu || 0), 0);
-      const avgBalance = items.length ? items.reduce((s, i) => s + Number(i.balance || 0), 0) / items.length : 0;
-      const avgScore = items.filter(i => i.reviewed).length
-        ? avg(items.filter(i => i.reviewed).map(i => Number(i.score || 0)))
-        : 0;
-      return { totalRyu, totalTu, avgBalance, avgScore };
-    }
-
-    function getReportAvg(op){
-      const reviewed = op.reports.filter(r => r.reviewed);
-      return reviewed.length ? avg(reviewed.map(r => Number(r.score || 0))) : 0;
-    }
-
-    function getOperatorScore(op){
-      const rt = getRyuTuStats(op);
-      const reportAvg = getReportAvg(op);
-      const normPercent = op.norm ? (Number(op.stats.revenue || 0) / Number(op.norm || 1)) * 100 : 0;
-      const weekScore = Number(op.weekScore || 0);
-      const finePenalty = Number(op.stats.fineDollars || 0) * 1.5;
-      const improvePenalty = (op.improvements || []).length * 8;
-
-      return Math.round(
-        Number(op.stats.revenue || 0) * 0.7 +
-        normPercent * 2 +
-        reportAvg * 10 +
-        rt.avgScore * 10 +
-        weekScore * 10 -
-        finePenalty -
-        improvePenalty
-      );
-    }
-
-    function getRankedOperators() {
-      const list = Object.entries(state.operators).map(([key, op]) => ({
-        key,
-        ...op,
-        score: getOperatorScore(op)
-      }));
-      list.sort((a,b)=>b.score-a.score);
-      return list;
     }
 
     function login() {
@@ -1013,12 +953,70 @@
       `;
     }
 
+    function getRyuTuStats(op){
+      const items = op.ryuTu || [];
+      const totalRyu = items.reduce((s, i) => s + Number(i.ryu || 0), 0);
+      const totalTu = items.reduce((s, i) => s + Number(i.tu || 0), 0);
+      const avgBalance = items.length ? items.reduce((s, i) => s + Number(i.balance || 0), 0) / items.length : 0;
+      const avgScore = items.length ? items.reduce((s, i) => s + Number(i.score || 0), 0) / items.length : 0;
+      return {
+        totalRyu,
+        totalTu,
+        avgBalance,
+        avgScore
+      };
+    }
+
+    function getOperatorScore(op){
+      const reportAvg = op.reports.length ? avg(op.reports.map(r => Number(r.score || 0))) : 0;
+      const rtuAvg = op.ryuTu.length ? avg(op.ryuTu.map(r => Number(r.score || 0))) : 0;
+      const revenueFactor = Number(op.stats.revenue || 0);
+      const normPercent = op.norm ? (Number(op.stats.revenue || 0) / Number(op.norm)) * 100 : 0;
+      const weekScore = Number(op.weekScore || 0);
+      const finePenalty = Number(op.stats.fineDollars || 0) * 1.5;
+      const errorsPenalty = (op.errors.length + op.improvements.length) * 8;
+
+      return Math.round(
+        revenueFactor * 0.7 +
+        normPercent * 2 +
+        reportAvg * 8 +
+        rtuAvg * 8 +
+        weekScore * 8 -
+        finePenalty -
+        errorsPenalty
+      );
+    }
+
+    function getGlobalStats() {
+      const ops = Object.values(state.operators);
+      const totalRequests = ops.reduce((sum, op) => sum + Number(op.stats.requests || 0), 0);
+      const totalRevenue = ops.reduce((sum, op) => sum + Number(op.stats.revenue || 0), 0);
+      const totalFines = ops.reduce((sum, op) => sum + Number(op.stats.fineDollars || 0), 0);
+      const totalReports = ops.reduce((sum, op) => sum + op.reports.length, 0);
+
+      return {
+        totalRequests,
+        totalRevenue: money(totalRevenue),
+        totalFines: money(totalFines),
+        totalReports
+      };
+    }
+
+    function getRankedOperators() {
+      const list = Object.entries(state.operators).map(([key, op]) => {
+        return {
+          key,
+          ...op,
+          score: getOperatorScore(op)
+        };
+      });
+
+      list.sort((a,b) => b.score - a.score);
+      return list;
+    }
+
     function renderAdminDashboard() {
-      const ranked = getRankedOperators();
-      const totalRevenue = Object.values(state.operators).reduce((s,o)=>s+Number(o.stats.revenue||0),0);
-      const totalFines = Object.values(state.operators).reduce((s,o)=>s+Number(o.stats.fineDollars||0),0);
-      const totalReports = Object.values(state.operators).reduce((s,o)=>s+o.reports.length,0);
-      const totalRT = Object.values(state.operators).reduce((s,o)=>s+o.ryuTu.length,0);
+      const stats = getGlobalStats();
 
       return renderShell(`
         <div class="bonus-banner">
@@ -1027,14 +1025,683 @@
 
         <div class="tabs">
           <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
+          <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
           <button class="tab-btn ${adminTab==="reports" ? "active" : ""}" onclick="setAdminTab('reports')">Звіти</button>
           <button class="tab-btn ${adminTab==="ryutu" ? "active" : ""}" onclick="setAdminTab('ryutu')">РЮ / ТЮ</button>
-          <button class="tab-btn ${adminTab==="improve" ? "active" : ""}" onclick="setAdminTab('improve')">Покращити</button>
-          <button class="tab-btn ${adminTab==="strengths" ? "active" : ""}" onclick="setAdminTab('strengths')">Позитивні</button>
-          <button class="tab-btn ${adminTab==="week" ? "active" : ""}" onclick="setAdminTab('week')">План тижня</button>
+          <button class="tab-btn ${adminTab==="improve" ? "active" : ""}" onclick="setAdminTab('improve')">Помилки / Покращити</button>
+          <button class="tab-btn ${adminTab==="strengths" ? "active" : ""}" onclick="setAdminTab('strengths')">Позитивні якості</button>
+          <button class="tab-btn ${adminTab==="week" ? "active" : ""}" onclick="setAdminTab('week')">План на тиждень</button>
           <button class="tab-btn ${adminTab==="weekscore" ? "active" : ""}" onclick="setAdminTab('weekscore')">Оцінка тижня</button>
-          <button class="tab-btn ${adminTab==="examples" ? "active" : ""}" onclick="setAdminTab('examples')">Приклади / скріни</button>
-          <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
         </div>
 
-        ${
+        ${adminTab === "dashboard" ? renderAdminMain(stats) : ""}
+        ${adminTab === "rating" ? renderRatingTab() : ""}
+        ${adminTab === "reports" ? renderReportsTab() : ""}
+        ${adminTab === "ryutu" ? renderRyuTuTab() : ""}
+        ${adminTab === "improve" ? renderImproveTab() : ""}
+        ${adminTab === "strengths" ? renderStrengthsTab() : ""}
+        ${adminTab === "week" ? renderWeekTab() : ""}
+        ${adminTab === "weekscore" ? renderWeekScoreTab() : ""}
+      `);
+    }
+
+    function renderAdminMain(stats){
+      return `
+        <div class="dashboard-grid">
+          <div class="card stat-card">
+            <div class="stat-label">Заявки</div>
+            <div class="stat-value">${stats.totalRequests}</div>
+            <div class="stat-sub">Сумарно по кабінету</div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Зроблено</div>
+            <div class="stat-value">${stats.totalRevenue}</div>
+            <div class="stat-sub">Сумарний результат</div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Штрафи</div>
+            <div class="stat-value">${stats.totalFines}</div>
+            <div class="stat-sub">У доларах</div>
+          </div>
+
+          <div class="card stat-card">
+            <div class="stat-label">Звіти</div>
+            <div class="stat-value">${stats.totalReports}</div>
+            <div class="stat-sub">Всього подано</div>
+          </div>
+
+          <div class="card full">
+            <h2>Оператори кабінету 32</h2>
+            <div class="operators-grid">
+              ${Object.entries(state.operators).map(([key, op]) => {
+                const r = getRyuTuStats(op);
+                const percent = op.norm ? Math.round((Number(op.stats.revenue || 0) / Number(op.norm || 1)) * 100) : 0;
+                return `
+                  <div class="operator-card">
+                    <div class="operator-head">
+                      <div>
+                        <div class="operator-name">${escapeHtml(op.name)}</div>
+                        <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
+                      </div>
+                      <div class="status">${escapeHtml(op.status)}</div>
+                    </div>
+
+                    <div class="mini-stats">
+                      <div class="mini">
+                        <div class="label">Норма</div>
+                        <div class="value">${money(op.norm)}</div>
+                      </div>
+                      <div class="mini">
+                        <div class="label">Зроблено</div>
+                        <div class="value">${money(op.stats.revenue)}</div>
+                      </div>
+                      <div class="mini">
+                        <div class="label">Закриття норми</div>
+                        <div class="value">${percent}%</div>
+                      </div>
+                      <div class="mini">
+                        <div class="label">Штраф</div>
+                        <div class="value">${money(op.stats.fineDollars)}</div>
+                      </div>
+                      <div class="mini">
+                        <div class="label">РЮ</div>
+                        <div class="value">${r.totalRyu}</div>
+                      </div>
+                      <div class="mini">
+                        <div class="label">ТЮ</div>
+                        <div class="value">${r.totalTu}</div>
+                      </div>
+                    </div>
+
+                    <div class="actions">
+                      <button class="btn small" onclick="openOperatorPreview('${key}')">Перегляд</button>
+                    </div>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderRatingTab(){
+      const ranked = getRankedOperators();
+
+      return `
+        <div class="dashboard-grid">
+          <div class="card full">
+            <h2>Рейтинг операторів</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Місце</th>
+                  <th>Оператор</th>
+                  <th>Зміна</th>
+                  <th>Норма</th>
+                  <th>Зроблено</th>
+                  <th>РЮ</th>
+                  <th>ТЮ</th>
+                  <th>Штраф</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${ranked.map((op, idx) => {
+                  const rt = getRyuTuStats(op);
+                  return `
+                    <tr>
+                      <td class="rank-num">#${idx + 1}</td>
+                      <td>${escapeHtml(op.name)}</td>
+                      <td>${escapeHtml(op.shift)}</td>
+                      <td>${money(op.norm)}</td>
+                      <td>${money(op.stats.revenue)}</td>
+                      <td>${rt.totalRyu}</td>
+                      <td>${rt.totalTu}</td>
+                      <td>${money(op.stats.fineDollars)}</td>
+                      <td>${op.score}</td>
+                    </tr>
+                  `;
+                }).join("")}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderReportsTab(){
+      return `
+        <div class="dashboard-grid">
+          <div class="card side">
+            <h2>Оцінити звіт</h2>
+            <select id="reportOperator" class="select">
+              <option value="den_day">Денчик — дневнік</option>
+              <option value="erik_evening">Ерік — вечірнік</option>
+              <option value="den_night">Денчік — ночнік</option>
+            </select>
+            <input id="reportTitle" class="input" placeholder="Назва звіту">
+            <textarea id="reportText" class="input" placeholder="Текст звіту або короткий опис"></textarea>
+            <input id="reportScore" class="input" type="number" min="0" max="10" placeholder="Оцінка звіту 0-10">
+            <textarea id="reportProblem" class="input" placeholder="Проблема / що не так"></textarea>
+            <button class="btn" onclick="addReport()">Зберегти звіт</button>
+          </div>
+
+          <div class="card wide">
+            <h2>Усі звіти</h2>
+            <div class="entry-list">
+              ${renderAllReports()}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAllReports(){
+      let all = [];
+      Object.entries(state.operators).forEach(([key, op]) => {
+        op.reports.forEach(item => all.push({...item, operatorKey:key, operatorName:op.name}));
+      });
+      all.sort((a,b) => String(b.date).localeCompare(String(a.date)));
+
+      if (!all.length) return `<div class="empty">Поки звітів немає.</div>`;
+
+      return all.map(item => `
+        <div class="entry">
+          <div class="entry-top">
+            <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="tag blue">Оцінка: ${Number(item.score || 0)}/10</span>
+              <div class="entry-meta">${escapeHtml(item.date)}</div>
+            </div>
+          </div>
+          <div class="entry-text">${escapeHtml(item.text || "")}</div>
+          ${item.problem ? `<div class="entry-meta" style="margin-top:10px;">Проблема: ${escapeHtml(item.problem)}</div>` : ""}
+        </div>
+      `).join("");
+    }
+
+    function renderRyuTuTab(){
+      return `
+        <div class="dashboard-grid">
+          <div class="card side">
+            <h2>Додати РЮ / ТЮ</h2>
+            <select id="rtOperator" class="select">
+              <option value="den_day">Денчик — дневнік</option>
+              <option value="erik_evening">Ерік — вечірнік</option>
+              <option value="den_night">Денчік — ночнік</option>
+            </select>
+            <input id="rtRyu" class="input" type="number" min="0" placeholder="РЮ">
+            <input id="rtTu" class="input" type="number" min="0" placeholder="ТЮ">
+            <input id="rtBalance" class="input" type="number" min="0" placeholder="Середній баланс">
+            <input id="rtScore" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10">
+            <textarea id="rtProblem" class="input" placeholder="Проблема / коментар"></textarea>
+            <button class="btn" onclick="addRyuTu()">Зберегти РЮ / ТЮ</button>
+          </div>
+
+          <div class="card wide">
+            <h2>РЮ / ТЮ скоринг</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Оператор</th>
+                  <th>РЮ</th>
+                  <th>ТЮ</th>
+                  <th>Середній баланс</th>
+                  <th>Середня оцінка</th>
+                  <th>Коментарі</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${Object.entries(state.operators).map(([key, op]) => {
+                  const rt = getRyuTuStats(op);
+                  return `
+                    <tr>
+                      <td>${escapeHtml(op.name)}</td>
+                      <td>${rt.totalRyu}</td>
+                      <td>${rt.totalTu}</td>
+                      <td>${money(rt.avgBalance.toFixed(0))}</td>
+                      <td>${rt.avgScore.toFixed(1)}</td>
+                      <td>${op.ryuTu.length}</td>
+                    </tr>
+                  `;
+                }).join("")}
+              </tbody>
+            </table>
+
+            <div class="entry-list">
+              ${renderAllRyuTu()}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderAllRyuTu(){
+      let all = [];
+      Object.entries(state.operators).forEach(([key, op]) => {
+        op.ryuTu.forEach(item => all.push({...item, operatorKey:key, operatorName:op.name}));
+      });
+      all.sort((a,b) => String(b.date).localeCompare(String(a.date)));
+
+      if (!all.length) return `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`;
+
+      return all.map(item => `
+        <div class="entry">
+          <div class="entry-top">
+            <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="tag green">Оцінка: ${Number(item.score || 0)}/10</span>
+              <div class="entry-meta">${escapeHtml(item.date)}</div>
+            </div>
+          </div>
+          <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
+          ${item.problem ? `<div class="entry-meta" style="margin-top:10px;">Проблема: ${escapeHtml(item.problem)}</div>` : ""}
+        </div>
+      `).join("");
+    }
+
+    function renderImproveTab(){
+      return `
+        <div class="dashboard-grid">
+          <div class="card side">
+            <h2>Додати помилку / покращення</h2>
+            <select id="improveOperator" class="select">
+              <option value="den_day">Денчик — дневнік</option>
+              <option value="erik_evening">Ерік — вечірнік</option>
+              <option value="den_night">Денчік — ночнік</option>
+            </select>
+            <input id="improveTitle" class="input" placeholder="Короткий заголовок">
+            <textarea id="improveText" class="input" placeholder="Що покращити"></textarea>
+            <button class="btn red" onclick="addImprove()">Зберегти</button>
+          </div>
+
+          <div class="card wide">
+            <h2>Помилки / що покращити</h2>
+            <div class="entry-list">
+              ${renderImprovements()}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderImprovements(){
+      let all = [];
+      Object.entries(state.operators).forEach(([key, op]) => {
+        op.improvements.forEach(item => all.push({...item, operatorKey:key, operatorName:op.name}));
+      });
+      all.sort((a,b) => String(b.date).localeCompare(String(a.date)));
+      if (!all.length) return `<div class="empty">Поки записів немає.</div>`;
+
+      return all.map(item => `
+        <div class="entry">
+          <div class="entry-top">
+            <div class="entry-title">${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span class="tag red">Покращити</span>
+              <div class="entry-meta">${escapeHtml(item.date)}</div>
+            </div>
+          </div>
+          <div class="entry-text">${escapeHtml(item.text)}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderStrengthsTab(){
+      return `
+        <div class="dashboard-grid">
+          <div class="card side">
+            <h2>Додати позитивну якість</h2>
+            <select id="strengthOperator" class="select">
+              <option value="den_day">Денчик — дневнік</option>
+              <option value="erik_evening">Ерік — вечірнік</option>
+              <option value="den_night">Денчік — ночнік</option>
+            </select>
+            <input id="strengthText" class="input" placeholder="Напиши сильну сторону">
+            <button class="btn" onclick="addStrength()">Зберегти</button>
+          </div>
+
+          <div class="card wide">
+            <h2>Позитивні якості</h2>
+            <div class="operators-grid">
+              ${Object.entries(state.operators).map(([key, op]) => `
+                <div class="operator-card">
+                  <div class="operator-name" style="margin-bottom:12px;">${escapeHtml(op.name)}</div>
+                  <div class="list-simple">
+                    ${op.strengths.length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderWeekTab(){
+      return `
+        <div class="dashboard-grid">
+          <div class="card side">
+            <h2>Додати план на тиждень</h2>
+            <select id="weekOperator" class="select">
+              <option value="den_day">Денчик — дневнік</option>
+              <option value="erik_evening">Ерік — вечірнік</option>
+              <option value="den_night">Денчік — ночнік</option>
+            </select>
+            <input id="weekText" class="input" placeholder="Пункт плану">
+            <button class="btn" onclick="addWeekPlan()">Зберегти</button>
+          </div>
+
+          <div class="card wide">
+            <h2>План на тиждень</h2>
+            <div class="operators-grid">
+              ${Object.entries(state.operators).map(([key, op]) => `
+                <div class="operator-card">
+                  <div class="operator-name" style="margin-bottom:12px;">${escapeHtml(op.name)}</div>
+                  <div class="list-simple">
+                    ${op.weeklyPlan.length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderWeekScoreTab(){
+      return `
+        <div class="dashboard-grid">
+          <div class="card side">
+            <h2>Поставити оцінку тижня</h2>
+            <select id="weekScoreOperator" class="select">
+              <option value="den_day">Денчик — дневнік</option>
+              <option value="erik_evening">Ерік — вечірнік</option>
+              <option value="den_night">Денчік — ночнік</option>
+            </select>
+            <input id="weekScoreValue" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10">
+            <button class="btn" onclick="setWeekScore()">Зберегти</button>
+          </div>
+
+          <div class="card wide">
+            <h2>Оцінка тижня</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Оператор</th>
+                  <th>Зміна</th>
+                  <th>Оцінка тижня</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${Object.entries(state.operators).map(([key, op]) => `
+                  <tr>
+                    <td>${escapeHtml(op.name)}</td>
+                    <td>${escapeHtml(op.shift)}</td>
+                    <td class="score-big">${Number(op.weekScore || 0)}/10</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderOperatorDashboard(username) {
+      const op = state.operators[username];
+      const r = getRyuTuStats(op);
+      const normPercent = op.norm ? Math.round((Number(op.stats.revenue || 0) / Number(op.norm || 1)) * 100) : 0;
+      const reportAvg = op.reports.length ? avg(op.reports.map(i=>Number(i.score||0))).toFixed(1) : "0.0";
+      const rtuAvg = op.ryuTu.length ? avg(op.ryuTu.map(i=>Number(i.score||0))).toFixed(1) : "0.0";
+
+      return renderShell(`
+        <div class="bonus-banner">
+          <strong>Бонус за 1 місце:</strong> поки в тесті
+        </div>
+
+        <div class="operator-dashboard">
+          <div class="card operator-main">
+            <div class="profile-hero">
+              <div>
+                <div class="profile-name">${escapeHtml(op.name)}</div>
+                <div class="profile-role">${escapeHtml(op.shift)} • Cabinet 32</div>
+              </div>
+              <div class="status">${escapeHtml(op.status)}</div>
+            </div>
+
+            <div class="mini-stats">
+              <div class="mini">
+                <div class="label">Норма</div>
+                <div class="value">${money(op.norm)}</div>
+              </div>
+              <div class="mini">
+                <div class="label">Зроблено</div>
+                <div class="value">${money(op.stats.revenue)}</div>
+              </div>
+              <div class="mini">
+                <div class="label">Закриття норми</div>
+                <div class="value">${normPercent}%</div>
+              </div>
+              <div class="mini">
+                <div class="label">Штраф</div>
+                <div class="value">${money(op.stats.fineDollars)}</div>
+              </div>
+              <div class="mini">
+                <div class="label">РЮ</div>
+                <div class="value">${r.totalRyu}</div>
+              </div>
+              <div class="mini">
+                <div class="label">ТЮ</div>
+                <div class="value">${r.totalTu}</div>
+              </div>
+              <div class="mini">
+                <div class="label">Оцінка звітів</div>
+                <div class="value">${reportAvg}</div>
+              </div>
+              <div class="mini">
+                <div class="label">Оцінка РЮ/ТЮ</div>
+                <div class="value">${rtuAvg}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card operator-side">
+            <h3>Оцінка тижня</h3>
+            <div class="score-big">${Number(op.weekScore || 0)}/10</div>
+            <div class="help" style="margin-top:14px;">Оцінку виставляє Team Lead.</div>
+          </div>
+
+          <div class="card operator-main">
+            <h3>Мої звіти</h3>
+            <div class="entry-list">
+              ${op.reports.length ? op.reports.map(item => `
+                <div class="entry">
+                  <div class="entry-top">
+                    <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                      <span class="tag blue">Оцінка: ${Number(item.score || 0)}/10</span>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                  </div>
+                  <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                  ${item.problem ? `<div class="entry-meta" style="margin-top:10px;">Проблема: ${escapeHtml(item.problem)}</div>` : ""}
+                </div>
+              `).join("") : `<div class="empty">Поки звітів немає.</div>`}
+            </div>
+          </div>
+
+          <div class="card operator-side">
+            <h3>Позитивні якості</h3>
+            <div class="list-simple">
+              ${op.strengths.length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+            </div>
+          </div>
+
+          <div class="card operator-main">
+            <h3>РЮ / ТЮ</h3>
+            <div class="entry-list">
+              ${op.ryuTu.length ? op.ryuTu.map(item => `
+                <div class="entry">
+                  <div class="entry-top">
+                    <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                      <span class="tag green">Оцінка: ${Number(item.score || 0)}/10</span>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                  </div>
+                  <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
+                  ${item.problem ? `<div class="entry-meta" style="margin-top:10px;">Проблема: ${escapeHtml(item.problem)}</div>` : ""}
+                </div>
+              `).join("") : `<div class="empty">Поки записів немає.</div>`}
+            </div>
+          </div>
+
+          <div class="card operator-side">
+            <h3>Що покращити</h3>
+            <div class="list-simple">
+              ${op.improvements.length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.text)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+            </div>
+          </div>
+
+          <div class="card operator-main">
+            <h3>План на тиждень</h3>
+            <div class="list-simple">
+              ${op.weeklyPlan.length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
+            </div>
+          </div>
+        </div>
+      `);
+    }
+
+    function addReport(){
+      const operator = document.getElementById("reportOperator").value;
+      const title = document.getElementById("reportTitle").value.trim();
+      const text = document.getElementById("reportText").value.trim();
+      const score = Number(document.getElementById("reportScore").value || 0);
+      const problem = document.getElementById("reportProblem").value.trim();
+
+      if (!title) {
+        alert("Введи назву звіту");
+        return;
+      }
+
+      state.operators[operator].reports.unshift({
+        id:createId(),
+        date:new Date().toISOString().slice(0,10),
+        title,
+        text,
+        score,
+        problem
+      });
+
+      saveData();
+      renderApp();
+    }
+
+    function addRyuTu(){
+      const operator = document.getElementById("rtOperator").value;
+      const ryu = Number(document.getElementById("rtRyu").value || 0);
+      const tu = Number(document.getElementById("rtTu").value || 0);
+      const balance = Number(document.getElementById("rtBalance").value || 0);
+      const score = Number(document.getElementById("rtScore").value || 0);
+      const problem = document.getElementById("rtProblem").value.trim();
+
+      state.operators[operator].ryuTu.unshift({
+        id:createId(),
+        date:new Date().toISOString().slice(0,10),
+        ryu,
+        tu,
+        balance,
+        score,
+        problem
+      });
+
+      saveData();
+      renderApp();
+    }
+
+    function addImprove(){
+      const operator = document.getElementById("improveOperator").value;
+      const title = document.getElementById("improveTitle").value.trim();
+      const text = document.getElementById("improveText").value.trim();
+
+      if (!title || !text) {
+        alert("Заповни заголовок і текст");
+        return;
+      }
+
+      state.operators[operator].improvements.unshift({
+        id:createId(),
+        date:new Date().toISOString().slice(0,10),
+        title,
+        text
+      });
+
+      saveData();
+      renderApp();
+    }
+
+    function addStrength(){
+      const operator = document.getElementById("strengthOperator").value;
+      const text = document.getElementById("strengthText").value.trim();
+
+      if (!text) {
+        alert("Напиши сильну сторону");
+        return;
+      }
+
+      state.operators[operator].strengths.unshift(text);
+      saveData();
+      renderApp();
+    }
+
+    function addWeekPlan(){
+      const operator = document.getElementById("weekOperator").value;
+      const text = document.getElementById("weekText").value.trim();
+
+      if (!text) {
+        alert("Напиши пункт плану");
+        return;
+      }
+
+      state.operators[operator].weeklyPlan.unshift(text);
+      saveData();
+      renderApp();
+    }
+
+    function setWeekScore(){
+      const operator = document.getElementById("weekScoreOperator").value;
+      const value = Number(document.getElementById("weekScoreValue").value || 0);
+
+      state.operators[operator].weekScore = value;
+      saveData();
+      renderApp();
+    }
+
+    function openOperatorPreview(operatorKey) {
+      const savedUser = currentUser;
+      currentUser = {
+        username: operatorKey,
+        role: "operator",
+        displayName: state.operators[operatorKey].name
+      };
+      renderApp();
+
+      const app = document.getElementById("appScreen");
+      const backBar = document.createElement("div");
+      backBar.style.marginBottom = "16px";
+      backBar.innerHTML = `<button class="btn secondary small" onclick="backToAdmin()">← Назад до Team Lead</button>`;
+      app.prepend(backBar);
+
+      window.backToAdmin = function() {
+        currentUser = savedUser;
+        renderApp();
+      };
+    }
+  </script>
+</body>
+</html>
