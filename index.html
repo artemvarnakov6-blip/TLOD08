@@ -1175,7 +1175,7 @@
                         <tr>
                           <td>${escapeHtml(op.name)}</td>
                           <td>${money(lastBalance)}</td>
-                          <td>${money(0)}</td>
+                          <td>${money(avgBalance.toFixed(0))}</td>
                           <td>${opBalances.length}</td>
                         </tr>
                       `;
@@ -2001,6 +2001,7 @@
   </script>
 </body>
 </html>
+
 
 
 
