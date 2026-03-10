@@ -2032,13 +2032,23 @@ window.saveOwnReportEdit = async (id) => {
       const box = document.getElementById(`editOwnRyuTuBox_${id}`);
       if (box) box.classList.add("hidden");
     };
-    window.saveOwnRyuTuEdit = async (id) => {
-      const ryu = Number(document.getElementById(`ownRyu_${id}`).value || 0);
-      const tu = Number(document.getElementById(`ownTu_${id}`).value || 0);
-      const balance = Number(document.getElementById(`ownBalance_${id}`).value || 0);
-      await updateDoc(doc(db, "ryutu", id), { ryu, tu, balance });
-      renderApp();
-    };
+  window.saveOwnRyuTuEdit = async (id) => {
+  const ref = doc(db, "ryutu", id);
+  const snap = await getDoc(ref);
+  if (!snap.exists()) return;
+
+  const data = snap.data();
+
+  if (data.operatorId !== currentProfile.id) return alert("Це не твій запис");
+  if (data.reviewed) return alert("Перевірений запис уже не можна редагувати");
+
+  const ryu = Number(document.getElementById(`ownRyu_${id}`).value || 0);
+  const tu = Number(document.getElementById(`ownTu_${id}`).value || 0);
+  const balance = Number(document.getElementById(`ownBalance_${id}`).value || 0);
+
+  await updateDoc(ref, { ryu, tu, balance });
+  renderApp();
+};;
 
     onAuthStateChanged(auth, async (user) => {
       if (!user) {
@@ -2070,6 +2080,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
