@@ -950,7 +950,7 @@ function calcOperatorScore(op, reports, ryutu, balances = []){
       return dateStr < now;
     }
 
-    async function login() {
+    window.login = async function () {
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
       const message = document.getElementById("loginMessage");
@@ -2054,6 +2054,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
   </script>
 </body>
 </html>
+
 
 
 
