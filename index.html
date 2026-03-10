@@ -1891,8 +1891,7 @@ if (operatorTab === "overview") {
   `;
 }
 
-  return renderShell(`
-    <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
+  return renderShell(<div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
 
     <div class="tabs">
       <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
@@ -1906,8 +1905,7 @@ if (operatorTab === "overview") {
     </div>
 
     ${content}
-  `);
-}
+  `);}
 
     window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
     window.setOperatorTab = (tab) => { operatorTab = tab; renderApp(); };
@@ -2166,6 +2164,7 @@ if (operatorTab === "overview") {
   </script>
 </body>
 </html>
+
 
 
 
