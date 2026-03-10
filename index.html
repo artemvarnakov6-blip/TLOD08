@@ -1683,11 +1683,10 @@ function isLate(dateStr){
       ${Number(op.weekScore || 0)}/10
     </div>
 
-    <div class="week-score-track">
-      <div class="week-score-fill"
-        style="width:${Math.min(Number(op.weekScore || 0) * 10,100)}%">
-      </div>
-    </div>
+   <div class="card operator-side">
+  <h3>Моя оцінка тижня</h3>
+  <div class="score-big">${Number(op.weekScore || 0)}/10</div>
+</div>
 
   </div>
 </div>
@@ -2191,6 +2190,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
