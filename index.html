@@ -1823,8 +1823,10 @@ const totalBalance = getMonthTotalBalance(monthBalances);
       `);
     }
 
-    window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
-    window.setOperatorTab = (tab) => { operatorTab = tab; renderApp(); };
+   window.changeSelectedMonth = (month) => {
+  selectedMonth = month;
+  renderApp();
+};
 
     window.operatorSubmitRyuTu = async () => {
       const ryu = Number(document.getElementById("operatorRyu").value || 0);
@@ -2096,6 +2098,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
