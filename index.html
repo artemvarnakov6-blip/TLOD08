@@ -1643,11 +1643,19 @@
                     </div>
                     <div class="entry-text">${escapeHtml(item.text || "")}</div>
 
-                    <div class="actions">
-                      <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                    </div>
-
+<div class="actions">
+  ${
+    item.reviewed
+      ? `
+        <button class="btn secondary small" disabled>🔒 Перевірено</button>
+        <button class="btn secondary small" disabled>Редагування закрите</button>
+      `
+      : `
+        <button class="btn small" onclick="editOwnReport('${item.id}')">Редагувати</button>
+        <button class="btn red small" onclick="removeOwnReport('${item.id}')">Видалити</button>
+      `
+  }
+</div>
                     <div id="editOwnReportBox_${item.id}" class="hidden" style="margin-top:12px;">
                       <input id="ownReportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва">
                       <textarea id="ownReportText_${item.id}" class="textarea" placeholder="Текст">${escapeHtml(item.text || "")}</textarea>
@@ -1995,5 +2003,6 @@
   </script>
 </body>
 </html>
+
 
 
