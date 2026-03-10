@@ -777,8 +777,41 @@
     }
 
     .rating-table-wrap{overflow:auto}
+    .progress-wrap{
+  margin-top:18px;
+}
+
+.progress-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+  font-size:13px;
+  color:#d7c27a;
+}
+
+.progress-bar{
+  width:100%;
+  height:12px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,215,0,.08);
+  border-radius:999px;
+  overflow:hidden;
+  box-shadow:inset 0 0 12px rgba(0,0,0,.25);
+}
+
+.progress-fill{
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#8b1d1d,#ff4d4d,#ffd700);
+  box-shadow:
+    0 0 10px rgba(255,215,0,.25),
+    0 0 16px rgba(255,255,255,.08);
+  transition:width .35s ease;
+}
 
     @media (max-width:1100px){
+      
       .stat-card{grid-column:span 6}
       .wide,.side,.operator-main,.operator-side{grid-column:span 12}
       .operators-grid{grid-template-columns:1fr}
@@ -2070,6 +2103,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
