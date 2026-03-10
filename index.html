@@ -1157,10 +1157,10 @@ function calcOperatorScore(op, reports, ryutu, balances = []){
               <h2>Оператори</h2>
               <div class="operators-grid">
                 ${ranked.map(op => `
-                  <div class="operator-card">
-                    <div class="operator-head">
-                      <div>
-                        <div class="operator-name">${escapeHtml(op.name)} ${op.score > 200 ? "🔥" : ""}</div>
+  <div class="operator-card">
+    <div class="operator-head">
+      <div>
+        <div class="operator-name">${escapeHtml(op.name)} ${op
                         <div class="entry-meta" style="margin-top:4px;">${escapeHtml(op.shift)}</div>
                       </div>
                       <div class="status ${op.score < 50 ? 'red' : ''}">Score ${op.score}</div>
@@ -2031,6 +2031,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance || 0) / Number(op.no
   </script>
 </body>
 </html>
+
 
 
 
