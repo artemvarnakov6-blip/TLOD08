@@ -816,7 +816,15 @@
 
       <input id="email" class="input" type="email" placeholder="Email">
       <input id="password" class="input" type="password" placeholder="Пароль">
-      <button class="btn" onclick="login()">ENTER THE CABINET</button>
+      function login() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const message = document.getElementById("loginMessage");
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => message.textContent = "")
+    .catch(() => message.textContent = "Невірний email або пароль");
+}
       <div id="loginMessage" style="min-height:22px;color:#ff7b7b;margin-top:12px;"></div>
 
       <div class="help">
@@ -2030,6 +2038,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance || 0) / Number(op.no
   </script>
 </body>
 </html>
+
 
 
 
