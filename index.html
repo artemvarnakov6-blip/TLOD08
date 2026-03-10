@@ -1492,11 +1492,22 @@ function getMonthTotalBalance(items){
       }
 
       return renderShell(`
-        <div class="bonus-banner">
-          <strong>🏆 ЛІДЕР ДНЯ</strong>
-          <br><br>
-          ${leader.best ? `🔥 ${escapeHtml(leader.best.name)}<br>Score: ${leader.score}` : "Поки немає даних"}
-        </div>
+  <div class="bonus-banner">
+    <strong>🏆 ЛІДЕР ДНЯ</strong><br><br>
+    Слідкуй за своїм score і будь топ-1 🔥
+
+    <div style="margin-top:16px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <span style="color:#f3db86; font-size:13px;">Місяць статистики:</span>
+      <input
+        type="month"
+        class="input"
+        id="selectedMonthInput"
+        value="${selectedMonth}"
+        onchange="changeSelectedMonth(this.value)"
+        style="max-width:220px; margin-bottom:0;"
+      >
+    </div>
+  </div>
 
         <div class="tabs">
           <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
@@ -2085,6 +2096,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
