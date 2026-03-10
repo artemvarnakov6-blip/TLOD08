@@ -915,6 +915,17 @@ function isLate(dateStr){
     }
 
     async function login() {
+      function isToday(dateStr){
+  if (!dateStr) return false;
+  const today = new Date().toISOString().slice(0,10);
+  return dateStr === today;
+}
+
+function isLate(dateStr){
+  if (!dateStr) return false;
+  const today = new Date().toISOString().slice(0,10);
+  return dateStr < today;
+}
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
       const message = document.getElementById("loginMessage");
@@ -2011,6 +2022,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
