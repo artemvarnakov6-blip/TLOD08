@@ -37,6 +37,7 @@
       --muted:#cbbd88;
       --danger:#ff7b7b;
       --success:#8ff0a4;
+      --blue:#9dc7ff;
       --border:rgba(255,215,0,.20);
       --shadow:0 0 30px rgba(255,215,0,.08);
     }
@@ -376,16 +377,32 @@
       font-size:13px;
     }
 
-    .wide{
-      grid-column:span 8;
+    .wide{grid-column:span 8;}
+    .side{grid-column:span 4;}
+    .full{grid-column:span 12;}
+
+    .tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
     }
 
-    .side{
-      grid-column:span 4;
+    .tab-btn{
+      border:1px solid rgba(255,215,0,.16);
+      background:rgba(255,215,0,.04);
+      color:#e7d084;
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:13px;
+      transition:.2s;
     }
 
-    .full{
-      grid-column:span 12;
+    .tab-btn.active{
+      background:linear-gradient(90deg,#b8860b,#ffd700,#caa63a);
+      color:#151515;
+      font-weight:700;
     }
 
     .operators-grid{
@@ -449,13 +466,6 @@
       font-size:22px;
       color:#fff2b6;
       font-weight:700;
-    }
-
-    .section-title{
-      font-size:18px;
-      color:#f5d96e;
-      margin-bottom:14px;
-      letter-spacing:1px;
     }
 
     .form-grid{
@@ -559,13 +569,8 @@
       gap:18px;
     }
 
-    .operator-main{
-      grid-column:span 8;
-    }
-
-    .operator-side{
-      grid-column:span 4;
-    }
+    .operator-main{grid-column:span 8;}
+    .operator-side{grid-column:span 4;}
 
     .profile-hero{
       display:flex;
@@ -621,6 +626,33 @@
       font-size:13px;
     }
 
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:8px;
+    }
+
+    th, td{
+      padding:12px 10px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,215,0,.08);
+      font-size:14px;
+    }
+
+    th{
+      color:#f3db86;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:12px;
+    }
+
+    .rank-num{
+      font-size:20px;
+      font-weight:800;
+      color:#fff1a8;
+    }
+
     @media (max-width: 1100px){
       .stat-card{grid-column:span 6;}
       .wide, .side, .operator-main, .operator-side{grid-column:span 12;}
@@ -669,7 +701,7 @@
   <div id="appScreen" class="app hidden"></div>
 
   <script>
-    const STORAGE_KEY = "tlod08_luxury_data_v1";
+    const STORAGE_KEY = "tlod08_luxury_data_v2";
 
     const users = {
       admin: { password: "admin123", role: "admin", displayName: "Team Lead" },
@@ -678,14 +710,25 @@
       senya: { password: "1111", role: "operator", displayName: "Сєня" }
     };
 
+    let adminTab = "dashboard";
+
+    function createId() {
+      return Math.random().toString(36).slice(2, 10);
+    }
+
     const defaultData = {
       operators: {
         oleg: {
           name: "Олег",
           status: "Online",
-          stats: { requests: 32, conversion: "21%", revenue: "$4,200", shifts: 18 },
+          stats: { requests: 32, conversion: 21, revenue: 4200, shifts: 18, fines: 2 },
           strengths: ["Швидко відповідає", "Добре закриває теплих клієнтів", "Стабільний темп роботи"],
           goals: ["Підняти конверсію до 24%", "Менше пропусків по скрипту", "Фокус на апсейл"],
+          weeklyPlan: [
+            "Пропрацювати 3 заперечення по скрипту",
+            "Відповідати в межах 5 хвилин",
+            "Зробити 2 апсейли за тиждень"
+          ],
           errors: [
             {
               id: createId(),
@@ -711,9 +754,14 @@
         artem: {
           name: "Артем",
           status: "Online",
-          stats: { requests: 27, conversion: "18%", revenue: "$3,650", shifts: 16 },
+          stats: { requests: 27, conversion: 18, revenue: 3650, shifts: 16, fines: 4 },
           strengths: ["Акуратний у звітах", "Спокійна комунікація", "Добре веде повторні клієнти"],
           goals: ["Покращити швидкість відповіді", "Більше дотискати лідів", "Менше пауз у дзвінках"],
+          weeklyPlan: [
+            "Скоротити час відповіді до 7 хвилин",
+            "Закрити 2 повторних клієнтів",
+            "Пройти 1 розбір дзвінка"
+          ],
           errors: [
             {
               id: createId(),
@@ -739,9 +787,14 @@
         senya: {
           name: "Сєня",
           status: "Online",
-          stats: { requests: 21, conversion: "16%", revenue: "$2,980", shifts: 14 },
+          stats: { requests: 21, conversion: 16, revenue: 2980, shifts: 14, fines: 3 },
           strengths: ["Легка комунікація", "Непоганий старт розмови", "Добре включається в зміну"],
           goals: ["Стабільність по скрипту", "Менше дрібних помилок", "Краще закривати угоду"],
+          weeklyPlan: [
+            "Не допускати помилок у звітах",
+            "Тримати стабільний скрипт 5 змін поспіль",
+            "Збільшити конверсію до 18%"
+          ],
           errors: [
             {
               id: createId(),
@@ -770,20 +823,16 @@
     let state = loadData();
     let currentUser = null;
 
-    function createId() {
-      return Math.random().toString(36).slice(2, 10);
-    }
-
     function loadData() {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         try {
           return JSON.parse(raw);
         } catch (e) {
-          return structuredClone(defaultData);
+          return JSON.parse(JSON.stringify(defaultData));
         }
       }
-      return structuredClone(defaultData);
+      return JSON.parse(JSON.stringify(defaultData));
     }
 
     function saveData() {
@@ -797,6 +846,10 @@
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
+    }
+
+    function money(n){
+      return "$" + Number(n).toLocaleString("en-US");
     }
 
     function login() {
@@ -828,6 +881,11 @@
       document.getElementById("loginMessage").textContent = "";
       document.getElementById("password").value = "";
       document.title = "TLOD 08 | Team Lead Cabinet";
+    }
+
+    function setAdminTab(tab){
+      adminTab = tab;
+      renderApp();
     }
 
     function renderApp() {
@@ -865,23 +923,58 @@
       const ops = Object.values(state.operators);
       const totalRequests = ops.reduce((sum, op) => sum + Number(op.stats.requests || 0), 0);
       const totalErrors = ops.reduce((sum, op) => sum + op.errors.length, 0);
-      const totalRevenue = ops.reduce((sum, op) => {
-        const n = Number(String(op.stats.revenue).replace(/[^0-9.-]/g, ""));
-        return sum + (isNaN(n) ? 0 : n);
-      }, 0);
+      const totalRevenue = ops.reduce((sum, op) => sum + Number(op.stats.revenue || 0), 0);
+      const totalFines = ops.reduce((sum, op) => sum + Number(op.stats.fines || 0), 0);
 
       return {
         totalRequests,
         totalErrors,
-        totalRevenue: "$" + totalRevenue.toLocaleString("en-US"),
+        totalRevenue: money(totalRevenue),
+        totalFines,
         operators: ops.length
       };
+    }
+
+    function getRankedOperators() {
+      const list = Object.entries(state.operators).map(([key, op]) => {
+        const score =
+          (Number(op.stats.revenue) / 100) +
+          (Number(op.stats.conversion) * 12) +
+          (Number(op.stats.requests) * 2) -
+          (Number(op.stats.fines) * 18) -
+          (op.errors.length * 8);
+
+        return {
+          key,
+          ...op,
+          score: Math.round(score)
+        };
+      });
+
+      list.sort((a,b) => b.score - a.score);
+      return list;
     }
 
     function renderAdminDashboard() {
       const stats = getGlobalStats();
 
       return renderShell(`
+        <div class="tabs">
+          <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
+          <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
+          <button class="tab-btn ${adminTab==="fines" ? "active" : ""}" onclick="setAdminTab('fines')">Штрафні бали</button>
+          <button class="tab-btn ${adminTab==="week" ? "active" : ""}" onclick="setAdminTab('week')">План на тиждень</button>
+        </div>
+
+        ${adminTab === "dashboard" ? renderAdminMain(stats) : ""}
+        ${adminTab === "rating" ? renderRatingTab() : ""}
+        ${adminTab === "fines" ? renderFinesTab() : ""}
+        ${adminTab === "week" ? renderWeekTab() : ""}
+      `);
+    }
+
+    function renderAdminMain(stats){
+      return `
         <div class="dashboard-grid">
           <div class="card stat-card">
             <div class="stat-label">Оператори</div>
@@ -924,15 +1017,15 @@
                     </div>
                     <div class="mini">
                       <div class="label">Конверсія</div>
-                      <div class="value">${escapeHtml(op.stats.conversion)}</div>
+                      <div class="value">${escapeHtml(op.stats.conversion)}%</div>
                     </div>
                     <div class="mini">
                       <div class="label">Прибуток</div>
-                      <div class="value">${escapeHtml(op.stats.revenue)}</div>
+                      <div class="value">${money(op.stats.revenue)}</div>
                     </div>
                     <div class="mini">
-                      <div class="label">Помилки</div>
-                      <div class="value">${op.errors.length}</div>
+                      <div class="label">Штрафні</div>
+                      <div class="value">${op.stats.fines}</div>
                     </div>
                   </div>
 
@@ -990,7 +1083,113 @@
             </div>
           </div>
         </div>
-      `);
+      `;
+    }
+
+    function renderRatingTab(){
+      const ranked = getRankedOperators();
+
+      return `
+        <div class="dashboard-grid">
+          <div class="card full">
+            <h2>Рейтинг операторів</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Місце</th>
+                  <th>Оператор</th>
+                  <th>Заявки</th>
+                  <th>Конверсія</th>
+                  <th>Прибуток</th>
+                  <th>Штрафні</th>
+                  <th>Помилки</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${ranked.map((op, idx) => `
+                  <tr>
+                    <td class="rank-num">#${idx + 1}</td>
+                    <td>${escapeHtml(op.name)}</td>
+                    <td>${op.stats.requests}</td>
+                    <td>${op.stats.conversion}%</td>
+                    <td>${money(op.stats.revenue)}</td>
+                    <td>${op.stats.fines}</td>
+                    <td>${op.errors.length}</td>
+                    <td>${op.score}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFinesTab(){
+      return `
+        <div class="dashboard-grid">
+          <div class="card wide">
+            <h2>Штрафні бали</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Оператор</th>
+                  <th>Поточні бали</th>
+                  <th>Дія</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${Object.entries(state.operators).map(([key, op]) => `
+                  <tr>
+                    <td>${escapeHtml(op.name)}</td>
+                    <td>${op.stats.fines}</td>
+                    <td>
+                      <button class="btn small" onclick="changeFine('${key}', 1)">+1</button>
+                      <button class="btn secondary small" onclick="changeFine('${key}', -1)">-1</button>
+                    </td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card side">
+            <h2>Пояснення</h2>
+            <div class="note-box">
+              Штрафні бали можна використовувати за:
+              <br><br>— запізнення
+              <br>— довгі відповіді
+              <br>— помилки в звітах
+              <br>— пропуски по скрипту
+              <br><br>Менше балів = кращий результат.
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderWeekTab(){
+      return `
+        <div class="dashboard-grid">
+          ${Object.entries(state.operators).map(([key, op]) => `
+            <div class="card" style="grid-column:span 4;">
+              <h2>${escapeHtml(op.name)}</h2>
+              <div class="list-simple">
+                ${op.weeklyPlan.map((item, i) => `
+                  <div class="list-item">
+                    <strong>${i + 1}.</strong> ${escapeHtml(item)}
+                  </div>
+                `).join("")}
+              </div>
+
+              <div class="actions">
+                <button class="btn small" onclick="addWeeklyPlan('${key}')">Додати пункт</button>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
     }
 
     function renderRecentEntries() {
@@ -1053,15 +1252,15 @@
               </div>
               <div class="mini">
                 <div class="label">Конверсія</div>
-                <div class="value">${escapeHtml(op.stats.conversion)}</div>
+                <div class="value">${escapeHtml(op.stats.conversion)}%</div>
               </div>
               <div class="mini">
                 <div class="label">Прибуток</div>
-                <div class="value">${escapeHtml(op.stats.revenue)}</div>
+                <div class="value">${money(op.stats.revenue)}</div>
               </div>
               <div class="mini">
-                <div class="label">Змін</div>
-                <div class="value">${escapeHtml(op.stats.shifts)}</div>
+                <div class="label">Штрафні</div>
+                <div class="value">${escapeHtml(op.stats.fines)}</div>
               </div>
             </div>
           </div>
@@ -1119,9 +1318,9 @@
           </div>
 
           <div class="card operator-side">
-            <h3>Цілі / точки росту</h3>
+            <h3>План на тиждень</h3>
             <div class="list-simple">
-              ${op.goals.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("")}
+              ${op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("")}
             </div>
           </div>
         </div>
@@ -1166,19 +1365,29 @@
     }
 
     function clearAdminForm() {
-      document.getElementById("entryType").value = "";
-      document.getElementById("entryTitle").value = "";
-      document.getElementById("entryText").value = "";
-      document.getElementById("entrySeverity").value = "medium";
-      document.getElementById("entryKind").value = "error";
+      const type = document.getElementById("entryType");
+      const title = document.getElementById("entryTitle");
+      const text = document.getElementById("entryText");
+      const severity = document.getElementById("entrySeverity");
+      const kind = document.getElementById("entryKind");
+
+      if (type) type.value = "";
+      if (title) title.value = "";
+      if (text) text.value = "";
+      if (severity) severity.value = "medium";
+      if (kind) kind.value = "error";
     }
 
     function focusOperatorForm(operatorKey) {
-      const select = document.getElementById("entryOperator");
-      if (select) {
-        select.value = operatorKey;
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-      }
+      adminTab = "dashboard";
+      renderApp();
+      setTimeout(() => {
+        const select = document.getElementById("entryOperator");
+        if (select) {
+          select.value = operatorKey;
+          window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        }
+      }, 50);
     }
 
     function openOperatorPreview(operatorKey) {
@@ -1200,6 +1409,22 @@
         currentUser = savedUser;
         renderApp();
       };
+    }
+
+    function changeFine(operatorKey, delta){
+      const current = Number(state.operators[operatorKey].stats.fines || 0);
+      const next = Math.max(0, current + delta);
+      state.operators[operatorKey].stats.fines = next;
+      saveData();
+      renderApp();
+    }
+
+    function addWeeklyPlan(operatorKey){
+      const text = prompt("Введи новий пункт плану на тиждень:");
+      if (!text || !text.trim()) return;
+      state.operators[operatorKey].weeklyPlan.push(text.trim());
+      saveData();
+      renderApp();
     }
   </script>
 </body>
