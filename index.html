@@ -334,16 +334,27 @@
 
     .brand-wrap{display:flex;align-items:center;gap:14px}
     .brand-badge{
-      width:64px;height:64px;border-radius:18px;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#0d0d0d,#171717);
-      border:1px solid rgba(255,215,0,.18);
-      color:var(--gold);
-      font-weight:800;
-      font-size:20px;
-      box-shadow:inset 0 0 14px rgba(255,215,0,.05),0 0 18px rgba(255,215,0,.05);
-      transition:.25s;
-    }
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#0d0d0d,#171717);
+  border:1px solid rgba(255,215,0,.18);
+  color:var(--gold);
+  font-weight:800;
+  font-size:20px;
+  box-shadow:
+    inset 0 0 14px rgba(255,215,0,.05),
+    0 0 18px rgba(255,215,0,.05),
+    0 0 14px rgba(255,255,255,.10);
+  text-shadow:
+    0 0 5px rgba(255,255,255,.65),
+    0 0 12px rgba(255,255,255,.35),
+    0 0 16px rgba(255,215,0,.25);
+  transition:.25s;
+}
     .brand-badge:hover{transform:translateY(-2px) scale(1.04)}
 
     .topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -2022,6 +2033,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
