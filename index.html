@@ -863,9 +863,10 @@
     const db = getFirestore(app);
 
     let currentUser = null;
-    let currentProfile = null;
-    let adminTab = "dashboard";
-    let operatorTab = "overview";
+let currentProfile = null;
+let adminTab = "dashboard";
+let operatorTab = "overview";
+let selectedMonth = new Date().toISOString().slice(0,7);
 
     function escapeHtml(str) {
       return String(str ?? "")
@@ -2065,6 +2066,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
