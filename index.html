@@ -1647,10 +1647,32 @@ function isLate(dateStr){
           </div>
         </div>
 
-        <div class="card operator-side">
-          <h3>Моя оцінка тижня</h3>
-          <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-        </div>
+     <div class="card operator-side">
+  <h3>Стан тижня</h3>
+
+  <div class="week-meter">
+    <div class="week-meter-top">
+      <span class="tag ${Number(op.weekScore || 0) >= 8 ? 'green' : Number(op.weekScore || 0) >= 5 ? 'blue' : 'red'}">
+        ${Number(op.weekScore || 0) >= 8 ? 'Сильний тиждень' : Number(op.weekScore || 0) >= 5 ? 'Нормальний темп' : 'Треба дотиснути'}
+      </span>
+      <div class="week-meter-value">${Number(op.weekScore || 0)}/10</div>
+    </div>
+
+    <div class="week-meter-track">
+      <div class="week-meter-fill" style="width:${Math.min(Number(op.weekScore || 0) * 10, 100)}%"></div>
+    </div>
+
+    <div class="week-meter-note">
+      ${
+        Number(op.weekScore || 0) >= 8
+          ? 'Ти йдеш дуже добре. Тримай темп і можеш залетіти в топ.'
+          : Number(op.weekScore || 0) >= 5
+          ? 'Результат нормальний, але ще є куди рости.'
+          : 'Потрібно підтягнути звіти, РЮ / ТЮ і активність.'
+      }
+    </div>
+  </div>
+</div>
       </div>
     `;
   }
@@ -2149,6 +2171,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
