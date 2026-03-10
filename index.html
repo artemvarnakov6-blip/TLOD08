@@ -558,10 +558,11 @@
 
     .mini-stats{
       <div class="mini"><div class="label">Активні завдання</div><div class="value">${tasks.filter(x => !x.done).length}</div></div>
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:10px;
-    }
+     display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
 
     .mini{
       padding:12px;
@@ -2180,6 +2181,7 @@ function isLate(dateStr){
   </script>
 </body>
 </html>
+
 
 
 
