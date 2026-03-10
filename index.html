@@ -1869,29 +1869,44 @@ if (operatorTab === "overview") {
     `;
   }
 
-   if (operatorTab === "examples") {
-  content = `<div class="operator-dashboard">
-    ...
-  </div>`;
+ if (operatorTab === "examples") {
+  content = `
+    <div class="operator-dashboard">
+      <div class="card full">
+        <h3>Приклади / як добре заведений РЮ</h3>
+        <div class="entry-list">
+          ${examples.length ? examples.map(item => `
+            <div class="entry">
+              <div class="entry-top">
+                <div class="entry-title">${escapeHtml(item.title)}</div>
+                <div class="entry-meta">${escapeHtml(item.date)}</div>
+              </div>
+              <div class="entry-text">${escapeHtml(item.text || "")}</div>
+              ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+            </div>
+          `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 return renderShell(`
-`);
   <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
 
   <div class="tabs">
     <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
-      <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
-      <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
-      <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
-      <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
-      <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
-      <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
-      <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
-    </div>
+    <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
+    <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
+    <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
+    <button class="tab-btn red-accent ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
+    <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
+    <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
+    <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
+  </div>
 
-    ${content}
-  `);
+  ${content}
+`);
 }
 
     window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
@@ -2151,6 +2166,7 @@ return renderShell(`
   </script>
 </body>
 </html>
+
 
 
 
