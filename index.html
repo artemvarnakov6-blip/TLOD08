@@ -1259,10 +1259,19 @@
 
                     ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
 
-                    <div class="actions">
-                      <button class="btn small" onclick="editReport('${item.id}')">Редагувати</button>
-                      <button class="btn red small" onclick="removeReport('${item.id}')">Видалити</button>
-                    </div>
+                   <div class="actions">
+  ${
+    item.reviewed
+      ? `
+        <button class="btn secondary small" disabled>🔒 Перевірено</button>
+        <button class="btn secondary small" disabled>Редагування закрите</button>
+      `
+      : `
+        <button class="btn small" onclick="editOwnRyuTu('${item.id}')">Редагувати</button>
+        <button class="btn red small" onclick="removeOwnRyuTu('${item.id}')">Видалити</button>
+      `
+  }
+</div>
 
                     <div id="editReportBox_${item.id}" class="hidden" style="margin-top:12px;">
                       <input id="reportTitle_${item.id}" class="input" value="${escapeHtml(item.title)}" placeholder="Назва звіту">
@@ -2014,6 +2023,7 @@
   </script>
 </body>
 </html>
+
 
 
 
