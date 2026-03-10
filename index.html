@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cabinet 32 | Team Lead Panel</title>
+  <title>TLOD 32 | Luxury Panel</title>
 
   <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
@@ -19,55 +19,38 @@
   </svg>'>
 
   <style>
-   .glow-logo{
-  color:#ffd700;
-  font-weight:800;
-  letter-spacing:2px;
-  text-shadow:
-    0 0 6px rgba(255,215,0,0.9),
-    0 0 12px rgba(255,215,0,0.7),
-    0 0 22px rgba(255,215,0,0.5),
-    0 0 40px rgba(255,215,0,0.3);
-  animation:goldGlow 3s ease-in-out infinite;
-}
-
-@keyframes goldGlow{
-  0%{
-    text-shadow:
-      0 0 6px rgba(255,215,0,0.9),
-      0 0 12px rgba(255,215,0,0.7),
-      0 0 22px rgba(255,215,0,0.5);
-    transform:scale(1);
-  }
-
-  50%{
-    text-shadow:
-      0 0 10px rgba(255,215,0,1),
-      0 0 24px rgba(255,215,0,0.9),
-      0 0 40px rgba(255,215,0,0.6),
-      0 0 60px rgba(255,215,0,0.3);
-    transform:scale(1.05);
-  }
-
-  100%{
-    text-shadow:
-      0 0 6px rgba(255,215,0,0.9),
-      0 0 12px rgba(255,215,0,0.7),
-      0 0 22px rgba(255,215,0,0.5);
-    transform:scale(1);
-  }
-}
-
-    html{
-      scroll-behavior:smooth;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
     }
+
+    :root{
+      --gold:#ffd700;
+      --gold2:#d4af37;
+      --gold3:#fff0a6;
+      --bg:#050505;
+      --bg2:#0a0a0a;
+      --card:rgba(18,18,18,.82);
+      --card2:rgba(25,25,25,.9);
+      --text:#fff;
+      --muted:#cbbd88;
+      --danger:#ff7b7b;
+      --success:#8ff0a4;
+      --blue:#9dc7ff;
+      --border:rgba(255,215,0,.16);
+      --shadow:0 25px 60px rgba(0,0,0,.5);
+    }
+
+    html{scroll-behavior:smooth;}
 
     body{
       min-height:100vh;
       overflow-x:hidden;
       color:var(--text);
       background:
-        radial-gradient(circle at top, rgba(255,215,0,.08), transparent 28%),
+        radial-gradient(circle at top, rgba(255,215,0,.07), transparent 28%),
         linear-gradient(135deg,#000000,#090909 45%,#000000 100%);
       position:relative;
     }
@@ -77,9 +60,9 @@
       position:fixed;
       width:900px;
       height:900px;
-      left:-260px;
-      top:-340px;
-      background:radial-gradient(circle, rgba(255,215,0,.10), transparent 60%);
+      left:-280px;
+      top:-360px;
+      background:radial-gradient(circle, rgba(255,215,0,.12), transparent 60%);
       filter:blur(120px);
       pointer-events:none;
       animation:floatGlow1 14s ease-in-out infinite alternate;
@@ -91,8 +74,8 @@
       position:fixed;
       width:800px;
       height:800px;
-      right:-240px;
-      bottom:-280px;
+      right:-250px;
+      bottom:-260px;
       background:radial-gradient(circle, rgba(212,175,55,.08), transparent 60%);
       filter:blur(120px);
       pointer-events:none;
@@ -104,25 +87,24 @@
       from{transform:translate(0,0);}
       to{transform:translate(150px,100px);}
     }
-
     @keyframes floatGlow2{
       from{transform:translate(0,0);}
-      to{transform:translate(-140px,-110px);}
+      to{transform:translate(-140px,-120px);}
     }
 
     .particles{
       position:fixed;
       inset:0;
-      pointer-events:none;
       z-index:0;
+      pointer-events:none;
       background:
         radial-gradient(circle at 10% 15%, rgba(255,215,0,.12) 0 2px, transparent 3px),
-        radial-gradient(circle at 22% 80%, rgba(255,215,0,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 20% 80%, rgba(255,215,0,.08) 0 2px, transparent 3px),
         radial-gradient(circle at 35% 32%, rgba(255,215,0,.08) 0 2px, transparent 3px),
-        radial-gradient(circle at 50% 55%, rgba(255,215,0,.09) 0 2px, transparent 3px),
-        radial-gradient(circle at 68% 24%, rgba(255,215,0,.10) 0 2px, transparent 3px),
-        radial-gradient(circle at 78% 72%, rgba(255,215,0,.12) 0 2px, transparent 3px),
-        radial-gradient(circle at 90% 40%, rgba(255,215,0,.08) 0 2px, transparent 3px);
+        radial-gradient(circle at 52% 56%, rgba(255,215,0,.09) 0 2px, transparent 3px),
+        radial-gradient(circle at 69% 24%, rgba(255,215,0,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 70%, rgba(255,215,0,.11) 0 2px, transparent 3px),
+        radial-gradient(circle at 92% 42%, rgba(255,215,0,.08) 0 2px, transparent 3px);
       animation:particlesMove 12s ease-in-out infinite alternate;
       opacity:.8;
     }
@@ -135,9 +117,9 @@
     .trophies{
       position:fixed;
       inset:0;
+      z-index:0;
       overflow:hidden;
       pointer-events:none;
-      z-index:0;
     }
 
     .trophy{
@@ -145,7 +127,6 @@
       color:rgba(255,215,0,.08);
       text-shadow:0 0 24px rgba(255,215,0,.08);
       user-select:none;
-      filter:blur(.2px);
       animation:cupMove 8s ease-in-out infinite alternate;
     }
 
@@ -192,18 +173,18 @@
     }
 
     .login-box{
-      width:460px;
+      width:470px;
       max-width:100%;
-      background:linear-gradient(180deg, rgba(20,20,20,.92), rgba(7,7,7,.96));
-      border:1px solid rgba(255,215,0,.26);
+      background:linear-gradient(180deg, rgba(20,20,20,.93), rgba(7,7,7,.96));
+      border:1px solid rgba(255,215,0,.25);
       border-radius:32px;
       padding:42px 32px;
       box-shadow:
         0 20px 80px rgba(0,0,0,.45),
-        0 0 40px rgba(255,215,0,.08),
+        0 0 34px rgba(255,215,0,.08),
         inset 0 0 24px rgba(255,215,0,.04);
       text-align:center;
-      backdrop-filter:blur(12px);
+      backdrop-filter:blur(14px);
       animation:fadeUp .9s ease;
     }
 
@@ -227,7 +208,7 @@
 
     .badge:hover{
       transform:translateY(-1px);
-      box-shadow:0 0 18px rgba(255,215,0,.08);
+      box-shadow:0 0 16px rgba(255,215,0,.08);
     }
 
     .gold-line{
@@ -239,12 +220,34 @@
       box-shadow:0 0 16px rgba(255,215,0,.35);
     }
 
-    h1{
-      color:var(--gold);
-      font-size:42px;
+    .main-logo{
+      font-size:44px;
+      font-weight:900;
       letter-spacing:4px;
-      text-shadow:0 0 14px rgba(255,215,0,.24);
-      margin-bottom:10px;
+      color:#ffd700;
+      text-shadow:
+        0 0 8px rgba(255,215,0,.9),
+        0 0 16px rgba(255,215,0,.7),
+        0 0 34px rgba(255,215,0,.35);
+      animation:logoPulse 3s ease-in-out infinite;
+      margin-bottom:12px;
+    }
+
+    @keyframes logoPulse{
+      0%,100%{
+        text-shadow:
+          0 0 8px rgba(255,215,0,.8),
+          0 0 16px rgba(255,215,0,.6),
+          0 0 34px rgba(255,215,0,.28);
+        transform:scale(1);
+      }
+      50%{
+        text-shadow:
+          0 0 12px rgba(255,215,0,1),
+          0 0 24px rgba(255,215,0,.85),
+          0 0 50px rgba(255,215,0,.45);
+        transform:scale(1.03);
+      }
     }
 
     .subtitle{
@@ -354,7 +357,7 @@
       background:rgba(12,12,12,.72);
       border-radius:24px;
       box-shadow:var(--shadow);
-      backdrop-filter:blur(12px);
+      backdrop-filter:blur(14px);
       position:relative;
       z-index:2;
     }
@@ -365,52 +368,38 @@
       gap:14px;
     }
 
-а тепер можна змінити без великого коуд знову щоб 32 TLOD підсвічувалось ярче золотим
+    .brand-badge{
+      width:62px;
+      height:62px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
+      border:1px solid rgba(255,215,0,.22);
+      color:var(--gold);
+      font-size:20px;
+      font-weight:800;
+      box-shadow:inset 0 0 14px rgba(255,215,0,.05), 0 0 18px rgba(255,215,0,.06);
+      transition:.25s;
+    }
 
-Так. Без великої заміни коду.
+    .brand-badge:hover{
+      transform:translateY(-2px) scale(1.04);
+    }
 
-Знайди в CSS блок .brand-icon і замінити його повністю на це:
-
-.brand-icon{
-  width:60px;
-  height:60px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
-  border:1px solid rgba(255,215,0,.35);
-  color:#ffd700;
-  font-size:20px;
-  font-weight:800;
-  box-shadow:
-    inset 0 0 14px rgba(255,215,0,.08),
-    0 0 12px rgba(255,215,0,.18),
-    0 0 28px rgba(255,215,0,.22);
-  text-shadow:
-    0 0 6px rgba(255,215,0,.7),
-    0 0 14px rgba(255,215,0,.55),
-    0 0 24px rgba(255,215,0,.35);
-  transition:.25s;
-}
-
-.brand-icon:hover{
-  transform:translateY(-2px) scale(1.05);
-  box-shadow:
-    inset 0 0 16px rgba(255,215,0,.10),
-    0 0 18px rgba(255,215,0,.28),
-    0 0 38px rgba(255,215,0,.35);
-}
-
-.brand-title{
-  font-size:24px;
-  color:#ffd700;
-  letter-spacing:2px;
-  margin-bottom:4px;
-  text-shadow:
-    0 0 8px rgba(255,215,0,.65),
-    0 0 18px rgba(255,215,0,.35);
-}
+    .brand-title{
+      font-size:26px;
+      font-weight:900;
+      letter-spacing:2px;
+      color:#ffd700;
+      text-shadow:
+        0 0 8px rgba(255,215,0,.85),
+        0 0 16px rgba(255,215,0,.55),
+        0 0 34px rgba(255,215,0,.18);
+      animation:logoPulse 3s ease-in-out infinite;
+      margin-bottom:4px;
+    }
 
     .brand-sub{
       color:var(--muted);
@@ -699,22 +688,17 @@
       transition:.25s;
     }
 
-    .tag:hover{
-      transform:translateY(-1px);
-    }
-
+    .tag:hover{transform:translateY(-1px);}
     .tag.red{
       color:#ff9d9d;
       border-color:rgba(255,123,123,.16);
       background:rgba(255,123,123,.06);
     }
-
     .tag.green{
       color:#9ef0b0;
       border-color:rgba(143,240,164,.16);
       background:rgba(143,240,164,.06);
     }
-
     .tag.blue{
       color:#9dc7ff;
       border-color:rgba(125,180,255,.16);
@@ -803,7 +787,7 @@
       vertical-align:top;
     }
 
-    tr{
+    tbody tr{
       transition:.2s;
     }
 
@@ -823,6 +807,13 @@
       font-size:20px;
       font-weight:800;
       color:#fff1a8;
+    }
+
+    .score-big{
+      font-size:30px;
+      font-weight:800;
+      color:#fff3bf;
+      text-shadow:0 0 16px rgba(255,215,0,.08);
     }
 
     .exclamation{
@@ -845,13 +836,6 @@
       50%{box-shadow:0 0 16px rgba(255,123,123,.18);}
     }
 
-    .score-big{
-      font-size:30px;
-      font-weight:800;
-      color:#fff3bf;
-      text-shadow:0 0 16px rgba(255,215,0,.08);
-    }
-
     .image-preview{
       width:100%;
       max-height:260px;
@@ -867,24 +851,22 @@
       box-shadow:0 10px 24px rgba(0,0,0,.25);
     }
 
-    .rating-table-wrap{
-      overflow:auto;
-    }
+    .rating-table-wrap{overflow:auto;}
 
-    @media (max-width: 1100px){
+    @media (max-width:1100px){
       .stat-card{grid-column:span 6;}
-      .wide, .side, .operator-main, .operator-side{grid-column:span 12;}
+      .wide,.side,.operator-main,.operator-side{grid-column:span 12;}
       .operators-grid{grid-template-columns:1fr;}
     }
 
-    @media (max-width: 720px){
+    @media (max-width:720px){
       .app{padding:14px;}
       .topbar{padding:16px; border-radius:18px;}
       .dashboard-grid,.operator-dashboard{gap:14px;}
       .stat-card{grid-column:span 12;}
-      .form-grid, .mini-stats{grid-template-columns:1fr;}
+      .form-grid,.mini-stats{grid-template-columns:1fr;}
       .profile-name{font-size:24px;}
-      h1{font-size:34px;}
+      .main-logo,.brand-title{font-size:34px;}
     }
   </style>
 </head>
@@ -913,7 +895,7 @@
     <div class="login-box">
       <div class="badge">Private Luxury Access</div>
       <div class="gold-line"></div>
-      <h1>CABINET 32</h1>
+      <div class="main-logo">TLOD 32</div>
       <div class="subtitle">Luxury Team Control Panel</div>
 
       <input id="username" class="input" type="text" placeholder="Логін">
@@ -922,8 +904,8 @@
       <div id="loginMessage"></div>
 
       <div class="help">
-        Оператори самі подають РЮ / ТЮ та звіти.
-        <br>Team Lead перевіряє, ставить оцінки й фідбек.
+        Локальна демо-версія.
+        <br>Після затвердження дизайну це переведемо на Firebase.
       </div>
     </div>
   </div>
@@ -931,7 +913,7 @@
   <div id="appScreen" class="app hidden"></div>
 
   <script>
-    const STORAGE_KEY = "cabinet32_luxury_data_v4";
+    const STORAGE_KEY = "tlod32_luxury_tabs_v1";
 
     const users = {
       admin: { password: "admin123", role: "admin", displayName: "Team Lead" },
@@ -941,6 +923,7 @@
     };
 
     let adminTab = "dashboard";
+    let operatorTab = "overview";
 
     function createId() {
       return Math.random().toString(36).slice(2, 10);
@@ -999,7 +982,7 @@
       if (raw) {
         try {
           return JSON.parse(raw);
-        } catch (e) {
+        } catch {
           return JSON.parse(JSON.stringify(defaultData));
         }
       }
@@ -1087,9 +1070,12 @@
         displayName: users[username].displayName
       };
 
+      adminTab = "dashboard";
+      operatorTab = "overview";
+
       document.getElementById("loginScreen").classList.add("hidden");
       document.getElementById("appScreen").classList.remove("hidden");
-      document.title = `Cabinet 32 | ${currentUser.displayName}`;
+      document.title = `TLOD 32 | ${currentUser.displayName}`;
       renderApp();
     }
 
@@ -1099,21 +1085,16 @@
       document.getElementById("loginScreen").classList.remove("hidden");
       document.getElementById("loginMessage").textContent = "";
       document.getElementById("password").value = "";
-      document.title = "Cabinet 32 | Team Lead Panel";
-    }
-
-    function setAdminTab(tab){
-      adminTab = tab;
-      renderApp();
+      document.title = "TLOD 32 | Luxury Panel";
     }
 
     function renderShell(content) {
       return `
         <div class="topbar">
           <div class="brand-wrap">
-           <div class="brand-icon glow-logo">TLOD 32</div>
+            <div class="brand-badge">32</div>
             <div>
-              <div class="brand-title">CABINET 32</div>
+              <div class="brand-title">TLOD 32</div>
               <div class="brand-sub">Luxury Team Control System</div>
             </div>
           </div>
@@ -1132,40 +1113,23 @@
       if (!currentUser) return;
 
       if (currentUser.role === "admin") {
-        app.innerHTML = renderAdminDashboard();
+        app.innerHTML = renderAdmin();
       } else {
-        app.innerHTML = renderOperatorDashboard(currentUser.username);
+        app.innerHTML = renderOperator(currentUser.username);
       }
     }
 
-    function renderAdminDashboard() {
+    function renderAdmin() {
       const ranked = getRankedOperators();
       const totalRevenue = Object.values(state.operators).reduce((s,o)=>s+Number(o.stats.revenue||0),0);
       const totalFines = Object.values(state.operators).reduce((s,o)=>s+Number(o.stats.fineDollars||0),0);
       const totalReports = Object.values(state.operators).reduce((s,o)=>s+o.reports.length,0);
       const totalRT = Object.values(state.operators).reduce((s,o)=>s+o.ryuTu.length,0);
 
-      return renderShell(`
-        <div class="bonus-banner">
-          <strong>Бонус за 1 місце:</strong> поки в тесті
-        </div>
+      let content = "";
 
-        <div class="tabs">
-          <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
-          <button class="tab-btn ${adminTab==="reports" ? "active" : ""}" onclick="setAdminTab('reports')">Звіти</button>
-          <button class="tab-btn ${adminTab==="ryutu" ? "active" : ""}" onclick="setAdminTab('ryutu')">РЮ / ТЮ</button>
-          <button class="tab-btn ${adminTab==="balance" ? "active" : ""}" onclick="setAdminTab('balance')">Звіт балансів</button>
-          <button class="tab-btn ${adminTab==="points" ? "active" : ""}" onclick="setAdminTab('points')">Звіт балів</button>
-          <button class="tab-btn ${adminTab==="improve" ? "active" : ""}" onclick="setAdminTab('improve')">Покращити</button>
-          <button class="tab-btn ${adminTab==="strengths" ? "active" : ""}" onclick="setAdminTab('strengths')">Позитивні</button>
-          <button class="tab-btn ${adminTab==="week" ? "active" : ""}" onclick="setAdminTab('week')">План тижня</button>
-          <button class="tab-btn ${adminTab==="weekscore" ? "active" : ""}" onclick="setAdminTab('weekscore')">Оцінка тижня</button>
-          <button class="tab-btn ${adminTab==="examples" ? "active" : ""}" onclick="setAdminTab('examples')">Приклади / скріни</button>
-          <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
-        </div>
-
-        ${
-          adminTab==="dashboard" ? `
+      if (adminTab === "dashboard") {
+        content = `
           <div class="dashboard-grid">
             <div class="card stat-card">
               <div class="stat-label">Зроблено</div>
@@ -1238,609 +1202,650 @@
                 }).join("")}
               </div>
             </div>
-          </div>` : ""
-        }
-
-        ${
-          adminTab==="reports" ? renderAdminReports() : ""
-        }
-
-        ${
-          adminTab==="ryutu" ? renderAdminRyuTu() : ""
-        }
-
-        ${
-          adminTab==="balance" ? renderBalanceReport() : ""
-        }
-
-        ${
-          adminTab==="points" ? renderPointsReport() : ""
-        }
-
-        ${
-          adminTab==="improve" ? renderImproveTab() : ""
-        }
-
-        ${
-          adminTab==="strengths" ? renderStrengthsTab() : ""
-        }
-
-        ${
-          adminTab==="week" ? renderWeekPlanTab() : ""
-        }
-
-        ${
-          adminTab==="weekscore" ? renderWeekScoreTab() : ""
-        }
-
-        ${
-          adminTab==="examples" ? renderExamplesTab() : ""
-        }
-
-        ${
-          adminTab==="rating" ? renderRatingTab() : ""
-        }
-      `);
-    }
-
-    function renderAdminReports(){
-      let all = [];
-      Object.entries(state.operators).forEach(([key, op]) => {
-        op.reports.forEach(item => all.push({...item, operatorKey:key, operatorName:op.name, shift:op.shift}));
-      });
-      all.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-
-      return `
-        <div class="dashboard-grid">
-          <div class="card full">
-            <h2>Звіти операторів</h2>
-            <div class="entry-list">
-              ${all.length ? all.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title">
-                      <span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}
-                    </div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                      <span class="tag ${item.reviewed ? 'blue' : 'red'}">
-                        ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}
-                      </span>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                  <div class="entry-text">${escapeHtml(item.text || "")}</div>
-
-                  ${item.reviewed ? `
-                    <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>
-                  ` : `
-                    <div class="actions">
-                      <input id="reportScore_${item.id}" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10" style="max-width:180px; margin-bottom:0;">
-                      <input id="reportFeedback_${item.id}" class="input" placeholder="Фідбек" style="margin-bottom:0; flex:1;">
-                      <button class="btn small" onclick="reviewReport('${item.operatorKey}','${item.id}')">Зберегти оцінку</button>
-                    </div>
-                  `}
-                </div>
-              `).join("") : `<div class="empty">Поки звітів немає.</div>`}
-            </div>
           </div>
-        </div>
-      `;
-    }
+        `;
+      }
 
-    function renderAdminRyuTu(){
-      let all = [];
-      Object.entries(state.operators).forEach(([key, op]) => {
-        op.ryuTu.forEach(item => all.push({...item, operatorKey:key, operatorName:op.name, shift:op.shift}));
-      });
-      all.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+      if (adminTab === "reports") {
+        let all = [];
+        Object.entries(state.operators).forEach(([key, op]) => {
+          op.reports.forEach(item => all.push({...item, operatorKey:key, operatorName:op.name}));
+        });
+        all.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
 
-      return `
-        <div class="dashboard-grid">
-          <div class="card full">
-            <h2>РЮ / ТЮ від операторів</h2>
-            <div class="entry-list">
-              ${all.length ? all.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                      <span class="tag ${item.reviewed ? 'green' : 'red'}">
-                        ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}
-                      </span>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                  <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-                  ${item.reviewed ? `
-                    <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>
-                  ` : `
-                    <div class="actions">
-                      <input id="rtScore_${item.id}" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10" style="max-width:180px; margin-bottom:0;">
-                      <input id="rtFeedback_${item.id}" class="input" placeholder="Фідбек / проблема" style="margin-bottom:0; flex:1;">
-                      <button class="btn small" onclick="reviewRyuTu('${item.operatorKey}','${item.id}')">Зберегти оцінку</button>
-                    </div>
-                  `}
-                </div>
-              `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderBalanceReport(){
-      return `
-        <div class="dashboard-grid">
-          <div class="card full">
-            <h2>Звіт балансів</h2>
-            <div class="rating-table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Оператор</th>
-                    <th>Зміна</th>
-                    <th>Норма</th>
-                    <th>Зроблено</th>
-                    <th>Закриття норми</th>
-                    <th>Середній баланс</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${Object.values(state.operators).map(op => {
-                    const rt = getRyuTuStats(op);
-                    const percent = op.norm ? Math.round((Number(op.stats.revenue||0)/Number(op.norm))*100) : 0;
-                    return `
-                      <tr>
-                        <td>${escapeHtml(op.name)}</td>
-                        <td>${escapeHtml(op.shift)}</td>
-                        <td>${money(op.norm)}</td>
-                        <td>${money(op.stats.revenue)}</td>
-                        <td>${percent}%</td>
-                        <td>${money(rt.avgBalance.toFixed(0))}</td>
-                      </tr>
-                    `;
-                  }).join("")}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderPointsReport(){
-      return `
-        <div class="dashboard-grid">
-          <div class="card full">
-            <h2>Звіт балів</h2>
-            <div class="rating-table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Оператор</th>
-                    <th>Оцінка звітів</th>
-                    <th>Оцінка РЮ / ТЮ</th>
-                    <th>Оцінка тижня</th>
-                    <th>Штраф</th>
-                    <th>Фінальний score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${Object.values(state.operators).map(op => {
-                    const rt = getRyuTuStats(op);
-                    return `
-                      <tr>
-                        <td>${escapeHtml(op.name)}</td>
-                        <td>${reviewedAvg(op.reports).toFixed(1)}</td>
-                        <td>${rt.avgScore.toFixed(1)}</td>
-                        <td>${Number(op.weekScore || 0).toFixed(1)}</td>
-                        <td>${money(op.stats.fineDollars)}</td>
-                        <td>${getOperatorScore(op)}</td>
-                      </tr>
-                    `;
-                  }).join("")}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderImproveTab(){
-      return `
-        <div class="dashboard-grid">
-          <div class="card side">
-            <h2>Що покращити</h2>
-            <select id="improveOperator" class="select">
-              <option value="den_day">Денчик — дневнік</option>
-              <option value="erik_evening">Ерік — вечірнік</option>
-              <option value="den_night">Денчік — ночнік</option>
-            </select>
-            <input id="improveTitle" class="input" placeholder="Короткий заголовок">
-            <textarea id="improveText" class="input" placeholder="Що покращити"></textarea>
-            <button class="btn red" onclick="addImprove()">Зберегти</button>
-          </div>
-
-          <div class="card wide">
-            <h2>Покращення для операторів</h2>
-            <div class="entry-list">
-              ${Object.entries(state.operators).flatMap(([key,op]) =>
-                op.improvements.map(item => `
+        content = `
+          <div class="dashboard-grid">
+            <div class="card full">
+              <h2>Звіти операторів</h2>
+              <div class="entry-list">
+                ${all.length ? all.map(item => `
                   <div class="entry">
                     <div class="entry-top">
-                      <div class="entry-title">${escapeHtml(op.name)} — ${escapeHtml(item.title)}</div>
-                      <span class="tag red">Покращити</span>
+                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.operatorName)} — ${escapeHtml(item.title)}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">
+                          ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}
+                        </span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
                     </div>
-                    <div class="entry-text">${escapeHtml(item.text)}</div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+
+                    ${item.reviewed ? `
+                      <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>
+                    ` : `
+                      <div class="actions">
+                        <input id="reportScore_${item.id}" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10" style="max-width:180px; margin-bottom:0;">
+                        <input id="reportFeedback_${item.id}" class="input" placeholder="Фідбек" style="margin-bottom:0; flex:1;">
+                        <button class="btn small" onclick="reviewReport('${item.operatorKey}','${item.id}')">Зберегти оцінку</button>
+                      </div>
+                    `}
                   </div>
-                `)
-              ).join("") || `<div class="empty">Поки записів немає.</div>`}
+                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
+              </div>
             </div>
           </div>
-        </div>
-      `;
-    }
+        `;
+      }
 
-    function renderStrengthsTab(){
-      return `
-        <div class="dashboard-grid">
-          <div class="card side">
-            <h2>Позитивна якість</h2>
-            <select id="strengthOperator" class="select">
-              <option value="den_day">Денчик — дневнік</option>
-              <option value="erik_evening">Ерік — вечірнік</option>
-              <option value="den_night">Денчік — ночнік</option>
-            </select>
-            <input id="strengthText" class="input" placeholder="Напиши сильну сторону">
-            <button class="btn" onclick="addStrength()">Зберегти</button>
-          </div>
+      if (adminTab === "ryutu") {
+        let all = [];
+        Object.entries(state.operators).forEach(([key, op]) => {
+          op.ryuTu.forEach(item => all.push({...item, operatorKey:key, operatorName:op.name}));
+        });
+        all.sort((a,b)=>String(b.date).localeCompare(String(a.date)));
 
-          <div class="card wide">
-            <h2>Позитивні якості</h2>
-            <div class="operators-grid">
-              ${Object.values(state.operators).map(op => `
-                <div class="operator-card">
-                  <div class="operator-name" style="margin-bottom:12px;">${escapeHtml(op.name)}</div>
-                  <div class="list-simple">
-                    ${op.strengths.length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+        content = `
+          <div class="dashboard-grid">
+            <div class="card full">
+              <h2>РЮ / ТЮ від операторів</h2>
+              <div class="entry-list">
+                ${all.length ? all.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.operatorName)} — РЮ: ${item.ryu}, ТЮ: ${item.tu}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">
+                          ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Не перевірено'}
+                        </span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
+                    </div>
+                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
+                    ${item.reviewed ? `
+                      <div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>
+                    ` : `
+                      <div class="actions">
+                        <input id="rtScore_${item.id}" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10" style="max-width:180px; margin-bottom:0;">
+                        <input id="rtFeedback_${item.id}" class="input" placeholder="Фідбек / проблема" style="margin-bottom:0; flex:1;">
+                        <button class="btn small" onclick="reviewRyuTu('${item.operatorKey}','${item.id}')">Зберегти оцінку</button>
+                      </div>
+                    `}
                   </div>
-                </div>
-              `).join("")}
+                `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
+              </div>
             </div>
           </div>
-        </div>
-      `;
-    }
+        `;
+      }
 
-    function renderWeekPlanTab(){
-      return `
-        <div class="dashboard-grid">
-          <div class="card side">
-            <h2>План на тиждень</h2>
-            <select id="weekOperator" class="select">
-              <option value="den_day">Денчик — дневнік</option>
-              <option value="erik_evening">Ерік — вечірнік</option>
-              <option value="den_night">Денчік — ночнік</option>
-            </select>
-            <input id="weekText" class="input" placeholder="Пункт плану">
-            <button class="btn" onclick="addWeekPlan()">Зберегти</button>
-          </div>
-
-          <div class="card wide">
-            <h2>План на тиждень</h2>
-            <div class="operators-grid">
-              ${Object.values(state.operators).map(op => `
-                <div class="operator-card">
-                  <div class="operator-name" style="margin-bottom:12px;">${escapeHtml(op.name)}</div>
-                  <div class="list-simple">
-                    ${op.weeklyPlan.length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
-                  </div>
-                </div>
-              `).join("")}
+      if (adminTab === "balance") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card full">
+              <h2>Звіт балансів</h2>
+              <div class="rating-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Оператор</th>
+                      <th>Зміна</th>
+                      <th>Норма</th>
+                      <th>Зроблено</th>
+                      <th>Закриття норми</th>
+                      <th>Середній баланс</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${Object.values(state.operators).map(op => {
+                      const rt = getRyuTuStats(op);
+                      const percent = op.norm ? Math.round((Number(op.stats.revenue||0)/Number(op.norm))*100) : 0;
+                      return `
+                        <tr>
+                          <td>${escapeHtml(op.name)}</td>
+                          <td>${escapeHtml(op.shift)}</td>
+                          <td>${money(op.norm)}</td>
+                          <td>${money(op.stats.revenue)}</td>
+                          <td>${percent}%</td>
+                          <td>${money(rt.avgBalance.toFixed(0))}</td>
+                        </tr>
+                      `;
+                    }).join("")}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-        </div>
-      `;
-    }
+        `;
+      }
 
-    function renderWeekScoreTab(){
-      return `
-        <div class="dashboard-grid">
-          <div class="card side">
-            <h2>Оцінка тижня</h2>
-            <select id="weekScoreOperator" class="select">
-              <option value="den_day">Денчик — дневнік</option>
-              <option value="erik_evening">Ерік — вечірнік</option>
-              <option value="den_night">Денчік — ночнік</option>
-            </select>
-            <input id="weekScoreValue" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10">
-            <button class="btn" onclick="setWeekScore()">Зберегти</button>
+      if (adminTab === "points") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card full">
+              <h2>Звіт балів</h2>
+              <div class="rating-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Оператор</th>
+                      <th>Оцінка звітів</th>
+                      <th>Оцінка РЮ / ТЮ</th>
+                      <th>Оцінка тижня</th>
+                      <th>Штраф</th>
+                      <th>Фінальний score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${Object.values(state.operators).map(op => {
+                      const rt = getRyuTuStats(op);
+                      return `
+                        <tr>
+                          <td>${escapeHtml(op.name)}</td>
+                          <td>${reviewedAvg(op.reports).toFixed(1)}</td>
+                          <td>${rt.avgScore.toFixed(1)}</td>
+                          <td>${Number(op.weekScore || 0).toFixed(1)}</td>
+                          <td>${money(op.stats.fineDollars)}</td>
+                          <td>${getOperatorScore(op)}</td>
+                        </tr>
+                      `;
+                    }).join("")}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
+        `;
+      }
 
-          <div class="card wide">
-            <h2>Оцінка тижня</h2>
-            <table>
-              <thead>
-                <tr>
-                  <th>Оператор</th>
-                  <th>Зміна</th>
-                  <th>Оцінка тижня</th>
-                </tr>
-              </thead>
-              <tbody>
+      if (adminTab === "improve") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card side">
+              <h2>Що покращити</h2>
+              <select id="improveOperator" class="select">
+                <option value="den_day">Денчик — дневнік</option>
+                <option value="erik_evening">Ерік — вечірнік</option>
+                <option value="den_night">Денчік — ночнік</option>
+              </select>
+              <input id="improveTitle" class="input" placeholder="Короткий заголовок">
+              <textarea id="improveText" class="input" placeholder="Що покращити"></textarea>
+              <button class="btn red" onclick="addImprove()">Зберегти</button>
+            </div>
+
+            <div class="card wide">
+              <h2>Покращення для операторів</h2>
+              <div class="entry-list">
+                ${Object.entries(state.operators).flatMap(([key,op]) =>
+                  op.improvements.map(item => `
+                    <div class="entry">
+                      <div class="entry-top">
+                        <div class="entry-title">${escapeHtml(op.name)} — ${escapeHtml(item.title)}</div>
+                        <span class="tag red">Покращити</span>
+                      </div>
+                      <div class="entry-text">${escapeHtml(item.text)}</div>
+                    </div>
+                  `)
+                ).join("") || `<div class="empty">Поки записів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (adminTab === "strengths") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card side">
+              <h2>Позитивна якість</h2>
+              <select id="strengthOperator" class="select">
+                <option value="den_day">Денчик — дневнік</option>
+                <option value="erik_evening">Ерік — вечірнік</option>
+                <option value="den_night">Денчік — ночнік</option>
+              </select>
+              <input id="strengthText" class="input" placeholder="Напиши сильну сторону">
+              <button class="btn" onclick="addStrength()">Зберегти</button>
+            </div>
+
+            <div class="card wide">
+              <h2>Позитивні якості</h2>
+              <div class="operators-grid">
                 ${Object.values(state.operators).map(op => `
-                  <tr>
-                    <td>${escapeHtml(op.name)}</td>
-                    <td>${escapeHtml(op.shift)}</td>
-                    <td class="score-big">${Number(op.weekScore || 0)}/10</td>
-                  </tr>
-                `).join("")}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderExamplesTab(){
-      return `
-        <div class="dashboard-grid">
-          <div class="card side">
-            <h2>Додати приклад / скрін</h2>
-            <input id="exampleTitle" class="input" placeholder="Назва прикладу">
-            <input id="exampleUrl" class="input" placeholder="Посилання на зображення">
-            <textarea id="exampleText" class="input" placeholder="Пояснення"></textarea>
-            <button class="btn" onclick="addExample()">Зберегти</button>
-            <div class="help" style="margin-top:12px;">
-              Тут краще вставляти пряме посилання на картинку.
-            </div>
-          </div>
-
-          <div class="card wide">
-            <h2>Приклади / як добре заведений РЮ</h2>
-            <div class="entry-list">
-              ${state.examples.length ? state.examples.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title">${escapeHtml(item.title)}</div>
-                    <div class="entry-meta">${escapeHtml(item.date)}</div>
+                  <div class="operator-card">
+                    <div class="operator-name" style="margin-bottom:12px;">${escapeHtml(op.name)}</div>
+                    <div class="list-simple">
+                      ${op.strengths.length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+                    </div>
                   </div>
-                  <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                  ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
-                </div>
-              `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
+                `).join("")}
+              </div>
             </div>
           </div>
-        </div>
-      `;
-    }
+        `;
+      }
 
-    function renderRatingTab(){
-      const ranked = getRankedOperators();
-      return `
-        <div class="dashboard-grid">
-          <div class="card full">
-            <h2>Рейтинг операторів</h2>
-            <div class="rating-table-wrap">
+      if (adminTab === "week") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card side">
+              <h2>План на тиждень</h2>
+              <select id="weekOperator" class="select">
+                <option value="den_day">Денчик — дневнік</option>
+                <option value="erik_evening">Ерік — вечірнік</option>
+                <option value="den_night">Денчік — ночнік</option>
+              </select>
+              <input id="weekText" class="input" placeholder="Пункт плану">
+              <button class="btn" onclick="addWeekPlan()">Зберегти</button>
+            </div>
+
+            <div class="card wide">
+              <h2>План на тиждень</h2>
+              <div class="operators-grid">
+                ${Object.values(state.operators).map(op => `
+                  <div class="operator-card">
+                    <div class="operator-name" style="margin-bottom:12px;">${escapeHtml(op.name)}</div>
+                    <div class="list-simple">
+                      ${op.weeklyPlan.length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (adminTab === "weekscore") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card side">
+              <h2>Оцінка тижня</h2>
+              <select id="weekScoreOperator" class="select">
+                <option value="den_day">Денчик — дневнік</option>
+                <option value="erik_evening">Ерік — вечірнік</option>
+                <option value="den_night">Денчік — ночнік</option>
+              </select>
+              <input id="weekScoreValue" class="input" type="number" min="0" max="10" placeholder="Оцінка 0-10">
+              <button class="btn" onclick="setWeekScore()">Зберегти</button>
+            </div>
+
+            <div class="card wide">
+              <h2>Оцінка тижня</h2>
               <table>
                 <thead>
                   <tr>
-                    <th>Місце</th>
                     <th>Оператор</th>
                     <th>Зміна</th>
-                    <th>Зроблено</th>
-                    <th>РЮ</th>
-                    <th>ТЮ</th>
-                    <th>Оцінка звітів</th>
-                    <th>Оцінка РЮ/ТЮ</th>
                     <th>Оцінка тижня</th>
-                    <th>Штраф</th>
-                    <th>Score</th>
                   </tr>
                 </thead>
                 <tbody>
-                  ${ranked.map((op, idx) => {
-                    const rt = getRyuTuStats(op);
-                    return `
-                      <tr>
-                        <td class="rank-num">#${idx + 1}</td>
-                        <td>${escapeHtml(op.name)}</td>
-                        <td>${escapeHtml(op.shift)}</td>
-                        <td>${money(op.stats.revenue)}</td>
-                        <td>${rt.totalRyu}</td>
-                        <td>${rt.totalTu}</td>
-                        <td>${reviewedAvg(op.reports).toFixed(1)}</td>
-                        <td>${rt.avgScore.toFixed(1)}</td>
-                        <td>${Number(op.weekScore||0).toFixed(1)}</td>
-                        <td>${money(op.stats.fineDollars)}</td>
-                        <td>${op.score}</td>
-                      </tr>
-                    `;
-                  }).join("")}
+                  ${Object.values(state.operators).map(op => `
+                    <tr>
+                      <td>${escapeHtml(op.name)}</td>
+                      <td>${escapeHtml(op.shift)}</td>
+                      <td class="score-big">${Number(op.weekScore || 0)}/10</td>
+                    </tr>
+                  `).join("")}
                 </tbody>
               </table>
             </div>
           </div>
-        </div>
-      `;
-    }
+        `;
+      }
 
-    function renderOperatorDashboard(username) {
-      const op = state.operators[username];
-      const rt = getRyuTuStats(op);
-      const reportAvg = reviewedAvg(op.reports);
-      const normPercent = op.norm ? Math.round((Number(op.stats.revenue || 0) / Number(op.norm || 1)) * 100) : 0;
-      const ranked = getRankedOperators();
+      if (adminTab === "examples") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card side">
+              <h2>Додати приклад / скрін</h2>
+              <input id="exampleTitle" class="input" placeholder="Назва прикладу">
+              <input id="exampleUrl" class="input" placeholder="Посилання на зображення">
+              <textarea id="exampleText" class="input" placeholder="Пояснення"></textarea>
+              <button class="btn" onclick="addExample()">Зберегти</button>
+            </div>
+
+            <div class="card wide">
+              <h2>Приклади / скріни</h2>
+              <div class="entry-list">
+                ${state.examples.length ? state.examples.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.title)}</div>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+                  </div>
+                `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (adminTab === "rating") {
+        content = `
+          <div class="dashboard-grid">
+            <div class="card full">
+              <h2>Рейтинг операторів</h2>
+              <div class="rating-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Місце</th>
+                      <th>Оператор</th>
+                      <th>Зміна</th>
+                      <th>Зроблено</th>
+                      <th>РЮ</th>
+                      <th>ТЮ</th>
+                      <th>Оцінка звітів</th>
+                      <th>Оцінка РЮ/ТЮ</th>
+                      <th>Оцінка тижня</th>
+                      <th>Штраф</th>
+                      <th>Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${ranked.map((op, idx) => {
+                      const rt = getRyuTuStats(op);
+                      return `
+                        <tr>
+                          <td class="rank-num">#${idx + 1}</td>
+                          <td>${escapeHtml(op.name)}</td>
+                          <td>${escapeHtml(op.shift)}</td>
+                          <td>${money(op.stats.revenue)}</td>
+                          <td>${rt.totalRyu}</td>
+                          <td>${rt.totalTu}</td>
+                          <td>${reviewedAvg(op.reports).toFixed(1)}</td>
+                          <td>${rt.avgScore.toFixed(1)}</td>
+                          <td>${Number(op.weekScore||0).toFixed(1)}</td>
+                          <td>${money(op.stats.fineDollars)}</td>
+                          <td>${op.score}</td>
+                        </tr>
+                      `;
+                    }).join("")}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        `;
+      }
 
       return renderShell(`
         <div class="bonus-banner">
           <strong>Бонус за 1 місце:</strong> поки в тесті
         </div>
 
-        <div class="operator-dashboard">
-          <div class="card operator-main">
-            <div class="profile-hero">
-              <div>
-                <div class="profile-name">${escapeHtml(op.name)}</div>
-                <div class="profile-role">${escapeHtml(op.shift)} • Cabinet 32</div>
-              </div>
-              <div class="status">Score ${getOperatorScore(op)}</div>
-            </div>
-
-            <div class="mini-stats">
-              <div class="mini">
-                <div class="label">Норма</div>
-                <div class="value">${money(op.norm)}</div>
-              </div>
-              <div class="mini">
-                <div class="label">Зроблено</div>
-                <div class="value">${money(op.stats.revenue)}</div>
-              </div>
-              <div class="mini">
-                <div class="label">Закриття норми</div>
-                <div class="value">${normPercent}%</div>
-              </div>
-              <div class="mini">
-                <div class="label">Штраф</div>
-                <div class="value">${money(op.stats.fineDollars)}</div>
-              </div>
-              <div class="mini">
-                <div class="label">РЮ</div>
-                <div class="value">${rt.totalRyu}</div>
-              </div>
-              <div class="mini">
-                <div class="label">ТЮ</div>
-                <div class="value">${rt.totalTu}</div>
-              </div>
-              <div class="mini">
-                <div class="label">Оцінка звітів</div>
-                <div class="value">${reportAvg.toFixed(1)}</div>
-              </div>
-              <div class="mini">
-                <div class="label">Оцінка РЮ / ТЮ</div>
-                <div class="value">${rt.avgScore.toFixed(1)}</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card operator-side">
-            <h3>Моя оцінка тижня</h3>
-            <div class="score-big">${Number(op.weekScore || 0)}/10</div>
-            <div class="help" style="margin-top:14px;">Оцінку виставляє Team Lead.</div>
-          </div>
-
-          <div class="card operator-main">
-            <h3>Подати РЮ / ТЮ</h3>
-            <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
-            <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
-            <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
-            <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
-
-            <div class="entry-list">
-              ${op.ryuTu.length ? op.ryuTu.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                      <span class="tag ${item.reviewed ? 'green' : 'red'}">
-                        ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}
-                      </span>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                  <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
-                  ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-                </div>
-              `).join("") : `<div class="empty">Поки записів РЮ / ТЮ немає.</div>`}
-            </div>
-          </div>
-
-          <div class="card operator-side">
-            <h3>Рейтинг 3 операторів</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Оператор</th>
-                  <th>Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${ranked.map((item, idx) => `
-                  <tr>
-                    <td class="rank-num">#${idx+1}</td>
-                    <td>${escapeHtml(item.name)}</td>
-                    <td>${item.score}</td>
-                  </tr>
-                `).join("")}
-              </tbody>
-            </table>
-          </div>
-
-          <div class="card operator-main">
-            <h3>Подати звіт</h3>
-            <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
-            <textarea id="operatorReportText" class="input" placeholder="Напиши свій звіт"></textarea>
-            <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
-
-            <div class="entry-list">
-              ${op.reports.length ? op.reports.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
-                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                      <span class="tag ${item.reviewed ? 'blue' : 'red'}">
-                        ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}
-                      </span>
-                      <div class="entry-meta">${escapeHtml(item.date)}</div>
-                    </div>
-                  </div>
-                  <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                  ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
-                </div>
-              `).join("") : `<div class="empty">Поки звітів немає.</div>`}
-            </div>
-          </div>
-
-          <div class="card operator-side">
-            <h3>Що покращити</h3>
-            <div class="list-simple">
-              ${op.improvements.length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.text)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-            </div>
-          </div>
-
-          <div class="card operator-side">
-            <h3>Позитивні якості</h3>
-            <div class="list-simple">
-              ${op.strengths.length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
-            </div>
-          </div>
-
-          <div class="card operator-main">
-            <h3>План на тиждень</h3>
-            <div class="list-simple">
-              ${op.weeklyPlan.length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
-            </div>
-          </div>
-
-          <div class="card operator-main">
-            <h3>Приклади / як добре заведений РЮ</h3>
-            <div class="entry-list">
-              ${state.examples.length ? state.examples.map(item => `
-                <div class="entry">
-                  <div class="entry-top">
-                    <div class="entry-title">${escapeHtml(item.title)}</div>
-                    <div class="entry-meta">${escapeHtml(item.date)}</div>
-                  </div>
-                  <div class="entry-text">${escapeHtml(item.text || "")}</div>
-                  ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
-                </div>
-              `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
-            </div>
-          </div>
+        <div class="tabs">
+          <button class="tab-btn ${adminTab==="dashboard" ? "active" : ""}" onclick="setAdminTab('dashboard')">Головна</button>
+          <button class="tab-btn ${adminTab==="reports" ? "active" : ""}" onclick="setAdminTab('reports')">Звіти</button>
+          <button class="tab-btn ${adminTab==="ryutu" ? "active" : ""}" onclick="setAdminTab('ryutu')">РЮ / ТЮ</button>
+          <button class="tab-btn ${adminTab==="balance" ? "active" : ""}" onclick="setAdminTab('balance')">Баланс</button>
+          <button class="tab-btn ${adminTab==="points" ? "active" : ""}" onclick="setAdminTab('points')">Бали</button>
+          <button class="tab-btn ${adminTab==="improve" ? "active" : ""}" onclick="setAdminTab('improve')">Покращити</button>
+          <button class="tab-btn ${adminTab==="strengths" ? "active" : ""}" onclick="setAdminTab('strengths')">Позитивні</button>
+          <button class="tab-btn ${adminTab==="week" ? "active" : ""}" onclick="setAdminTab('week')">План тижня</button>
+          <button class="tab-btn ${adminTab==="weekscore" ? "active" : ""}" onclick="setAdminTab('weekscore')">Оцінка тижня</button>
+          <button class="tab-btn ${adminTab==="examples" ? "active" : ""}" onclick="setAdminTab('examples')">Скрiни</button>
+          <button class="tab-btn ${adminTab==="rating" ? "active" : ""}" onclick="setAdminTab('rating')">Рейтинг</button>
         </div>
+
+        ${content}
       `);
+    }
+
+    function renderOperator(username) {
+      const op = state.operators[username];
+      const rt = getRyuTuStats(op);
+      const ranked = getRankedOperators();
+      const reportAvg = reviewedAvg(op.reports);
+      const normPercent = op.norm ? Math.round((Number(op.stats.revenue || 0) / Number(op.norm || 1)) * 100) : 0;
+
+      let content = "";
+
+      if (operatorTab === "overview") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-main">
+              <div class="profile-hero">
+                <div>
+                  <div class="profile-name">${escapeHtml(op.name)}</div>
+                  <div class="profile-role">${escapeHtml(op.shift)} • TLOD 32</div>
+                </div>
+                <div class="status">Score ${getOperatorScore(op)}</div>
+              </div>
+
+              <div class="mini-stats">
+                <div class="mini">
+                  <div class="label">Норма</div>
+                  <div class="value">${money(op.norm)}</div>
+                </div>
+                <div class="mini">
+                  <div class="label">Зроблено</div>
+                  <div class="value">${money(op.stats.revenue)}</div>
+                </div>
+                <div class="mini">
+                  <div class="label">Закриття норми</div>
+                  <div class="value">${normPercent}%</div>
+                </div>
+                <div class="mini">
+                  <div class="label">Штраф</div>
+                  <div class="value">${money(op.stats.fineDollars)}</div>
+                </div>
+                <div class="mini">
+                  <div class="label">РЮ</div>
+                  <div class="value">${rt.totalRyu}</div>
+                </div>
+                <div class="mini">
+                  <div class="label">ТЮ</div>
+                  <div class="value">${rt.totalTu}</div>
+                </div>
+                <div class="mini">
+                  <div class="label">Оцінка звітів</div>
+                  <div class="value">${reportAvg.toFixed(1)}</div>
+                </div>
+                <div class="mini">
+                  <div class="label">Оцінка РЮ / ТЮ</div>
+                  <div class="value">${rt.avgScore.toFixed(1)}</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card operator-side">
+              <h3>Моя оцінка тижня</h3>
+              <div class="score-big">${Number(op.weekScore || 0)}/10</div>
+              <div class="help" style="margin-top:14px;">Оцінку виставляє Team Lead.</div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (operatorTab === "ryutu") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Подати РЮ / ТЮ</h3>
+              <input id="operatorRyu" class="input" type="number" min="0" placeholder="РЮ">
+              <input id="operatorTu" class="input" type="number" min="0" placeholder="ТЮ">
+              <input id="operatorBalance" class="input" type="number" min="0" placeholder="Середній баланс">
+              <button class="btn" onclick="operatorSubmitRyuTu()">Надіслати РЮ / ТЮ</button>
+            </div>
+
+            <div class="card operator-main">
+              <h3>Мої записи РЮ / ТЮ</h3>
+              <div class="entry-list">
+                ${op.ryuTu.length ? op.ryuTu.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">РЮ: ${item.ryu} • ТЮ: ${item.tu}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'green' : 'red'}">
+                          ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}
+                        </span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
+                    </div>
+                    <div class="entry-text">Середній баланс: ${money(item.balance)}</div>
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
+                  </div>
+                `).join("") : `<div class="empty">Поки записів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (operatorTab === "reports") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Подати звіт</h3>
+              <input id="operatorReportTitle" class="input" placeholder="Назва звіту">
+              <textarea id="operatorReportText" class="input" placeholder="Напиши свій звіт"></textarea>
+              <button class="btn" onclick="operatorSubmitReport()">Надіслати звіт</button>
+            </div>
+
+            <div class="card operator-main">
+              <h3>Мої звіти</h3>
+              <div class="entry-list">
+                ${op.reports.length ? op.reports.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
+                      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <span class="tag ${item.reviewed ? 'blue' : 'red'}">
+                          ${item.reviewed ? `Оцінка: ${Number(item.score||0)}/10` : 'Очікує перевірки'}
+                        </span>
+                        <div class="entry-meta">${escapeHtml(item.date)}</div>
+                      </div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    ${item.reviewed ? `<div class="entry-meta" style="margin-top:10px;">Фідбек: ${escapeHtml(item.feedback || "—")}</div>` : ""}
+                  </div>
+                `).join("") : `<div class="empty">Поки звітів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (operatorTab === "rating") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card full">
+              <h3>Рейтинг 3 операторів</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Оператор</th>
+                    <th>Зміна</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${ranked.map((item, idx) => `
+                    <tr>
+                      <td class="rank-num">#${idx+1}</td>
+                      <td>${escapeHtml(item.name)}</td>
+                      <td>${escapeHtml(item.shift)}</td>
+                      <td>${item.score}</td>
+                    </tr>
+                  `).join("")}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `;
+      }
+
+      if (operatorTab === "feedback") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card operator-side">
+              <h3>Що покращити</h3>
+              <div class="list-simple">
+                ${op.improvements.length ? op.improvements.map(item => `<div class="list-item"><strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.text)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+              </div>
+            </div>
+
+            <div class="card operator-side">
+              <h3>Позитивні якості</h3>
+              <div class="list-simple">
+                ${op.strengths.length ? op.strengths.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">Поки пусто</div>`}
+              </div>
+            </div>
+
+            <div class="card operator-main">
+              <h3>План на тиждень</h3>
+              <div class="list-simple">
+                ${op.weeklyPlan.length ? op.weeklyPlan.map(item => `<div class="list-item">${escapeHtml(item)}</div>`).join("") : `<div class="empty">План ще не доданий</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (operatorTab === "examples") {
+        content = `
+          <div class="operator-dashboard">
+            <div class="card full">
+              <h3>Приклади / як добре заведений РЮ</h3>
+              <div class="entry-list">
+                ${state.examples.length ? state.examples.map(item => `
+                  <div class="entry">
+                    <div class="entry-top">
+                      <div class="entry-title">${escapeHtml(item.title)}</div>
+                      <div class="entry-meta">${escapeHtml(item.date)}</div>
+                    </div>
+                    <div class="entry-text">${escapeHtml(item.text || "")}</div>
+                    ${item.url ? `<img class="image-preview" src="${escapeHtml(item.url)}" alt="example">` : ""}
+                  </div>
+                `).join("") : `<div class="empty">Поки прикладів немає.</div>`}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      return renderShell(`
+        <div class="bonus-banner">
+          <strong>Бонус за 1 місце:</strong> поки в тесті
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
+          <button class="tab-btn ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
+          <button class="tab-btn ${operatorTab==="reports" ? "active" : ""}" onclick="setOperatorTab('reports')">Звіти</button>
+          <button class="tab-btn ${operatorTab==="rating" ? "active" : ""}" onclick="setOperatorTab('rating')">Рейтинг</button>
+          <button class="tab-btn ${operatorTab==="feedback" ? "active" : ""}" onclick="setOperatorTab('feedback')">Фідбек</button>
+          <button class="tab-btn ${operatorTab==="examples" ? "active" : ""}" onclick="setOperatorTab('examples')">Приклади</button>
+        </div>
+
+        ${content}
+      `);
+    }
+
+    function setAdminTab(tab){
+      adminTab = tab;
+      renderApp();
+    }
+
+    function setOperatorTab(tab){
+      operatorTab = tab;
+      renderApp();
     }
 
     function operatorSubmitRyuTu(){
@@ -1970,6 +1975,7 @@
     function setWeekScore(){
       const operator = document.getElementById("weekScoreOperator").value;
       const value = Number(document.getElementById("weekScoreValue").value || 0);
+
       state.operators[operator].weekScore = value;
       saveData();
       renderApp();
