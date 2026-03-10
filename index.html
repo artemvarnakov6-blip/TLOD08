@@ -1888,14 +1888,11 @@ content = `
           </div>
         </div>
       </div>
-    `;
-  }
+return renderShell(`
+  <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
 
-  return renderShell(`
-    <div class="bonus-banner"><strong>🏆 ЛІДЕР ДНЯ</strong><br><br>Слідкуй за своїм score і будь топ-1 🔥</div>
-
-    <div class="tabs">
-      <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
+  <div class="tabs">
+    <button class="tab-btn ${operatorTab==="overview" ? "active" : ""}" onclick="setOperatorTab('overview')">Огляд</button>
       <button class="tab-btn ${operatorTab==="balances" ? "active" : ""}" onclick="setOperatorTab('balances')">Баланси</button>
       <button class="tab-btn ${operatorTab==="tasks" ? "active" : ""}" onclick="setOperatorTab('tasks')">Завдання</button>
       <button class="tab-btn red-accent ${operatorTab==="ryutu" ? "active" : ""}" onclick="setOperatorTab('ryutu')">РЮ / ТЮ</button>
@@ -2166,6 +2163,7 @@ content = `
   </script>
 </body>
 </html>
+
 
 
 
