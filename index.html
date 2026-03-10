@@ -1740,7 +1740,9 @@ content = `
         <div class="card operator-main">
           <h3>Мої звіти</h3>
           <div class="entry-list">
-            ${reports.length ? reports.map(item => `
+           ${reports.length ? reports.map(item => `
+<div class="entry">
+`} 
               <div class="entry">
                 <div class="entry-top">
                   <div class="entry-title"><span class="exclamation">!</span>${escapeHtml(item.title)}</div>
@@ -2150,6 +2152,7 @@ return renderShell(`
   </script>
 </body>
 </html>
+
 
 
 
