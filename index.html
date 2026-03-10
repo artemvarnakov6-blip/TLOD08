@@ -1543,7 +1543,7 @@ const totalBalance = getMonthTotalBalance(monthBalances);
 
       const rt = getRyuTuStats(ryutu);
       const reportAvg = reviewedAvg(reports);
-      const normPercent = op.norm ? Math.round((Number(op.revenue || 0) / Number(op.norm || 1)) * 100) : 0;
+      const normPercent = op.norm ? Math.round((totalBalance / Number(op.norm || 1)) * 100) : 0;
 
       let content = "";
 
@@ -2085,6 +2085,7 @@ window.saveOwnReportEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
