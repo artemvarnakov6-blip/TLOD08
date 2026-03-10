@@ -908,7 +908,7 @@ function calcOperatorScore(op, reports, ryutu, balances = []){
   const reportAvg = reviewedAvg(reports);
   const weekScore = Number(op.weekScore || 0);
   const avgBalance = getAverageBalance(balances);
-  const normPercent = op.norm ? (Number(avgBalance  0) / Number(op.norm  1)) * 100 : 0;
+  const normPercent = op.norm ? (Number(avgBalance || 0) / Number(op.norm || 1)) * 100 : 0;
   const finePenalty = Number(op.fineDollars || 0) * 1.5;
   const improvePenalty = (op.improvements || []).length * 6;
 
@@ -2031,6 +2031,7 @@ const normPercent = op.norm ? Math.round((Number(avgBalance  0) / Number(op.norm
   </script>
 </body>
 </html>
+
 
 
 
