@@ -879,6 +879,23 @@ function getAvailableMonths(items) {
   if (!months.includes(selectedMonth)) months.unshift(selectedMonth);
   return [...new Set(months)];
 }
+    function renderMonthPicker(months) {
+  return `
+    <div class="card" style="margin-bottom:18px;">
+      <h3>Календар місяців</h3>
+      <div class="tabs">
+        ${months.map(month => `
+          <button
+            class="tab-btn ${selectedMonth === month ? "active" : ""}"
+            onclick="setSelectedMonth('${month}')"
+          >
+            ${getMonthLabel(month)}
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
 
     function reviewedAvg(items){
       const filtered = items.filter(i => i.reviewed);
@@ -2097,6 +2114,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
