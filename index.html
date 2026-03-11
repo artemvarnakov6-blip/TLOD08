@@ -1165,7 +1165,7 @@ function getAvailableMonths(items) {
       if (adminTab === "dashboard") {
         content = `
           <div class="dashboard-grid">
-            <div class="card stat-card"><div class="stat-label">Зроблено</div><div class="stat-value">${money(totalRevenue)}</div><div class="stat-sub">Сумарний результат</div></div>
+           <div class="card stat-card"><div class="stat-label">Тотал</div><div class="stat-value">${money(totalRevenue)}</div><div class="stat-sub">Сума балансів за місяць</div></div>
             <div class="card stat-card"><div class="stat-label">Штрафи</div><div class="stat-value">${money(totalFines)}</div><div class="stat-sub">У доларах</div></div>
             <div class="card stat-card"><div class="stat-label">Звіти</div><div class="stat-value">${reportsAll.length}</div><div class="stat-sub">Всього подано</div></div>
             <div class="card stat-card"><div class="stat-label">РЮ / ТЮ</div><div class="stat-value">${ryutuAll.length}</div><div class="stat-sub">Всього записів</div></div>
@@ -2118,6 +2118,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
