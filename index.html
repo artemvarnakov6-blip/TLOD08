@@ -896,6 +896,10 @@ function getAvailableMonths(items) {
     </div>
   `;
 }
+    window.setSelectedMonth = (month) => {
+  selectedMonth = month;
+  renderApp();
+};
 
     function reviewedAvg(items){
       const filtered = items.filter(i => i.reviewed);
@@ -2114,6 +2118,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
