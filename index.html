@@ -828,6 +828,7 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
+   let selectedMonth = new Date().toISOString().slice(0, 7); // YYYY-MM
     let currentUser = null;
     let currentProfile = null;
     let adminTab = "dashboard";
@@ -2059,6 +2060,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
