@@ -1160,16 +1160,22 @@ const ranked = operators.map(op => {
   const opReports = reportsMonth.filter(x => x.operatorId === op.id);
   const opRyuTu = ryutuMonth.filter(x => x.operatorId === op.id);
   const opBalances = balancesMonth.filter(x => x.operatorId === op.id);
-return {
-  ...op,
+
   return {
-  ...op,
-  score: calcOperatorScore(op, opReports, opRyuTu),
-  reportAvg: reviewedAvg(opReports),
-  ryutuStats: getRyuTuStats(opRyuTu)
-};tats: getRyuTuStats(opRyuTu)
-};
-      }).sort((a,b)=>b.score-a.score);
+    ...op,
+    revenue: opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0),
+    score: calcOperatorScore(
+      {
+        ...op,
+        revenue: opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0)
+      },
+      opReports,
+      opRyuTu
+    ),
+    reportAvg: reviewedAvg(opReports),
+    ryutuStats: getRyuTuStats(opRyuTu)
+  };
+}).sort((a,b)=>b.score-a.score);
 
       const leader = getLeaderOfDay(operators, reportsAll, ryutuAll);
       const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
@@ -2133,6 +2139,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
