@@ -1137,42 +1137,50 @@ window.login = login;
       return `<span class="tag blue">До: ${escapeHtml(task.deadline || "—")}</span>`;
     }
 
-    async function renderAdmin() {
-const reportsMonth = reportsAll;
-const ryutuMonth = ryutuAll;
-const balancesMonth = balancesAll;
-const availableMonths = [];
+async function renderAdmin() {
+  const operators = await getAllOperatorStats();
+  const reportsAll = await getReports();
+  const ryutuAll = await getRyuTu();
+  const examples = await getExamples();
+  const balancesAll = await getBalances();
+  const tasksAll = await getTasks();
 
-const ranked = operators.map(op => {
+  const reportsMonth = reportsAll;
+  const ryutuMonth = ryutuAll;
+  const balancesMonth = balancesAll;
+  const availableMonths = [];
 
-  const opReports = reportsMonth.filter(x => x.operatorId === op.id);
-  const opRyuTu = ryutuMonth.filter(x => x.operatorId === op.id);
-  const opBalances = balancesMonth.filter(x => x.operatorId === op.id);
+  const ranked = operators.map(op => {
+    const opReports = reportsMonth.filter(x => x.operatorId === op.id);
+    const opRyuTu = ryutuMonth.filter(x => x.operatorId === op.id);
+    const opBalances = balancesMonth.filter(x => x.operatorId === op.id);
 
-  const monthTotal = opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0);
+    const monthTotal = opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0);
 
-  return {
-    ...op,
-    revenue: monthTotal,
-    score: calcOperatorScore(
-      {
-        ...op,
-        revenue: monthTotal
-      },
-      opReports,
-      opRyuTu
-    ),
-    reportAvg: reviewedAvg(opReports),
-    ryutuStats: getRyuTuStats(opRyuTu)
-  };
+    return {
+      ...op,
+      revenue: monthTotal,
+      score: calcOperatorScore(
+        {
+          ...op,
+          revenue: monthTotal
+        },
+        opReports,
+        opRyuTu
+      ),
+      reportAvg: reviewedAvg(opReports),
+      ryutuStats: getRyuTuStats(opRyuTu)
+    };
+  }).sort((a,b)=>b.score-a.score);
 
-}).sort((a,b)=>b.score-a.score);
+  const leader = ranked.length
+    ? { best: ranked[0], score: ranked[0].score }
+    : { best: null, score: 0 };
 
+  const totalRevenue = balancesMonth.reduce((sum, item) => sum + Number(item.balance || 0), 0);
+  const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
 
-      const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
-      const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
-
-      let content = "";
+  let content = "";
 
       if (adminTab === "dashboard") {
         content = `
@@ -2135,6 +2143,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
