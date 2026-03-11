@@ -1138,12 +1138,15 @@ function getAvailableMonths(items) {
     }
 
     async function renderAdmin() {
-const operators = await getAllOperatorStats();
-const reportsAll = await getReports();
-const ryutuAll = await getRyuTu();
-const examples = await getExamples();
-const balancesAll = await getBalances();
-const tasksAll = await getTasks();
+const reportsMonth = filterByMonth(reportsAll, selectedMonth);
+const ryutuMonth = filterByMonth(ryutuAll, selectedMonth);
+const balancesMonth = filterByMonth(balancesAll, selectedMonth);
+const tasksMonth = tasksAll;
+const availableMonths = getAvailableMonths([
+  ...reportsAll,
+  ...ryutuAll,
+  ...balancesAll
+]);
 
 const reportsMonth = filterByMonth(reportsAll, selectedMonth);
 const ryutuMonth = filterByMonth(ryutuAll, selectedMonth);
@@ -2139,6 +2142,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
