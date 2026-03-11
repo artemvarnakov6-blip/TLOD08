@@ -1143,15 +1143,6 @@ const ryutuMonth = ryutuAll;
 const balancesMonth = balancesAll;
 const availableMonths = [];
 
-const reportsMonth = filterByMonth(reportsAll, selectedMonth);
-const ryutuMonth = filterByMonth(ryutuAll, selectedMonth);
-const balancesMonth = filterByMonth(balancesAll, selectedMonth);
-const tasksMonth = tasksAll;
-const availableMonths = getAvailableMonths([
-  ...reportsAll,
-  ...ryutuAll,
-  ...balancesAll
-]);
 const ranked = operators.map(op => {
   const opReports = reportsMonth.filter(x => x.operatorId === op.id);
   const opRyuTu = ryutuMonth.filter(x => x.operatorId === op.id);
@@ -2135,6 +2126,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
