@@ -854,6 +854,31 @@
       if (!arr.length) return 0;
       return arr.reduce((a,b)=>a+b,0) / arr.length;
     }
+    function getMonthLabel(monthStr) {
+  const [year, month] = monthStr.split("-");
+  const names = [
+    "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень",
+    "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"
+  ];
+  return `${names[Number(month) - 1]} ${year}`;
+}
+
+function getDateMonth(dateStr) {
+  return String(dateStr || "").slice(0, 7);
+}
+
+function filterByMonth(items, month) {
+  return items.filter(item => getDateMonth(item.date) === month);
+}
+
+function getAvailableMonths(items) {
+  const months = [...new Set(
+    items.map(item => getDateMonth(item.date)).filter(Boolean)
+  )].sort((a, b) => b.localeCompare(a));
+
+  if (!months.includes(selectedMonth)) months.unshift(selectedMonth);
+  return [...new Set(months)];
+}
 
     function reviewedAvg(items){
       const filtered = items.filter(i => i.reviewed);
@@ -2072,6 +2097,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
