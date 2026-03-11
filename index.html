@@ -1042,10 +1042,16 @@
             </div>
           </div>
 
-          <div class="topbar-right">
-            <div class="user-chip">${greeting}</div>
-            <button class="btn secondary small" onclick="logout()">🚪 Вийти</button>
-          </div>
+        <div class="topbar-right">
+  <div class="user-chip">${greeting}</div>
+
+  <button class="btn sheikh small" onclick="becomeSheikh()">
+    🕌 СТАТИ ШЕЙХОМ
+  </button>
+
+  <button class="btn secondary small" onclick="logout()">🚪 Вийти</button>
+</div>
+
         </div>
         ${content}
       `;
@@ -2060,6 +2066,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
