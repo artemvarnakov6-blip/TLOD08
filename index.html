@@ -1977,21 +1977,57 @@
       renderApp();
     };
 
-    window.editOwnRyuTu = (id) => {
-      const box = document.getElementById(`editOwnRyuTuBox_${id}`);
-      if (box) box.classList.remove("hidden");
-    };
-    window.closeOwnRyuTuEdit = (id) => {
-      const box = document.getElementById(`editOwnRyuTuBox_${id}`);
-      if (box) box.classList.add("hidden");
-    };
-    window.saveOwnRyuTuEdit = async (id) => {
-      const ryu = Number(document.getElementById(`ownRyu_${id}`).value || 0);
-      const tu = Number(document.getElementById(`ownTu_${id}`).value || 0);
-      const balance = Number(document.getElementById(`ownBalance_${id}`).value || 0);
-      await updateDoc(doc(db, "ryutu", id), { ryu, tu, balance });
-      renderApp();
-    };
+    window.removeOwnRyuTu = async (id) => {
+  const snap = await getDoc(doc(db, "ryutu", id));
+  if (!snap.exists()) return;
+
+  const item = snap.data();
+  if (item.reviewed) {
+    alert("Запис уже перевірено. Видалення заборонене.");
+    return;
+  }
+
+  if (!confirm("Видалити запис РЮ / ТЮ?")) return;
+  await deleteDoc(doc(db, "ryutu", id));
+  renderApp();
+};
+
+window.editOwnRyuTu = async (id) => {
+  const snap = await getDoc(doc(db, "ryutu", id));
+  if (!snap.exists()) return;
+
+  const item = snap.data();
+  if (item.reviewed) {
+    alert("Запис уже перевірено. Редагування закрите.");
+    return;
+  }
+
+  const box = document.getElementById(`editOwnRyuTuBox_${id}`);
+  if (box) box.classList.remove("hidden");
+};
+
+window.closeOwnRyuTuEdit = (id) => {
+  const box = document.getElementById(`editOwnRyuTuBox_${id}`);
+  if (box) box.classList.add("hidden");
+};
+
+window.saveOwnRyuTuEdit = async (id) => {
+  const snap = await getDoc(doc(db, "ryutu", id));
+  if (!snap.exists()) return;
+
+  const item = snap.data();
+  if (item.reviewed) {
+    alert("Запис уже перевірено. Редагування заборонене.");
+    return;
+  }
+
+  const ryu = Number(document.getElementById(`ownRyu_${id}`).value || 0);
+  const tu = Number(document.getElementById(`ownTu_${id}`).value || 0);
+  const balance = Number(document.getElementById(`ownBalance_${id}`).value || 0);
+
+  await updateDoc(doc(db, "ryutu", id), { ryu, tu, balance });
+  renderApp();
+};
 
     onAuthStateChanged(auth, async (user) => {
       if (!user) {
@@ -2023,6 +2059,7 @@
   </script>
 </body>
 </html>
+
 
 
 
