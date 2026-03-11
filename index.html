@@ -1531,13 +1531,12 @@ const ranked = operators.map(op => {
     }
 
     async function renderOperator(operatorId) {
-  const rawOp = await getOperatorStats(operatorId);
-  const reports = await getReports(operatorId);
-  const ryutu = await getRyuTu(operatorId);
-  const examples = await getExamples();
-  const balances = await getBalances(operatorId);
-  const tasks = await getTasks(operatorId);
-  const allOperators = await getAllOperatorStats();
+const operators = await getAllOperatorStats();
+const reportsAll = await getReports();
+const ryutuAll = await getRyuTu();
+const examples = await getExamples();
+const balancesAll = await getBalances();
+const tasksAll = await getTasks();
 
   const latestBalance = balances.length ? Number(balances[0].balance || 0) : 0;
 
@@ -2130,6 +2129,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
