@@ -1172,7 +1172,7 @@ return {
       }).sort((a,b)=>b.score-a.score);
 
       const leader = getLeaderOfDay(operators, reportsAll, ryutuAll);
-      const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
+      const totalRevenue = balancesMonth.reduce((sum, item) => sum + Number(item.balance || 0), 0);
       const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
 
       let content = "";
@@ -2133,6 +2133,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
