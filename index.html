@@ -953,20 +953,20 @@ function getAvailableMonths(items) {
       return {best, score: bestScore};
     }
 
-    async function login() {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const message = document.getElementById("loginMessage");
+async function login() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const message = document.getElementById("loginMessage");
 
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        message.textContent = "";
-      } catch (e) {
-        message.textContent = "Невірний email або пароль";
-      }
-    }
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    message.textContent = "";
+  } catch (e) {
+    message.textContent = "Невірний email або пароль";
+  }
+}
 
-    window.login = login;
+window.login = login;
 
     async function logout() {
       await signOut(auth);
@@ -2126,6 +2126,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
