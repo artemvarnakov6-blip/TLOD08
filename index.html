@@ -1162,19 +1162,12 @@ const ranked = operators.map(op => {
   const opBalances = balancesMonth.filter(x => x.operatorId === op.id);
 return {
   ...op,
-  revenue: opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0),
-
-  score: calcOperatorScore(
-    {
-      ...op,
-      revenue: opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0)
-    },
-    opReports,
-    opRyuTu
-  ),
-
+  return {
+  ...op,
+  score: calcOperatorScore(op, opReports, opRyuTu),
   reportAvg: reviewedAvg(opReports),
   ryutuStats: getRyuTuStats(opRyuTu)
+};tats: getRyuTuStats(opRyuTu)
 };
       }).sort((a,b)=>b.score-a.score);
 
@@ -2140,6 +2133,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
