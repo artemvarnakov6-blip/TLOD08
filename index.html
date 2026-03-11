@@ -1144,17 +1144,20 @@ const balancesMonth = balancesAll;
 const availableMonths = [];
 
 const ranked = operators.map(op => {
+
   const opReports = reportsMonth.filter(x => x.operatorId === op.id);
   const opRyuTu = ryutuMonth.filter(x => x.operatorId === op.id);
   const opBalances = balancesMonth.filter(x => x.operatorId === op.id);
 
+  const monthTotal = opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0);
+
   return {
     ...op,
-    revenue: opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0),
+    revenue: monthTotal,
     score: calcOperatorScore(
       {
         ...op,
-        revenue: opBalances.reduce((sum, item) => sum + Number(item.balance || 0), 0)
+        revenue: monthTotal
       },
       opReports,
       opRyuTu
@@ -1162,6 +1165,7 @@ const ranked = operators.map(op => {
     reportAvg: reviewedAvg(opReports),
     ryutuStats: getRyuTuStats(opRyuTu)
   };
+
 }).sort((a,b)=>b.score-a.score);
 
 const ranked = operators.map(op => {
@@ -2126,6 +2130,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
