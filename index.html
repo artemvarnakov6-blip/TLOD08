@@ -1774,6 +1774,9 @@
 
     window.setAdminTab = (tab) => { adminTab = tab; renderApp(); };
     window.setOperatorTab = (tab) => { operatorTab = tab; renderApp(); };
+    window.becomeSheikh = () => {
+  alert("🕌 ТИ СТАВ ШЕЙХОМ 👑");
+};
 
     window.operatorSubmitRyuTu = async () => {
       const ryu = Number(document.getElementById("operatorRyu").value || 0);
@@ -2066,6 +2069,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
