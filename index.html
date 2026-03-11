@@ -1168,7 +1168,7 @@ const ranked = operators.map(op => {
 
 }).sort((a,b)=>b.score-a.score);
 
-const ranked = operators.map(op => {
+
       const totalRevenue = operators.reduce((s,o)=>s+Number(o.revenue||0),0);
       const totalFines = operators.reduce((s,o)=>s+Number(o.fineDollars||0),0);
 
@@ -2130,6 +2130,7 @@ window.saveOwnRyuTuEdit = async (id) => {
   </script>
 </body>
 </html>
+
 
 
 
